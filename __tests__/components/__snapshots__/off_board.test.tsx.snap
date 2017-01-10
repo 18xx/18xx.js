@@ -1,0 +1,47 @@
+exports[`OffBoard #toString when the east exit is set draws an arrow on the right of the hex 1`] = `
+<g>
+  <polygon
+    fill="black"
+    points="110.85125168440814,59 110.85125168440814,69 90.85125168440814,64" />
+</g>
+`;
+
+exports[`OffBoard #toString when the north east exit is set draws an arrow on the top right of the hex 1`] = `
+<g>
+  <polygon
+    fill="black"
+    points="78.80831174438391,13.5 87.46856578222831,18.5 73.13843876330611,33.32050807568877" />
+</g>
+`;
+
+exports[`OffBoard #toString when the north west exit is set draws an arrow on the top left of the hex 1`] = `
+<g>
+  <polygon
+    fill="black"
+    points="32.042939940024226,13.5 23.382685902179844,18.5 37.712812921102035,33.32050807568877" />
+</g>
+`;
+
+exports[`OffBoard #toString when the south east exit is set draws an arrow on the bottom right of the hex 1`] = `
+<g>
+  <polygon
+    fill="black"
+    points="78.80831174438391,114.5 87.46856578222831,109.5 73.13843876330611,94.67949192431124" />
+</g>
+`;
+
+exports[`OffBoard #toString when the south west exit is set draws an arrow on the bottom left of the hex 1`] = `
+<g>
+  <polygon
+    fill="black"
+    points="32.042939940024226,114.5 23.382685902179844,109.5 37.712812921102035,94.67949192431124" />
+</g>
+`;
+
+exports[`OffBoard #toString when the west exit is set draws an arrow on the left of the hex 1`] = `
+<g>
+  <polygon
+    fill="black"
+    points="0,59 0,69 20,64" />
+</g>
+`;

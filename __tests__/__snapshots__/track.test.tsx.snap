@@ -1,0 +1,5 @@
+exports[`Track #toString() with a shallow turn returns the right track svg 1`] = `"[object Object]"`;
+
+exports[`Track #toString() with a straight returns the right track svg 1`] = `"[object Object]"`;
+
+exports[`Track #toString() with a tight turn returns the right track svg 1`] = `"[object Object]"`;

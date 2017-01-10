@@ -1,0 +1,47 @@
+exports[`Label #toString() when the point is not specified returns the svg for the element at the default position 1`] = `
+<text
+  fill="black"
+  fontSize={16}
+  fontWeight="bold"
+  textAnchor="end"
+  x={109}
+  y={46}>
+  B
+</text>
+`;
+
+exports[`Label #toString() when the point is specified when the x point is equal to the center returns middle 1`] = `
+<text
+  fill="black"
+  fontSize={16}
+  fontWeight="bold"
+  textAnchor="middle"
+  x={55.42562584220407}
+  y={0}>
+  B
+</text>
+`;
+
+exports[`Label #toString() when the point is specified when the x point is greater than the center returns end 1`] = `
+<text
+  fill="black"
+  fontSize={16}
+  fontWeight="bold"
+  textAnchor="end"
+  x={56}
+  y={0}>
+  B
+</text>
+`;
+
+exports[`Label #toString() when the point is specified when the x point is less than the center returns start 1`] = `
+<text
+  fill="black"
+  fontSize={16}
+  fontWeight="bold"
+  textAnchor="start"
+  x={55}
+  y={0}>
+  B
+</text>
+`;

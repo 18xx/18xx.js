@@ -1,0 +1,27 @@
+exports[`MapBoard #render() returns an svg representation of the map board 1`] = `
+<svg
+  height={128}
+  width={166.27687752661222}
+  xmlns="http://www.w3.org/2000/svg">
+  <svg
+    className="hex"
+    onClick={[Function]}
+    x={0}
+    y={0}>
+    <polygon
+      fill="#efe"
+      points="0,32 55.42562584220407,0 110.85125168440814,32 110.85125168440814,96 55.42562584220407,128 0,96"
+      stroke="black" />
+  </svg>
+  <svg
+    className="hex"
+    onClick={[Function]}
+    x={110.85125168440814}
+    y={0}>
+    <polygon
+      fill="#efe"
+      points="0,32 55.42562584220407,0 110.85125168440814,32 110.85125168440814,96 55.42562584220407,128 0,96"
+      stroke="black" />
+  </svg>
+</svg>
+`;

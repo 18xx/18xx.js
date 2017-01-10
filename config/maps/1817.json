@@ -1,0 +1,346 @@
+{
+ "hexes": {
+    "a": [20, 28],
+    "b": [3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27],
+    "c": [4, 6, 8, 10, 14, 16, 18, 20, 22, 24, 26],
+    "d": [1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 23, 25, 27],
+    "e": [2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22],
+    "f": [1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21],
+    "g": [2, 4, 6, 8, 10, 12, 14, 16, 18, 20],
+    "h": [1, 3, 5, 7, 9, 11, 13, 15, 17],
+    "i": [2, 4, 6, 8, 10, 12, 14, 16],
+    "j": [7, 15]
+  },
+  "tileCosts": {
+    "b9": "water",
+    "b25": "mountain",
+    "b27": "water",
+    "c8": "water",
+    "c20": "mountain",
+    "c24": "mountain",
+    "d7": "water",
+    "d13": "river",
+    "d19": "mountain",
+    "d25": "water",
+    "d27": "water",
+    "e12": "river",
+    "e16": "mountain",
+    "e18": "mountain",
+    "e22": "water",
+    "f11": "river",
+    "f15": "mountain",
+    "g4": "river",
+    "g6": "river",
+    "g10": "river",
+    "g12": "mountain",
+    "g14": "mountain",
+    "g20": "water",
+    "h3": "river",
+    "h7": "river",
+    "h9": "river",
+    "h11": "mountain",
+    "h13": "mountain",
+    "h15": "mountain",
+    "h17": "water",
+    "i8": "mountain",
+    "i10": "mountain",
+    "i12": "mountain"
+  },
+  "tileCostTypes": {
+    "mountain": {
+      "amount": 15,
+      "color": "#f86",
+      "shape": "triangle"
+    },
+    "river": {
+      "amount": 10,
+      "color": "#aaf",
+      "shape": "square"
+    },
+    "water": {
+      "amount": 20,
+      "color": "#88f",
+      "shape": "square"
+    }
+  },
+  "names": {
+    "a20": "Montreal",
+    "a28": "Maritime Prov.",
+    "b5": "Lansing",
+    "b13": "Toronto",
+    "b17": "Rochester",
+    "c8": "Detroit",
+    "c14": "Buffalo",
+    "c22": "Albany",
+    "c26": "Boston",
+    "d1": "Chicago",
+    "d7": "Toledo",
+    "d9": "Cleveland",
+    "d19": "Scranton",
+    "e22": "NYC",
+    "f3": "Indianapolis",
+    "f13": "Pittsburgh",
+    "f19": "Philadelphia",
+    "g6": "Cincinatti",
+    "g18": "Baltimore",
+    "h1": "St. Louis",
+    "h3": "Louisville",
+    "h9": "Charleston",
+    "i12": "Blacksburg",
+    "i16": "Richmond",
+    "j7": "Atlanta",
+    "j15": "Raleigh-Durham"
+  },
+  "dynamicValues": {
+    "a20": {
+      "values": {
+        "yellow": 20,
+        "green": 30,
+        "brown": 50,
+        "gray": 60
+      }
+    },
+    "a28": {
+      "values": {
+        "yellow": 20,
+        "green": 30,
+        "brown": 50,
+        "gray": 60
+      }
+    },
+    "d1": {
+      "values": {
+        "yellow": 30,
+        "green": 50,
+        "brown": 60,
+        "gray": 80
+      }
+    },
+    "h1": {
+      "values": {
+        "yellow": 20,
+        "green": 30,
+        "brown": 50,
+        "gray": 60
+      }
+    },
+    "j7": {
+      "values": {
+        "yellow": 30,
+        "green": 50,
+        "brown": 60,
+        "gray": 80
+      }
+    },
+    "j15": {
+      "values": {
+        "yellow": 20,
+        "green": 30,
+        "brown": 50,
+        "gray": 60
+      }
+    }
+  },
+  "preplacedTile": {
+    "b13": {
+      "color": "gray",
+      "dynamicValues": {
+        "fixedHeight": 25,
+        "values": {
+          "yellow": 20,
+          "green": 30,
+          "brown": 40
+        }
+      },
+      "label": "Toronto",
+      "labelPosition": { "x": 4, "y": 92 },
+      "spots": 0,
+      "trackToCenter": [0, 3, 5],
+      "type": "City"
+    },
+    "c8": {
+      "color": "yellow",
+      "cost": {
+        "amount": 20,
+        "color": "#88f",
+        "position": { "x": 5, "y": 35 }
+      },
+      "label": "B",
+      "spots": 1,
+      "trackToCenter": [0, 4],
+      "type": "City",
+      "value": 30
+    },
+    "c26": {
+      "color": "yellow",
+      "label": "B",
+      "spots": 1,
+      "trackToCenter": [1, 5],
+      "type": "City",
+      "value": 30
+    },
+    "d9": {
+      "color": "gray",
+      "dynamicValues": {
+        "fixedHeight": 25,
+        "values": {
+          "yellow": 30,
+          "green": 40,
+          "brown": 50,
+          "gray": 60
+        }
+      },
+      "spots": 2,
+      "trackToCenter": [4, 5],
+      "type": "City"
+    },
+    "e22": {
+      "color": "yellow",
+      "cost": {
+        "amount": 20,
+        "color": "#88f",
+        "position": { "x": 5, "y": 35 }
+      },
+      "label": "NY",
+      "labelPosition": { "x": 109, "y": 94 },
+      "spots": 2,
+      "spotLocations": [1, 4],
+      "type": "DistinctCity",
+      "value": 40
+    },
+    "f1": {
+      "color": "gray",
+      "track": [
+        [0, 1],
+        [0, 5],
+        [1, 5]
+      ]
+    },
+    "g18": {
+      "color": "yellow",
+      "label": "B",
+      "spots": 1,
+      "trackToCenter": [0, 4],
+      "type": "City",
+      "value": 30
+    }
+  },
+  "offBoards": {
+    "a20": { "exits": [4, 5] },
+    "a28": { "exits": [4] },
+    "d1": { "exits": [0, 5] },
+    "h1": { "exits": [0, 1, 5] },
+    "j7": { "exits": [1, 2] },
+    "j15": { "exits": [1, 2] }
+  },
+  "companies": {
+    "ALS": {},
+    "ARA": {},
+    "BRC": {},
+    "BLE": {},
+    "B&A": {},
+    "DLW": {},
+    "EJE": {},
+    "GTW": {},
+    "HRRC": {},
+    "ME": {},
+    "NYOW": {},
+    "NYSW": {},
+    "PSN": {},
+    "PLE": {},
+    "PW": {},
+    "RUT": {},
+    "SRC": {},
+    "URR": {},
+    "WTRM": {},
+    "WCRL": {}
+  },
+  "impassable": [
+    ["c10", "d11"]
+  ],
+  "tilePromotions": [
+    {
+      "hexes": [
+        "b5", "b17", "c14", "c22", "d7", "d19", "f3", "f13", "f19", "g6", "h3",
+        "h9", "i12", "i16"
+      ],
+      "promotions": [5, 6, 57]
+    },
+    {
+      "hexes": ["c8", "c26", "g18"],
+      "promotions": [592]
+    },
+    {
+      "hexes": ["e22"],
+      "promotions": [54]
+    },
+    {
+      "hexes": null,
+      "promotions": [7, 8, 9]
+    }
+  ],
+  "tileManifest": {
+    "5": {
+      "promotions": [14, 15, 619]
+    },
+    "6": {
+      "promotions": [14, 15, 619]
+    },
+    "7": {
+      "promotions": [80, 82, 83]
+    },
+    "8": {
+      "promotions": [80, 81, 82, 83]
+    },
+    "9": {
+      "promotions": [82, 83]
+    },
+    "14": {
+      "promotions": [63, 611]
+    },
+    "15": {
+      "promotions": [63, 611, 448]
+    },
+    "54": {
+      "promotions": [62]
+    },
+    "57": {
+      "promotions": [14, 15, 619]
+    },
+    "62": {
+      "promotions": ["X30"]
+    },
+    "63": {},
+    "80": {
+      "promotions": [545, 546]
+    },
+    "81": {
+      "promotions": [546]
+    },
+    "82": {
+      "promotions": [544, 545, 546]
+    },
+    "83": {
+      "promotions": [544, 545, 546]
+    },
+    "448": {},
+    "544": {},
+    "545": {},
+    "546": {},
+    "592": {
+      "promotions": [593]
+    },
+    "593": {
+      "promotions": [597]
+    },
+    "597": {},
+    "611": {},
+    "619": {
+      "promotions": [63, 611]
+    },
+    "X00": {
+      "promotions": [592]
+    },
+    "X30": {}
+  }
+}

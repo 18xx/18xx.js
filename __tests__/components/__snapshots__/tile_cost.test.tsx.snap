@@ -1,0 +1,50 @@
+exports[`TileCost #toString when locations is set returns an svg located at the point specified 1`] = `
+<g>
+  <rect
+    fill="white"
+    height={20}
+    stroke="#333"
+    width={20}
+    x={3}
+    y={7} />
+  <text
+    textAnchor="middle"
+    x={13}
+    y={23}>
+    20
+  </text>
+</g>
+`;
+
+exports[`TileCost #toString when shape is a triangle returns an svg representation of a triangle 1`] = `
+<g>
+  <polygon
+    fill="#ccc"
+    points="55.42562584220407,9 75.42562584220407,39 35.42562584220407,39"
+    stroke="#333" />
+  <text
+    textAnchor="middle"
+    x={55.42562584220407}
+    y={35}>
+    10
+  </text>
+</g>
+`;
+
+exports[`TileCost #toString when shape is not a triangle returns an svg representation of a square 1`] = `
+<g>
+  <rect
+    fill="#ddd"
+    height={20}
+    stroke="#333"
+    width={20}
+    x={45.42562584220407}
+    y={14} />
+  <text
+    textAnchor="middle"
+    x={55.42562584220407}
+    y={30}>
+    14
+  </text>
+</g>
+`;

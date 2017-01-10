@@ -1,0 +1,572 @@
+[
+  {
+    "color": "yellow",
+    "num": 1,
+    "type": "Town",
+    "track": [
+      [0, 2],
+      [3, 5]
+    ],
+    "value": 10
+  },
+  {
+    "color": "yellow",
+    "num": 2,
+    "type": "Town",
+    "track": [
+      [0, 3],
+      [1, 2]
+    ],
+    "value": 10
+  },
+  {
+    "color": "yellow",
+    "num": 3,
+    "type": "Town",
+    "track": [
+      [0, 1]
+    ],
+    "value": 10
+  },
+  {
+    "color": "yellow",
+    "num": 4,
+    "rotations": 3,
+    "type": "Town",
+    "track": [
+      [0, 3]
+    ],
+    "value": 10
+  },
+  {
+    "color": "yellow",
+    "num": 5,
+    "spots": 1,
+    "type": "City",
+    "trackToCenter": [0, 1],
+    "value": 20
+  },
+  {
+    "color": "yellow",
+    "num": 6,
+    "spots": 1,
+    "type": "City",
+    "trackToCenter": [0, 2],
+    "value": 20
+  },
+  {
+    "color": "yellow",
+    "num": 7,
+    "track": [
+      [0, 1]
+    ]
+  },
+  {
+    "color": "yellow",
+    "num": 8,
+    "track": [
+      [0, 2]
+    ]
+  },
+  {
+    "color": "yellow",
+    "num": 9,
+    "track": [
+      [0, 3]
+    ],
+    "rotations": 3
+  },
+  {
+    "color": "green",
+    "num": 14,
+    "rotations": 3,
+    "spots": 2,
+    "type": "City",
+    "trackToCenter": [0, 1, 3, 4],
+    "value": 30
+  },
+  {
+    "color": "green",
+    "num": 15,
+    "spots": 2,
+    "type": "City",
+    "trackToCenter": [0, 1, 2, 3],
+    "value": 30
+  },
+  {
+    "color": "green",
+    "num": 16,
+    "track": [
+      [0, 2],
+      [1, 5]
+    ]
+  },
+  {
+    "color": "green",
+    "num": 17,
+    "track": [
+      [0, 2],
+      [3, 5]
+    ]
+  },
+  {
+    "color": "green",
+    "num": 18,
+    "track": [
+      [0, 3],
+      [4, 5]
+    ]
+  },
+  {
+    "color": "green",
+    "num": 19,
+    "track": [
+      [0, 3],
+      [1, 5]
+    ]
+  },
+  {
+    "color": "green",
+    "num": 20,
+    "rotations": 3,
+    "track": [
+      [0, 3],
+      [1, 4]
+    ]
+  },
+  {
+    "color": "green",
+    "num": 23,
+    "track": [
+      [0, 2],
+      [0, 3]
+    ]
+  },
+  {
+    "color": "green",
+    "num": 24,
+    "track": [
+      [0, 3],
+      [0, 4]
+    ]
+  },
+  {
+    "color": "green",
+    "num": 25,
+    "track": [
+      [0, 2],
+      [0, 4]
+    ]
+  },
+  {
+    "color": "green",
+    "num": 26,
+    "track": [
+      [0, 1],
+      [0, 3]
+    ]
+  },
+  {
+    "color": "green",
+    "num": 27,
+    "track": [
+      [0, 3],
+      [0, 5]
+    ]
+  },
+  {
+    "color": "green",
+    "num": 28,
+    "track": [
+      [0, 1],
+      [0, 2]
+    ]
+  },
+  {
+    "color": "green",
+    "num": 29,
+    "track": [
+      [0, 4],
+      [0, 5]
+    ]
+  },
+  {
+    "color": "brown",
+    "num": 39,
+    "track": [
+      [0, 1],
+      [0, 2],
+      [1, 2]
+    ]
+  },
+  {
+    "color": "brown",
+    "num": 40,
+    "rotations": 2,
+    "track": [
+      [0, 2],
+      [0, 4],
+      [2, 4]
+    ]
+  },
+  {
+    "color": "brown",
+    "num": 41,
+    "track": [
+      [0, 2],
+      [0, 3],
+      [2, 3]
+    ]
+  },
+  {
+    "color": "brown",
+    "num": 42,
+    "track": [
+      [0, 1],
+      [0, 3],
+      [1, 3]
+    ]
+  },
+  {
+    "color": "brown",
+    "num": 43,
+    "track": [
+      [0, 2],
+      [0, 3],
+      [1, 2],
+      [1, 3]
+    ]
+  },
+  {
+    "color": "brown",
+    "num": 44,
+    "rotations": 3,
+    "track": [
+      [0, 3],
+      [0, 1],
+      [1, 4],
+      [3, 4]
+    ]
+  },
+  {
+    "color": "brown",
+    "num": 45,
+    "track": [
+      [0, 2],
+      [0, 4],
+      [1, 2],
+      [1, 4]
+    ]
+  },
+  {
+    "color": "brown",
+    "num": 46,
+    "track": [
+      [0, 1],
+      [0, 2],
+      [1, 4],
+      [2, 4]
+    ]
+  },
+  {
+    "color": "brown",
+    "num": 47,
+    "rotations": 3,
+    "track": [
+      [0, 2],
+      [0, 3],
+      [2, 5],
+      [3, 5]
+    ]
+  },
+  {
+    "color": "green",
+    "label": "B",
+    "num": 53,
+    "rotations": 2,
+    "spots": 1,
+    "type": "City",
+    "trackToCenter": [0, 2, 4],
+    "value": 50
+  },
+  {
+    "color": "green",
+    "label": "NY",
+    "num": 54,
+    "rotations": 1,
+    "spots": 1,
+    "type": "DoubleOCity",
+    "track": [
+      [1, 2],
+      [3, 4]
+    ],
+    "value": 60
+  },
+  {
+    "color": "yellow",
+    "num": 55,
+    "rotations": 3,
+    "track": [
+      [0, 3],
+      [1, 4]
+    ],
+    "type": "Town",
+    "value": 10
+  },
+  {
+    "color": "yellow",
+    "num": 56,
+    "track": [
+      [0, 2],
+      [1, 3]
+    ],
+    "type": "Town",
+    "value": 10
+  },
+  {
+    "color": "yellow",
+    "num": 57,
+    "rotations": 3,
+    "spots": 1,
+    "type": "City",
+    "trackToCenter": [0, 3],
+    "value": 20
+  },
+  {
+    "color": "yellow",
+    "num": 58,
+    "type": "Town",
+    "track": [
+      [0, 2]
+    ],
+    "value": 10
+  },
+  {
+    "color": "green",
+    "labelPosition": { "x": 5, "y": 95 },
+    "num": 59,
+    "type": "DistinctCity",
+    "spots": 2,
+    "spotLocations": [0, 2],
+    "value": 40
+  },
+  {
+    "color": "brown",
+    "label": "B",
+    "num": 61,
+    "type": "City",
+    "spots": 1,
+    "trackToCenter": [0, 1, 2, 4],
+    "value": 60
+  },
+  {
+    "color": "brown",
+    "label": "NY",
+    "labelPosition": { "x": 2, "y": 46 },
+    "num": 62,
+    "rotations": 1,
+    "spots": 2,
+    "type": "DoubleOCity",
+    "track": [
+      [1, 2],
+      [3, 4]
+    ],
+    "value": 80
+  },
+  {
+    "color": "brown",
+    "num": 63,
+    "rotations": 1,
+    "spots": 2,
+    "type": "City",
+    "trackToCenter": [0, 1, 2, 3, 4, 5],
+    "value": 40
+  },
+  {
+    "color": "brown",
+    "num": 64,
+    "spots": 1,
+    "track": [
+      [0, 1],
+      [2, 4]
+    ],
+    "type": "DoubleOCity",
+    "value": 50
+  },
+  {
+    "color": "brown",
+    "num": 65,
+    "spots": 1,
+    "track": [
+      [0, 1],
+      [3, 5]
+    ],
+    "type": "DoubleOCity",
+    "value": 50
+  },
+  {
+    "color": "brown",
+    "num": 66,
+    "spots": 1,
+    "track": [
+      [0, 3],
+      [1, 2]
+    ],
+    "type": "DoubleOCity",
+    "value": 50
+  },
+  {
+    "color": "brown",
+    "num": 67,
+    "spots": 1,
+    "track": [
+      [0, 2],
+      [1, 4]
+    ],
+    "type": "DoubleOCity",
+    "value": 50
+  },
+  {
+    "color": "brown",
+    "num": 68,
+    "rotations": 3,
+    "spots": 1,
+    "track": [
+      [0, 3],
+      [1, 4]
+    ],
+    "type": "DoubleOCity",
+    "value": 50
+  },
+  {
+    "color": "yellow",
+    "num": 69,
+    "track": [
+      [0, 2],
+      [1, 4]
+    ],
+    "type": "Town",
+    "value": 10
+  },
+  {
+    "color": "brown",
+    "num": 70,
+    "track": [
+      [0, 1],
+      [0, 2],
+      [1, 3],
+      [2, 3]
+    ],
+    "value": 10
+  },
+  {
+    "color": "green",
+    "num": 80,
+    "trackToCenter": [0, 1, 2]
+  },
+  {
+    "color": "green",
+    "num": 81,
+    "rotations": 2,
+    "trackToCenter": [0, 2, 4]
+  },
+  {
+    "color": "green",
+    "num": 82,
+    "trackToCenter": [0, 1, 4]
+  },
+  {
+    "color": "green",
+    "num": 83,
+    "trackToCenter": [0, 1, 3]
+  },
+  {
+    "color": "brown",
+    "num": 448,
+    "spots": 2,
+    "type": "City",
+    "trackToCenter": [0, 1, 2, 3],
+    "value": 40
+  },
+  {
+    "color": "brown",
+    "num": 544,
+    "rotations": 3,
+    "trackToCenter": [0, 1, 3, 4]
+  },
+  {
+    "color": "brown",
+    "num": 545,
+    "trackToCenter": [0, 1, 2, 3]
+  },
+  {
+    "color": "brown",
+    "num": 546,
+    "trackToCenter": [0, 1, 2, 4]
+  },
+  {
+    "color": "green",
+    "label": "B",
+    "num": 592,
+    "rotations": 2,
+    "spots": 2,
+    "type": "City",
+    "trackToCenter": [0, 2, 4],
+    "value": 50
+  },
+  {
+    "color": "brown",
+    "label": "B",
+    "num": 593,
+    "spots": 3,
+    "type": "City",
+    "trackToCenter": [0, 1, 2, 4],
+    "value": 60
+  },
+  {
+    "color": "gray",
+    "label": "B",
+    "num": 597,
+    "spots": 3,
+    "type": "City",
+    "trackToCenter": [0, 1, 2, 3, 4],
+    "value": 80
+  },
+  {
+    "color": "brown",
+    "num": 611,
+    "spots": 2,
+    "type": "City",
+    "trackToCenter": [0, 1, 2, 3, 4],
+    "value": 40
+  },
+  {
+    "color": "green",
+    "num": 619,
+    "spots": 2,
+    "type": "City",
+    "trackToCenter": [0, 1, 2, 4],
+    "value": 30
+  },
+  {
+    "color": "yellow",
+    "label": "B",
+    "num": "X00",
+    "rotations": 2,
+    "spots": 1,
+    "type": "City",
+    "trackToCenter": [0, 2, 4],
+    "value": 30
+  },
+  {
+    "color": "gray",
+    "label": "NY",
+    "labelPosition": { "x": 55.42562584220407, "y": 20 },
+    "num": "X30",
+    "rotations": 1,
+    "spots": 4,
+    "type": "City",
+    "trackToCenter": [1, 2, 3, 4],
+    "value": 100
+  }
+]

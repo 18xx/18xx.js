@@ -1,0 +1,7 @@
+exports[`Curve #toString returns an svg path element 1`] = `
+<path
+  d="M1 2 A 5 5 0 0,0 3 4"
+  fill="none"
+  stroke="black"
+  strokeWidth="8" />
+`;
