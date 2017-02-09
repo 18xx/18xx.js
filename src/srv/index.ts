@@ -7,7 +7,9 @@ const app: express.Express = express();
 app.use(express.static('dist'));
 app.use(bodyParser.json());
 
-const redisClient: redis.RedisClient = redis.createClient();
+let store: Map<string, string>;
+store = new Map();
+// store = redis.createClient();
 
 const html: Function = (game: string, initialState?: string) => `
 <html>
@@ -32,15 +34,19 @@ app.get('/maps/:game/:state', (req, res) => {
 });
 
 app.get('/state/:state', (req, res) => {
-  redisClient.get(req.params.state, (err: any, reply: any) => {
+  const reply: string = store.get(req.params.state);
+  res.json(JSON.parse(reply));
+  /*
+  store.get(req.params.state, (err: any, reply: any) => {
     res.json(JSON.parse(reply));
   });
+  */
 });
 
 app.post('/update', (req, res) => {
   const jsonBody: string = JSON.stringify(req.body);
   const hash: string = crypto.createHash('md5').update(jsonBody).digest('hex');
-  redisClient.set(hash, jsonBody);
+  store.set(hash, jsonBody);
   res.send(true);
 });
 
