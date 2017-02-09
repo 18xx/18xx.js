@@ -50,4 +50,4 @@ app.post('/update', (req, res) => {
   res.send(true);
 });
 
-app.listen(3002);
+app.listen(process.env.PORT || 3002);
