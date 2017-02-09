@@ -1,0 +1,20 @@
+{
+  "name": "18xx.js",
+  "scripts": {
+  },
+  "env": {
+    "NODEMODULESCACHE": {
+      "required": true
+    }
+  },
+  "formation": {
+  },
+  "addons": [
+
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    }
+  ]
+}
