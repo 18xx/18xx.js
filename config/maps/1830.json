@@ -44,12 +44,12 @@
       "shape": "square"
     }
   },
-  "privateHexes": {
-    "Champlain & St. Lawrence": ["b20"],
-    "Mohawk & Hudson": ["d18"],
-    "Delaware & Hudson": ["f16"],
-    "Camden & Amboy": ["h18"],
-    "Baltimore & Ohio": ["i13", "i15"]
+  "privateReservations": {
+    "b20": "C&StL",
+    "d18": "M&H",
+    "f16": "D&H",
+    "h18": "C&A",
+    "i13": "B&O"
   },
   "towns": {
     "b20": 1,
@@ -214,6 +214,7 @@
     "i15": {
       "color": "yellow",
       "label": "B",
+      "privateReservation": "B&O",
       "spots": 1,
       "trackToCenter": [0, 4],
       "type": "City",

@@ -7,6 +7,7 @@ import DistinctCity from './components/distinct_city';
 import DoubleOCity from './components/double_o_city';
 import DynamicValues from './components/dynamic_values';
 import Label from './components/label';
+import PrivateReservation from './components/private_reservation';
 import Tile, { TileElement } from './components/tile';
 import TileCost from './components/tile_cost';
 import TileNumber from './components/tile_number';
@@ -131,6 +132,15 @@ export default class TileFactory {
 
       return (
         <Label key='label' labelStr={this.definition.label} point={point} />
+      );
+    }
+  }
+
+  public get privateReservation(): ReactElement<PrivateReservation> {
+    if (this.definition.privateReservation) {
+      const name: string = this.definition.privateReservation;
+      return (
+        <PrivateReservation key='pcr' name={name} />
       );
     }
   }

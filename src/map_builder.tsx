@@ -11,6 +11,7 @@ import MapHex, {
   HEX_BOTTOM, MapHexElement, MapHexProps
 } from './components/map_hex';
 import OffBoard from './components/off_board';
+import PrivateReservation from './components/private_reservation';
 import Tile from './components/tile';
 import TileCost from './components/tile_cost';
 import Token from './components/token';
@@ -36,6 +37,7 @@ export interface MapDefinition {
   names: any;
   offBoards: any;
   preplacedTile: any;
+  privateReservations: any;
   tileCostTypes: any;
   tileCosts: any;
   tileManifest: any;
@@ -177,6 +179,13 @@ export default class MapBuilder {
         } else if (this.mapDef.preplacedTile[hex]) {
           tile = tileBuilder.buildTile(
             new TileDefinition(this.mapDef.preplacedTile[hex])
+          );
+        }
+
+        if (this.mapDef.privateReservations[hex]) {
+          const name: string = this.mapDef.privateReservations[hex];
+          hexElements.push(
+            <PrivateReservation key='pcr' name={name} />
           );
         }
 
