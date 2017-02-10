@@ -182,7 +182,10 @@ export default class MapBuilder {
           );
         }
 
-        if (this.mapDef.privateReservations[hex]) {
+        if (
+          this.mapDef.privateReservations &&
+          this.mapDef.privateReservations[hex]
+        ) {
           const name: string = this.mapDef.privateReservations[hex];
           hexElements.push(
             <PrivateReservation key='pcr' name={name} />
