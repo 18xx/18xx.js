@@ -27,6 +27,7 @@ export interface TileDefinitionInput {
   readonly label?: string;
   readonly labelPosition?: PointDefinition;
   readonly num: string;
+  readonly privateReservation: string;
   readonly rotations?: number;
   readonly spots?: number;
   readonly spotLocations?: number[];
@@ -64,6 +65,10 @@ export default class TileDefinition {
 
   public get num(): string {
     return this.definition.num;
+  }
+
+  public get privateReservation(): string {
+    return this.definition.privateReservation;
   }
 
   public get rotations(): number {

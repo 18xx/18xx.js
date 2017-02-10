@@ -53,6 +53,7 @@ export default class TileBuilder {
       factory.label,
       factory.tileNumber,
       factory.tileCost,
+      factory.privateReservation,
     ].filter(el => el)).flatten().toList();
 
     let key: string;
