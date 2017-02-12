@@ -24,7 +24,7 @@ export interface MapHexProps {
   readonly column: number;
   readonly elements?: List<MapHexElement>;
   readonly fill?: string;
-  readonly onHexClick?: any;
+  readonly onHexClick?: Function;
   readonly row: string;
   readonly tile?: ReactElement<Tile>;
 }
@@ -36,7 +36,10 @@ export interface MapHexElement {
 export default class MapHex
   extends React.Component<MapHexProps, undefined> {
 
-  public static defaultProps: any;
+  public static defaultProps: MapHexProps = {
+    elements: List([]),
+    fill: '#efe',
+  } as MapHexProps;
 
   get row(): string {
     return this.props.row;
@@ -84,8 +87,3 @@ export default class MapHex
     );
   }
 }
-
-MapHex.defaultProps = {
-  elements: List([]),
-  fill: '#efe',
-};

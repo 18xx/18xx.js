@@ -12,7 +12,7 @@ import Point from '../point';
 
 export interface CityProps {
   hex?: string;
-  onRightClickCity: any;
+  onRightClickCity: Function;
   num: number;
   points?: List<Point>;
   rotation?: number;
@@ -22,7 +22,10 @@ export interface CityProps {
 }
 
 export default class City extends React.Component<CityProps, undefined> {
-  public static defaultProps: any;
+  public static defaultProps: CityProps = {
+    homeTokens: List<string>(),
+    tokenState: List<string>(),
+  } as CityProps;
 
   public render(): ReactElement<City> {
     const num: number = this.props.num;
@@ -259,8 +262,3 @@ export default class City extends React.Component<CityProps, undefined> {
     return token;
   }
 }
-
-City.defaultProps = {
-  homeTokens: List<string>(),
-  tokenState: List<string>(),
-};
