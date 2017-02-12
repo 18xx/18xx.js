@@ -4,7 +4,7 @@ import * as React from 'react';
 import { ReactElement } from 'react';
 import { createStore, Store } from 'redux';
 
-import * as allTilesJson from '../../all_tiles.json';
+import * as allTilesJson from '../../config/tiles.json';
 
 import AvailableTiles from './available_tiles';
 import AvailableTokens from './available_tokens';
