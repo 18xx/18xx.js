@@ -3,6 +3,7 @@
     "allowJs": true,
     "allowUnreachableCode": true,
     "alwaysStrict": true,
+    "skipLibCheck": true,
     "sourceMap": true,
     "noImplicitAny": true,
     "module": "commonjs",
