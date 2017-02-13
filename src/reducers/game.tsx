@@ -32,13 +32,6 @@ export let initialState: GameState = {
   tokens: (Map() as Map<string, List<string>>),
 };
 
-// FIXME: Move up the stack
-const container: any = document.getElementById('container');
-let gameName: string = '18xx';
-if (container) {
-  gameName = container.dataset.gameName;
-}
-
 const game: any = (
   state: GameState,
   action: GameAction
@@ -67,7 +60,7 @@ const game: any = (
       history.pushState(
         newState,
         'Testing',
-        '/maps/' + gameName + '/' + hash
+        '/maps/' + state.name + '/' + hash
       );
       return newState;
     case 'PLACE_TOKEN':
