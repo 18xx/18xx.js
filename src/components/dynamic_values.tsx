@@ -8,17 +8,23 @@ import Tile, { TileElement } from './tile';
 const HEIGHT: number = 20;
 const WIDTH: number = 20;
 
+export interface DynamicValueSet {
+  [key: string]: number;
+}
+
 export interface DynamicValuesProps {
   readonly fixedHeight?: number;
-  readonly values: any; // FIXME: Should not be any
+  readonly values: DynamicValueSet;
 }
 
 export default class DynamicValues
 extends React.Component<DynamicValuesProps, undefined>
 implements MapHexElement, TileElement {
-  public static defaultProps: any;
+  public static defaultProps: DynamicValuesProps = {
+    fixedHeight: (Tile.CENTER.y - 25),
+  } as DynamicValuesProps;
 
-  public get values(): any {
+  public get values(): DynamicValueSet {
     return this.props.values;
   }
 
@@ -62,7 +68,3 @@ implements MapHexElement, TileElement {
     );
   }
 }
-
-DynamicValues.defaultProps = {
-  fixedHeight: (Tile.CENTER.y - 25),
-};
