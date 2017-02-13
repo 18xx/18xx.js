@@ -11,7 +11,7 @@ import * as mapDef1817 from '../config/maps/1817.json';
 import * as mapDef1830 from '../config/maps/1830.json';
 let mapDef: MapDefinition;
 
-const container: any = document.getElementById('container');
+const container: HTMLElement = document.getElementById('container');
 const initialStateId: string = container.dataset.initialStateId;
 
 switch (container.dataset.gameName) {
