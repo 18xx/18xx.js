@@ -31,17 +31,17 @@ export interface TilePromotionTuple {
 // FIXME: Use proper attributes
 export interface MapDefinition {
   companies: any;
-  dynamicValues: any;
-  hexes: any;
-  impassable: any;
-  names: any;
-  offBoards: any;
-  preplacedTile: any;
-  privateReservations: any;
-  tileCostTypes: any;
-  tileCosts: any;
+  dynamicValues?: any;
+  hexes?: any;
+  impassable?: any;
+  names?: any;
+  offBoards?: any;
+  preplacedTile?: any;
+  privateReservations?: any;
+  tileCostTypes?: any;
+  tileCosts?: any;
   tileManifest: any;
-  tilePromotions: TilePromotionTuple[];
+  tilePromotions?: TilePromotionTuple[];
   towns?: any;
 }
 

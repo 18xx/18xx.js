@@ -27,11 +27,11 @@ export interface TileDefinitionInput {
   readonly label?: string;
   readonly labelPosition?: PointDefinition;
   readonly num: string;
-  readonly privateReservation: string;
+  readonly privateReservation?: string;
   readonly rotations?: number;
   readonly spots?: number;
   readonly spotLocations?: number[];
-  readonly track?: Array<[number, number]>;
+  readonly track?: number[][];
   readonly trackSpecial?: any; // FIXME: Has special type
   readonly trackToCenter?: number[];
   readonly type?: TileType;
@@ -83,7 +83,7 @@ export default class TileDefinition {
     return this.definition.spotLocations;
   }
 
-  public get track(): Array<[number, number]> {
+  public get track(): number[][] {
     return this.definition.track;
   }
 

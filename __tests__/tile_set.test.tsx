@@ -18,7 +18,7 @@ describe('TileSet', () => {
       track: [
         [0, 2]
       ]
-    }
+    },
     {
       color: 'yellow',
       num: '9',

@@ -7,12 +7,16 @@ import Game from '../../src/components/game';
 import MapBoard from '../../src/components/map_board';
 import MapHex, { MapHexProps } from '../../src/components/map_hex';
 
-const json: any = {
-  tileManifest: {
-  },
+import { MapDefinition } from '../../src/map_builder';
+
+const json: MapDefinition = {
+  companies: {},
+  hexes: {},
+  tileManifest: {},
 };
 
 const game: Game = new Game({
+  gameName: '18xx',
   mapDef: json,
 });
 

@@ -25,9 +25,9 @@ const allTiles: List<TileDefinitionInput> =
     (el: any) => el.toJS() as TileDefinitionInput
   );
 
-interface GameProps {
+export interface GameProps {
   readonly gameName: string;
-  readonly initialState: GameState;
+  readonly initialState?: GameState;
   readonly mapDef: MapDefinition;
 }
 
