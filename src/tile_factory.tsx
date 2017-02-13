@@ -2,7 +2,7 @@ import { List } from 'immutable';
 import * as React from 'react';
 import { ReactElement } from 'react';
 
-import City, { CityProps } from './components/city';
+import City, { CityProps, Station } from './components/city';
 import DistinctCity from './components/distinct_city';
 import DoubleOCity from './components/double_o_city';
 import DynamicValues from './components/dynamic_values';
@@ -23,7 +23,7 @@ import TrackToCenter from './track_to_center';
 
 export default class TileFactory {
   constructor(
-    private onRightClickCity: any,
+    private onRightClickCity: Function,
     private definition: TileDefinition,
     private rotation: number = 0,
     private hex?: string,
@@ -32,7 +32,7 @@ export default class TileFactory {
 
   public city(
     tokenState: List<string>, homeTokens: List<string>
-  ): ReactElement<City> {
+  ): ReactElement<Station> {
     const attributes: any = { // FIXME: should be CityProps
       hex: this.hex,
       key: this.hex || 'city',
@@ -101,7 +101,7 @@ export default class TileFactory {
     }
 
     if (klass) {
-      return React.createElement<City>(
+      return React.createElement<Station>(
         klass,
         attributes
       );

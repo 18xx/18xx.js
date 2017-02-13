@@ -22,7 +22,10 @@ export default class TileCost
 extends React.Component<TileCostProps, undefined>
 implements MapHexElement, TileElement {
 
-  public static defaultProps: any;
+  public static defaultProps: TileCostProps = {
+    location: new Point(Tile.CENTER.x - 10, 14),
+    shape: 'square',
+  } as TileCostProps;
 
   public render(): ReactElement<TileCost> {
     let result: ReactElement<TileCost>;
@@ -90,8 +93,3 @@ implements MapHexElement, TileElement {
     );
   }
 }
-
-TileCost.defaultProps = {
-  location: new Point(Tile.CENTER.x - 10, 14),
-  shape: 'square',
-};

@@ -21,7 +21,13 @@ export interface CityProps {
   homeTokens: List<string>;
 }
 
-export default class City extends React.Component<CityProps, undefined> {
+export interface Station {
+  render(): ReactElement<Station>;
+}
+
+export default class City
+extends React.Component<CityProps, undefined>
+implements Station {
   public static defaultProps: CityProps = {
     homeTokens: List<string>(),
     tokenState: List<string>(),

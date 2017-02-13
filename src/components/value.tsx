@@ -14,7 +14,9 @@ export default class Value
 extends React.Component<ValueProps, undefined>
 implements TileElement {
 
-  public static defaultProps: any;
+  public static defaultProps: ValueProps = {
+    position: new Point(Tile.CENTER.x, 112),
+  } as ValueProps;
 
   constructor(props: ValueProps) {
     super(props);
@@ -46,7 +48,3 @@ implements TileElement {
     }
   }
 }
-
-Value.defaultProps = {
-  position: new Point(Tile.CENTER.x, 112),
-};
