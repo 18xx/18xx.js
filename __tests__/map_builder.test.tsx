@@ -75,13 +75,14 @@ const json: any = {
 };
 
 const game: Game = new Game({
+  gameName: '18xx',
   mapDef: json,
 });
 
 describe('MapBuilder', () => {
   describe('#build()', () => {
     it('returns an svg of the map', () => {
-      const tileSet: TileSet = new TileSet(List([]));
+      const tileSet: TileSet = new TileSet(List([]), null);
       const builder: MapBuilder = new MapBuilder(game, json, tileSet);
       const tileState: Map<string, string> = (
         Map() as Map<string, string>

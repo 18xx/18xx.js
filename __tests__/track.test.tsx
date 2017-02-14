@@ -1,3 +1,5 @@
+import { List } from 'immutable';
+
 import Point from '../src/point';
 import Track from '../src/track';
 
@@ -87,7 +89,7 @@ describe('Track', () => {
 
     describe('when attempting to get two midpoints', () => {
       it('returns points 1/3rd and 2/3rd of the way', () => {
-        const midpoints: Point[] = new Track(0, 2).midpoints(2);
+        const midpoints: List<Point> = new Track(0, 2).midpoints(2);
         expect(midpoints.get(0).x).toBeCloseTo(49.143);
         expect(midpoints.get(0).y).toBeCloseTo(41.540);
         expect(midpoints.get(1).x).toBeCloseTo(78.017);

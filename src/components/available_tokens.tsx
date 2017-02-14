@@ -8,7 +8,7 @@ import Company from '../company';
 
 export interface AvailableTokensProps {
   readonly companies: List<Company>;
-  readonly onClick: any;
+  readonly onClick: Function;
 }
 
 export default class AvailableTokens

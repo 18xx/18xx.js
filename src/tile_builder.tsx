@@ -9,7 +9,7 @@ import TileFactory from './tile_factory';
 
 export default class TileBuilder {
   constructor(
-    private onRightClickCity?: any,
+    private onRightClickCity?: Function,
     private hex?: string,
     private tokenState?: List<string>,
     private homeTokens?: List<string>,

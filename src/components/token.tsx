@@ -13,7 +13,9 @@ interface TokenProps {
 
 export default class Token
 extends React.Component<TokenProps, undefined> {
-  public static defaultProps: any;
+  public static defaultProps: TokenProps = {
+    faded: false,
+  } as TokenProps;
 
   public render(): ReactElement<Token> {
     return (
@@ -57,7 +59,3 @@ extends React.Component<TokenProps, undefined> {
     return result;
   }
 }
-
-Token.defaultProps = {
-  faded: false,
-};

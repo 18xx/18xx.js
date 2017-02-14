@@ -14,7 +14,12 @@ export interface LabelProps {
 }
 
 export default class Label extends React.Component<LabelProps, undefined> {
-  public static defaultProps: any;
+  public static defaultProps: LabelProps = {
+    point: new Point(
+      Math.round(Tile.WIDTH - OFFSET),
+      Tile.HEIGHT / 4 + FONT_SIZE - OFFSET
+    ),
+  } as LabelProps;
 
   public render(): ReactElement<Label> {
     return (
@@ -44,10 +49,3 @@ export default class Label extends React.Component<LabelProps, undefined> {
     return result;
   }
 }
-
-Label.defaultProps = {
-  point: new Point(
-    Math.round(Tile.WIDTH - OFFSET),
-    Tile.HEIGHT / 4 + FONT_SIZE - OFFSET
-  ),
-};
