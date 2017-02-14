@@ -22,7 +22,7 @@ switch (container.dataset.gameName) {
     mapDef = mapDef1830 as any;
     break;
   default:
-    throw new Error(`Unsupported Game: ${container.dataset.game}`);
+    throw new Error(`Unsupported Game: ${container.dataset.gameName}`);
 }
 
 const init: Function = (state: GameState): void => {
@@ -38,14 +38,14 @@ const init: Function = (state: GameState): void => {
 if (initialStateId === 'undefined') {
   init({
     ...initialState,
-    name: container.dataset.game,
+    name: container.dataset.gameName,
   });
 } else {
   fetch('/state/' + initialStateId).then(res => {
     res.json().then(data => {
       // FIXME: Don't hardcode tiles & tokens
       const newState: GameState = {
-        name: container.dataset.game,
+        name: container.dataset.gameName,
         tiles: Immutable.fromJS(data.tiles),
         tokens: Immutable.fromJS(data.tokens),
       };
