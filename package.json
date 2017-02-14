@@ -7,7 +7,6 @@
   "description": "An 18xx Board Game Tile Generator",
   "main": "index.js",
   "devDependencies": {
-    "@types/jest": "^18.1.1",
     "jest": "^18.1.0",
     "nodemon": "^1.11.0",
     "react-test-renderer": "^15.4.2",
@@ -50,6 +49,7 @@
   "dependencies": {
     "@types/body-parser": "^0.0.33",
     "@types/express": "^4.0.35",
+    "@types/jest": "^18.1.1",
     "@types/lodash": "^4.14.52",
     "@types/react": "^15.0.9",
     "@types/react-dom": "^0.14.23",
