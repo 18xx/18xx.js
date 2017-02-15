@@ -1,10 +1,11 @@
 import * as React from 'react';
-import { ReactElement } from 'react';
+import { MouseEventHandler, ReactElement } from 'react';
 
 import CityCircle from './city_circle';
 
 interface TokenProps {
   readonly faded?: boolean;
+  readonly onRightClick?: MouseEventHandler<SVGElement>;
   readonly primaryColor: string;
   readonly secondaryColor: string;
   readonly radius?: number;
@@ -21,7 +22,12 @@ extends React.Component<TokenProps, undefined> {
 
   public render(): ReactElement<Token> {
     return (
-      <svg opacity={this.opacity} width='40' height='40' key={this.props.text}>
+      <svg
+      onContextMenu={this.props.onRightClick}
+      opacity={this.opacity}
+      width='40'
+      height='40'
+      key={this.props.text}>
         <circle
           cx={this.props.radius + CityCircle.STROKE_WIDTH / 2}
           cy={this.props.radius + CityCircle.STROKE_WIDTH / 2}

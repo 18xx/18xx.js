@@ -10,6 +10,7 @@ import TileFactory from './tile_factory';
 export default class TileBuilder {
   constructor(
     private onRightClickCity?: Function,
+    private onRightClickToken?: Function,
     private hex?: string,
     private tokenState?: List<string>,
     private homeTokens?: List<string>,
@@ -23,6 +24,7 @@ export default class TileBuilder {
     const color: string = def.color;
     const factory: TileFactory = new TileFactory(
       this.onRightClickCity,
+      this.onRightClickToken,
       new TileDefinition(def),
       i,
       this.hex,

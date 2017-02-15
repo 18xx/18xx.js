@@ -15,6 +15,7 @@ import Point from '../point';
 export interface CityProps {
   hex?: string;
   onRightClickCity: Function;
+  onRightClickToken: Function;
   num: number;
   points?: List<Point>;
   rotation?: number;
@@ -269,6 +270,7 @@ implements Station {
       this.props.hex,
       this.props.homeTokens,
       this.props.onRightClickCity,
+      this.props.onRightClickToken,
       this.props.tokenState,
       this.cityCircleRadius,
     );

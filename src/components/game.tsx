@@ -88,6 +88,11 @@ export default class Game
           <AvailableTokens companies={companies} onClick={this.placeToken} />
         );
         break;
+      case 'TOKEN_CONTEXT':
+        topMenu = (
+          <div>I am token context menu</div>
+        );
+        break;
       default:
     }
 
@@ -108,6 +113,18 @@ export default class Game
       index,
       hex,
       type: 'SHOW_AVAILABLE_TOKENS',
+    });
+  }
+
+  public onRightClickToken = (
+    event: MouseEvent,
+    hex: string,
+    index: number
+  ): void => {
+    this.store.dispatch({
+      index,
+      hex,
+      type: 'SHOW_TOKEN_CONTEXT_MENU',
     });
   }
 

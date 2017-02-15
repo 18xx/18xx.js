@@ -1,6 +1,7 @@
 exports[`Token #render() returns an svg represntation of the token 1`] = `
 <svg
   height="40"
+  onContextMenu={undefined}
   opacity={1}
   width="40">
   <circle

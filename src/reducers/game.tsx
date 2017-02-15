@@ -95,6 +95,13 @@ const game: any = (
         hex: action.hex,
         openMenu: 'TOKEN',
       };
+    case 'SHOW_TOKEN_CONTEXT_MENU':
+      return {
+        ...state,
+        cityIndex: action.index,
+        hex: action.hex,
+        openMenu: 'TOKEN_CONTEXT'
+      };
     default:
       return state;
   }
