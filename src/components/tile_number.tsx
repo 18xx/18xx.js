@@ -8,16 +8,17 @@ import Point from '../point';
 export interface TileNumberProps {
   num: string;
   orientation?: number;
+  point?: Point;
 }
 
 export default class TileNumber
 extends React.Component<TileNumberProps, undefined> {
-  public static defaultProps: TileNumberProps = {
+  public static defaultProps: Partial<TileNumberProps> = {
     point: new Point(
       Tile.WIDTH - 1,
       (Tile.HEIGHT * 3 / 4) - 2
     ),
-  } as TileNumberProps;
+  };
 
   public text(): string {
     let result: string = this.props.num;

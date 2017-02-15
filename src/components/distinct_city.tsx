@@ -13,7 +13,6 @@ export default class DistinctCity extends City {
   public render(): ReactElement<DistinctCity> {
     const tileElements: Array<ReactElement<any>> = [];
 
-    let i: number = 0;
     for (const num of this.props.spotLocations) {
       const cityPoint: Point = Point.fromCenter(
         num + this.rotation,
@@ -24,9 +23,8 @@ export default class DistinctCity extends City {
         <Line key={num + this.rotation}
         point1={cityPoint}
         point2={Point.fromCenter(num + this.rotation)} />,
-        this.buildCircle(i, cityPoint),
+        this.buildCircle(num, cityPoint),
       );
-      i += 1;
     }
 
     return (

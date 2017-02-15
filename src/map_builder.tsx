@@ -10,6 +10,7 @@ import MapBoard from './components/map_board';
 import MapHex, {
   HEX_BOTTOM, MapHexElement, MapHexProps
 } from './components/map_hex';
+import MediumCity from './components/medium_city';
 import OffBoard from './components/off_board';
 import PrivateReservation from './components/private_reservation';
 import Tile from './components/tile';
@@ -17,6 +18,7 @@ import TileCost from './components/tile_cost';
 import Token from './components/token';
 import Town from './components/town';
 
+import CityCircleFactory from './city_circle_factory';
 import Company from './company';
 import Point from './point';
 import TileBuilder from './tile_builder';
@@ -34,6 +36,7 @@ export interface MapDefinition {
   dynamicValues?: any;
   hexes?: any;
   impassable?: any;
+  mediumCities?: any;
   names?: any;
   offBoards?: any;
   preplacedTile?: any;
@@ -125,8 +128,36 @@ export default class MapBuilder {
           }
         }
 
+        if (this.mapDef.mediumCities && this.mapDef.mediumCities[hex]) {
+          if (this.mapDef.mediumCities[hex] === 1) {
+            hexElements.push(
+              <MediumCity points={List<Point>([Tile.CENTER])} key='town' />
+            );
+          } else {
+            const points: List<Point> = List([
+              new Point(Tile.CENTER.x - 20, Tile.CENTER.y + 10),
+              new Point(Tile.CENTER.x + 20, Tile.CENTER.y - 10),
+            ]);
+            hexElements.push(
+              <MediumCity points={points} key='map-mediumCities' />
+            );
+          }
+        }
+
+        let homeTokens: List<string> = List<string>([]);
+        Object.keys(this.mapDef.companies).forEach(key => {
+          const company: any = this.mapDef.companies[key];
+          if (company.home === hex) {
+            if (company.index || company.index === 0) {
+              homeTokens = homeTokens.set(company.index, key);
+            } else {
+              homeTokens = homeTokens.push(key);
+            }
+          }
+        });
+
         if (this.mapDef.offBoards[hex]) {
-          fill = 'red';
+          fill = this.mapDef.offBoards[hex].color || 'red';
           const exits: List<number> = List<number>(
             this.mapDef.offBoards[hex].exits as string[]
           );
@@ -136,6 +167,21 @@ export default class MapBuilder {
               key='off-board'
               exits={exits} />
           );
+
+          if (this.mapDef.offBoards[hex].spots > 0) {
+            const point: Point = new Point(Tile.CENTER.x, Tile.HEIGHT * 2 / 3);
+
+            const factory: CityCircleFactory = new CityCircleFactory(
+              hex,
+              homeTokens,
+              this.game.onRightClickCity,
+              tokenState.get(hex) || List([]),
+            );
+
+            hexElements.push(
+              factory.build(0, point)
+            );
+          }
         }
 
         if (this.mapDef.dynamicValues[hex]) {
@@ -149,17 +195,6 @@ export default class MapBuilder {
 
         if (this.mapDef.tileCosts[hex]) {
           hexElements.push(this.assignTileCost(hex));
-        }
-
-        let homeTokens: List<string> = List<string>([]);
-        const companyStr: string = Map<string, any>(
-          this.mapDef.companies
-        ).findKey(
-          c => c.home === hex
-        );
-
-        if (companyStr) {
-          homeTokens = List<string>([companyStr]);
         }
 
         let tile: ReactElement<Tile>;

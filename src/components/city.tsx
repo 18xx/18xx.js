@@ -7,6 +7,7 @@ import Tile from './tile';
 import Token from './token';
 import Town from './town';
 
+import CityCircleFactory from '../city_circle_factory';
 import Company from '../company';
 import Point from '../point';
 
@@ -229,48 +230,13 @@ implements Station {
   }
 
   protected buildCircle(index: number, point: Point): ReactElement<CityCircle> {
-    let fn: Function;
-    if (!this.props.tokenState.get(index)) {
-      fn = (event: MouseEvent) => {
-        event.preventDefault();
-        this.props.onRightClickCity(this, index);
-      };
-    }
-
-    return (
-      <CityCircle
-        hex={this.props.hex}
-        key={point.toString()}
-        point={point}
-        onContextMenu={fn}
-        token={this.buildToken(index, point)}
-        radius={this.cityCircleRadius}
-      />
+    const factory: CityCircleFactory = new CityCircleFactory(
+      this.props.hex,
+      this.props.homeTokens,
+      this.props.onRightClickCity,
+      this.props.tokenState,
+      this.cityCircleRadius,
     );
-  }
-
-  private buildToken(index: number, point: Point): ReactElement<Token> {
-    let token: ReactElement<Token>;
-    let faded: boolean = false;
-    let company: Company;
-
-    if (this.props.tokenState.get(index)) {
-      company = Company.find(this.props.tokenState.get(index));
-    } else if (this.props.homeTokens.get(index)) {
-      company = Company.find(this.props.homeTokens.get(index));
-      faded = true;
-    }
-
-    if (company) {
-      token = (
-        <Token
-        faded={faded}
-        text={company.shorthand}
-        primaryColor={company.primaryColor}
-        secondaryColor={company.secondaryColor}
-        textColor={company.textColor} />
-      );
-    }
-    return token;
+    return factory.build(index, point);
   }
 }

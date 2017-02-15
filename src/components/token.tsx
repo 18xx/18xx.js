@@ -5,32 +5,34 @@ import CityCircle from './city_circle';
 
 interface TokenProps {
   readonly faded?: boolean;
-  readonly text: string;
   readonly primaryColor: string;
   readonly secondaryColor: string;
+  readonly radius?: number;
+  readonly text: string;
   readonly textColor: string;
 }
 
 export default class Token
 extends React.Component<TokenProps, undefined> {
-  public static defaultProps: TokenProps = {
+  public static defaultProps: Partial<TokenProps> = {
     faded: false,
-  } as TokenProps;
+    radius: CityCircle.DEFAULT_RADIUS,
+  };
 
   public render(): ReactElement<Token> {
     return (
       <svg opacity={this.opacity} width='40' height='40' key={this.props.text}>
         <circle
-          cx={CityCircle.DEFAULT_RADIUS + CityCircle.STROKE_WIDTH / 2}
-          cy={CityCircle.DEFAULT_RADIUS + CityCircle.STROKE_WIDTH / 2}
-          r={CityCircle.DEFAULT_RADIUS - 3}
+          cx={this.props.radius + CityCircle.STROKE_WIDTH / 2}
+          cy={this.props.radius + CityCircle.STROKE_WIDTH / 2}
+          r={this.props.radius - 3}
           fill={this.props.primaryColor}
         />
 
         <rect
           x={4}
-          y={CityCircle.DEFAULT_RADIUS - 5}
-          width={32}
+          y={this.props.radius - 5}
+          width={this.props.radius * 2 - 6}
           height={12}
           fill={this.props.secondaryColor}
           rx={1.75}
@@ -39,8 +41,8 @@ extends React.Component<TokenProps, undefined> {
 
         <text
           textAnchor='middle'
-          x={CityCircle.DEFAULT_RADIUS + 1}
-          y={CityCircle.DEFAULT_RADIUS + 5}
+          x={this.props.radius + 1}
+          y={this.props.radius + 5}
           fontSize={10}
           stroke='none'
           fill={this.props.textColor}>
