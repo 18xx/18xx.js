@@ -221,9 +221,9 @@
     "a15": { "exits": [3, 4] },
     "i1": { "exits": [0, 1, 5] },
     "k1": { "exits": [0, 1, 5] },
-    "n16": { "color": "blue", "exits": [2, 3, 4] },
+    "n16": { "color": "lightblue", "exits": [2, 3, 4] },
     "q7": { "exits": [1, 2], "spots": 1 },
-    "q13": { "color": "blue", "exits": [1, 2] },
+    "q13": { "color": "lightblue", "exits": [1, 2] },
     "q15": { "exits": [2], "spots": 1 }
   },
   "impassable": [
