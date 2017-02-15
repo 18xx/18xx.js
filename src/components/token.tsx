@@ -74,7 +74,7 @@ extends React.Component<TokenProps, undefined> {
     return result;
   }
 
-  private get fontWeight(): number {
+  private get fontWeight(): string {
     let result: string = 'normal';
     if (this.isNumber) {
       result = 'bold';

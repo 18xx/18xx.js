@@ -32,6 +32,7 @@ export interface TilePromotionTuple {
 
 // FIXME: Use proper attributes
 export interface MapDefinition {
+  cities?: any;
   companies: any;
   dynamicValues?: any;
   hexes?: any;
@@ -88,7 +89,7 @@ export default class MapBuilder {
           );
         }
 
-        if (this.mapDef.names[hex] && !this.mapDef.offBoards[hex]) {
+        if (this.mapDef.cities && this.mapDef.cities[hex]) {
           let ccProps: CityCircleProps = { point: Tile.CENTER, key: 'cc' };
           const companyStr: string = Map<string, any>(
             this.mapDef.companies
@@ -109,7 +110,29 @@ export default class MapBuilder {
               token
             };
           }
-          hexElements.push(React.createElement(CityCircle, ccProps));
+          if (this.mapDef.cities[hex] === 1) {
+            hexElements.push(React.createElement(CityCircle, ccProps));
+          } else {
+            hexElements.push(
+              React.createElement(
+                CityCircle,
+                {
+                  ...ccProps,
+                  key: 'cc1',
+                  point: new Point(Tile.CENTER.x - 25, Tile.CENTER.y),
+                },
+              ),
+              React.createElement(
+                CityCircle,
+                {
+                  ...ccProps,
+                  key: 'cc2',
+                  point: new Point(Tile.CENTER.x + 25, Tile.CENTER.y),
+                  token: undefined
+                },
+              ),
+            );
+          }
         }
 
         if (this.mapDef.towns && this.mapDef.towns[hex]) {

@@ -1,5 +1,6 @@
 exports[`CityName #toString() returns an svg representation of the name at a point 1`] = `
 <text
+  fontSize={16}
   textAnchor="middle"
   x={4}
   y={1}>

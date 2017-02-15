@@ -18,10 +18,23 @@ implements MapHexElement {
     return (
       <text
         textAnchor='middle'
+        fontSize={this.fontSize}
         x={this.props.point.x}
-        y={this.props.point.y}>
+        y={this.textY}>
         {this.props.name}
       </text>
     );
+  }
+
+  private get fontSize(): number {
+    let result: number = 16;
+    if (this.props.name.length > 12) {
+      result = 12;
+    }
+    return result;
+  }
+
+  private get textY(): number {
+    return this.props.point.y - 16 + this.fontSize;
   }
 }
