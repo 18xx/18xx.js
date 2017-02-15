@@ -39,12 +39,7 @@ implements Station {
     const num: number = this.props.num;
     let result: ReactElement<any>;
 
-    if (num === 0) {
-      // TODO: Refactor in to town
-      result = (
-        <Town key='town' points={List<Point>([Tile.CENTER])} />
-      );
-    } else if (num === 1) {
+    if (num === 1) {
       result = (
         this.buildCircle(0, Tile.CENTER)
       );
