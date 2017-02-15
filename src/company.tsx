@@ -25,6 +25,15 @@ export default class Company {
         data.secondaryColor,
         data.textColor,
       );
+    } else if (!isNaN(Number(reportingMark))) {
+      return new Company(
+        reportingMark,
+        reportingMark,
+        reportingMark,
+        'white',
+        'white',
+        'black',
+      );
     } else {
       throw new Error(`Could not find company: ${reportingMark}`);
     }

@@ -41,7 +41,7 @@ export default class Label extends React.Component<LabelProps, undefined> {
 
   private textAnchor(): string {
     let result: string = 'start';
-    if (this.point.x === Tile.CENTER.x) {
+    if (this.point.isAtCenterX()) {
       result = 'middle';
     } else if (this.point.x > Tile.CENTER.x) {
       result =  'end';

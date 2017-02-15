@@ -27,6 +27,13 @@
     "textColor": "black",
     "shorthand": "B&O"
   },
+  "BCR": {
+    "name": "Baocheng Railway",
+    "primaryColor": "#00008b",
+    "secondaryColor": "white",
+    "textColor": "black",
+    "shorthand": "BCR"
+  },
   "BLE": {
     "name": "Bessemer and Lake Erie Railroad",
     "primaryColor": "#141414",
@@ -47,6 +54,20 @@
     "secondaryColor": "white",
     "textColor": "black",
     "shorthand": "Belt"
+  },
+  "BZU": {
+    "name": "Binzhou Railway",
+    "primaryColor": "#F5F5DC",
+    "secondaryColor": "white",
+    "textColor": "black",
+    "shorthand": "BZU"
+  },
+  "CKR": {
+    "name": "Chengkun Railway",
+    "primaryColor": "red",
+    "secondaryColor": "white",
+    "textColor": "black",
+    "shorthand": "CKR"
   },
   "C&O": {
     "name": "Chesapeake and Ohio Railway",
@@ -90,12 +111,54 @@
     "textColor": "black",
     "shorthand": "GTW"
   },
+  "HKR": {
+    "name": "Hukun Railway",
+    "primaryColor": "#90ee90",
+    "secondaryColor": "white",
+    "textColor": "black",
+    "shorthand": "HKR"
+  },
   "HRRC": {
     "name": "Housatonic Railroad",
     "primaryColor": "#132A1C",
     "secondaryColor": "#F1B016",
     "textColor": "#132A1C",
     "shorthand": "HRR"
+  },
+  "JGG": {
+    "name": "Jingguang Railway",
+    "primaryColor": "#800080",
+    "secondaryColor": "white",
+    "textColor": "black",
+    "shorthand": "JGG"
+  },
+  "JHA": {
+    "name": "Jingha Railway",
+    "primaryColor": "#FFA500",
+    "secondaryColor": "white",
+    "textColor": "black",
+    "shorthand": "JHA"
+  },
+  "JHU": {
+    "name": "Jinghu Railway",
+    "primaryColor": "black",
+    "secondaryColor": "white",
+    "textColor": "black",
+    "shorthand": "JHU"
+  },
+  "JLR": {
+    "name": "Jinglan Railway",
+    "primaryColor": "#40e0d0",
+    "secondaryColor": "white",
+    "textColor": "black",
+    "shorthand": "JLR"
+  },
+  "LHR": {
+    "name": "Longhai Railway",
+    "primaryColor": "#888",
+    "secondaryColor": "white",
+    "textColor": "black",
+    "shorthand": "LHR"
   },
   "ME": {
     "name": "Morristown & Erie Railway",
@@ -104,19 +167,33 @@
     "textColor": "black",
     "shorthand": "ME"
   },
-  "NYC": {
-    "name": "New York Central Railroad",
-    "primaryColor": "black",
-    "secondaryColor": "white",
-    "textColor": "black",
-    "shorthand": "NYC"
-  },
   "NH": {
     "name": "New York, New Haven & Hartford Railroad",
     "primaryColor": "#DD2B21",
     "secondaryColor": "black",
     "textColor": "white",
     "shorthand": "NYNH"
+  },
+  "NJR": {
+    "name": "Nanjiang Railway",
+    "primaryColor": "#a52a2a",
+    "secondaryColor": "white",
+    "textColor": "black",
+    "shorthand": "NJR"
+  },
+  "NXR": {
+    "name": "Ningxi Railway",
+    "primaryColor": "#ffc0cb",
+    "secondaryColor": "white",
+    "textColor": "black",
+    "shorthand": "NXR"
+  },
+  "NYC": {
+    "name": "New York Central Railroad",
+    "primaryColor": "black",
+    "secondaryColor": "white",
+    "textColor": "black",
+    "shorthand": "NYC"
   },
   "NYOW": {
     "name": "New York, Ontario and Western Railway",
@@ -160,12 +237,26 @@
     "textColor": "black",
     "shorthand": "PW"
   },
+  "QSR": {
+    "name": "Qinshen Railway",
+    "primaryColor": "#add8a6",
+    "secondaryColor": "white",
+    "textColor": "black",
+    "shorthand": "QSR"
+  },
   "RUT": {
     "name": "Rutland Railroad",
     "primaryColor": "#215A27",
     "secondaryColor": "#FEEA27",
     "txtColor": "#215A27",
     "shorthand": "Rut"
+  },
+  "SCR": {
+    "name": "Schichang Railway",
+    "primaryColor": "#006400",
+    "secondaryColor": "white",
+    "textColor": "black",
+    "shorthand": "SCR"
   },
   "SRC": {
     "name": "Strasburg Rail Road",
@@ -187,6 +278,13 @@
     "secondaryColor": "white",
     "textColor": "#7F2430",
     "shorthand": "WCRR"
+  },
+  "WNR": {
+    "name": "Wunan Railway",
+    "primaryColor": "yellow",
+    "secondaryColor": "white",
+    "textColor": "black",
+    "shorthand": "WNR"
   },
   "WTRM": {
     "name": "Warren and Trumbull Railroad",

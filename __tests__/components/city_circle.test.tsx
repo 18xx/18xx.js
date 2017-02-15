@@ -3,9 +3,9 @@ import CityCircle from '../../src/components/city_circle';
 import Point from '../../src/point';
 
 describe('CityCircle', () => {
-  describe('.RADIUS', () => {
-    it('returns the value of the RADIUS const', () => {
-      expect(CityCircle.RADIUS).toEqual(19);
+  describe('.DEFAULT_RADIUS', () => {
+    it('returns the value of the DEFAULT_RADIUS const', () => {
+      expect(CityCircle.DEFAULT_RADIUS).toEqual(19);
     });
   });
 

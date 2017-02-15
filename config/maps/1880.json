@@ -1,0 +1,532 @@
+{
+ "hexes": {
+    "a": [3, 5, 7, 9, 11, 13, 15],
+    "b": [4, 6, 8, 10, 12, 14],
+    "c": [3, 5, 7, 9, 11, 13, 15],
+    "d": [4, 6, 8, 10, 12, 14],
+    "e": [3, 5, 7, 9, 11, 13, 15],
+    "f": [2, 4, 6, 8, 10, 12, 14],
+    "g": [1, 3, 5, 7, 9, 11, 13, 15],
+    "h": [2, 4, 6, 8, 10, 12, 14],
+    "i": [1, 3, 5, 7, 9, 11, 13, 15],
+    "j": [2, 4, 6, 8, 10, 12, 14, 16],
+    "k": [1, 3, 5, 7, 9, 11, 13, 15],
+    "l": [2, 4, 6, 8, 10, 12, 14, 16],
+    "m": [1, 3, 5, 7, 9, 11, 13, 15],
+    "n": [2, 4, 6, 8, 10, 12, 14, 16],
+    "o": [1, 3, 5, 7, 9, 11, 13, 15],
+    "p": [2, 4, 6, 8, 10, 12, 14],
+    "q": [7, 13, 15]
+  },
+  "tileCosts": {
+    "b4": "mountain",
+    "c3": "mountain",
+    "c5": "mountain",
+    "c15": "mountain",
+    "d4": "mountain",
+    "d6": "mountain",
+    "d8": "mountain",
+    "e3": "mountain",
+    "e5": "mountain",
+    "e7": "mountain",
+    "f6": "mountain",
+    "g1": "river",
+    "g3": "river",
+    "g5": "mountain-river",
+    "g11": "river",
+    "h2": "mountain",
+    "h4": "river",
+    "h10": "river",
+    "i3": "mountain",
+    "i5": "river",
+    "i7": "mountain-river",
+    "i9": "river",
+    "j2": "mountain-river",
+    "j4": "mountain",
+    "j6": "mountain",
+    "j8": "mountain",
+    "j14": "river",
+    "k3": "mountain",
+    "k5": "mountain",
+    "k7": "mountain",
+    "k9": "mountain",
+    "k13": "river",
+    "l2": "big-mountain",
+    "l4": "mountain",
+    "l6": "mountain",
+    "l8": "mountain-river",
+    "l10": "river",
+    "l12": "river",
+    "m1": "big-mountain",
+    "m5": "mountain",
+    "m7": "river",
+    "n2": "big-mountain",
+    "n4": "river",
+    "n6": "river",
+    "n8": "mountain",
+    "o1": "big-mountain-river",
+    "o3": "river",
+    "o7": "mountain",
+    "o9": "mountain",
+    "o15": "mountain",
+    "p2": "big-mountain",
+    "p4": "big-mountain",
+    "p10": "mountain"
+  },
+  "tileCostTypes": {
+    "big-mountain": {
+      "amount": 40,
+      "color": "#f86",
+      "shape": "triangle"
+    },
+    "mountain": {
+      "amount": 30,
+      "color": "#f86",
+      "shape": "triangle"
+    },
+    "river": {
+      "amount": 20,
+      "color": "#aaf",
+      "shape": "square"
+    },
+    "big-mountain-river": {
+      "amount": 60,
+      "color": "#aaf",
+      "shape": "triangle"
+    },
+    "mountain-river": {
+      "amount": 50,
+      "color": "#aaf",
+      "shape": "triangle"
+    }
+  },
+  "mediumCities": {
+    "b14": 1,
+    "e9": 1,
+    "f6": 1,
+    "h8": 2,
+    "l14": 1,
+    "n4": 2,
+    "n10": 1,
+    "o7": 1
+  },
+  "towns": {
+    "a7": 1,
+    "b12": 1,
+    "c7": 1,
+    "d4": 1,
+    "d14": 1,
+    "g9": 1,
+    "g11": 1,
+    "g15": 1,
+    "h12": 2,
+    "j8": 2,
+    "j14": 1,
+    "k5": 1,
+    "k7": 1,
+    "l12": 2,
+    "l16": 1,
+    "m5": 1,
+    "m15": 1,
+    "o3": 2,
+    "o11": 2,
+    "o15": 1,
+    "p4": 1,
+    "p6": 1,
+    "p10": 1
+  },
+  "cities": {
+    "a5": 1,
+    "b8": 1,
+    "c9": 1,
+    "c11": 1,
+    "d12": 2,
+    "e13": 1,
+    "f4": 2,
+    "f10": 1,
+    "h6": 1,
+    "h10": 1,
+    "h14": 1,
+    "i9": 2,
+    "j2": 1,
+    "j6": 1,
+    "j12": 1,
+    "k13": 1,
+    "k15": 1,
+    "l10": 1,
+    "m3": 1,
+    "m7": 1,
+    "n12": 2,
+    "o5": 1,
+    "p8": 1,
+    "p12": 1,
+    "p14": 1
+  },
+  "names": {
+    "a5": "Qiqihar",
+    "a15": "Vladivostok",
+    "b8": "Harbin",
+    "c9": "Changchun",
+    "c11": "Jilin City",
+    "d12": "Shenyang / Fushun",
+    "e13": "Dalian",
+    "f4": "Hohhot / Datong",
+    "f8": "Beijing",
+    "f10": "Tanjin",
+    "h6": "Taiyuan",
+    "h10": "Jinan",
+    "h14": "Quingdao",
+    "i1": "Urumqi",
+    "i9": "Kaifeng / Zhengzhou",
+    "j2": "Lanzhou",
+    "j6": "Xi'an",
+    "j12": "Hefei",
+    "k1": "Lhasa",
+    "k13": "Nanjing",
+    "k15": "Shanghai",
+    "l10": "Wuhan",
+    "m3": "Chengdu",
+    "m7": "Chongqing",
+    "n12": "Changsha / Nanchang",
+    "n16": "Taiwan",
+    "o5": "Kunming",
+    "p8": "Nanning",
+    "p12": "Macau",
+    "p14": "Guangzhou",
+    "q13": "Haikou"
+  },
+  "dynamicValues": {
+    "a3": { "values": { "yellow": 20, "green": 30, "brown": 40, "gray": 50 } },
+    "a15": { "values": { "yellow": 10, "green": 20, "brown": 30, "gray": 40 } },
+    "i1": { "values": { "yellow": 10, "green": 20, "brown": 30, "gray": 40 } },
+    "k1": { "values": { "yellow": 0, "green": 0, "brown": 0, "gray": 80 } },
+    "n16": { "values": { "yellow": 30, "green": 30, "brown": 0, "gray": 0 } },
+    "q7": { "values": { "yellow": 30, "green": 40, "brown": 50, "gray": 60 } },
+    "q13": { "values": { "yellow": 20, "green": 30, "brown": 40, "gray": 50 } },
+    "q15": { "values": { "yellow": 20, "green": 30, "brown": 10, "gray": 70 } }
+  },
+  "preplacedTile": {
+    "f8": {
+      "color": "yellow",
+      "label": "B",
+      "spots": 4,
+      "spotLocations": [0, 1, 3, 4],
+      "type": "DistinctCity",
+      "value": 20
+    },
+    "f12": {
+      "color": "lightblue",
+      "track": [
+        [1, 3]
+      ],
+      "value": -10,
+      "valuePosition": 1.5
+    },
+    "f14": {
+      "color": "lightblue",
+      "track": [
+        [2, 4]
+      ],
+      "value": -10
+    },
+    "i15": {
+      "color": "lightblue",
+      "track": [
+        [2, 5]
+      ],
+      "value": -10
+    },
+    "j16": {
+      "color": "lightblue",
+      "track": [
+        [2, 4]
+      ]
+    }
+  },
+  "offBoards": {
+    "a3": { "exits": [0, 5], "spots": 1 },
+    "a15": { "exits": [3, 4] },
+    "i1": { "exits": [0, 1, 5] },
+    "k1": { "exits": [0, 1, 5] },
+    "n16": { "color": "lightblue", "exits": [2, 3, 4] },
+    "q7": { "exits": [1, 2], "spots": 1 },
+    "q13": { "color": "lightblue", "exits": [1, 2] },
+    "q15": { "exits": [2], "spots": 1 }
+  },
+  "impassable": [
+    ["e11", "e13"]
+  ],
+  "tilePromotions": [
+    {
+      "hexes": [
+        "a7", "b12", "c7", "d4", "d14", "g9", "g11", "g15", "j14", "k5", "k7",
+        "l16", "m5", "m15", "o15", "p4", "p6", "p10"
+      ],
+      "promotions": [8850, 8851, 8852]
+    },
+    {
+      "hexes": ["h12", "j8", "l12", "o3", "o11"],
+      "promotions": [8854, 8855, 8856, 8857, 8858]
+    },
+    {
+      "hexes": ["b14", "e9", "f6", "l14", "n10", "o7"],
+      "promotions": [5, 6, 57, 8850, 8851, 8852]
+    },
+    {
+      "hexes": ["h8", "n4"],
+      "promotions": [235, 8854, 8855, 8856, 8857, 8858]
+    },
+    {
+      "hexes": [
+        "a5", "b8", "c9", "c11", "e13", "f10", "h6", "h10", "h14",
+        "j2", "j6", "j12", "k13", "l10", "m3", "m7", "o5", "p8", "p12",
+        "p14"
+      ],
+      "promotions": [5, 6, 57]
+    },
+    {
+      "hexes": ["d12", "f4", "i9", "n12"],
+      "promotions": [235]
+    },
+    {
+      "hexes": ["k15"],
+      "promotions": [8877]
+    },
+    {
+      "hexes": ["f8"],
+      "promotions": [8886]
+    },
+    {
+      "hexes": null,
+      "promotions": [7, 8, 9]
+    }
+  ],
+  "tileManifest": {
+    "5": {
+      "count": 6,
+      "promotions": [14, 15, 619]
+    },
+    "6": {
+      "count": 6,
+      "promotions": [14, 15, 619]
+    },
+    "7": {
+      "count": 5,
+      "promotions": [18, 26, 27, 28, 29, 30, 31]
+    },
+    "8": {
+      "count": 15,
+      "promotions": [16, 17, 19, 23, 24, 25, 28, 29, 30, 31]
+    },
+    "9": {
+      "count": 15,
+      "promotions": [18, 19, 20, 23, 24, 26, 27]
+    },
+    "14": {
+      "count": 4,
+      "promotions": [63, 611]
+    },
+    "15": {
+      "count": 8,
+      "promotions": [63, 611]
+    },
+    "16": {
+      "count": 2
+    },
+    "17": {
+      "count": 1
+    },
+    "18": {
+      "count": 1
+    },
+    "19": {
+      "count": 2
+    },
+    "20": {
+      "count": 2
+    },
+    "23": {
+      "count": 4
+    },
+    "24": {
+      "count": 4
+    },
+    "25": {
+      "count": 3
+    },
+    "26": {
+      "count": 2
+    },
+    "27": {
+      "count": 2
+    },
+    "28": {
+      "count": 2
+    },
+    "29": {
+      "count": 2
+    },
+    "30": {
+      "count": 1
+    },
+    "31": {
+      "count": 1
+    },
+    "57": {
+      "count": 6,
+      "promotions": [14, 15, 619]
+    },
+    "63": {
+      "count": 6,
+      "promotions": [455, 896]
+    },
+    "235": {
+      "count": 5,
+      "promotions": [8860, 8861, 8862, 8863, 8864, 8865]
+    },
+    "455": {
+      "count": 3
+    },
+    "611": {
+      "count": 3,
+      "promotions": [455, 896]
+    },
+    "619": {
+      "count": 4,
+      "promotions": [63, 611]
+    },
+    "887": {
+      "count": 5,
+      "promotions": [8871]
+    },
+    "888": {
+      "count": 3,
+      "promotions": [8871]
+    },
+    "895": {
+      "count": 3
+    },
+    "8850": {
+      "count": 5,
+      "promotions": [8866, 887, 888]
+    },
+    "8851": {
+      "count": 6,
+      "promotions": [8866, 887, 888]
+    },
+    "8852": {
+      "count": 6,
+      "promotions": [8866, 887, 888]
+    },
+    "8854": {
+      "count": 2
+    },
+    "8855": {
+      "count": 2
+    },
+    "8856": {
+      "count": 2
+    },
+    "8857": {
+      "count": 2
+    },
+    "8858": {
+      "count": 2
+    },
+    "8860": {
+      "count": 1,
+      "promotions": [8872, 8873, 8874]
+    },
+    "8861": {
+      "count": 1,
+      "promotions": [8872, 8873, 8874]
+    },
+    "8862": {
+      "count": 1,
+      "promotions": [8872, 8873, 8874]
+    },
+    "8863": {
+      "count": 1,
+      "promotions": [8872, 8873, 8874]
+    },
+    "8864": {
+      "count": 1,
+      "promotions": [8872, 8873, 8874]
+    },
+    "8865": {
+      "count": 1,
+      "promotions": [8872, 8873, 8874]
+    },
+    "8866": {
+      "count": 3,
+      "promotions": [8871]
+    },
+    "8871": {
+      "count": 3
+    },
+    "8872": {
+      "count": 2,
+      "promotions": [8875]
+    },
+    "8873": {
+      "count": 2,
+      "promotions": [8875]
+    },
+    "8874": {
+      "count": 2,
+      "promotions": [8875]
+    },
+    "8875": {
+      "count": 1
+    },
+    "8877": {
+      "count": 1,
+      "promotions": [8878]
+    },
+    "8878": {
+      "count": 1,
+      "promotions": [8879]
+    },
+    "8879": {
+      "count": 1,
+      "promotions": [8880]
+    },
+    "8880": {
+      "count": 1
+    },
+    "8886": {
+      "count": 1,
+      "promotions": [8887]
+    },
+    "8887": {
+      "count": 1,
+      "promotions": [8888]
+    },
+    "8888": {
+      "count": 1
+    }
+  },
+  "companies": {
+    "1": { "home": "a3", "tokens": 1 },
+    "2": { "home": "e13", "tokens": 1 },
+    "3": { "home": "h6", "tokens": 1 },
+    "4": { "home": "h14", "tokens": 1 },
+    "5": { "home": "q15", "tokens": 1 },
+    "6": { "home": "p12", "tokens": 1 },
+    "7": { "home": "q7", "tokens": 1 },
+    "BCR": { "home": "m3", "tokens": 3 },
+    "BZU": { "home": "b8", "tokens": 3 },
+    "CKR": { "home": "o5", "tokens": 3 },
+    "HKR": { "home": "k15", "tokens": 3 },
+    "JGG": { "home": "f8", "index": 4, "tokens": 3 },
+    "JHA": { "home": "f8", "index": 1, "tokens": 3 },
+    "JHU": { "home": "f8", "index": 0, "tokens": 3 },
+    "JLR": { "home": "f8", "index": 3, "tokens": 3 },
+    "LHR": { "home": "j2", "tokens": 3 },
+    "NJR": { "home": "k13", "tokens": 3 },
+    "NXR": { "home": "j6", "tokens": 3 },
+    "QSR": { "home": "d12", "tokens": 3 },
+    "SCR": { "home": "n12", "tokens": 3 },
+    "WNR": { "home": "l10", "tokens": 3 }
+  }
+}

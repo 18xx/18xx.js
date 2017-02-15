@@ -63,6 +63,23 @@
       "shape": "square"
     }
   },
+  "cities": {
+    "b5": 1,
+    "b17": 1,
+    "c8": 1,
+    "c14": 1,
+    "c22": 1,
+    "d7": 1,
+    "d19": 1,
+    "f3": 1,
+    "f13": 1,
+    "f19": 1,
+    "g6": 1,
+    "h3": 1,
+    "h9": 1,
+    "i12": 1,
+    "i16": 1
+  },
   "names": {
     "a20": "Montreal",
     "a28": "Maritime Prov.",
@@ -153,7 +170,7 @@
         }
       },
       "label": "Toronto",
-      "labelPosition": { "x": 4, "y": 92 },
+      "labelPosition": 3.5,
       "spots": 0,
       "trackToCenter": [0, 3, 5],
       "type": "City"
@@ -202,7 +219,7 @@
         "position": { "x": 5, "y": 35 }
       },
       "label": "NY",
-      "labelPosition": { "x": 109, "y": 94 },
+      "labelPosition": 5.5,
       "spots": 2,
       "spotLocations": [1, 4],
       "type": "DistinctCity",

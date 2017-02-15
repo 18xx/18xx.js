@@ -7,9 +7,10 @@ import { TileElement } from './tile';
 
 import Point from '../point';
 
-const RADIUS: number = 10;
+const DEFAULT_RADIUS: number = 10;
 
 export interface TownProps {
+  borderColor?: string;
   points: List<Point>;
 }
 
@@ -24,14 +25,16 @@ implements Station, TileElement {
     );
   }
 
-  private drawCircle(point: Point): ReactElement<any> {
+  protected drawCircle(point: Point): ReactElement<any> {
     return (
       <circle
         key={`${point.x}-${point.y}`}
         cx={point.x}
         cy={point.y}
         fill='black'
-        r={RADIUS}
+        r={DEFAULT_RADIUS}
+        strokeWidth={2}
+        stroke={this.props.borderColor}
       />
     );
   }

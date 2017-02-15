@@ -7,7 +7,7 @@ import Token from './token';
 
 import Point from '../point';
 
-const RADIUS: number = 19;
+const DEFAULT_RADIUS: number = 19;
 const STROKE_WIDTH: number = 2;
 
 export interface CityCircleProps {
@@ -15,18 +15,27 @@ export interface CityCircleProps {
   readonly hex?: string;
   readonly onContextMenu?: any;
   readonly point: Point;
+  readonly radius?: number;
   readonly token?: ReactElement<Token>;
 }
 
 export default class CityCircle
 extends React.Component<CityCircleProps, undefined>
 implements MapHexElement, TileElement {
-  static get RADIUS(): number {
-    return RADIUS;
+  public static defaultProps: CityCircleProps = {
+    radius: DEFAULT_RADIUS,
+  } as CityCircleProps;
+
+  static get DEFAULT_RADIUS(): number {
+    return DEFAULT_RADIUS;
   }
 
   static get STROKE_WIDTH(): number {
     return STROKE_WIDTH;
+  }
+
+  get radius(): number {
+    return this.props.radius;
   }
 
   get point(): Point {
@@ -34,15 +43,16 @@ implements MapHexElement, TileElement {
   }
 
   public render(): ReactElement<CityCircle> {
+    const r: number = this.radius + STROKE_WIDTH / 2;
     return (
       <svg
-      x={this.point.x - RADIUS}
-      y={this.point.y - RADIUS}
+      x={this.point.x - r}
+      y={this.point.y - r}
       onContextMenu={ this.props.onContextMenu }>
         <circle
-          cx={RADIUS + STROKE_WIDTH / 2}
-          cy={RADIUS + STROKE_WIDTH / 2}
-          r={RADIUS}
+          cx={r}
+          cy={r}
+          r={this.radius}
           fill='white'
           stroke='#000'
           strokeWidth={STROKE_WIDTH}

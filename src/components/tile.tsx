@@ -44,16 +44,20 @@ export default class Tile extends React.Component<TileProps, undefined> {
     return TILE_ORDER;
   }
 
-  get hexColor(): string {
-    let result: string = this.color;
-    if (this.color === 'green') {
+  public static modifiedHexColor(color: string): string {
+    let result: string = color;
+    if (color === 'green') {
       result = 'limegreen';
-    } else if (this.color === 'brown') {
+    } else if (color === 'brown') {
       result = '#b0763f';
-    } else if (this.color === 'gray') {
+    } else if (color === 'gray') {
       result = '#bbb';
     }
     return result;
+  }
+
+  get hexColor(): string {
+    return Tile.modifiedHexColor(this.color);
   }
 
   public get color(): string {

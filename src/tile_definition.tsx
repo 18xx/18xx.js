@@ -25,9 +25,10 @@ export interface TileDefinitionInput {
   readonly cost?: TileDefinitionCost;
   readonly dynamicValues?: DynamicValuesProps;
   readonly label?: string;
-  readonly labelPosition?: PointDefinition;
+  readonly labelPosition?: number;
   readonly num: string;
   readonly privateReservation?: string;
+  readonly numPosition?: number;
   readonly rotations?: number;
   readonly spots?: number;
   readonly spotLocations?: number[];
@@ -36,6 +37,7 @@ export interface TileDefinitionInput {
   readonly trackToCenter?: number[];
   readonly type?: TileType;
   readonly value?: number;
+  readonly valuePosition?: number;
 }
 
 export default class TileDefinition {
@@ -59,12 +61,16 @@ export default class TileDefinition {
     return this.definition.label;
   }
 
-  public get labelPosition(): PointDefinition {
+  public get labelPosition(): number {
     return this.definition.labelPosition;
   }
 
   public get num(): string {
     return this.definition.num;
+  }
+
+  public get numPosition(): number {
+    return this.definition.numPosition;
   }
 
   public get privateReservation(): string {
@@ -101,6 +107,10 @@ export default class TileDefinition {
 
   public get value(): number {
     return this.definition.value;
+  }
+
+  public get valuePosition(): number {
+    return this.definition.valuePosition;
   }
 
   public get allRotations(): List<ReactElement<Tile>> {

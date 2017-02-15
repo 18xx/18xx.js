@@ -103,10 +103,10 @@ export default class Game
     );
   }
 
-  public onRightClickCity = (city: City, index: number): void => {
+  public onRightClickCity = (hex: string, index: number): void => {
     this.store.dispatch({
       index,
-      hex: city.props.hex,
+      hex,
       type: 'SHOW_AVAILABLE_TOKENS',
     });
   }
