@@ -4,6 +4,8 @@ exports[`Town #toString returns the svg for a circle centered on the point 1`] =
     cx={4}
     cy={6}
     fill="black"
-    r={10} />
+    r={10}
+    stroke={undefined}
+    strokeWidth={2} />
 </g>
 `;

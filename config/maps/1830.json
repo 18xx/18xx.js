@@ -187,7 +187,7 @@
         "position": { "x": 5, "y": 35 }
       },
       "label": "NY",
-      "labelPosition": { "x": 109, "y": 94 },
+      "labelPosition": 5.5,
       "spots": 2,
       "spotLocations": [1, 4],
       "type": "DistinctCity",

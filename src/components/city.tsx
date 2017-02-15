@@ -49,10 +49,10 @@ implements Station {
     } else if (num === 2) {
       const background: ReactElement<any> = (
         <rect
-          x={Tile.CENTER.x - CityCircle.RADIUS}
-          y={Tile.CENTER.y - CityCircle.RADIUS}
-          width={CityCircle.RADIUS * 2}
-          height={CityCircle.RADIUS * 2 + CityCircle.STROKE_WIDTH}
+          x={Tile.CENTER.x - CityCircle.DEFAULT_RADIUS}
+          y={Tile.CENTER.y - CityCircle.DEFAULT_RADIUS}
+          width={CityCircle.DEFAULT_RADIUS * 2}
+          height={CityCircle.DEFAULT_RADIUS * 2 + CityCircle.STROKE_WIDTH}
           fill='black'
         />
       );
@@ -60,14 +60,14 @@ implements Station {
         this.buildCircle(
           0,
           new Point(
-            Tile.CENTER.x - CityCircle.RADIUS,
+            Tile.CENTER.x - CityCircle.DEFAULT_RADIUS,
             Tile.CENTER.y
           )
         ),
         this.buildCircle(
           1,
           new Point(
-            Tile.CENTER.x + CityCircle.RADIUS,
+            Tile.CENTER.x + CityCircle.DEFAULT_RADIUS,
             Tile.CENTER.y
           )
         )
@@ -81,28 +81,28 @@ implements Station {
     } else if (num === 3) {
       const hexPoints: List<Point> = List([
         new Point(
-          Tile.CENTER.x - CityCircle.RADIUS + 8,
-          Tile.CENTER.y - 2 * CityCircle.RADIUS
+          Tile.CENTER.x - CityCircle.DEFAULT_RADIUS + 8,
+          Tile.CENTER.y - 2 * CityCircle.DEFAULT_RADIUS
         ),
         new Point(
-          Tile.CENTER.x - 2 * CityCircle.RADIUS + 1,
-          Tile.CENTER.y - CityCircle.RADIUS
+          Tile.CENTER.x - 2 * CityCircle.DEFAULT_RADIUS + 1,
+          Tile.CENTER.y - CityCircle.DEFAULT_RADIUS
         ),
         new Point(
-          Tile.CENTER.x - 2 * CityCircle.RADIUS + 1,
-          Tile.CENTER.y + CityCircle.RADIUS
+          Tile.CENTER.x - 2 * CityCircle.DEFAULT_RADIUS + 1,
+          Tile.CENTER.y + CityCircle.DEFAULT_RADIUS
         ),
         new Point(
-          Tile.CENTER.x - CityCircle.RADIUS + 8,
-          Tile.CENTER.y + 2 * CityCircle.RADIUS
+          Tile.CENTER.x - CityCircle.DEFAULT_RADIUS + 8,
+          Tile.CENTER.y + 2 * CityCircle.DEFAULT_RADIUS
         ),
         new Point(
-          Tile.CENTER.x + CityCircle.RADIUS + 4,
-          Tile.CENTER.y + CityCircle.RADIUS
+          Tile.CENTER.x + CityCircle.DEFAULT_RADIUS + 4,
+          Tile.CENTER.y + CityCircle.DEFAULT_RADIUS
         ),
         new Point(
-          Tile.CENTER.x + CityCircle.RADIUS + 4,
-          Tile.CENTER.y - CityCircle.RADIUS
+          Tile.CENTER.x + CityCircle.DEFAULT_RADIUS + 4,
+          Tile.CENTER.y - CityCircle.DEFAULT_RADIUS
         ),
       ]);
 
@@ -114,21 +114,21 @@ implements Station {
         this.buildCircle(
           0,
           new Point(
-            Tile.CENTER.x - CityCircle.RADIUS + 2,
-            Tile.CENTER.y - CityCircle.RADIUS
+            Tile.CENTER.x - CityCircle.DEFAULT_RADIUS + 2,
+            Tile.CENTER.y - CityCircle.DEFAULT_RADIUS
           )
         ),
         this.buildCircle(
           1,
           new Point(
-            Tile.CENTER.x - CityCircle.RADIUS + 2,
-            Tile.CENTER.y + CityCircle.RADIUS
+            Tile.CENTER.x - CityCircle.DEFAULT_RADIUS + 2,
+            Tile.CENTER.y + CityCircle.DEFAULT_RADIUS
           )
         ),
         this.buildCircle(
           2,
           new Point(
-            Tile.CENTER.x + CityCircle.RADIUS - 2,
+            Tile.CENTER.x + CityCircle.DEFAULT_RADIUS - 2,
             Tile.CENTER.y
           )
         ),
@@ -143,36 +143,36 @@ implements Station {
     } else if (num === 4) {
       const hexPoints: List<Point> = List([
         new Point(
-          Tile.CENTER.x - CityCircle.RADIUS,
-          Tile.CENTER.y - 2 * CityCircle.RADIUS
+          Tile.CENTER.x - CityCircle.DEFAULT_RADIUS,
+          Tile.CENTER.y - 2 * CityCircle.DEFAULT_RADIUS
         ),
         new Point(
-          Tile.CENTER.x - 2 * CityCircle.RADIUS,
-          Tile.CENTER.y - CityCircle.RADIUS
+          Tile.CENTER.x - 2 * CityCircle.DEFAULT_RADIUS,
+          Tile.CENTER.y - CityCircle.DEFAULT_RADIUS
         ),
         new Point(
-          Tile.CENTER.x - 2 * CityCircle.RADIUS,
-          Tile.CENTER.y + CityCircle.RADIUS
+          Tile.CENTER.x - 2 * CityCircle.DEFAULT_RADIUS,
+          Tile.CENTER.y + CityCircle.DEFAULT_RADIUS
         ),
         new Point(
-          Tile.CENTER.x - CityCircle.RADIUS,
-          Tile.CENTER.y + 2 * CityCircle.RADIUS
+          Tile.CENTER.x - CityCircle.DEFAULT_RADIUS,
+          Tile.CENTER.y + 2 * CityCircle.DEFAULT_RADIUS
         ),
         new Point(
-          Tile.CENTER.x + CityCircle.RADIUS,
-          Tile.CENTER.y + 2 * CityCircle.RADIUS
+          Tile.CENTER.x + CityCircle.DEFAULT_RADIUS,
+          Tile.CENTER.y + 2 * CityCircle.DEFAULT_RADIUS
         ),
         new Point(
-          Tile.CENTER.x + 2 * CityCircle.RADIUS,
-          Tile.CENTER.y + CityCircle.RADIUS
+          Tile.CENTER.x + 2 * CityCircle.DEFAULT_RADIUS,
+          Tile.CENTER.y + CityCircle.DEFAULT_RADIUS
         ),
         new Point(
-          Tile.CENTER.x + 2 * CityCircle.RADIUS,
-          Tile.CENTER.y - CityCircle.RADIUS
+          Tile.CENTER.x + 2 * CityCircle.DEFAULT_RADIUS,
+          Tile.CENTER.y - CityCircle.DEFAULT_RADIUS
         ),
         new Point(
-          Tile.CENTER.x + CityCircle.RADIUS,
-          Tile.CENTER.y - 2 * CityCircle.RADIUS
+          Tile.CENTER.x + CityCircle.DEFAULT_RADIUS,
+          Tile.CENTER.y - 2 * CityCircle.DEFAULT_RADIUS
         ),
       ]);
 
@@ -184,29 +184,29 @@ implements Station {
         this.buildCircle(
           0,
           new Point(
-            Tile.CENTER.x - CityCircle.RADIUS,
-            Tile.CENTER.y - CityCircle.RADIUS
+            Tile.CENTER.x - CityCircle.DEFAULT_RADIUS,
+            Tile.CENTER.y - CityCircle.DEFAULT_RADIUS
           )
         ),
         this.buildCircle(
           1,
           new Point(
-            Tile.CENTER.x - CityCircle.RADIUS,
-            Tile.CENTER.y + CityCircle.RADIUS
+            Tile.CENTER.x - CityCircle.DEFAULT_RADIUS,
+            Tile.CENTER.y + CityCircle.DEFAULT_RADIUS
           )
         ),
         this.buildCircle(
           2,
           new Point(
-            Tile.CENTER.x + CityCircle.RADIUS,
-            Tile.CENTER.y - CityCircle.RADIUS
+            Tile.CENTER.x + CityCircle.DEFAULT_RADIUS,
+            Tile.CENTER.y - CityCircle.DEFAULT_RADIUS
           )
         ),
         this.buildCircle(
           3,
           new Point(
-            Tile.CENTER.x + CityCircle.RADIUS,
-            Tile.CENTER.y + CityCircle.RADIUS
+            Tile.CENTER.x + CityCircle.DEFAULT_RADIUS,
+            Tile.CENTER.y + CityCircle.DEFAULT_RADIUS
           )
         ),
       ]);
@@ -222,6 +222,10 @@ implements Station {
     }
 
     return result;
+  }
+
+  protected get cityCircleRadius(): number {
+    return CityCircle.DEFAULT_RADIUS;
   }
 
   protected buildCircle(index: number, point: Point): ReactElement<CityCircle> {
@@ -240,6 +244,7 @@ implements Station {
         point={point}
         onContextMenu={fn}
         token={this.buildToken(index, point)}
+        radius={this.cityCircleRadius}
       />
     );
   }

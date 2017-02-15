@@ -14,7 +14,11 @@ const allTiles: List<TileDefinitionInput> =
 
   export default class AllTiles extends React.Component<undefined, undefined> {
   public get tiles(): any {
-    return allTiles.map(t => new TileDefinition(t).tile(0));
+    return allTiles.map(t =>
+      <div key={t.num}>
+        {new TileDefinition(t).allRotations}
+      </div>
+    );
   }
 
   public render(): ReactElement<AllTiles> {

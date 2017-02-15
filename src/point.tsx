@@ -25,4 +25,8 @@ export default class Point {
   public toString(): string {
     return `${this.x},${this.y}`;
   }
+
+  public isAtCenterX(): boolean {
+    return (Math.abs(this.x - Tile.CENTER.x) < 0.001);
+  }
 }

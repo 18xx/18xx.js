@@ -88,8 +88,9 @@ export default class TileFactory {
         attributes.points = result;
         break;
       case 'Town':
+        klass = Town;
+        attributes.borderColor = Tile.modifiedHexColor(this.definition.color);
         if (this.track) {
-          klass = Town;
           let midpointPosition: number = 3;
           if (this.track.size === 1) {
             midpointPosition = 1;
@@ -98,8 +99,7 @@ export default class TileFactory {
             track => track.midpoints(midpointPosition).get(0)
           ).toList();
         } else {
-          klass = City;
-          attributes.num = 0;
+          attributes.points = [Tile.CENTER];
         }
         break;
       default:
@@ -129,9 +129,9 @@ export default class TileFactory {
       let point: Point;
 
       if (this.definition.labelPosition) {
-        point = new Point(
-          this.definition.labelPosition.x,
-          this.definition.labelPosition.y
+        point = this.pointPosition(
+          this.definition.labelPosition,
+          12
         );
       }
 
@@ -173,15 +173,25 @@ export default class TileFactory {
   public get tileNumber(): ReactElement<TileNumber> {
     if (this.definition.num) {
       let orientation: number;
+      let position: Point;
 
       if (this.definition.rotations !== 1) {
         orientation = this.rotation;
       }
+
+      if (this.definition.numPosition) {
+        position = this.pointPosition(
+          this.definition.numPosition,
+          6
+        );
+      }
+
       return (
         <TileNumber
           key='tile-number'
           num={this.definition.num}
-          orientation={orientation} />
+          orientation={orientation}
+          point={position} />
       );
     }
   }
@@ -230,10 +240,48 @@ export default class TileFactory {
       position = Tile.CENTER;
     }
 
+    if (this.definition.valuePosition) {
+      position = this.pointPosition(
+        this.definition.valuePosition,
+        0,
+        Tile.HEIGHT / 2 - 14
+      );
+    }
+
     if (this.definition.value) {
       return (
         <Value key='value' amount={this.definition.value} position={position} />
       );
     }
+  }
+
+  private pointPosition(
+    radians: number,
+    adjustY: number = 0,
+    distance: number = null,
+  ): Point {
+    if (!distance) {
+      distance = Tile.HEIGHT / 2 - 2;
+    }
+    const startPoint: Point = Point.fromCenter(
+      radians + this.rotation,
+      distance
+    );
+    const x: number = startPoint.x;
+    let y: number = startPoint.y;
+
+    if (y < Tile.CENTER.y) {
+      y += adjustY;
+    }
+
+    if (startPoint.isAtCenterX()) {
+      if (y < Tile.CENTER.y) {
+        y += adjustY * 2 / 3;
+      } else {
+        y -= adjustY * 2 / 3;
+      }
+    }
+
+    return new Point(x, y);
   }
 }

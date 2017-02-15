@@ -21,15 +21,15 @@ extends React.Component<TokenProps, undefined> {
     return (
       <svg opacity={this.opacity} width='40' height='40' key={this.props.text}>
         <circle
-          cx={CityCircle.RADIUS + CityCircle.STROKE_WIDTH / 2}
-          cy={CityCircle.RADIUS + CityCircle.STROKE_WIDTH / 2}
-          r={CityCircle.RADIUS - 3}
+          cx={CityCircle.DEFAULT_RADIUS + CityCircle.STROKE_WIDTH / 2}
+          cy={CityCircle.DEFAULT_RADIUS + CityCircle.STROKE_WIDTH / 2}
+          r={CityCircle.DEFAULT_RADIUS - 3}
           fill={this.props.primaryColor}
         />
 
         <rect
           x={4}
-          y={CityCircle.RADIUS - 5}
+          y={CityCircle.DEFAULT_RADIUS - 5}
           width={32}
           height={12}
           fill={this.props.secondaryColor}
@@ -39,8 +39,8 @@ extends React.Component<TokenProps, undefined> {
 
         <text
           textAnchor='middle'
-          x={CityCircle.RADIUS + 1}
-          y={CityCircle.RADIUS + 5}
+          x={CityCircle.DEFAULT_RADIUS + 1}
+          y={CityCircle.DEFAULT_RADIUS + 5}
           fontSize={10}
           stroke='none'
           fill={this.props.textColor}>

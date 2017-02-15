@@ -18,37 +18,37 @@ export default class DoubleOCity extends City {
 
       const circles: List<ReactElement<CityCircle>> = List([
         this.buildCircle(0, new Point(
-          Tile.CENTER.x - (CityCircle.RADIUS + offset),
-          Tile.CENTER.y - CityCircle.RADIUS
+          Tile.CENTER.x - (CityCircle.DEFAULT_RADIUS + offset),
+          Tile.CENTER.y - CityCircle.DEFAULT_RADIUS
         )),
         this.buildCircle(2, new Point(
-          Tile.CENTER.x - (CityCircle.RADIUS + offset),
-          Tile.CENTER.y + CityCircle.RADIUS
+          Tile.CENTER.x - (CityCircle.DEFAULT_RADIUS + offset),
+          Tile.CENTER.y + CityCircle.DEFAULT_RADIUS
         )),
         this.buildCircle(1, new Point(
-          Tile.CENTER.x + (CityCircle.RADIUS + offset),
-          Tile.CENTER.y - CityCircle.RADIUS
+          Tile.CENTER.x + (CityCircle.DEFAULT_RADIUS + offset),
+          Tile.CENTER.y - CityCircle.DEFAULT_RADIUS
         )),
         this.buildCircle(3, new Point(
-          Tile.CENTER.x + (CityCircle.RADIUS + offset),
-          Tile.CENTER.y + CityCircle.RADIUS
+          Tile.CENTER.x + (CityCircle.DEFAULT_RADIUS + offset),
+          Tile.CENTER.y + CityCircle.DEFAULT_RADIUS
         )),
       ]);
 
       const background: List<ReactElement<any>> = List([
         <rect
           key='bg-1'
-          x={Tile.CENTER.x - CityCircle.RADIUS * 2 - offset}
-          y={Tile.CENTER.y - CityCircle.RADIUS}
-          width={CityCircle.RADIUS * 2}
-          height={CityCircle.RADIUS * 2 + CityCircle.STROKE_WIDTH}
+          x={Tile.CENTER.x - CityCircle.DEFAULT_RADIUS * 2 - offset}
+          y={Tile.CENTER.y - CityCircle.DEFAULT_RADIUS}
+          width={CityCircle.DEFAULT_RADIUS * 2}
+          height={CityCircle.DEFAULT_RADIUS * 2 + CityCircle.STROKE_WIDTH}
           fill='black' />,
         <rect
           key='bg-2'
           x={Tile.CENTER.x + offset}
-          y={Tile.CENTER.y - CityCircle.RADIUS}
-          width={CityCircle.RADIUS * 2}
-          height={CityCircle.RADIUS * 2 + CityCircle.STROKE_WIDTH}
+          y={Tile.CENTER.y - CityCircle.DEFAULT_RADIUS}
+          width={CityCircle.DEFAULT_RADIUS * 2}
+          height={CityCircle.DEFAULT_RADIUS * 2 + CityCircle.STROKE_WIDTH}
           fill='black'
         />,
       ]);

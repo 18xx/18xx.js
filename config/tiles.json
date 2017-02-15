@@ -359,8 +359,10 @@
   },
   {
     "color": "green",
-    "labelPosition": { "x": 5, "y": 95 },
+    "label": "OO",
+    "labelPosition": 3.5,
     "num": 59,
+    "numPosition": 4.5,
     "type": "DistinctCity",
     "spots": 2,
     "spotLocations": [0, 2],
@@ -378,7 +380,7 @@
   {
     "color": "brown",
     "label": "NY",
-    "labelPosition": { "x": 2, "y": 46 },
+    "labelPosition": 2.5,
     "num": 62,
     "rotations": 1,
     "spots": 2,
@@ -400,51 +402,70 @@
   },
   {
     "color": "brown",
+    "label": "OO",
+    "labelPosition": 2.5,
     "num": 64,
+    "numPosition": 5.5,
     "spots": 1,
     "track": [
       [0, 1],
       [2, 4]
     ],
     "type": "DoubleOCity",
-    "value": 50
+    "value": 50,
+    "valuePosition": 1.5
   },
   {
     "color": "brown",
+    "label": "OO",
+    "labelPosition": 1.5,
     "num": 65,
+    "numPosition": 5.5,
     "spots": 1,
     "track": [
       [0, 1],
       [3, 5]
     ],
     "type": "DoubleOCity",
-    "value": 50
+    "value": 50,
+    "valuePosition": 2.5
   },
   {
     "color": "brown",
+    "label": "OO",
+    "labelPosition": 3.5,
     "num": 66,
+    "numPosition": 5.5,
     "spots": 1,
     "track": [
       [0, 3],
       [1, 2]
     ],
     "type": "DoubleOCity",
-    "value": 50
+    "value": 50,
+    "valuePosition": 4.5
   },
   {
     "color": "brown",
+    "label": "OO",
+    "labelPosition": 0.5,
     "num": 67,
+    "numPosition": 5.5,
     "spots": 1,
     "track": [
       [0, 2],
       [1, 4]
     ],
     "type": "DoubleOCity",
-    "value": 50
+    "value": 50,
+    "valuePosition": 2.5
   },
   {
     "color": "brown",
+    "label": "OO",
+    "labelPosition": 1.5,
     "num": 68,
+    "numPosition": 5.5,
     "rotations": 3,
     "spots": 1,
     "track": [
@@ -452,7 +473,8 @@
       [1, 4]
     ],
     "type": "DoubleOCity",
-    "value": 50
+    "value": 50,
+    "valuePosition": 2.5
   },
   {
     "color": "yellow",
@@ -472,8 +494,7 @@
       [0, 2],
       [1, 3],
       [2, 3]
-    ],
-    "value": 10
+    ]
   },
   {
     "color": "green",
@@ -614,6 +635,7 @@
   {
     "color": "yellow",
     "num": 8852,
+    "rotations": 3,
     "type": "Town",
     "track": [[0, 3]],
     "value": 20
@@ -662,6 +684,7 @@
   {
     "color": "yellow",
     "num": 8858,
+    "rotations": 3,
     "type": "Town",
     "track": [
       [0, 2],
@@ -672,68 +695,87 @@
   {
     "color": "green",
     "label": "OO",
+    "labelPosition": 0.5,
     "num": 8860,
+    "numPosition": 3.5,
+    "rotations": 3,
     "type": "DoubleOCity",
     "track": [
       [0, 2],
       [3, 5]
     ],
-    "value": 40
+    "value": 40,
+    "valuePosition": 2.5
   },
   {
     "color": "green",
     "label": "OO",
+    "labelPosition": 2.5,
     "num": 8861,
+    "numPosition": 5.5,
     "type": "DoubleOCity",
     "track": [
       [0, 1],
       [3, 4]
     ],
-    "value": 40
+    "value": 40,
+    "valuePosition": 1.5
   },
   {
     "color": "green",
     "label": "OO",
+    "labelPosition": 3.5,
     "num": 8862,
+    "numPosition": 5.5,
     "type": "DoubleOCity",
     "track": [
       [0, 1],
       [2, 3]
     ],
-    "value": 40
+    "value": 40,
+    "valuePosition": 1.5
   },
   {
     "color": "green",
     "label": "OO",
+    "labelPosition": 3.5,
     "num": 8863,
+    "numPosition": 5.5,
     "type": "DoubleOCity",
     "track": [
       [0, 3],
       [1, 2]
     ],
-    "value": 40
+    "value": 40,
+    "valuePosition": 4.5
   },
   {
     "color": "green",
     "label": "OO",
+    "labelPosition": 0.5,
     "num": 8864,
+    "numPosition": 5.5,
     "type": "DoubleOCity",
     "track": [
       [0, 2],
       [4, 5]
     ],
-    "value": 40
+    "value": 40,
+    "valuePosition": 3.5
   },
   {
     "color": "green",
     "label": "OO",
+    "labelPosition": 2.5,
     "num": 8865,
+    "numPosition": 5.5,
     "type": "DoubleOCity",
     "track": [
       [0, 2],
       [3, 4]
     ],
-    "value": 40
+    "value": 40,
+    "valuePosition": 4.5
   },
   {
     "color": "green",
@@ -745,6 +787,7 @@
   {
     "color": "brown",
     "num": 8871,
+    "rotations": 1,
     "type": "Town",
     "trackToCenter": [0, 1, 2, 3, 4, 5],
     "value": 20
@@ -790,7 +833,7 @@
   {
     "color": "yellow",
     "label": "S",
-    "rotations": 3,
+    "rotations": 2,
     "num": 8877,
     "spots": 1,
     "type": "City",
@@ -818,7 +861,7 @@
     "value": 60
   },
   {
-    "color": "yellow",
+    "color": "green",
     "label": "B",
     "rotations": 1,
     "num": 8886,
@@ -860,7 +903,7 @@
   {
     "color": "gray",
     "label": "NY",
-    "labelPosition": { "x": 55.42562584220407, "y": 20 },
+    "labelPosition": 1.5,
     "num": "X30",
     "rotations": 1,
     "spots": 4,

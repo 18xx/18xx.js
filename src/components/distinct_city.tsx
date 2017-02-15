@@ -15,7 +15,10 @@ export default class DistinctCity extends City {
 
     let i: number = 0;
     for (const num of this.props.spotLocations) {
-      const cityPoint: Point = Point.fromCenter(num + this.rotation, 32);
+      const cityPoint: Point = Point.fromCenter(
+        num + this.rotation,
+        (Tile.WIDTH / 2) - this.cityCircleRadius - 4
+      );
 
       tileElements.push(
         <Line key={num + this.rotation}
@@ -33,5 +36,14 @@ export default class DistinctCity extends City {
 
   get rotation(): number {
     return this.props.rotation;
+  }
+
+  protected get cityCircleRadius(): number {
+    // TODO: This should be based on if two things are next to one another
+    if (this.props.spotLocations.length > 2) {
+      return 17;
+    } else {
+      return CityCircle.DEFAULT_RADIUS;
+    }
   }
 }
