@@ -42,8 +42,9 @@ extends React.Component<TokenProps, undefined> {
         <text
           textAnchor='middle'
           x={this.props.radius + 1}
-          y={this.props.radius + 5}
-          fontSize={10}
+          y={this.textY}
+          fontSize={this.fontSize}
+          fontWeight={this.fontWeight}
           stroke='none'
           fill={this.props.textColor}>
 
@@ -51,6 +52,34 @@ extends React.Component<TokenProps, undefined> {
         </text>
       </svg>
     );
+  }
+
+  private get isNumber(): boolean {
+    return !isNaN(parseInt(this.props.text, 10));
+  }
+
+  private get textY(): number {
+    let result: number = this.props.radius + 5;
+    if (this.isNumber) {
+      result += 4;
+    }
+    return result;
+  }
+
+  private get fontSize(): number {
+    let result: number = 10;
+    if (this.isNumber) {
+      result = 26;
+    }
+    return result;
+  }
+
+  private get fontWeight(): number {
+    let result: string = 'normal';
+    if (this.isNumber) {
+      result = 'bold';
+    }
+    return result;
   }
 
   private get opacity(): number {

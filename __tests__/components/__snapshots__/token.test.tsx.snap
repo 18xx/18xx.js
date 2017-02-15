@@ -19,6 +19,7 @@ exports[`Token #render() returns an svg represntation of the token 1`] = `
   <text
     fill="blue"
     fontSize={10}
+    fontWeight="normal"
     stroke="none"
     textAnchor="middle"
     x={20}
