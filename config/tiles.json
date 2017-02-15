@@ -191,6 +191,22 @@
     ]
   },
   {
+    "color": "green",
+    "num": 30,
+    "track": [
+      [0, 2],
+      [0, 5]
+    ]
+  },
+  {
+    "color": "green",
+    "num": 31,
+    "track": [
+      [0, 1],
+      [0, 4]
+    ]
+  },
+  {
     "color": "brown",
     "num": 39,
     "track": [
@@ -481,12 +497,30 @@
     "trackToCenter": [0, 1, 3]
   },
   {
+    "_TODO": "This should draw the second placeholder city",
+    "color": "yellow",
+    "label": "OO",
+    "num": 235,
+    "spots": 1,
+    "trackToCenter": [0],
+    "type": "City",
+    "value": 30
+  },
+  {
     "color": "brown",
     "num": 448,
     "spots": 2,
     "type": "City",
     "trackToCenter": [0, 1, 2, 3],
     "value": 40
+  },
+  {
+    "color": "gray",
+    "num": 455,
+    "spots": 3,
+    "type": "City",
+    "trackToCenter": [0, 1, 2, 3, 4],
+    "value": 50
   },
   {
     "color": "brown",
@@ -542,11 +576,276 @@
   },
   {
     "color": "green",
-    "num": 619,
+    "num": 887,
+    "type": "Town",
+    "trackToCenter": [0, 1, 2, 3],
+    "value": 20
+  },
+  {
+    "color": "green",
+    "num": 888,
+    "rotations": 3,
+    "type": "Town",
+    "trackToCenter": [0, 1, 3, 4],
+    "value": 20
+  },
+  {
+    "color": "gray",
+    "num": 895,
+    "spots": 3,
+    "type": "City",
+    "trackToCenter": [0, 1, 2, 3, 4, 5],
+    "value": 50
+  },
+  {
+    "color": "yellow",
+    "num": 8850,
+    "type": "Town",
+    "track": [[0, 1]],
+    "value": 20
+  },
+  {
+    "color": "yellow",
+    "num": 8851,
+    "type": "Town",
+    "track": [[0, 2]],
+    "value": 20
+  },
+  {
+    "color": "yellow",
+    "num": 8852,
+    "type": "Town",
+    "track": [[0, 3]],
+    "value": 20
+  },
+  {
+    "color": "yellow",
+    "num": 8854,
+    "type": "Town",
+    "track": [
+      [0, 3],
+      [1, 2]
+    ],
+    "value": 20
+  },
+  {
+    "color": "yellow",
+    "rotations": 3,
+    "num": 8855,
+    "type": "Town",
+    "track": [
+      [0, 3],
+      [1, 4]
+    ],
+    "value": 20
+  },
+  {
+    "color": "yellow",
+    "num": 8856,
+    "type": "Town",
+    "track": [
+      [0, 2],
+      [1, 3]
+    ],
+    "value": 20
+  },
+  {
+    "color": "yellow",
+    "num": 8857,
+    "type": "Town",
+    "track": [
+      [0, 3],
+      [1, 5]
+    ],
+    "value": 20
+  },
+  {
+    "color": "yellow",
+    "num": 8858,
+    "type": "Town",
+    "track": [
+      [0, 2],
+      [3, 5]
+    ],
+    "value": 20
+  },
+  {
+    "color": "green",
+    "label": "OO",
+    "num": 8860,
+    "type": "DoubleOCity",
+    "track": [
+      [0, 2],
+      [3, 5]
+    ],
+    "value": 40
+  },
+  {
+    "color": "green",
+    "label": "OO",
+    "num": 8861,
+    "type": "DoubleOCity",
+    "track": [
+      [0, 1],
+      [3, 4]
+    ],
+    "value": 40
+  },
+  {
+    "color": "green",
+    "label": "OO",
+    "num": 8862,
+    "type": "DoubleOCity",
+    "track": [
+      [0, 1],
+      [2, 3]
+    ],
+    "value": 40
+  },
+  {
+    "color": "green",
+    "label": "OO",
+    "num": 8863,
+    "type": "DoubleOCity",
+    "track": [
+      [0, 3],
+      [1, 2]
+    ],
+    "value": 40
+  },
+  {
+    "color": "green",
+    "label": "OO",
+    "num": 8864,
+    "type": "DoubleOCity",
+    "track": [
+      [0, 2],
+      [4, 5]
+    ],
+    "value": 40
+  },
+  {
+    "color": "green",
+    "label": "OO",
+    "num": 8865,
+    "type": "DoubleOCity",
+    "track": [
+      [0, 2],
+      [3, 4]
+    ],
+    "value": 40
+  },
+  {
+    "color": "green",
+    "num": 8866,
+    "type": "Town",
+    "trackToCenter": [0, 1, 2, 4],
+    "value": 20
+  },
+  {
+    "color": "brown",
+    "num": 8871,
+    "type": "Town",
+    "trackToCenter": [0, 1, 2, 3, 4, 5],
+    "value": 20
+  },
+  {
+    "color": "brown",
+    "label": "OO",
+    "num": 8872,
+    "spots": 2,
+    "type": "City",
+    "trackToCenter": [0, 1, 2, 3],
+    "value": 50
+  },
+  {
+    "color": "brown",
+    "label": "OO",
+    "num": 8873,
     "spots": 2,
     "type": "City",
     "trackToCenter": [0, 1, 2, 4],
+    "value": 50
+  },
+  {
+    "color": "brown",
+    "label": "OO",
+    "num": 8874,
+    "rotations": 3,
+    "spots": 2,
+    "type": "City",
+    "trackToCenter": [0, 1, 3, 4],
+    "value": 50
+  },
+  {
+    "color": "gray",
+    "label": "OO",
+    "num": 8875,
+    "rotations": 1,
+    "spots": 2,
+    "type": "City",
+    "trackToCenter": [0, 1, 2, 3, 4, 5],
+    "value": 60
+  },
+  {
+    "color": "yellow",
+    "label": "S",
+    "rotations": 3,
+    "num": 8877,
+    "spots": 1,
+    "type": "City",
+    "trackToCenter": [1, 4],
     "value": 30
+  },
+  {
+    "color": "green",
+    "label": "S",
+    "rotations": 1,
+    "num": 8878,
+    "spots": 2,
+    "type": "City",
+    "trackToCenter": [1, 2, 4, 5],
+    "value": 40
+  },
+  {
+    "color": "brown",
+    "label": "S",
+    "rotations": 1,
+    "num": 8879,
+    "spots": 2,
+    "type": "City",
+    "trackToCenter": [1, 2, 3, 4, 5],
+    "value": 60
+  },
+  {
+    "color": "yellow",
+    "label": "B",
+    "rotations": 1,
+    "num": 8886,
+    "spots": 6,
+    "spotLocations": [0, 1, 2, 3, 4, 5],
+    "type": "DistinctCity",
+    "value": 40
+  },
+  {
+    "color": "brown",
+    "label": "B",
+    "rotations": 1,
+    "num": 8887,
+    "spots": 6,
+    "spotLocations": [0, 1, 2, 3, 4, 5],
+    "type": "DistinctCity",
+    "value": 60
+  },
+  {
+    "color": "gray",
+    "label": "B",
+    "rotations": 1,
+    "num": 8888,
+    "spots": 6,
+    "spotLocations": [0, 1, 2, 3, 4, 5],
+    "type": "DistinctCity",
+    "value": 80
   },
   {
     "color": "yellow",

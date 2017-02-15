@@ -50,4 +50,8 @@ app.post('/update', (req, res) => {
   res.send(true);
 });
 
+app.get('/tiles', (req, res) => {
+  res.send(html(null));
+});
+
 app.listen(process.env.PORT || 3002);

@@ -88,14 +88,19 @@ export default class TileFactory {
         attributes.points = result;
         break;
       case 'Town':
-        klass = Town;
-        let midpointPosition: number = 3;
-        if (this.track.size === 1) {
-          midpointPosition = 1;
+        if (this.track) {
+          klass = Town;
+          let midpointPosition: number = 3;
+          if (this.track.size === 1) {
+            midpointPosition = 1;
+          }
+          attributes.points = this.track.map(
+            track => track.midpoints(midpointPosition).get(0)
+          ).toList();
+        } else {
+          klass = City;
+          attributes.num = 0;
         }
-        attributes.points = this.track.map(
-          track => track.midpoints(midpointPosition).get(0)
-        ).toList();
         break;
       default:
     }

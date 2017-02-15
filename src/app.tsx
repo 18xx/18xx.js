@@ -3,6 +3,7 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import '../css/all.css';
 
+import AllTiles from './components/all_tiles';
 import Game from './components/game';
 import { MapDefinition } from './map_builder';
 import { GameState, initialState } from './reducers/game';
@@ -14,26 +15,36 @@ let mapDef: MapDefinition;
 const container: HTMLElement = document.getElementById('container');
 const initialStateId: string = container.dataset.initialStateId;
 
-switch (container.dataset.gameName) {
-  case '1817':
-    mapDef = mapDef1817 as any;
-    break;
-  case '1830':
-    mapDef = mapDef1830 as any;
-    break;
-  default:
-    throw new Error(`Unsupported Game: ${container.dataset.gameName}`);
-}
+let init: Function;
+if (container.dataset.gameName !== 'null') {
+  switch (container.dataset.gameName) {
+    case '1817':
+      mapDef = mapDef1817 as any;
+      break;
+    case '1830':
+      mapDef = mapDef1830 as any;
+      break;
+    default:
+      throw new Error(`Unsupported Game: ${container.dataset.gameName}`);
+  }
 
-const init: Function = (state: GameState): void => {
-  ReactDOM.render(
-    <Game
-    initialState={state}
-    gameName={container.dataset.gameName}
-    mapDef={mapDef} />,
-    container
-  );
-};
+  init = (state: GameState): void => {
+    ReactDOM.render(
+      <Game
+      initialState={state}
+      gameName={container.dataset.gameName}
+      mapDef={mapDef} />,
+      container
+    );
+  };
+} else {
+  init = (state: any): void => {
+    ReactDOM.render(
+      <AllTiles />,
+      container
+    );
+  };
+}
 
 if (initialStateId === 'undefined') {
   init({
