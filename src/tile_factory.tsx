@@ -246,6 +246,8 @@ export default class TileFactory {
         0,
         Tile.HEIGHT / 2 - 14
       );
+    } else if (this.definition.valuePosition === null) {
+      position = Tile.CENTER;
     }
 
     if (this.definition.value) {

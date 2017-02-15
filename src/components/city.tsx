@@ -1,4 +1,5 @@
 import { List } from 'immutable';
+import * as _ from 'lodash';
 import * as React from 'react';
 import { ReactElement } from 'react';
 
@@ -218,6 +219,25 @@ implements Station {
           {circles}
         </g>
       );
+    } else if (num === 6) {
+      const points: Point[] = _.times(6).map(n =>
+        Point.fromCenter(n, this.cityCircleRadius * 2),
+      );
+
+      const background: ReactElement<any> = (
+        <polygon points={points.join(' ')} fill='black' />
+      );
+
+      const circles: List<ReactElement<CityCircle>> = List(
+        points.map((point, idx) => this.buildCircle(idx, point))
+      );
+
+      result = (
+        <g key='cities'>
+          {background}
+          {circles}
+        </g>
+      );
     } else {
       throw new Error('Unsupported number of cities');
     }
@@ -226,7 +246,11 @@ implements Station {
   }
 
   protected get cityCircleRadius(): number {
-    return CityCircle.DEFAULT_RADIUS;
+    let result: number = CityCircle.DEFAULT_RADIUS;
+    if (this.props.num === 6) {
+      result -= 2;
+    }
+    return result;
   }
 
   protected buildCircle(index: number, point: Point): ReactElement<CityCircle> {

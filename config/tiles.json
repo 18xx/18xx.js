@@ -876,9 +876,10 @@
     "rotations": 1,
     "num": 8887,
     "spots": 6,
-    "spotLocations": [0, 1, 2, 3, 4, 5],
-    "type": "DistinctCity",
-    "value": 60
+    "trackToCenter": [0, 1, 2, 3, 4, 5],
+    "type": "City",
+    "value": 60,
+    "valuePosition": null
   },
   {
     "color": "gray",
@@ -886,9 +887,10 @@
     "rotations": 1,
     "num": 8888,
     "spots": 6,
-    "spotLocations": [0, 1, 2, 3, 4, 5],
-    "type": "DistinctCity",
-    "value": 80
+    "trackToCenter": [0, 1, 2, 3, 4, 5],
+    "type": "City",
+    "value": 80,
+    "valuePosition": null
   },
   {
     "color": "yellow",
