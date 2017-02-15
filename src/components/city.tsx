@@ -224,8 +224,17 @@ implements Station {
         Point.fromCenter(n, this.cityCircleRadius * 2),
       );
 
+      const bgPoints: Point[] = _.flatten(
+        _.times(6).map(n =>
+          [
+            Point.from(points[n], n - 0.5, this.cityCircleRadius),
+            Point.from(points[n], n + 0.5, this.cityCircleRadius),
+          ]
+        )
+      );
+
       const background: ReactElement<any> = (
-        <polygon points={points.join(' ')} fill='black' />
+        <polygon points={bgPoints.join(' ')} fill='black' />
       );
 
       const circles: List<ReactElement<CityCircle>> = List(
