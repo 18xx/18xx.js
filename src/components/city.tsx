@@ -52,7 +52,8 @@ implements Station {
       const background: ReactElement<any> = (
         <rect
           x={Tile.CENTER.x - CityCircle.DEFAULT_RADIUS}
-          y={Tile.CENTER.y - CityCircle.DEFAULT_RADIUS}
+          y={Tile.CENTER.y - CityCircle.DEFAULT_RADIUS -
+            CityCircle.STROKE_WIDTH / 2}
           width={CityCircle.DEFAULT_RADIUS * 2}
           height={CityCircle.DEFAULT_RADIUS * 2 + CityCircle.STROKE_WIDTH}
           fill='black'
@@ -223,12 +224,13 @@ implements Station {
       const points: Point[] = _.times(6).map(n =>
         Point.fromCenter(n, this.cityCircleRadius * 2),
       );
+      const r: number = this.cityCircleRadius + CityCircle.STROKE_WIDTH / 2;
 
       const bgPoints: Point[] = _.flatten(
         _.times(6).map(n =>
           [
-            Point.from(points[n], n - 0.5, this.cityCircleRadius),
-            Point.from(points[n], n + 0.5, this.cityCircleRadius),
+            Point.from(points[n], n - 0.5, r),
+            Point.from(points[n], n + 0.5, r),
           ]
         )
       );

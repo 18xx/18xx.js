@@ -43,14 +43,15 @@ implements MapHexElement, TileElement {
   }
 
   public render(): ReactElement<CityCircle> {
+    const r: number = this.radius + STROKE_WIDTH / 2;
     return (
       <svg
-      x={this.point.x - this.radius}
-      y={this.point.y - this.radius}
+      x={this.point.x - r}
+      y={this.point.y - r}
       onContextMenu={ this.props.onContextMenu }>
         <circle
-          cx={this.radius + STROKE_WIDTH / 2}
-          cy={this.radius + STROKE_WIDTH / 2}
+          cx={r}
+          cy={r}
           r={this.radius}
           fill='white'
           stroke='#000'
