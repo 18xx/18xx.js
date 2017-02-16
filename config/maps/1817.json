@@ -171,9 +171,8 @@
       },
       "label": "Toronto",
       "labelPosition": 3.5,
-      "spots": 0,
       "trackToCenter": [0, 3, 5],
-      "type": "City"
+      "type": "Town"
     },
     "c8": {
       "color": "yellow",
