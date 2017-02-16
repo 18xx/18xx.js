@@ -1,6 +1,7 @@
 exports[`MapBoard #render() returns an svg representation of the map board 1`] = `
 <svg
   height={128}
+  id="mapBoard"
   width={166.27687752661222}
   xmlns="http://www.w3.org/2000/svg">
   <svg

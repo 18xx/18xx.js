@@ -29,4 +29,8 @@ export default class TileSet {
   public findDefinition(num: string): TileDefinition {
     return this.all.find(def => def.num.toString() === num);
   }
+
+  public totalTiles(num: string): number {
+    return this.tileManifest.get(num.toString()).count;
+  }
 }

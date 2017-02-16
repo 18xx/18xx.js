@@ -20,7 +20,7 @@ html, body {
   height: 50px;
 }
 
-#tileMenu svg, #tokenMenu svg {
+#tileMenu div, #tokenMenu svg {
   cursor: pointer;
   margin: 2px;
 }
@@ -35,4 +35,19 @@ html, body {
 
 #all-tiles svg {
   margin: 5px;
+}
+
+.available-tile {
+  display: inline-block;
+  position: relative;
+  width: 111px;
+  height: 128px;
+}
+
+.amount-available {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  font-size: 10px;
+  text-align: right;
 }

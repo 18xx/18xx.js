@@ -40,7 +40,8 @@ export default class MapBoard
       <svg
         xmlns='http://www.w3.org/2000/svg'
         height={this.height}
-        width={this.width}>
+        width={this.width}
+        id='mapBoard'>
         {this.hexes}
         {this.props.addOnTop}
       </svg>
