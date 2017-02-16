@@ -76,6 +76,16 @@ const game: any = (
         ...state,
         tokens: state.tokens.set(state.hex, list),
       };
+    case 'REMOVE_TOKEN':
+      const removedList: List<string> = state.tokens.get(state.hex).delete(
+        state.cityIndex
+      );
+      return {
+        ...state,
+        cityIndex: undefined,
+        hex: undefined,
+        tokens: state.tokens.set(state.hex, removedList),
+      };
     case 'SELECT_TILE':
       return {
         ...state,

@@ -9,6 +9,7 @@ import * as allTilesJson from '../../config/tiles.json';
 import AvailableTiles from './available_tiles';
 import AvailableTokens from './available_tokens';
 import City from './city';
+import EditToken from './edit_token';
 import MapBoard from './map_board';
 import MapHex from './map_hex';
 import Tile from './tile';
@@ -90,7 +91,7 @@ export default class Game
         break;
       case 'TOKEN_CONTEXT':
         topMenu = (
-          <div>I am token context menu</div>
+          <EditToken onRemoveToken={this.onRemoveToken} />
         );
         break;
       default:
@@ -125,6 +126,15 @@ export default class Game
       index,
       hex,
       type: 'SHOW_TOKEN_CONTEXT_MENU',
+    });
+  }
+
+  public onRemoveToken = (): void => {
+    this.store.dispatch({
+      type: 'REMOVE_TOKEN',
+    });
+    this.store.dispatch({
+      type: 'CLOSE_MENUS',
     });
   }
 
