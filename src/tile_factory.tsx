@@ -24,6 +24,7 @@ import TrackToCenter from './track_to_center';
 export default class TileFactory {
   constructor(
     private onRightClickCity: Function,
+    private onRightClickToken: Function,
     private definition: TileDefinition,
     private rotation: number = 0,
     private hex?: string,
@@ -38,6 +39,7 @@ export default class TileFactory {
       key: this.hex || 'city',
       num: this.definition.spots,
       onRightClickCity: this.onRightClickCity,
+      onRightClickToken: this.onRightClickToken,
       tokenState,
       homeTokens,
     };

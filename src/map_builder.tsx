@@ -198,6 +198,7 @@ export default class MapBuilder {
               hex,
               homeTokens,
               this.game.onRightClickCity,
+              this.game.onRightClickToken,
               tokenState.get(hex) || List([]),
             );
 
@@ -223,6 +224,7 @@ export default class MapBuilder {
         let tile: ReactElement<Tile>;
         const tileBuilder: TileBuilder = new TileBuilder(
           this.game.onRightClickCity,
+          this.game.onRightClickToken,
           hex,
           tokenState.get(hex),
           homeTokens,
