@@ -21,8 +21,11 @@ html, body {
 }
 
 #tileMenu div, #tokenMenu svg {
-  cursor: pointer;
   margin: 2px;
+}
+
+#tokenMenu svg {
+  cursor: pointer;
 }
 
 #tileMenu .close {
@@ -38,10 +41,16 @@ html, body {
 }
 
 .available-tile {
+  cursor: pointer;
   display: inline-block;
   position: relative;
   width: 111px;
   height: 128px;
+}
+
+.available-tile.unavailable {
+  cursor: default;
+  opacity: 0.5;
 }
 
 .amount-available {

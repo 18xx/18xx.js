@@ -1,7 +1,7 @@
 import { List, Map } from 'immutable';
 import * as _ from 'lodash';
 import * as React from 'react';
-import { ReactElement } from 'react';
+import { MouseEventHandler, ReactElement } from 'react';
 
 import Tile from './tile';
 
@@ -41,16 +41,26 @@ export default class AvailableTiles
     num: string,
     index: number,
   ): ReactElement<any> {
-    const available: number = this.props.tileSet.totalTiles(num);
+    const total: number = this.props.tileSet.totalTiles(num);
+    const available: number = total - this.usedTiles(num);
+    let divClass: string = 'available-tile';
+    let onClick: MouseEventHandler<HTMLElement> = () =>
+      this.props.onClick(tile);
+
+    if (available <= 0) {
+      onClick = null;
+      divClass += ' unavailable';
+    }
+
     // FIXME: Move onClick to tile
     return <div
       key={`${num}:${index}`}
-      onClick={ () => this.props.onClick(tile) }
-      className='available-tile'
+      onClick={onClick}
+      className={divClass}
       >
         {tile}
         <div className='amount-available'>
-          {available - this.usedTiles(num)} / {available}
+          {available} / {total}
         </div>
       </div>;
   }
