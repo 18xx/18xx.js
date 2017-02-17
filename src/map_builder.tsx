@@ -1,4 +1,5 @@
 import { List, Map } from 'immutable';
+import * as _ from 'lodash';
 import * as React from 'react';
 import { ReactElement } from 'react';
 
@@ -72,6 +73,7 @@ export default class MapBuilder {
 
       for (const column of columns) {
         let fill: string;
+        let allowTile: boolean = true;
         const hexElements: MapHexElement[] = [];
         const hex: string = row + column;
 
@@ -181,6 +183,7 @@ export default class MapBuilder {
 
         if (this.mapDef.offBoards[hex]) {
           fill = this.mapDef.offBoards[hex].color || 'red';
+          allowTile = false;
           const exits: List<number> = List<number>(
             this.mapDef.offBoards[hex].exits as string[]
           );
@@ -237,6 +240,9 @@ export default class MapBuilder {
             parseInt(tileStr[1], 10)
           );
         } else if (this.mapDef.preplacedTile[hex]) {
+          allowTile = _.flatMap(
+            this.mapDef.tilePromotions, set => set.hexes
+          ).includes(hex);
           tile = tileBuilder.buildTile(
             new TileDefinition(this.mapDef.preplacedTile[hex])
           );
@@ -257,6 +263,7 @@ export default class MapBuilder {
           column,
           fill,
           tile,
+          allowTile,
           elements: List(hexElements)
         });
       }
@@ -336,6 +343,7 @@ export default class MapBuilder {
         fill={data.fill}
         tile={data.tile}
         elements={List(data.elements)}
+        allowTile={data.allowTile}
         onHexClick={this.game.onHexClick}
       />
     ));

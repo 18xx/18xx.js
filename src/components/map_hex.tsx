@@ -21,6 +21,7 @@ const HEX_POINTS: List<string> = List([
 ]);
 
 export interface MapHexProps {
+  readonly allowTile?: boolean;
   readonly column: number;
   readonly elements?: List<MapHexElement>;
   readonly fill?: string;
@@ -36,10 +37,11 @@ export interface MapHexElement {
 export default class MapHex
   extends React.Component<MapHexProps, undefined> {
 
-  public static defaultProps: MapHexProps = {
+  public static defaultProps: Partial<MapHexProps> = {
+    allowTile: true,
     elements: List([]),
     fill: '#efe',
-  } as MapHexProps;
+  };
 
   get row(): string {
     return this.props.row;
