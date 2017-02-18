@@ -76,7 +76,8 @@ export default class Game
             show={true}
             tileFilter={this.state.tileFilter}
             onClick={this.placeTile}
-            tiles={this.tileSet.all} />
+            tiles={this.state.tiles}
+            tileSet={this.tileSet} />
         );
         break;
       case 'TOKEN':
