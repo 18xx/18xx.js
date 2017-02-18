@@ -147,22 +147,26 @@ export default class Game
         this.props.mapDef.tileManifest[tileNum].promotions || List<string>([])
       );
     } else {
-      let rule: any = this.props.mapDef.tilePromotions.find(
-        p => p.hexes && p.hexes.includes(hex.hex)
-      );
+      if (hex.props.allowTile) {
+        let rule: any = this.props.mapDef.tilePromotions.find(
+          p => p.hexes && p.hexes.includes(hex.hex)
+        );
 
-      if (!rule) {
-        rule = this.props.mapDef.tilePromotions.find(p => !p.hexes);
+        if (!rule) {
+          rule = this.props.mapDef.tilePromotions.find(p => !p.hexes);
+        }
+
+        tileFilter = rule.promotions;
       }
-
-      tileFilter = rule.promotions;
     }
 
-    this.store.dispatch({
-      hex: hex.hex,
-      tileFilter,
-      type: 'SHOW_AVAILABLE_TILES',
-    });
+    if (tileFilter) {
+      this.store.dispatch({
+        hex: hex.hex,
+        tileFilter,
+        type: 'SHOW_AVAILABLE_TILES',
+      });
+    }
   }
 
   private placeTile = (tile: ReactElement<Tile>): void => {
