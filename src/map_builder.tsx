@@ -240,9 +240,10 @@ export default class MapBuilder {
             parseInt(tileStr[1], 10)
           );
         } else if (this.mapDef.preplacedTile[hex]) {
-          allowTile = _.flatMap(
-            this.mapDef.tilePromotions, set => set.hexes
-          ).includes(hex);
+          allowTile = _.includes(
+            _.flatMap(this.mapDef.tilePromotions, set => set.hexes),
+            hex
+          );
           tile = tileBuilder.buildTile(
             new TileDefinition(this.mapDef.preplacedTile[hex])
           );
