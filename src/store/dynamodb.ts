@@ -5,18 +5,20 @@ import { GameState } from '../reducers/game';
 
 import { Store } from '../store';
 
-AWS.config.update({ region: 'us-east-1' });
+AWS.config.update({ region: 'ca-central-1' });
+
 export default class DynamoDBStore implements Store {
   private ddb: DynamoDB;
   private ddbClient: DynamoDB.DocumentClient;
 
   constructor(url: string) {
     this.ddb = new AWS.DynamoDB({
-      endpoint: 'http://localhost:8000/'
+      endpoint: url
     });
     this.ddbClient = new AWS.DynamoDB.DocumentClient({
       service: this.ddb
     });
+    this.createTables();
   }
 
   public createTables(): void {
@@ -39,7 +41,16 @@ export default class DynamoDBStore implements Store {
       },
       TableName: 'gameState'
     };
-    this.ddb.createTable(tableData);
+    this.ddb.createTable(tableData).promise().then(
+      (result: any) => console.log(result)
+    ).catch(
+      (result: any) => {
+        // FIXME: Don't use exceptions for flow control
+        if (result.code !== 'ResourceInUseException') {
+          console.error(result);
+        }
+      }
+    );
   }
 
   public getState(hash: string): Promise<GameState> {
