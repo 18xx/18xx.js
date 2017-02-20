@@ -8,7 +8,6 @@
   "main": "index.js",
   "devDependencies": {
     "jest": "^18.1.0",
-    "nodemon": "^1.11.0",
     "react-test-renderer": "^15.4.2",
     "redux-devtools": "^3.3.2",
     "redux-devtools-dock-monitor": "^1.1.1",
@@ -66,6 +65,7 @@
     "immutable": "^3.8.1",
     "json-loader": "^0.5.4",
     "lodash": "^4.17.4",
+    "nodemon": "^1.11.0",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-redux": "^5.0.2",
