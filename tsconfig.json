@@ -1,7 +1,6 @@
 {
   "compilerOptions": {
     "allowJs": true,
-    "allowUnreachableCode": true,
     "alwaysStrict": true,
     "skipLibCheck": true,
     "sourceMap": true,
@@ -14,5 +13,6 @@
     "./src/**/*.ts",
     "./src/**/*.tsx",
     "./__tests__/**/*.tsx"
-  ]
+  ],
+  "exclude": ["/node_modules/**/*"]
 }

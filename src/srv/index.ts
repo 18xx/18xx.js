@@ -3,13 +3,17 @@ import * as crypto from 'crypto';
 import * as express from 'express';
 import * as redis from 'redis';
 
+import DynamoDBStore from '../store/dynamodb';
+import MemoryStore from '../store/memory_store';
+
+import { Store } from '../store';
+
 const app: express.Express = express();
 app.use(express.static('dist'));
 app.use(bodyParser.json());
 
-let store: Map<string, string>;
-store = new Map();
-// store = redis.createClient();
+let dataStore: Store;
+dataStore = new MemoryStore();
 
 const html: Function = (game: string, initialState?: string) => `
 <html>
@@ -34,20 +38,24 @@ app.get('/maps/:game/:state', (req, res) => {
 });
 
 app.get('/state/:state', (req, res) => {
-  const reply: string = store.get(req.params.state);
-  res.json(JSON.parse(reply));
-  /*
-  store.get(req.params.state, (err: any, reply: any) => {
-    res.json(JSON.parse(reply));
+  dataStore.getState(req.params.state).then(result => {
+    res.json(result);
+  }).catch((reply: string) => {
+    console.error('Error getting state:', reply);
+    res.status(500);
   });
-  */
 });
 
 app.post('/update', (req, res) => {
   const jsonBody: string = JSON.stringify(req.body);
   const hash: string = crypto.createHash('md5').update(jsonBody).digest('hex');
-  store.set(hash, jsonBody);
-  res.send(true);
+
+  dataStore.setState(hash, req.body).then(
+    () => res.send(true)
+  ).catch((reply: string) => {
+    console.error('Error setting state:', reply);
+    res.status(500);
+  });
 });
 
 app.get('/tiles', (req, res) => {
