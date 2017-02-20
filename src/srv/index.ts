@@ -13,7 +13,15 @@ app.use(express.static('dist'));
 app.use(bodyParser.json());
 
 let dataStore: Store;
-dataStore = new MemoryStore();
+switch (process.env.DATA_STORE_TYPE) {
+  case 'dynamodb':
+    console.info(`Using DynamoDB Store ${process.env.DATA_STORE_URL}`);
+    dataStore = new DynamoDBStore(process.env.DATA_STORE_URL);
+    break;
+  default:
+    console.info('Using in memory store');
+    dataStore = new MemoryStore();
+}
 
 const html: Function = (game: string, initialState?: string) => `
 <html>
@@ -62,4 +70,6 @@ app.get('/tiles', (req, res) => {
   res.send(html(null));
 });
 
-app.listen(process.env.PORT || 3002);
+const port: number = process.env.PORT || 3002;
+console.info(`Listening on 0.0.0.0:${port}`);
+app.listen(port);
