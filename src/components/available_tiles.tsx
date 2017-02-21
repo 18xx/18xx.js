@@ -42,14 +42,25 @@ export default class AvailableTiles
     index: number,
   ): ReactElement<any> {
     const total: number = this.props.tileSet.totalTiles(num);
-    const available: number = total - this.usedTiles(num);
-    let divClass: string = 'available-tile';
+
     let onClick: MouseEventHandler<HTMLElement> = () =>
       this.props.onClick(tile);
+    let divClass: string = 'available-tile';
+    let availableElement: ReactElement<HTMLElement>;
 
-    if (available <= 0) {
-      onClick = null;
-      divClass += ' unavailable';
+    if (total) {
+      const available: number = total - this.usedTiles(num);
+
+      if (available <= 0) {
+        onClick = null;
+        divClass += ' unavailable';
+      }
+
+      availableElement = (
+        <div className='amount-available'>
+          {available} / {total}
+        </div>
+      );
     }
 
     // FIXME: Move onClick to tile
@@ -59,9 +70,7 @@ export default class AvailableTiles
       className={divClass}
       >
         {tile}
-        <div className='amount-available'>
-          {available} / {total}
-        </div>
+        {availableElement}
       </div>;
   }
 
