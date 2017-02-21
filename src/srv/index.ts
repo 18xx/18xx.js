@@ -22,6 +22,7 @@ app.use(cookieSession({
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(bodyParser.json());
+app.set('view engine', 'ejs');
 
 passport.use(
   new OAuth2Strategy({
@@ -53,20 +54,6 @@ switch (process.env.DATA_STORE_TYPE) {
     dataStore = new MemoryStore();
 }
 
-const html: Function = (game: string, initialState?: string) => `
-<html>
-<head>
-  <link rel='stylesheet' type='text/css' href='/styles.css'>
-  <div id='container'
-    data-game-name='${game}'
-    data-initial-state-id='${initialState}'>
-  </div>
-  <script src="/build.js"></script>
-</head>
-<body></body>
-</html>
-`;
-
 app.get('/', (req, res) => {
   res.send(req.session);
 });
@@ -82,11 +69,21 @@ app.post('/login',
 );
 
 app.get('/maps/:game', (req, res) => {
-  res.send(html(req.params.game));
+  res.render('layout', {
+    game: req.params.game,
+    initialState: 'undefined',
+    session: req.session,
+    title: req.params.game,
+  });
 });
 
 app.get('/maps/:game/:state', (req, res) => {
-  res.send(html(req.params.game, req.params.state));
+  res.render('layout', {
+    game: req.params.game,
+    initialState: req.params.state,
+    session: req.session,
+    title: req.params.game,
+  });
 });
 
 app.get('/state/:state', (req, res) => {
@@ -99,7 +96,10 @@ app.get('/state/:state', (req, res) => {
 });
 
 app.post('/update', (req, res) => {
-  const jsonBody: string = JSON.stringify(req.body);
+  const jsonBody: string = JSON.stringify({
+    ...req.body,
+    history: undefined,
+  });
   const hash: string = crypto.createHash('md5').update(jsonBody).digest('hex');
 
   dataStore.setState(hash, req.body).then(
@@ -111,7 +111,12 @@ app.post('/update', (req, res) => {
 });
 
 app.get('/tiles', (req, res) => {
-  res.send(html(null));
+  res.render('layout', {
+    game: 'null',
+    initialState: 'undefined',
+    session: req.session,
+    title: 'All Tiles',
+  });
 });
 
 app.get('/login', (req, res) => {

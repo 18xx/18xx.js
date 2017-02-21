@@ -10,6 +10,7 @@ import AvailableTiles from './available_tiles';
 import AvailableTokens from './available_tokens';
 import City from './city';
 import EditToken from './edit_token';
+import History from './history';
 import MapBoard from './map_board';
 import MapHex from './map_hex';
 import Tile from './tile';
@@ -101,11 +102,19 @@ export default class Game
     return (
       <div>
         {topMenu}
-        <MapBoard
-        game={this}
-        hexes={this.mapBuilder.getHexes(this.state.tiles, this.state.tokens)}
-        addOnTop={this.mapBuilder.addOnTop}
-        />
+        <div className='row'>
+          <History entries={this.state.history} tileSet={this.tileSet} />
+          <div
+          className='col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main'>
+            <MapBoard
+            game={this}
+            hexes={
+              this.mapBuilder.getHexes(this.state.tiles, this.state.tokens)
+            }
+            addOnTop={this.mapBuilder.addOnTop}
+            />
+          </div>
+        </div>
       </div>
     );
   }
@@ -173,7 +182,7 @@ export default class Game
   private placeTile = (tile: ReactElement<Tile>): void => {
     this.store.dispatch({
       tile: tile.key,
-      type: 'SELECT_TILE',
+      type: 'PLACE_TILE',
     });
     this.store.dispatch({
       type: 'CLOSE_MENUS',
