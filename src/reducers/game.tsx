@@ -1,7 +1,8 @@
 import * as crypto from 'crypto';
 import { Hash } from 'crypto';
-import { List, Map } from 'immutable';
+import { List, Map, OrderedMap } from 'immutable';
 import { ReactElement } from 'react';
+import { Reducer } from 'redux';
 
 import MapHex from '../components/map_hex';
 import Tile from '../components/tile';
@@ -9,6 +10,7 @@ import Tile from '../components/tile';
 export interface GameState {
   readonly cityIndex?: number;
   readonly hex?: string;
+  readonly history?: OrderedMap<string, HistoryEntry>;
   readonly name: string;
   readonly openMenu?: string;
   readonly tileFilter?: any;
@@ -26,43 +28,72 @@ export interface GameAction {
   readonly type: string;
 }
 
+export interface HistoryEntry {
+  readonly action: string;
+  readonly hex: string;
+  readonly id: string;
+}
+
 export let initialState: GameState = {
+  history: OrderedMap<string, HistoryEntry>({}),
   name: '18xx',
   tiles: (Map() as Map<string, string>),
   tokens: (Map() as Map<string, List<string>>),
 };
 
-const game: any = (
+const persistState: Function = (
+  state: GameState,
+  detail: HistoryEntry,
+): GameState => {
+  const historyFreeState: GameState = {
+    ...resetMenus(state),
+    history: undefined,
+  };
+  const hfJson: string = JSON.stringify(historyFreeState);
+  const hash: string = crypto.createHash('md5').update(hfJson).digest('hex');
+
+  const resetState: GameState = {
+    ...resetMenus(state),
+    history: state.history.set(hash, detail),
+  };
+
+  const json: string = JSON.stringify(resetState);
+
+  fetch('/update', {
+    body: json,
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    method: 'POST',
+  });
+
+  history.pushState(
+    resetState,
+    'Testing',
+    '/maps/' + state.name + '/' + hash
+  );
+
+  return resetState;
+};
+
+const resetMenus: Function = (state: GameState): GameState => {
+  return {
+    ...state,
+    cityIndex: undefined,
+    hex: undefined,
+    openMenu: undefined,
+    tileFilter: undefined,
+  };
+};
+
+const game: Reducer<GameState> = (
   state: GameState,
   action: GameAction
 ): GameState => {
   switch (action.type) {
     case 'CLOSE_MENUS':
-      const newState: GameState = {
-        ...state,
-        cityIndex: undefined,
-        hex: undefined,
-        openMenu: undefined,
-        tileFilter: undefined,
-      };
-      const json: string = JSON.stringify(newState);
+      return resetMenus(state);
 
-      fetch('/update', {
-        body: json,
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        method: 'POST',
-      });
-
-      const hash: string = crypto.createHash('md5').update(json).digest('hex');
-
-      history.pushState(
-        newState,
-        'Testing',
-        '/maps/' + state.name + '/' + hash
-      );
-      return newState;
     case 'PLACE_TOKEN':
       let list: List<string>;
       if (state.tokens.has(state.hex)) {
@@ -72,25 +103,49 @@ const game: any = (
       }
       list = list.set(state.cityIndex, action.company);
 
-      return {
-        ...state,
-        tokens: state.tokens.set(state.hex, list),
-      };
+      return persistState(
+        {
+          ...state,
+          tokens: state.tokens.set(state.hex, list),
+        },
+        {
+          action: action.type,
+          hex: state.hex,
+          id: action.company,
+        }
+      );
+
     case 'REMOVE_TOKEN':
+      const removed: string = state.tokens.get(state.hex).get(state.cityIndex);
       const removedList: List<string> = state.tokens.get(state.hex).delete(
         state.cityIndex
       );
-      return {
-        ...state,
-        cityIndex: undefined,
-        hex: undefined,
-        tokens: state.tokens.set(state.hex, removedList),
-      };
-    case 'SELECT_TILE':
-      return {
-        ...state,
-        tiles: state.tiles.set(state.hex, action.tile),
-      };
+
+      return persistState(
+        {
+          ...resetMenus(state),
+          tokens: state.tokens.set(state.hex, removedList),
+        },
+        {
+          action: action.type,
+          hex: state.hex,
+          id: removed,
+        }
+      );
+
+    case 'PLACE_TILE':
+      return persistState(
+        {
+          ...state,
+          tiles: state.tiles.set(state.hex, action.tile),
+        },
+        {
+          action: action.type,
+          hex: state.hex,
+          id: action.tile,
+        }
+      );
+
     case 'SHOW_AVAILABLE_TILES':
       return {
         ...state,
