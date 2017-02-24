@@ -1,13 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`MapHex #toString() returns the SVG for this element 1`] = `
 <svg
   className="hex"
   onClick={[Function]}
   x={554.2562584220407}
-  y={384}>
+  y={384}
+>
   <polygon
     fill="#efe"
     points="0,32 55.42562584220407,0 110.85125168440814,32 110.85125168440814,96 55.42562584220407,128 0,96"
-    stroke="black" />
+    stroke="black"
+  />
 </svg>
 `;
 
@@ -16,18 +20,22 @@ exports[`MapHex #toString() when it contains a tile draws the tile at the end 1`
   className="hex"
   onClick={[Function]}
   x={554.2562584220407}
-  y={384}>
+  y={384}
+>
   <polygon
     fill="#efe"
     points="0,32 55.42562584220407,0 110.85125168440814,32 110.85125168440814,96 55.42562584220407,128 0,96"
-    stroke="black" />
+    stroke="black"
+  />
   <svg
     height={128}
     width={110.85125168440814}
-    xmlns="http://www.w3.org/2000/svg">
+    xmlns="http://www.w3.org/2000/svg"
+  >
     <polygon
       fill="yellow"
-      points="55.42562584220407,0 110.85125168440814,32 110.85125168440814,96 55.42562584220407,128 0,96 0,32" />
+      points="55.42562584220407,0 110.85125168440814,32 110.85125168440814,96 55.42562584220407,128 0,96 0,32"
+    />
   </svg>
 </svg>
 `;
@@ -37,11 +45,13 @@ exports[`MapHex #toString() when it contains some elements draws the tile at the
   className="hex"
   onClick={[Function]}
   x={554.2562584220407}
-  y={384}>
+  y={384}
+>
   <polygon
     fill="#efe"
     points="0,32 55.42562584220407,0 110.85125168440814,32 110.85125168440814,96 55.42562584220407,128 0,96"
-    stroke="black" />
+    stroke="black"
+  />
   ELEMENT
 </svg>
 `;

@@ -1,1 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`CityCircle #toString() returns an svg representation of the circle 1`] = `"[object Object]"`;

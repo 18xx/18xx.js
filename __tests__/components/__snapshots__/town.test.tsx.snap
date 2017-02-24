@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`Town #toString returns the svg for a circle centered on the point 1`] = `
 <g>
   <circle
@@ -6,6 +8,7 @@ exports[`Town #toString returns the svg for a circle centered on the point 1`] =
     fill="black"
     r={10}
     stroke={undefined}
-    strokeWidth={2} />
+    strokeWidth={2}
+  />
 </g>
 `;

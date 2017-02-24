@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`Line #toString returns an svg path element 1`] = `
 <line
   stroke="black"
@@ -5,5 +7,6 @@ exports[`Line #toString returns an svg path element 1`] = `
   x1={1}
   x2={3}
   y1={2}
-  y2={4} />
+  y2={4}
+/>
 `;

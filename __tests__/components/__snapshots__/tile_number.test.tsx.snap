@@ -1,10 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`TileNumber #toString() when not providing a rotation number returns the svg text for the tile 1`] = `
 <text
   fill="black"
   fontSize={8}
   textAnchor="end"
   x={109.85125168440814}
-  y={94}>
+  y={94}
+>
   54
 </text>
 `;
@@ -15,7 +18,8 @@ exports[`TileNumber #toString() when providing a rotation number returns the svg
   fontSize={8}
   textAnchor="end"
   x={109.85125168440814}
-  y={94}>
+  y={94}
+>
   54.2
 </text>
 `;

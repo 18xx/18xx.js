@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`Track #toString() with a shallow turn returns the right track svg 1`] = `"[object Object]"`;
 
 exports[`Track #toString() with a straight returns the right track svg 1`] = `"[object Object]"`;

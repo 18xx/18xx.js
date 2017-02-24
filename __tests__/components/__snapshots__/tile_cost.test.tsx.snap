@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`TileCost #toString when locations is set returns an svg located at the point specified 1`] = `
 <g>
   <rect
@@ -6,11 +8,13 @@ exports[`TileCost #toString when locations is set returns an svg located at the 
     stroke="#333"
     width={20}
     x={3}
-    y={7} />
+    y={7}
+  />
   <text
     textAnchor="middle"
     x={13}
-    y={23}>
+    y={23}
+  >
     20
   </text>
 </g>
@@ -21,11 +25,13 @@ exports[`TileCost #toString when shape is a triangle returns an svg representati
   <polygon
     fill="#ccc"
     points="55.42562584220407,9 75.42562584220407,39 35.42562584220407,39"
-    stroke="#333" />
+    stroke="#333"
+  />
   <text
     textAnchor="middle"
     x={55.42562584220407}
-    y={35}>
+    y={35}
+  >
     10
   </text>
 </g>
@@ -39,11 +45,13 @@ exports[`TileCost #toString when shape is not a triangle returns an svg represen
     stroke="#333"
     width={20}
     x={45.42562584220407}
-    y={14} />
+    y={14}
+  />
   <text
     textAnchor="middle"
     x={55.42562584220407}
-    y={30}>
+    y={30}
+  >
     14
   </text>
 </g>
