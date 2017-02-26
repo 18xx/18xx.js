@@ -98,11 +98,11 @@ app.get('/state/:state', (req, res) => {
 });
 
 app.post('/update', (req, res) => {
-  const jsonBody: string = JSON.stringify({
+  const json: string = JSON.stringify({
     ...req.body,
     history: undefined,
   });
-  const hash: string = crypto.createHash('md5').update(jsonBody).digest('hex');
+  const hash: string = crypto.createHash('sha256').update(json).digest('hex');
 
   dataStore.setState(hash, req.body).then(
     () => res.send(true)
