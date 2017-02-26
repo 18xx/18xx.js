@@ -24,16 +24,18 @@ app.use(passport.session());
 app.use(bodyParser.json());
 app.set('view engine', 'ejs');
 
-passport.use(
-  new OAuth2Strategy({
-    callbackURL: process.env.GOOGLE_OAUTH2_CALLBACK,
-    clientID: process.env.GOOGLE_OAUTH2_CLIENT_ID,
-    clientSecret: process.env.GOOGLE_OAUTH2_CLIENT_SECRET,
-  } as IOAuth2StrategyOption,
-  (accessToken, refreshToken, profile, done) => {
-    done(null, profile);
-  }
-));
+if (process.env.GOOGLE_OAUTH2_CALLBACK) {
+  passport.use(
+    new OAuth2Strategy({
+      callbackURL: process.env.GOOGLE_OAUTH2_CALLBACK,
+      clientID: process.env.GOOGLE_OAUTH2_CLIENT_ID,
+      clientSecret: process.env.GOOGLE_OAUTH2_CLIENT_SECRET,
+    } as IOAuth2StrategyOption,
+    (accessToken, refreshToken, profile, done) => {
+      done(null, profile);
+    }
+  ));
+}
 
 passport.serializeUser((user, done) => {
   done(null, user);
