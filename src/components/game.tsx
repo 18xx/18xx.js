@@ -173,7 +173,7 @@ export default class Game
   private placeTile = (tile: ReactElement<Tile>): void => {
     this.store.dispatch({
       tile: tile.key,
-      type: 'SELECT_TILE',
+      type: 'PLACE_TILE',
     });
     this.store.dispatch({
       type: 'CLOSE_MENUS',

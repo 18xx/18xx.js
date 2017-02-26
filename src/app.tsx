@@ -6,7 +6,7 @@ import '../css/all.css';
 import AllTiles from './components/all_tiles';
 import Game from './components/game';
 import { MapDefinition } from './map_builder';
-import { GameState, initialState } from './reducers/game';
+import { GameState, HistoryEntry, initialState } from './reducers/game';
 
 import * as mapDef1817 from '../config/maps/1817.json';
 import * as mapDef1830 from '../config/maps/1830.json';
@@ -60,6 +60,7 @@ if (initialStateId === 'undefined') {
     res.json().then(data => {
       // FIXME: Don't hardcode tiles & tokens
       const newState: GameState = {
+        history: Immutable.OrderedMap<string, HistoryDetail>(data.history),
         name: container.dataset.gameName,
         tiles: Immutable.fromJS(data.tiles),
         tokens: Immutable.fromJS(data.tokens),
