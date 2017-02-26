@@ -26,8 +26,11 @@ extends React.Component<HistoryProps, undefined> {
   public render(): ReactElement<HTMLElement> {
     return (
       <div className='col-sm-3 col-md-2 sidebar'>
-        <ol>
-          {this.props.entries.map((value, idx) => this.drawEntry(value, idx))}
+        <h4>Recent Moves</h4>
+        <ol reversed>
+          {this.props.entries.reverse().map(
+            (value, idx) => this.drawEntry(value, idx)
+          )}
         </ol>
       </div>
     );
@@ -72,9 +75,8 @@ extends React.Component<HistoryProps, undefined> {
 
     return (
       <li key={idx}>
-        {description}
         <a href={`./${entry.hash}`}>
-          🔗
+          {description}
         </a>
       </li>
     );
