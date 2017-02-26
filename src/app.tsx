@@ -5,7 +5,10 @@ import '../css/all.css';
 
 import AllTiles from './components/all_tiles';
 import Game from './components/game';
+import { HistoryEntry } from './components/history';
+
 import { MapDefinition } from './map_builder';
+
 import { GameState, initialState } from './reducers/game';
 
 import * as mapDef1817 from '../config/maps/1817.json';
@@ -13,7 +16,7 @@ import * as mapDef1830 from '../config/maps/1830.json';
 import * as mapDef1880 from '../config/maps/1880.json';
 let mapDef: MapDefinition;
 
-const container: HTMLElement = document.getElementById('container');
+const container: HTMLElement = document.getElementById('map-container');
 const initialStateId: string = container.dataset.initialStateId;
 
 let init: Function;
@@ -60,6 +63,7 @@ if (initialStateId === 'undefined') {
     res.json().then(data => {
       // FIXME: Don't hardcode tiles & tokens
       const newState: GameState = {
+        history: Immutable.List<HistoryEntry>(data.history),
         name: container.dataset.gameName,
         tiles: Immutable.fromJS(data.tiles),
         tokens: Immutable.fromJS(data.tokens),

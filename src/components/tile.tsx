@@ -68,6 +68,7 @@ export default class Tile extends React.Component<TileProps, undefined> {
     return (
       <svg
       xmlns='http://www.w3.org/2000/svg'
+      viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
       height={HEIGHT}
       width={WIDTH}>
         <polygon key='bg'

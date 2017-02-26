@@ -1,6 +1,20 @@
 html, body {
   margin: 0;
-  padding: 0
+  padding: 0;
+}
+
+svg {
+  font-family: serif;
+}
+
+.container-fluid {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+#map-container {
+  overflow-x: scroll;
+  overflow-y: scroll;
 }
 
 #tileMenu, #tokenMenu {
@@ -14,10 +28,11 @@ html, body {
   border-bottom: solid black 1px;
   top: 0;
   left: 0;
+  z-index: 2000;
 }
 
 #tokenMenu {
-  height: 50px;
+  height: 60px;
 }
 
 #tileMenu div, #tokenMenu svg {
@@ -59,4 +74,22 @@ html, body {
   right: 0;
   font-size: 10px;
   text-align: right;
+}
+
+.navbar {
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.sidebar {
+  overflow-y: scroll;
+  background-color: #ddd;
+  border-right: solid #292b2c 1px;
+}
+
+.sidebar .tile > svg, .sidebar svg.token {
+  width: 16px;
+  height: 16px;
 }

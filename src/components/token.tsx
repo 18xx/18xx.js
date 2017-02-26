@@ -25,8 +25,10 @@ extends React.Component<TokenProps, undefined> {
       <svg
       onContextMenu={this.props.onRightClick}
       opacity={this.opacity}
+      viewBox='0 0 40 40'
       width='40'
       height='40'
+      className='token'
       key={this.props.text}>
         <circle
           cx={this.props.radius + CityCircle.STROKE_WIDTH / 2}
