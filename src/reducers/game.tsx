@@ -45,7 +45,7 @@ const persistState: Function = (
     history: undefined,
   };
   const hfJson: string = JSON.stringify(historyFreeState);
-  const hash: string = crypto.createHash('md5').update(hfJson).digest('hex');
+  const hash: string = crypto.createHash('sha256').update(hfJson).digest('hex');
 
   const resetState: GameState = {
     ...resetMenus(state),
@@ -88,7 +88,6 @@ const game: Reducer<GameState> = (
   switch (action.type) {
     case 'CLOSE_MENUS':
       return resetMenus(state);
-
     case 'PLACE_TOKEN':
       let list: List<string>;
       if (state.tokens.has(state.hex)) {
