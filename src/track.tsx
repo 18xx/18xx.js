@@ -10,10 +10,11 @@ import Line from './components/line';
 import Point from './point';
 
 export default class Track {
-  private pos1: number;
-  private pos2: number;
-
-  constructor(pos1: number, pos2: number) {
+  constructor(
+    private pos1: number,
+    private pos2: number,
+    private gague: string = 'standard'
+  ) {
     if ((pos1 - pos2) > 3) {
       pos2 += 6;
     }
@@ -24,27 +25,73 @@ export default class Track {
     this.pos2 = Math.max(pos1, pos2);
   }
 
-  public element(): ReactElement<TileElement> {
-    let result: ReactElement<TileElement>;
+  public elements(): List<ReactElement<TileElement>> {
+    let result: Array<ReactElement<TileElement>>;
     if (this.isStraight()) {
-      result = (
+      result = [
         <Line
           key={this.key}
           point1={this.trackPoints()[0]}
           point2={this.trackPoints()[1]}
         />
-      );
+      ];
+      if (this.gague === 'narrow') {
+        result.push(
+          <Line
+          key={this.key + '-' + this.gague}
+          point1={this.trackPoints()[0]}
+          point2={this.trackPoints()[1]}
+          stroke='white'
+          strokeDasharray='10,10'
+          strokeWidth={5}
+          />
+        );
+      } else if (this.gague === 'dual') {
+        result.push(
+          <Line
+          key={this.key + '-' + this.gague}
+          point1={this.trackPoints()[0]}
+          point2={this.trackPoints()[1]}
+          stroke='white'
+          strokeWidth={5}
+          />
+        );
+      }
     } else {
-      result = (
+      result = [
         <Curve
           key={this.key}
           point1={this.trackPoints()[0]}
           point2={this.trackPoints()[1]}
           radius={this.trackCurveRadius()}
         />
-      );
+      ];
+      if (this.gague === 'narrow') {
+        result.push(
+          <Curve
+          key={this.key + '-' + this.gague}
+          point1={this.trackPoints()[0]}
+          point2={this.trackPoints()[1]}
+          radius={this.trackCurveRadius()}
+          stroke='white'
+          strokeDasharray='10,10'
+          strokeWidth={5}
+          />
+        );
+      } else if (this.gague === 'dual') {
+        result.push(
+          <Curve
+          key={this.key + '-' + this.gague}
+          point1={this.trackPoints()[0]}
+          point2={this.trackPoints()[1]}
+          radius={this.trackCurveRadius()}
+          stroke='white'
+          strokeWidth={5}
+          />
+        );
+      }
     }
-    return result;
+    return List(result);
   }
 
   public midpoints(num: number): List<Point> {

@@ -1,4 +1,4 @@
-import { List } from 'immutable';
+import { List, Map } from 'immutable';
 import * as React from 'react';
 import { ReactElement } from 'react';
 
@@ -200,14 +200,28 @@ export default class TileFactory {
 
   public get track(): List<Track> {
     if (this.definition.track) {
-      return List(
-        this.definition.track.map((trackValues: [number, number]) =>
-          new Track(
-            (trackValues[0] + this.rotation) % 6,
-            (trackValues[1] + this.rotation) % 6,
+      let result: List<Track>;
+      if (Array.isArray(this.definition.track)) {
+        result = List(
+          this.definition.track.map((trackValues: [number, number]) =>
+            new Track(
+              (trackValues[0] + this.rotation) % 6,
+              (trackValues[1] + this.rotation) % 6,
+            )
           )
-        )
-      );
+        );
+      } else {
+        result = List(Object.keys(this.definition.track)).flatMap(gague =>
+          this.definition.track[gague].map((trackValues: [number, number]) =>
+            new Track(
+              (trackValues[0] + this.rotation) % 6,
+              (trackValues[1] + this.rotation) % 6,
+              gague,
+            )
+          )
+        ) as List<Track>;
+      }
+      return result;
     }
   }
 
@@ -228,11 +242,23 @@ export default class TileFactory {
 
   public get trackToCenter(): List<TrackToCenter> {
     if (this.definition.trackToCenter) {
-      return List(
-        this.definition.trackToCenter.map((value: number) =>
-          new TrackToCenter((value + this.rotation) % 6)
-        )
-      );
+      let result: List<TrackToCenter>;
+      if (Array.isArray(this.definition.trackToCenter)) {
+        result = List(
+          this.definition.trackToCenter.map((value: number) =>
+            new TrackToCenter((value + this.rotation) % 6)
+          )
+        );
+      } else {
+        result = List(
+          Object.keys(this.definition.trackToCenter)
+        ).flatMap((gague: string) =>
+          this.definition.trackToCenter[gague].map((value: number) =>
+            new TrackToCenter((value + this.rotation) % 6, gague)
+          )
+        ) as List<TrackToCenter>;
+      }
+      return result;
     }
   }
 

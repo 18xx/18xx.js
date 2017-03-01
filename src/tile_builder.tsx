@@ -32,7 +32,7 @@ export default class TileBuilder {
 
     let track: List<ReactElement<TileElement>>;
     if (factory.track) {
-      track = factory.track.map(t => t.element()).toList();
+      track = factory.track.map(t => t.elements()).flatten(true).toList();
     }
 
     let trackSpecial: List<ReactElement<TileElement>>;

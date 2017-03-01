@@ -89,7 +89,7 @@ export default class TileDefinition {
     return this.definition.spotLocations;
   }
 
-  public get track(): number[][] {
+  public get track(): any {
     return this.definition.track;
   }
 
@@ -97,7 +97,7 @@ export default class TileDefinition {
     return this.definition.trackSpecial;
   }
 
-  public get trackToCenter(): number[] {
+  public get trackToCenter(): any {
     return this.definition.trackToCenter;
   }
 
