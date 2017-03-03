@@ -7,13 +7,20 @@ import Tile, { TileElement } from './components/tile';
 import Curve from './components/curve';
 import Line from './components/line';
 
+import Hexagon from './hexagon';
 import Point from './point';
 
 export default class Track {
-  private pos1: number;
-  private pos2: number;
-
-  constructor(pos1: number, pos2: number) {
+  constructor(
+    private pos1: number,
+    private pos2: number,
+    private hexagon: Hexagon,
+    private gague: string = 'standard'
+  ) {
+    if (hexagon.orientation === 'north-south') {
+      pos1 += hexagon.offset;
+      pos2 += hexagon.offset;
+    }
     if ((pos1 - pos2) > 3) {
       pos2 += 6;
     }
@@ -24,27 +31,73 @@ export default class Track {
     this.pos2 = Math.max(pos1, pos2);
   }
 
-  public element(): ReactElement<TileElement> {
-    let result: ReactElement<TileElement>;
+  public elements(): List<ReactElement<TileElement>> {
+    let result: Array<ReactElement<TileElement>>;
     if (this.isStraight()) {
-      result = (
+      result = [
         <Line
           key={this.key}
           point1={this.trackPoints()[0]}
           point2={this.trackPoints()[1]}
         />
-      );
+      ];
+      if (this.gague === 'narrow') {
+        result.push(
+          <Line
+          key={this.key + '-' + this.gague}
+          point1={this.trackPoints()[0]}
+          point2={this.trackPoints()[1]}
+          stroke='white'
+          strokeDasharray='10,10'
+          strokeWidth={5}
+          />
+        );
+      } else if (this.gague === 'dual') {
+        result.push(
+          <Line
+          key={this.key + '-' + this.gague}
+          point1={this.trackPoints()[0]}
+          point2={this.trackPoints()[1]}
+          stroke='white'
+          strokeWidth={5}
+          />
+        );
+      }
     } else {
-      result = (
+      result = [
         <Curve
           key={this.key}
           point1={this.trackPoints()[0]}
           point2={this.trackPoints()[1]}
           radius={this.trackCurveRadius()}
         />
-      );
+      ];
+      if (this.gague === 'narrow') {
+        result.push(
+          <Curve
+          key={this.key + '-' + this.gague}
+          point1={this.trackPoints()[0]}
+          point2={this.trackPoints()[1]}
+          radius={this.trackCurveRadius()}
+          stroke='white'
+          strokeDasharray='10,10'
+          strokeWidth={5}
+          />
+        );
+      } else if (this.gague === 'dual') {
+        result.push(
+          <Curve
+          key={this.key + '-' + this.gague}
+          point1={this.trackPoints()[0]}
+          point2={this.trackPoints()[1]}
+          radius={this.trackCurveRadius()}
+          stroke='white'
+          strokeWidth={5}
+          />
+        );
+      }
     }
-    return result;
+    return List(result);
   }
 
   public midpoints(num: number): List<Point> {
@@ -79,15 +132,17 @@ export default class Track {
   }
 
   public isTightCurve(): boolean {
-    return (this.pos2 - this.pos1) === 1 || (this.pos2 - this.pos1) === 5;
+    return Math.round(this.pos2 - this.pos1) === 1 ||
+     Math.round(this.pos2 - this.pos1) === 5;
   }
 
   public isShallowCurve(): boolean {
-    return (this.pos2 - this.pos1) === 2 || (this.pos2 - this.pos1) === 4;
+    return Math.round(this.pos2 - this.pos1) === 2 ||
+      Math.round(this.pos2 - this.pos1) === 4;
   }
 
   public isStraight(): boolean {
-    return (this.pos2 - this.pos1) === 3;
+    return Math.round(this.pos2 - this.pos1) === 3;
   }
 
   protected trackPoints(): [Point, Point] {
@@ -121,9 +176,9 @@ export default class Track {
 
   private centerRadius(): number {
     if (this.isShallowCurve()) {
-      return Tile.WIDTH;
+      return Tile.SIDE_LENGTH * Math.sqrt(3);
     } else if (this.isTightCurve()) {
-      return Tile.HEIGHT / 2;
+      return Tile.SIDE_LENGTH;
     } else if (this.isStraight()) {
       return 0;
     } else {
@@ -137,7 +192,7 @@ export default class Track {
     } else if (this.isTightCurve()) {
       return Tile.SIDE_LENGTH / 2;
     } else if (this.isStraight()) {
-      return Tile.WIDTH / 2;
+      return Tile.SIDE_LENGTH / 2 * Math.sqrt(3);
     } else {
       throw new Error('Unknown Track Curve Type');
     }
@@ -145,8 +200,10 @@ export default class Track {
 
   private trackCenter(): Point {
     return new Point(
-      Tile.CENTER.x + Math.cos(this.radianCenter()) * this.centerRadius(),
-      Tile.CENTER.y - Math.sin(this.radianCenter()) * this.centerRadius()
+      this.hexagon.center.x + Math.cos(this.radianCenter()) *
+        this.centerRadius(),
+      this.hexagon.center.y - Math.sin(this.radianCenter()) *
+        this.centerRadius()
     );
   }
 

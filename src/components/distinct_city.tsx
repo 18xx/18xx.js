@@ -14,15 +14,18 @@ export default class DistinctCity extends City {
     const tileElements: Array<ReactElement<any>> = [];
 
     for (const num of this.props.spotLocations) {
-      const cityPoint: Point = Point.fromCenter(
-        num + this.rotation,
+      const cityPoint: Point = Point.from(
+        this.hexagon.center,
+        num + this.rotation + this.hexagon.offset,
         (Tile.WIDTH / 2) - this.cityCircleRadius - 4
       );
 
       tileElements.push(
         <Line key={num + this.rotation}
         point1={cityPoint}
-        point2={Point.fromCenter(num + this.rotation)} />,
+        point2={Point.from(
+          this.hexagon.center, num + this.rotation + this.hexagon.offset
+        )} />,
         this.buildCircle(num, cityPoint),
       );
     }

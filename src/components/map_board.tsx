@@ -10,21 +10,30 @@ export interface MapBoardProps {
   readonly addOnTop?: List<ReactElement<any>>;
   readonly game: Game;
   readonly hexes: List<ReactElement<MapHex>>;
+  readonly orientation: string;
 }
 
 export default class MapBoard
-  extends React.Component<MapBoardProps, undefined>  {
+extends React.Component<MapBoardProps, undefined>  {
 
-    get hexes(): List<ReactElement<MapHex>> {
+  get hexes(): List<ReactElement<MapHex>> {
     return this.props.hexes;
   }
 
   get height(): number {
-    return (1.5 * this.numRows + 0.5) * Tile.SIDE_LENGTH;
+    let result: number = (1.5 * this.numRows + 0.5) * Tile.SIDE_LENGTH;
+    if (this.props.orientation === 'north-south') {
+      result = (this.numRows + 1) * Tile.SIDE_LENGTH * Math.sqrt(3) * 0.5;
+    }
+    return result;
   }
 
   get width(): number {
-    return (this.numColumns + 1) / 2 * Tile.WIDTH;
+    let result: number = (this.numColumns + 1) / 2 * Tile.WIDTH;
+    if (this.props.orientation === 'north-south') {
+      result = (this.numColumns + 0.5) * Tile.SIDE_LENGTH * 1.5;
+    }
+    return result;
   }
 
   get numColumns(): number {

@@ -17,6 +17,7 @@ const TILE_ORDER: List<string> = List([
 export interface TileProps {
   readonly color: string;
   readonly elements?: List<ReactElement<TileElement>>;
+  readonly orientation: string;
 }
 
 export interface TileElement {
@@ -68,9 +69,9 @@ export default class Tile extends React.Component<TileProps, undefined> {
     return (
       <svg
       xmlns='http://www.w3.org/2000/svg'
-      viewBox={`0 0 ${WIDTH} ${HEIGHT}`}
-      height={HEIGHT}
-      width={WIDTH}>
+      viewBox={`0 0 ${this.width} ${this.height}`}
+      height={this.height}
+      width={this.width}>
         <polygon key='bg'
           points={this.hexPoints().join(' ')}
           fill={this.hexColor} />
@@ -79,14 +80,60 @@ export default class Tile extends React.Component<TileProps, undefined> {
     );
   }
 
-  private hexPoints(): List<Point> {
-    return List([
-      new Point(WIDTH / 2,  0),
-      new Point(WIDTH, SIDE_LENGTH / 2),
-      new Point(WIDTH, SIDE_LENGTH * 3 / 2),
-      new Point(WIDTH / 2,  HEIGHT),
-      new Point(0, SIDE_LENGTH * 3 / 2),
-      new Point(0, SIDE_LENGTH / 2),
-    ]);
+  private get height(): number {
+    if (this.props.orientation === 'north-south') {
+      return Tile.SIDE_LENGTH * Math.sqrt(3);
+    } else {
+      return 2 * Tile.SIDE_LENGTH;
+    }
+  }
+
+  private get width(): number {
+    if (this.props.orientation === 'north-south') {
+      return 2 * Tile.SIDE_LENGTH;
+    } else {
+      return Tile.SIDE_LENGTH * Math.sqrt(3);
+    }
+  }
+
+  private get hexTop(): number {
+    return 0.25 * this.height;
+  }
+
+  private get hexBottom(): number {
+    return 0.75 * this.height;
+  }
+
+  private get hexLeft(): number {
+    return  0.25 * this.width;
+  }
+
+  private get hexRight(): number {
+    return 0.75 * this.width;
+  }
+
+  // TODO: This is duplicated from MapHex
+  private hexPoints(): List<string> {
+    let result: List<string>;
+    if (this.props.orientation === 'north-south') {
+      result = List([
+        `${this.hexLeft},${0}`,
+        `${this.hexRight},${0}`,
+        `${this.width},${this.height / 2}`,
+        `${this.hexRight},${this.height}`,
+        `${this.hexLeft},${this.height}`,
+        `${0},${this.height / 2}`
+      ]);
+    } else {
+      result = List([
+        `${0},${this.hexTop}`,
+        `${this.width / 2},${0}`,
+        `${this.width},${this.hexTop}`,
+        `${this.width},${this.hexBottom}`,
+        `${this.width / 2},${this.height}`,
+        `${0},${this.hexBottom}`
+      ]);
+    }
+    return result;
   }
 }

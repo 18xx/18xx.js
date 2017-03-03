@@ -13,6 +13,7 @@ import { GameState, initialState } from './reducers/game';
 
 import * as mapDef1817 from '../config/maps/1817.json';
 import * as mapDef1830 from '../config/maps/1830.json';
+import * as mapDef1849 from '../config/maps/1849.json';
 import * as mapDef1880 from '../config/maps/1880.json';
 let mapDef: MapDefinition;
 
@@ -27,6 +28,9 @@ if (container.dataset.gameName !== 'null') {
       break;
     case '1830':
       mapDef = mapDef1830 as any;
+      break;
+    case '1849':
+      mapDef = mapDef1849 as any;
       break;
     case '1880':
       mapDef = mapDef1880 as any;
@@ -47,7 +51,7 @@ if (container.dataset.gameName !== 'null') {
 } else {
   init = (state: any): void => {
     ReactDOM.render(
-      <AllTiles />,
+      <AllTiles orientation={'north-south'} />,
       container
     );
   };

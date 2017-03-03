@@ -6,19 +6,8 @@ import CityCircle from './city_circle';
 import Tile from './tile';
 import Value from './value';
 
+import Hexagon from '../hexagon';
 import Point from '../point';
-
-export const HEX_TOP: number =  0.25 * Tile.HEIGHT;
-export const HEX_BOTTOM: number = 0.75 * Tile.HEIGHT;
-
-const HEX_POINTS: List<string> = List([
-  `${0},${HEX_TOP}`,
-  `${Tile.CENTER.x},${0}`,
-  `${Tile.WIDTH},${HEX_TOP}`,
-  `${Tile.WIDTH},${HEX_BOTTOM}`,
-  `${Tile.CENTER.x},${Tile.HEIGHT}`,
-  `${0},${HEX_BOTTOM}`
-]);
 
 export interface MapHexProps {
   readonly allowTile?: boolean;
@@ -26,6 +15,7 @@ export interface MapHexProps {
   readonly elements?: List<MapHexElement>;
   readonly fill?: string;
   readonly onHexClick?: Function;
+  readonly orientation?: string;
   readonly row: string;
   readonly tile?: ReactElement<Tile>;
 }
@@ -35,13 +25,21 @@ export interface MapHexElement {
 }
 
 export default class MapHex
-  extends React.Component<MapHexProps, undefined> {
+extends React.Component<MapHexProps, undefined> {
 
   public static defaultProps: Partial<MapHexProps> = {
     allowTile: true,
     elements: List([]),
     fill: '#efe',
+    orientation: 'east-west',
   };
+
+  private hexagon: Hexagon;
+
+  constructor(props: MapHexProps) {
+    super(props);
+    this.hexagon = new Hexagon(this.props.orientation);
+  }
 
   get row(): string {
     return this.props.row;
@@ -52,18 +50,32 @@ export default class MapHex
   }
 
   get absoluteLeft(): number {
-    return (this.column - 1) * Tile.WIDTH * 0.5;
+    let result: number = (this.column - 1) * this.hexagon.width;
+    if (this.props.orientation === 'north-south') {
+      result *= 0.75;
+    } else {
+      result *= 0.5;
+    }
+    return result;
   }
 
   get absoluteTop(): number {
-    return (this.row.toLowerCase().charCodeAt(0) - 'a'.charCodeAt(0)) *
-      Tile.HEIGHT * 0.75;
+    let result: number = (
+      (this.row.toLowerCase().charCodeAt(0) - 'a'.charCodeAt(0)) *
+        this.hexagon.height
+    );
+    if (this.props.orientation === 'north-south') {
+      result *= 0.5;
+    } else {
+      result *= 0.75;
+    }
+    return result;
   }
 
   get absoluteCenter(): Point {
     return new Point(
-      this.absoluteLeft + Tile.WIDTH / 2,
-      this.absoluteTop + Tile.HEIGHT / 2,
+      this.absoluteLeft + this.hexagon.width / 2,
+      this.absoluteTop + this.hexagon.height / 2,
     );
   }
 
@@ -79,7 +91,7 @@ export default class MapHex
         className='hex'
         onClick={ () => this.props.onHexClick(this) }>
         <polygon
-          points={HEX_POINTS.join(' ')}
+          points={this.hexagon.hexPoints().join(' ')}
           fill={this.props.fill}
           stroke='black'/>
 

@@ -36,6 +36,7 @@ describe('TileSet', () => {
       });
       const tileSet: TileSet = new TileSet(
         allTiles,
+        'east-west',
         tileManifest
       );
       expect(tileSet.all.size).toEqual(2);

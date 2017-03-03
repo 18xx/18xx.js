@@ -7,9 +7,8 @@ import CityCircle, { CityCircleProps } from './components/city_circle';
 import CityName from './components/city_name';
 import DynamicValues from './components/dynamic_values';
 import Game from './components/game';
-import MapBoard from './components/map_board';
 import MapHex, {
-  HEX_BOTTOM, MapHexElement, MapHexProps
+  MapHexElement, MapHexProps
 } from './components/map_hex';
 import MediumCity from './components/medium_city';
 import OffBoard from './components/off_board';
@@ -41,6 +40,7 @@ export interface MapDefinition {
   mediumCities?: any;
   names?: any;
   offBoards?: any;
+  orientation?: string;
   preplacedTile?: any;
   privateReservations?: any;
   tileCostTypes?: any;
@@ -78,7 +78,7 @@ export default class MapBuilder {
         const hex: string = row + column;
 
         if (this.mapDef.names[hex]) {
-          let y: number = HEX_BOTTOM + 4;
+          let y: number = 100;
           if (this.mapDef.offBoards[hex]) {
             y -= 20;
           }
@@ -226,6 +226,7 @@ export default class MapBuilder {
 
         let tile: ReactElement<Tile>;
         const tileBuilder: TileBuilder = new TileBuilder(
+          this.mapDef.orientation,
           this.game.onRightClickCity,
           this.game.onRightClickToken,
           hex,
@@ -245,7 +246,10 @@ export default class MapBuilder {
             hex
           );
           tile = tileBuilder.buildTile(
-            new TileDefinition(this.mapDef.preplacedTile[hex])
+            new TileDefinition(
+              this.mapDef.preplacedTile[hex],
+              this.mapDef.orientation,
+            )
           );
         }
 
@@ -346,6 +350,7 @@ export default class MapBuilder {
         elements={List(data.elements)}
         allowTile={data.allowTile}
         onHexClick={this.game.onHexClick}
+        orientation={this.mapDef.orientation}
       />
     ));
   }

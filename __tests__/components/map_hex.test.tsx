@@ -4,6 +4,8 @@ import * as React from 'react';
 import { ReactElement } from 'react';
 import * as renderer from 'react-test-renderer';
 
+import Hexagon from '../../src/hexagon';
+
 import MapHex from '../../src/components/map_hex';
 import Tile from '../../src/components/tile';
 
@@ -58,7 +60,7 @@ describe('MapHex', () => {
     describe('when it contains a tile', () => {
       it('draws the tile at the end', () => {
         const tile: ReactElement<Tile> = (
-          <Tile color='yellow' />
+          <Tile color='yellow' orientation='east-west' />
         );
         const subject: any = renderer.create(
           <MapHex row='e' column={11} tile={tile} />

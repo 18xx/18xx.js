@@ -1,4 +1,4 @@
-import { List } from 'immutable';
+import { List, Map } from 'immutable';
 import * as React from 'react';
 import { ReactElement } from 'react';
 
@@ -15,6 +15,7 @@ import Town from './components/town';
 import UnconnectedCity from './components/unconnected_city';
 import Value from './components/value';
 
+import Hexagon from './hexagon';
 import Point from './point';
 import TileDefinition from './tile_definition';
 import Track from './track';
@@ -22,13 +23,17 @@ import TrackSpecial from './track_special';
 import TrackToCenter from './track_to_center';
 
 export default class TileFactory {
+  private hexagon: Hexagon;
+
   constructor(
+    private orientation: string,
     private onRightClickCity: Function,
     private onRightClickToken: Function,
     private definition: TileDefinition,
     private rotation: number = 0,
     private hex?: string,
   ) {
+    this.hexagon = new Hexagon(orientation);
   }
 
   public city(
@@ -36,6 +41,7 @@ export default class TileFactory {
   ): ReactElement<Station> {
     const attributes: any = { // FIXME: should be CityProps
       hex: this.hex,
+      hexagon: this.hexagon,
       key: this.hex || 'city',
       num: this.definition.spots,
       onRightClickCity: this.onRightClickCity,
@@ -101,7 +107,7 @@ export default class TileFactory {
             track => track.midpoints(midpointPosition).get(0)
           ).toList();
         } else {
-          attributes.points = [Tile.CENTER];
+          attributes.points = [this.hexagon.center];
         }
         break;
       default:
@@ -138,7 +144,11 @@ export default class TileFactory {
       }
 
       return (
-        <Label key='label' labelStr={this.definition.label} point={point} />
+        <Label
+        key='label'
+        labelStr={this.definition.label}
+        hexagon={this.hexagon}
+        point={point} />
       );
     }
   }
@@ -193,6 +203,7 @@ export default class TileFactory {
           key='tile-number'
           num={this.definition.num}
           orientation={orientation}
+          hexagon={this.hexagon}
           point={position} />
       );
     }
@@ -200,14 +211,30 @@ export default class TileFactory {
 
   public get track(): List<Track> {
     if (this.definition.track) {
-      return List(
-        this.definition.track.map((trackValues: [number, number]) =>
-          new Track(
-            (trackValues[0] + this.rotation) % 6,
-            (trackValues[1] + this.rotation) % 6,
+      let result: List<Track>;
+      if (Array.isArray(this.definition.track)) {
+        result = List(
+          this.definition.track.map((trackValues: [number, number]) =>
+            new Track(
+              (trackValues[0] + this.rotation) % 6,
+              (trackValues[1] + this.rotation) % 6,
+              new Hexagon(this.orientation),
+            )
           )
-        )
-      );
+        );
+      } else {
+        result = List(Object.keys(this.definition.track)).flatMap(gague =>
+          this.definition.track[gague].map((trackValues: [number, number]) =>
+            new Track(
+              (trackValues[0] + this.rotation) % 6,
+              (trackValues[1] + this.rotation) % 6,
+              new Hexagon(this.orientation),
+              gague,
+            )
+          )
+        ) as List<Track>;
+      }
+      return result;
     }
   }
 
@@ -220,6 +247,7 @@ export default class TileFactory {
             new TrackSpecial(
               (trackValues[0] + this.rotation) % 6,
               (trackValues[1] + this.rotation) % 6,
+              new Hexagon(this.orientation),
             )
         )
       );
@@ -228,18 +256,37 @@ export default class TileFactory {
 
   public get trackToCenter(): List<TrackToCenter> {
     if (this.definition.trackToCenter) {
-      return List(
-        this.definition.trackToCenter.map((value: number) =>
-          new TrackToCenter((value + this.rotation) % 6)
-        )
-      );
+      let result: List<TrackToCenter>;
+      if (Array.isArray(this.definition.trackToCenter)) {
+        result = List(
+          this.definition.trackToCenter.map((value: number) =>
+            new TrackToCenter(
+              (value + this.rotation) % 6,
+              new Hexagon(this.orientation),
+            )
+          )
+        );
+      } else {
+        result = List(
+          Object.keys(this.definition.trackToCenter)
+        ).flatMap((gague: string) =>
+          this.definition.trackToCenter[gague].map((value: number) =>
+            new TrackToCenter(
+              (value + this.rotation) % 6,
+              new Hexagon(this.orientation),
+              gague
+            )
+          )
+        ) as List<TrackToCenter>;
+      }
+      return result;
     }
   }
 
   public get value(): ReactElement<Value> {
-    let position: Point = Value.defaultProps.position;
+    let position: Point;
     if (this.definition.type === 'DistinctCity') {
-      position = Tile.CENTER;
+      position = this.hexagon.center;
     }
 
     if (this.definition.valuePosition) {
@@ -249,12 +296,16 @@ export default class TileFactory {
         Tile.HEIGHT / 2 - 14
       );
     } else if (this.definition.valuePosition === null) {
-      position = Tile.CENTER;
+      position = this.hexagon.center;
     }
 
     if (this.definition.value) {
       return (
-        <Value key='value' amount={this.definition.value} position={position} />
+        <Value
+        key='value'
+        amount={this.definition.value}
+        hexagon={this.hexagon}
+        position={position} />
       );
     }
   }
@@ -267,19 +318,20 @@ export default class TileFactory {
     if (!distance) {
       distance = Tile.HEIGHT / 2 - 2;
     }
-    const startPoint: Point = Point.fromCenter(
-      radians + this.rotation,
+    const startPoint: Point = Point.from(
+      this.hexagon.center,
+      radians + this.rotation + this.hexagon.offset,
       distance
     );
     const x: number = startPoint.x;
     let y: number = startPoint.y;
 
-    if (y < Tile.CENTER.y) {
+    if (y < this.hexagon.center.y) {
       y += adjustY;
     }
 
     if (startPoint.isAtCenterX()) {
-      if (y < Tile.CENTER.y) {
+      if (y < this.hexagon.center.y) {
         y += adjustY * 2 / 3;
       } else {
         y -= adjustY * 2 / 3;

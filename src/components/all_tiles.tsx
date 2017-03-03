@@ -12,11 +12,17 @@ const allTiles: List<TileDefinitionInput> =
     (el: any) => el.toJS() as TileDefinitionInput
   );
 
-  export default class AllTiles extends React.Component<undefined, undefined> {
+interface AllTilesProps {
+  readonly orientation: string;
+}
+
+export default class AllTiles
+extends React.Component<AllTilesProps, undefined> {
+
   public get tiles(): any {
     return allTiles.map(t =>
       <div key={t.num}>
-        {new TileDefinition(t).allRotations}
+        {new TileDefinition(t, this.props.orientation).allRotations}
       </div>
     );
   }

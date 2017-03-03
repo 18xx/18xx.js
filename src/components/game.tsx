@@ -56,6 +56,7 @@ export default class Game
 
     this.tileSet = new TileSet(
       allTiles,
+      this.props.mapDef.orientation,
       Map<string, TileSetDetails>(props.mapDef.tileManifest)
     );
 
@@ -111,6 +112,7 @@ export default class Game
             hexes={
               this.mapBuilder.getHexes(this.state.tiles, this.state.tokens)
             }
+            orientation={this.props.mapDef.orientation}
             addOnTop={this.mapBuilder.addOnTop}
             />
           </div>

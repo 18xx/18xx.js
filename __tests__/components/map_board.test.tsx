@@ -12,6 +12,7 @@ import { MapDefinition } from '../../src/map_builder';
 const json: MapDefinition = {
   companies: {},
   hexes: {},
+  orientation: 'east-west',
   tileManifest: {},
 };
 
@@ -30,6 +31,7 @@ describe('MapBoard', () => {
             <MapHex row='a' column={1} />,
             <MapHex row='c' column={1} />,
           ]),
+          orientation: json.orientation,
         });
         expect(mapBoard.numColumns).toEqual(1);
       });
@@ -44,6 +46,7 @@ describe('MapBoard', () => {
             <MapHex row='b' column={2} />,
             <MapHex row='c' column={1} />,
           ]),
+          orientation: json.orientation,
         });
         expect(mapBoard.numColumns).toEqual(3);
       });
@@ -59,6 +62,7 @@ describe('MapBoard', () => {
             <MapHex row='a' column={1} />,
             <MapHex row='a' column={3} />,
           ]),
+          orientation: json.orientation,
         });
         expect(mapBoard.numRows).toEqual(1);
       });
@@ -73,6 +77,7 @@ describe('MapBoard', () => {
             <MapHex row='b' column={2} />,
             <MapHex row='c' column={1} />,
           ]),
+          orientation: json.orientation,
         });
         expect(mapBoard.numRows).toEqual(3);
       });
@@ -86,7 +91,7 @@ describe('MapBoard', () => {
         <MapHex row='a' column={3} key='a3' />,
       ]);
       const subject: any = renderer.create(
-        <MapBoard game={game} hexes={hexes} />
+        <MapBoard game={game} hexes={hexes} orientation={'east-west'} />
       );
       expect(subject).toMatchSnapshot();
     });
