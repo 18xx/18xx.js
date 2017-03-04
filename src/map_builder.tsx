@@ -310,41 +310,53 @@ export default class MapBuilder {
         (hexes: [string, string]) => {
           const hex0: MapHex = new MapHex({
             column: parseInt(hexes[0].substring(1), 10),
+            orientation: this.mapDef.orientation,
             row: (hexes[0].substring(0, 1)),
           });
 
           const hex1: MapHex = new MapHex({
             column: parseInt(hexes[1].substring(1), 10),
+            orientation: this.mapDef.orientation,
             row: (hexes[1].substring(0, 1)),
           });
 
-          let x1: number;
-          let x2: number;
-          if (hex0.absoluteCenter.y === hex1.absoluteCenter.y) {
-            x1 = x2 = (hex0.absoluteCenter.x + hex1.absoluteCenter.x) / 2;
-          } else {
-            x1 = hex1.absoluteCenter.x;
-            x2 = hex0.absoluteCenter.x;
-          }
+          if (this.mapDef.orientation === 'north-south') {
+            const data: number[] = this.midpointLinePoints(
+              hex0.absoluteCenter.x,
+              hex1.absoluteCenter.x,
+              hex0.absoluteCenter.y,
+              hex1.absoluteCenter.y,
+            );
 
-          let y1: number;
-          if (hex0.absoluteCenter.y > hex1.absoluteCenter.y) {
-            y1 = Tile.SIDE_LENGTH / -2;
+            return (
+              <line
+              key={`impassable-${hexes.join('-')}`}
+              x1={hex0.absoluteCenter.x + data[0]}
+              y1={data[2]}
+              x2={hex1.absoluteCenter.x + data[1]}
+              y2={data[3]}
+              strokeWidth={4}
+              stroke='red' />
+            );
           } else {
-            y1 = Tile.SIDE_LENGTH / 2;
-          }
-          const y2: number = -y1;
+            const data: number[] = this.midpointLinePoints(
+              hex0.absoluteCenter.y,
+              hex1.absoluteCenter.y,
+              hex0.absoluteCenter.x,
+              hex1.absoluteCenter.x,
+            );
 
-          return (
-            <line
-            key={`impassable-${hexes.join('-')}`}
-            x1={x1}
-            y1={hex0.absoluteCenter.y + y1}
-            x2={x2}
-            y2={hex1.absoluteCenter.y + y2}
-            strokeWidth={4}
-            stroke='red' />
-          );
+            return (
+              <line
+              key={`impassable-${hexes.join('-')}`}
+              x1={data[2]}
+              y1={hex0.absoluteCenter.y + data[0]}
+              x2={data[3]}
+              y2={hex1.absoluteCenter.y + data[1]}
+              strokeWidth={4}
+              stroke='red' />
+            );
+          }
         }
       ));
     }
@@ -381,5 +393,31 @@ export default class MapBuilder {
         orientation={this.mapDef.orientation}
       />
     ));
+  }
+
+  private midpointLinePoints(
+    a: number,
+    b: number,
+    c: number,
+    d: number,
+  ): number[] {
+    let y1: number;
+    let y2: number;
+    if (a === b) {
+      y1 = y2 = (c + d) / 2;
+    } else {
+      y1 = d;
+      y2 = c;
+    }
+
+    let x1: number;
+    if (a > b) {
+      x1 = Tile.SIDE_LENGTH / -2;
+    } else {
+      x1 = Tile.SIDE_LENGTH / 2;
+    }
+    const x2: number = -x1;
+
+    return [x1, x2, y1, y2];
   }
 }

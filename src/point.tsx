@@ -17,6 +17,13 @@ export default class Point {
     );
   }
 
+  public static midpoint(point1: Point, point2: Point): Point {
+    return new Point(
+      (point1.x + point2.x) / 2,
+      (point1.y + point2.y) / 2,
+    );
+  }
+
   constructor(public x: number, public y: number) {
     this.x = x;
     this.y = y;
