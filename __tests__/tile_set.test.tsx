@@ -1,5 +1,7 @@
 import { List, Map } from 'immutable';
 
+import * as mapDef from '../config/maps/1830.json';
+
 import TileDefinition, { TileDefinitionInput } from '../src/tile_definition';
 import TileSet, { TileSetDetails } from '../src/tile_set';
 
@@ -37,6 +39,7 @@ describe('TileSet', () => {
       const tileSet: TileSet = new TileSet(
         allTiles,
         'east-west',
+        mapDef as any,
         tileManifest
       );
       expect(tileSet.all.size).toEqual(2);

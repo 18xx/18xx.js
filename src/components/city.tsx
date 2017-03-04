@@ -11,6 +11,7 @@ import Town from './town';
 import CityCircleFactory from '../city_circle_factory';
 import Company from '../company';
 import Hexagon from '../hexagon';
+import { MapDefinition } from '../map_builder';
 import Point from '../point';
 
 export interface CityProps {
@@ -18,6 +19,7 @@ export interface CityProps {
   hexagon: Hexagon;
   onRightClickCity: Function;
   onRightClickToken: Function;
+  mapDef: MapDefinition;
   num: number;
   points?: List<Point>;
   rotation?: number;
@@ -264,6 +266,7 @@ implements Station {
 
   protected buildCircle(index: number, point: Point): ReactElement<CityCircle> {
     const factory: CityCircleFactory = new CityCircleFactory(
+      this.props.mapDef,
       this.props.hex,
       this.props.homeTokens,
       this.props.onRightClickCity,

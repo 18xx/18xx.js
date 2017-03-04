@@ -1,23 +1,26 @@
 import Company from '../src/company';
 
 describe('Company', () => {
-  describe('.find', () => {
-    describe('when the company exists in the list', () => {
-      it('finds the company and populates its data', () => {
-        const subject: Company = Company.find('GTW');
-        expect(subject.name).toEqual('Grand Trunk Western Railroad');
-        expect(subject.primaryColor).toEqual('#1F3871');
-        expect(subject.secondaryColor).toEqual('white');
-        expect(subject.textColor).toEqual('black');
-        expect(subject.shorthand).toEqual('GTW');
-      });
-    });
-
-    describe('when the company does not exist in the list', () => {
-      it('throws an error', () => {
-        const fn: Function = () => Company.find('NONONO');
-        expect(fn).toThrowError('Could not find company: NONONO');
-      });
+  describe('.fromJson', () => {
+    it('initializes a company company and populates its data', () => {
+      const subject: Company = Company.fromJson(
+        'B&O',
+        {
+          home: 'i15',
+          name: 'Baltimore and Ohio Railroad',
+          primaryColor: '#0B00F7',
+          secondaryColor: 'white',
+          shorthand: 'B&O',
+          textColor: 'black',
+          tokens: 3,
+        },
+      );
+      expect(subject.reportingMark).toEqual('B&O');
+      expect(subject.name).toEqual('Baltimore and Ohio Railroad');
+      expect(subject.primaryColor).toEqual('#0B00F7');
+      expect(subject.secondaryColor).toEqual('white');
+      expect(subject.textColor).toEqual('black');
+      expect(subject.shorthand).toEqual('B&O');
     });
   });
 });

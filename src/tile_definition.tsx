@@ -4,6 +4,7 @@ import { ReactElement } from 'react';
 import { DynamicValuesProps } from './components/dynamic_values';
 import Tile from './components/tile';
 
+import { MapDefinition } from './map_builder';
 import { PointDefinition } from './point';
 import TileBuilder from './tile_builder';
 
@@ -42,6 +43,7 @@ export interface TileDefinitionInput {
 
 export default class TileDefinition {
   constructor(
+    private mapDef: MapDefinition,
     private definition: TileDefinitionInput,
     private orientation: string,
   ) {
@@ -121,7 +123,7 @@ export default class TileDefinition {
   }
 
   public tile(rotation: number): ReactElement<Tile> {
-    return new TileBuilder(this.orientation).buildTile(
+    return new TileBuilder(this.orientation, this.mapDef).buildTile(
       this,
       rotation
     );

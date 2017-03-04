@@ -16,6 +16,7 @@ import UnconnectedCity from './components/unconnected_city';
 import Value from './components/value';
 
 import Hexagon from './hexagon';
+import { MapDefinition } from './map_builder';
 import Point from './point';
 import TileDefinition from './tile_definition';
 import Track from './track';
@@ -27,6 +28,7 @@ export default class TileFactory {
 
   constructor(
     private orientation: string,
+    private mapDef: MapDefinition,
     private onRightClickCity: Function,
     private onRightClickToken: Function,
     private definition: TileDefinition,
@@ -43,6 +45,7 @@ export default class TileFactory {
       hex: this.hex,
       hexagon: this.hexagon,
       key: this.hex || 'city',
+      mapDef: this.mapDef,
       num: this.definition.spots,
       onRightClickCity: this.onRightClickCity,
       onRightClickToken: this.onRightClickToken,

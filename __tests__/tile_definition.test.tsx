@@ -1,15 +1,24 @@
 import { ReactElement } from 'react';
 
+import * as mapDef1830 from '../config/maps/1830.json';
+
 import Tile from '../src/components/tile';
 
+import { MapDefinition } from '../src/map_builder';
 import TileDefinition, { TileDefinitionInput } from '../src/tile_definition';
 import Track from '../src/track';
+
+const mapDef: MapDefinition = mapDef1830 as any;
 
 describe('TileDefinition', () => {
   describe('#num', () => {
     it('returns the number specifieid', () => {
       expect(
-        new TileDefinition({ color: 'green', num: '5' }, 'east-west').num
+        new TileDefinition(
+          mapDef,
+          { color: 'green', num: '5' },
+          'east-west'
+        ).num
       ).toEqual('5');
     });
   });
@@ -17,7 +26,11 @@ describe('TileDefinition', () => {
   describe('#color', () => {
     it('returns the color specifieid', () => {
       expect(
-        new TileDefinition({ color: 'gray', num: '1' }, 'east-west').color
+        new TileDefinition(
+          mapDef,
+          { color: 'gray', num: '1' },
+          'east-west'
+        ).color
       ).toEqual('gray');
     });
   });
@@ -26,6 +39,7 @@ describe('TileDefinition', () => {
     it('returns the label specifieid', () => {
       expect(
         new TileDefinition(
+          mapDef,
           {
             color: 'yellow',
             label: 'NY',
@@ -41,6 +55,7 @@ describe('TileDefinition', () => {
       it('returns the number specified in the definition', () => {
         expect(
           new TileDefinition(
+            mapDef,
             {
               color: 'yellow',
               num: '1',
@@ -56,6 +71,7 @@ describe('TileDefinition', () => {
       it('returns 6', () => {
         expect(
           new TileDefinition(
+            mapDef,
             { color: 'yellow', num: '1' },
             'east-west',
           ).rotations
@@ -76,6 +92,7 @@ describe('TileDefinition', () => {
 
     it('returns a tile for each rotation', () => {
       const tileDefinition: TileDefinition = new TileDefinition(
+        mapDef,
         json,
         'east-west',
       );
@@ -93,6 +110,7 @@ describe('TileDefinition', () => {
         ]
       };
       const subject: ReactElement<Tile> = new TileDefinition(
+        mapDef,
         json,
         'east-west'
       ).tile(1);

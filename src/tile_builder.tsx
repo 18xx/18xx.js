@@ -4,12 +4,14 @@ import { ReactElement } from 'react';
 
 import Tile, { TileElement } from './components/tile';
 
+import { MapDefinition } from './map_builder';
 import TileDefinition from './tile_definition';
 import TileFactory from './tile_factory';
 
 export default class TileBuilder {
   constructor(
     private orientation: string,
+    private mapDef: MapDefinition,
     private onRightClickCity?: Function,
     private onRightClickToken?: Function,
     private hex?: string,
@@ -25,9 +27,10 @@ export default class TileBuilder {
     const color: string = def.color;
     const factory: TileFactory = new TileFactory(
       this.orientation,
+      this.mapDef,
       this.onRightClickCity,
       this.onRightClickToken,
-      new TileDefinition(def, this.orientation),
+      new TileDefinition(this.mapDef, def, this.orientation),
       i,
       this.hex,
     );

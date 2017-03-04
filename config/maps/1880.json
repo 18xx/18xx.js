@@ -507,26 +507,198 @@
     }
   },
   "companies": {
-    "1": { "home": "a3", "tokens": 1 },
-    "2": { "home": "e13", "tokens": 1 },
-    "3": { "home": "h6", "tokens": 1 },
-    "4": { "home": "h14", "tokens": 1 },
-    "5": { "home": "q15", "tokens": 1 },
-    "6": { "home": "p12", "tokens": 1 },
-    "7": { "home": "q7", "tokens": 1 },
-    "BCR": { "home": "m3", "tokens": 3 },
-    "BZU": { "home": "b8", "tokens": 3 },
-    "CKR": { "home": "o5", "tokens": 3 },
-    "HKR": { "home": "k15", "tokens": 3 },
-    "JGG": { "home": "f8", "index": 4, "tokens": 3 },
-    "JHA": { "home": "f8", "index": 1, "tokens": 3 },
-    "JHU": { "home": "f8", "index": 0, "tokens": 3 },
-    "JLR": { "home": "f8", "index": 3, "tokens": 3 },
-    "LHR": { "home": "j2", "tokens": 3 },
-    "NJR": { "home": "k13", "tokens": 3 },
-    "NXR": { "home": "j6", "tokens": 3 },
-    "QSR": { "home": "d12", "tokens": 3 },
-    "SCR": { "home": "n12", "tokens": 3 },
-    "WNR": { "home": "l10", "tokens": 3 }
+    "1": {
+      "home": "a3",
+      "tokens": 1,
+      "name": "Russia",
+      "primaryColor": "white",
+      "secondaryColor": "white",
+      "textColor": "black",
+      "shorthand": 1
+    },
+    "2": {
+      "home": "e13",
+      "tokens": 1,
+      "name": "Japan",
+      "primaryColor": "white",
+      "secondaryColor": "white",
+      "textColor": "black",
+      "shorthand": 2
+    },
+    "3": {
+      "home": "h6",
+      "tokens": 1,
+      "name": "Belgium",
+      "primaryColor": "white",
+      "secondaryColor": "white",
+      "textColor": "black",
+      "shorthand": 3
+    },
+    "4": {
+      "home": "h14",
+      "tokens": 1,
+      "name": "Germany",
+      "primaryColor": "white",
+      "secondaryColor": "white",
+      "textColor": "black",
+      "shorthand": 4
+    },
+    "5": {
+      "home": "q15",
+      "tokens": 1,
+      "name": "Great Britain",
+      "primaryColor": "white",
+      "secondaryColor": "white",
+      "textColor": "black",
+      "shorthand": 5
+    },
+    "6": {
+      "home": "p12",
+      "tokens": 1,
+      "name": "Portugal",
+      "primaryColor": "white",
+      "secondaryColor": "white",
+      "textColor": "black",
+      "shorthand": 6
+    },
+    "7": {
+      "home": "q7",
+      "tokens": 1,
+      "name": "France",
+      "primaryColor": "white",
+      "secondaryColor": "white",
+      "textColor": "black",
+      "shorthand": 7
+    },
+    "BCR": {
+      "home": "m3",
+      "tokens": 3,
+      "name": "Baocheng Railway",
+      "primaryColor": "#00008b",
+      "secondaryColor": "white",
+      "textColor": "black",
+      "shorthand": "BCR"
+    },
+    "BZU": {
+      "home": "b8",
+      "tokens": 3,
+      "name": "Binzhou Railway",
+      "primaryColor": "#F5F5DC",
+      "secondaryColor": "white",
+      "textColor": "black",
+      "shorthand": "BZU"
+    },
+    "CKR": {
+      "home": "o5",
+      "tokens": 3,
+      "name": "Chengkun Railway",
+      "primaryColor": "red",
+      "secondaryColor": "white",
+      "textColor": "black",
+      "shorthand": "CKR"
+    },
+    "HKR": {
+      "home": "k15",
+      "tokens": 3,
+      "name": "Hukun Railway",
+      "primaryColor": "#90ee90",
+      "secondaryColor": "white",
+      "textColor": "black",
+      "shorthand": "HKR"
+    },
+    "JGG": {
+      "home": "f8",
+      "index": 4,
+      "tokens": 3,
+      "name": "Jingguang Railway",
+      "primaryColor": "#800080",
+      "secondaryColor": "white",
+      "textColor": "black",
+      "shorthand": "JGG"
+    },
+    "JHA": {
+      "home": "f8",
+      "index": 1,
+      "tokens": 3,
+      "name": "Jingha Railway",
+      "primaryColor": "#FFA500",
+      "secondaryColor": "white",
+      "textColor": "black",
+      "shorthand": "JHA"
+    },
+    "JHU": {
+      "home": "f8",
+      "index": 0,
+      "tokens": 3,
+      "name": "Jinghu Railway",
+      "primaryColor": "black",
+      "secondaryColor": "white",
+      "textColor": "black",
+      "shorthand": "JHU"
+    },
+    "JLR": {
+      "home": "f8",
+      "index": 3,
+      "tokens": 3,
+      "name": "Jinglan Railway",
+      "primaryColor": "#40e0d0",
+      "secondaryColor": "white",
+      "textColor": "black",
+      "shorthand": "JLR"
+    },
+    "LHR": {
+      "home": "j2",
+      "tokens": 3,
+      "name": "Longhai Railway",
+      "primaryColor": "#888",
+      "secondaryColor": "white",
+      "textColor": "black",
+      "shorthand": "LHR"
+    },
+    "NJR": {
+      "home": "k13",
+      "tokens": 3,
+      "name": "Nanjiang Railway",
+      "primaryColor": "#a52a2a",
+      "secondaryColor": "white",
+      "textColor": "black",
+      "shorthand": "NJR"
+    },
+    "NXR": {
+      "home": "j6",
+      "tokens": 3,
+      "name": "Ningxi Railway",
+      "primaryColor": "#ffc0cb",
+      "secondaryColor": "white",
+      "textColor": "black",
+      "shorthand": "NXR"
+    },
+    "QSR": {
+      "home": "d12",
+      "tokens": 3,
+      "name": "Qinshen Railway",
+      "primaryColor": "#add8a6",
+      "secondaryColor": "white",
+      "textColor": "black",
+      "shorthand": "QSR"
+    },
+    "SCR": {
+      "home": "n12",
+      "tokens": 3,
+      "name": "Schichang Railway",
+      "primaryColor": "#006400",
+      "secondaryColor": "white",
+      "textColor": "black",
+      "shorthand": "SCR"
+    },
+    "WNR": {
+      "home": "l10",
+      "tokens": 3,
+      "name": "Wunan Railway",
+      "primaryColor": "yellow",
+      "secondaryColor": "white",
+      "textColor": "black",
+      "shorthand": "WNR"
+    }
   }
 }
