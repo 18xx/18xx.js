@@ -41,13 +41,14 @@ export interface TileDefinitionInput {
 }
 
 export default class TileDefinition {
-  constructor(private definition: TileDefinitionInput) {
-    this.definition = definition;
+  constructor(
+    private definition: TileDefinitionInput,
+    private orientation: string,
+  ) {
   }
 
   public get color(): string {
-    return this.definition.color;
-  }
+    return this.definition.color; }
 
   public get cost(): TileDefinitionCost {
     return this.definition.cost;
@@ -89,7 +90,7 @@ export default class TileDefinition {
     return this.definition.spotLocations;
   }
 
-  public get track(): number[][] {
+  public get track(): any {
     return this.definition.track;
   }
 
@@ -97,7 +98,7 @@ export default class TileDefinition {
     return this.definition.trackSpecial;
   }
 
-  public get trackToCenter(): number[] {
+  public get trackToCenter(): any {
     return this.definition.trackToCenter;
   }
 
@@ -120,7 +121,7 @@ export default class TileDefinition {
   }
 
   public tile(rotation: number): ReactElement<Tile> {
-    return new TileBuilder().buildTile(
+    return new TileBuilder(this.orientation).buildTile(
       this,
       rotation
     );

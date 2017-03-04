@@ -9,7 +9,7 @@ describe('TileDefinition', () => {
   describe('#num', () => {
     it('returns the number specifieid', () => {
       expect(
-        new TileDefinition({ color: 'green', num: '5' }).num
+        new TileDefinition({ color: 'green', num: '5' }, 'east-west').num
       ).toEqual('5');
     });
   });
@@ -17,7 +17,7 @@ describe('TileDefinition', () => {
   describe('#color', () => {
     it('returns the color specifieid', () => {
       expect(
-        new TileDefinition({ color: 'gray', num: '1' }).color
+        new TileDefinition({ color: 'gray', num: '1' }, 'east-west').color
       ).toEqual('gray');
     });
   });
@@ -25,11 +25,14 @@ describe('TileDefinition', () => {
   describe('#label', () => {
     it('returns the label specifieid', () => {
       expect(
-        new TileDefinition({
-          color: 'yellow',
-          label: 'NY',
-          num: '1',
-        }).label).toEqual('NY');
+        new TileDefinition(
+          {
+            color: 'yellow',
+            label: 'NY',
+            num: '1',
+          },
+          'east-west',
+        ).label).toEqual('NY');
     });
   });
 
@@ -37,11 +40,14 @@ describe('TileDefinition', () => {
     describe('when the definition specified a number of rotations', () => {
       it('returns the number specified in the definition', () => {
         expect(
-          new TileDefinition({
-            color: 'yellow',
-            num: '1',
-            rotations: 3
-          }).rotations
+          new TileDefinition(
+            {
+              color: 'yellow',
+              num: '1',
+              rotations: 3
+            },
+            'east-west',
+          ).rotations
         ).toEqual(3);
       });
     });
@@ -49,7 +55,10 @@ describe('TileDefinition', () => {
     describe('when it does not specify a number of rotations', () => {
       it('returns 6', () => {
         expect(
-          new TileDefinition({ color: 'yellow', num: '1' }).rotations
+          new TileDefinition(
+            { color: 'yellow', num: '1' },
+            'east-west',
+          ).rotations
         ).toEqual(6);
       });
     });
@@ -66,7 +75,10 @@ describe('TileDefinition', () => {
     };
 
     it('returns a tile for each rotation', () => {
-      const tileDefinition: TileDefinition = new TileDefinition(json);
+      const tileDefinition: TileDefinition = new TileDefinition(
+        json,
+        'east-west',
+      );
       expect(tileDefinition.allRotations.size).toEqual(2);
     });
   });
@@ -80,7 +92,10 @@ describe('TileDefinition', () => {
           [0, 1]
         ]
       };
-      const subject: ReactElement<Tile> = new TileDefinition(json).tile(1);
+      const subject: ReactElement<Tile> = new TileDefinition(
+        json,
+        'east-west'
+      ).tile(1);
 
       expect(subject.props.color).toEqual('yellow');
       // FIXME: Better test

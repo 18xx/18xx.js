@@ -16,28 +16,40 @@ describe('Tile', () => {
   describe('#hexColor', () => {
     describe('when the color is yellow', () => {
       it('returns yellow', () => {
-        const tile: Tile = new Tile({ color: 'yellow' });
+        const tile: Tile = new Tile({
+          color: 'yellow',
+          orientation: 'east-west',
+        });
         expect(tile.hexColor).toEqual('yellow');
       });
     });
 
     describe('when the color is green', () => {
       it('returns limegreen', () => {
-        const tile: Tile = new Tile({ color: 'green' });
+        const tile: Tile = new Tile({
+          color: 'green',
+          orientation: 'east-west',
+        });
         expect(tile.hexColor).toEqual('limegreen');
       });
     });
 
     describe('when the color is brown', () => {
       it('returns #80461B', () => {
-        const tile: Tile = new Tile({ color: 'brown' });
+        const tile: Tile = new Tile({
+          color: 'brown',
+          orientation: 'east-west',
+        });
         expect(tile.hexColor).toEqual('#b0763f');
       });
     });
 
     describe('when the color is gray', () => {
       it('returns #80461B', () => {
-        const tile: Tile = new Tile({ color: 'gray' });
+        const tile: Tile = new Tile({
+          color: 'gray',
+          orientation: 'east-west',
+        });
         expect(tile.hexColor).toEqual('#bbb');
       });
     });
@@ -45,7 +57,10 @@ describe('Tile', () => {
 
   describe('#toString()', () => {
     it('returns an svg document', () => {
-      const tile: Tile = new Tile({ color: 'yellow' });
+      const tile: Tile = new Tile({
+        color: 'yellow',
+        orientation: 'east-west',
+      });
       expect(tile.toString()).toMatchSnapshot();
     });
   });

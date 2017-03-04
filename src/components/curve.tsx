@@ -9,11 +9,19 @@ interface CurveProps {
   readonly point1: Point;
   readonly point2: Point;
   readonly radius: number;
+  readonly stroke?: string;
+  readonly strokeDasharray?: string;
+  readonly strokeWidth?: number;
 }
 
 export default class Curve
 extends React.Component<CurveProps, undefined>
 implements TileElement {
+  public static defaultProps: Partial<CurveProps> = {
+    stroke: 'black',
+    strokeDasharray: '1,0',
+    strokeWidth: 8,
+  };
 
   public render(): ReactElement<Curve> {
     const dValues: string = [
@@ -32,8 +40,9 @@ implements TileElement {
       <path
         d={dValues}
         fill='none'
-        stroke='black'
-        strokeWidth='8'
+        stroke={this.props.stroke}
+        strokeDasharray={this.props.strokeDasharray}
+        strokeWidth={this.props.strokeWidth}
       />
     );
   }

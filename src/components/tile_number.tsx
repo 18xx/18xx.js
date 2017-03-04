@@ -3,9 +3,11 @@ import { ReactElement } from 'react';
 
 import Tile from './tile';
 
+import Hexagon from '../hexagon';
 import Point from '../point';
 
 export interface TileNumberProps {
+  hexagon: Hexagon;
   num: string;
   orientation?: number;
   point?: Point;
@@ -13,13 +15,6 @@ export interface TileNumberProps {
 
 export default class TileNumber
 extends React.Component<TileNumberProps, undefined> {
-  public static defaultProps: Partial<TileNumberProps> = {
-    point: new Point(
-      Tile.WIDTH - 1,
-      (Tile.HEIGHT * 3 / 4) - 2
-    ),
-  };
-
   public text(): string {
     let result: string = this.props.num;
     if (typeof this.props.orientation !== 'undefined') {
@@ -41,7 +36,21 @@ extends React.Component<TileNumberProps, undefined> {
   }
 
   private get point(): Point {
-    return this.props.point;
+    let result: Point = this.props.point;
+    if (!result) {
+      if (this.hexagon.offset === 0.5) {
+        result = new Point(
+          this.hexagon.hexRight,
+          this.hexagon.height - 2
+        );
+      } else {
+        result = new Point(
+          this.hexagon.width - 1,
+          (this.hexagon.height * 3 / 4) - 2
+        );
+      }
+    }
+    return result;
   }
 
   private get textAnchor(): string {
@@ -52,5 +61,9 @@ extends React.Component<TileNumberProps, undefined> {
       result =  'end';
     }
     return result;
+  }
+
+  private get hexagon(): Hexagon {
+    return this.props.hexagon;
   }
 }

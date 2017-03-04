@@ -17,10 +17,6 @@ export default class Point {
     );
   }
 
-  public static fromCenter(radians: number, distance?: number): Point {
-    return Point.from(Tile.CENTER, radians, distance);
-  }
-
   constructor(public x: number, public y: number) {
     this.x = x;
     this.y = y;

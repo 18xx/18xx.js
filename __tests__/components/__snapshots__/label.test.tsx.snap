@@ -6,7 +6,7 @@ exports[`Label #toString() when the point is not specified returns the svg for t
   fontSize={16}
   fontWeight="bold"
   textAnchor="end"
-  x={109}
+  x={108.85125168440814}
   y={46}
 >
   B

@@ -9,6 +9,7 @@ import TileFactory from './tile_factory';
 
 export default class TileBuilder {
   constructor(
+    private orientation: string,
     private onRightClickCity?: Function,
     private onRightClickToken?: Function,
     private hex?: string,
@@ -23,16 +24,17 @@ export default class TileBuilder {
 
     const color: string = def.color;
     const factory: TileFactory = new TileFactory(
+      this.orientation,
       this.onRightClickCity,
       this.onRightClickToken,
-      new TileDefinition(def),
+      new TileDefinition(def, this.orientation),
       i,
       this.hex,
     );
 
     let track: List<ReactElement<TileElement>>;
     if (factory.track) {
-      track = factory.track.map(t => t.element()).toList();
+      track = factory.track.map(t => t.elements()).flatten(true).toList();
     }
 
     let trackSpecial: List<ReactElement<TileElement>>;
@@ -66,7 +68,11 @@ export default class TileBuilder {
     }
 
     return (
-      <Tile key={key} color={color} elements={elements} />
+      <Tile
+      orientation={this.orientation}
+      key={key}
+      color={color}
+      elements={elements} />
     );
   }
 }

@@ -3,7 +3,8 @@
 exports[`Line #toString returns an svg path element 1`] = `
 <line
   stroke="black"
-  strokeWidth="8"
+  strokeDasharray="1,0"
+  strokeWidth={8}
   x1={1}
   x2={3}
   y1={2}

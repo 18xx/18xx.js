@@ -13,13 +13,14 @@ export interface TileSetDetails {
 export default class TileSet {
   constructor(
     private allTiles: List<TileDefinitionInput>,
+    private orientation: string,
     private tileManifest: Map<string, TileSetDetails>,
   ) {
   }
 
   public get all(): List<TileDefinition> {
     const fn: (def: TileDefinitionInput) => TileDefinition = def => (
-      new TileDefinition(def)
+      new TileDefinition(def, this.orientation)
     );
     return this.allTiles.map(fn).filter(
       def => this.tileManifest.keySeq().includes(def.num.toString())
