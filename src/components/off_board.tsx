@@ -5,11 +5,14 @@ import { ReactElement } from 'react';
 import { MapHexElement } from './map_hex';
 import Tile from './tile';
 
+import Hexagon from '../hexagon';
+
 const EXIT_BASE: number = 5;
 const EXIT_HEIGHT: number = 20;
 
 export interface OffBoardProps {
   readonly exits: List<number>;
+  readonly hexagon: Hexagon;
 }
 
 export default class OffBoard
@@ -20,14 +23,14 @@ implements MapHexElement {
     const results: Array<ReactElement<any>> = [];
 
     const ePoints: List<string> = List([
-      `${Tile.WIDTH},${Tile.CENTER.y - EXIT_BASE}`,
-      `${Tile.WIDTH},${Tile.CENTER.y + EXIT_BASE}`,
-      `${Tile.WIDTH - EXIT_HEIGHT},${Tile.CENTER.y}`
+      `${this.props.hexagon.width},${this.props.hexagon.center.y - EXIT_BASE}`,
+      `${this.props.hexagon.width},${this.props.hexagon.center.y + EXIT_BASE}`,
+      `${this.props.hexagon.width - EXIT_HEIGHT},${this.props.hexagon.center.y}`
     ]);
     const wPoints: List<string> = List([
-      `${0},${Tile.CENTER.y - EXIT_BASE}`,
-      `${0},${Tile.CENTER.y + EXIT_BASE}`,
-      `${EXIT_HEIGHT},${Tile.CENTER.y}`
+      `${0},${this.props.hexagon.center.y - EXIT_BASE}`,
+      `${0},${this.props.hexagon.center.y + EXIT_BASE}`,
+      `${EXIT_HEIGHT},${this.props.hexagon.center.y}`
     ]);
 
     if (this.props.exits.indexOf(0) >= 0) {
@@ -38,13 +41,25 @@ implements MapHexElement {
 
     if (this.props.exits.indexOf(1) >= 0) {
       results.push(
-        this.offBoardExit(1, Tile.WIDTH * 0.75, -1, Tile.HEIGHT * 0.125, 1)
+        this.offBoardExit(
+          1,
+          this.props.hexagon.width * 0.75,
+          this.props.hexagon.height * 0.125,
+          -1,
+          1
+        )
       );
     }
 
     if (this.props.exits.indexOf(2) >= 0) {
       results.push(
-        this.offBoardExit(2, Tile.WIDTH * 0.25, 1, Tile.HEIGHT * 0.125, 1)
+        this.offBoardExit(
+          2,
+          this.props.hexagon.width * 0.25,
+          this.props.hexagon.height * 0.125,
+          1,
+          1
+        )
       );
     }
 
@@ -56,13 +71,25 @@ implements MapHexElement {
 
     if (this.props.exits.indexOf(4) >= 0) {
       results.push(
-        this.offBoardExit(4, Tile.WIDTH * 0.25, 1, Tile.HEIGHT * 0.875, -1)
+        this.offBoardExit(
+          4,
+          this.props.hexagon.width * 0.25,
+          this.props.hexagon.height * 0.875,
+          1,
+          -1
+        )
       );
     }
 
     if (this.props.exits.indexOf(5) >= 0) {
       results.push(
-        this.offBoardExit(5, Tile.WIDTH * 0.75, -1, Tile.HEIGHT * 0.875, -1)
+        this.offBoardExit(
+          5,
+          this.props.hexagon.width * 0.75,
+          this.props.hexagon.height * 0.875,
+          -1,
+          -1
+        )
       );
     }
 
@@ -72,8 +99,8 @@ implements MapHexElement {
   private offBoardExit(
     key: number,
     xStart: number,
-    xDir: number,
     yStart: number,
+    xDir: number,
     yDir: number
   ): ReactElement<any> {
     const points: string = [

@@ -179,6 +179,7 @@ export default class TileFactory {
         <TileCost
           amount={this.definition.cost.amount}
           color={this.definition.cost.color}
+          hexagon={this.hexagon}
           key='tile-cost'
           location={point} />
       );

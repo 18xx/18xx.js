@@ -20,6 +20,7 @@ import Town from './components/town';
 
 import CityCircleFactory from './city_circle_factory';
 import Company from './company';
+import Hexagon from './hexagon';
 import Point from './point';
 import TileBuilder from './tile_builder';
 import TileDefinition from './tile_definition';
@@ -51,12 +52,14 @@ export interface MapDefinition {
 }
 
 export default class MapBuilder {
-  // FIXME: mapDef to interface
+  private hexagon: Hexagon;
+
   constructor(
     private game: Game,
     private mapDef: MapDefinition,
     private tileSet: TileSet,
   ) {
+    this.hexagon = new Hexagon(mapDef.orientation);
   }
 
   // FIXME state is not any, and it doesn't need the whole state
@@ -79,20 +82,26 @@ export default class MapBuilder {
 
         if (this.mapDef.names[hex]) {
           let y: number = 100;
-          if (this.mapDef.offBoards[hex]) {
+          if (this.mapDef.offBoards && this.mapDef.offBoards[hex]) {
             y -= 20;
+          }
+          if (this.hexagon.orientation === 'north-south') {
+            y -= 6;
           }
 
           hexElements.push(
             <CityName
               key='city-name'
-              point={new Point(Tile.CENTER.x, y)}
+              point={new Point(this.hexagon.center.x, y)}
               name={this.mapDef.names[hex]} />
           );
         }
 
         if (this.mapDef.cities && this.mapDef.cities[hex]) {
-          let ccProps: CityCircleProps = { point: Tile.CENTER, key: 'cc' };
+          let ccProps: CityCircleProps = {
+            key: 'cc',
+            point: this.hexagon.center,
+          };
           const companyStr: string = Map<string, any>(
             this.mapDef.companies
           ).findKey(c => c.home === hex);
@@ -124,7 +133,10 @@ export default class MapBuilder {
                 {
                   ...ccProps,
                   key: 'cc1',
-                  point: new Point(Tile.CENTER.x - 25, Tile.CENTER.y),
+                  point: new Point(
+                    this.hexagon.center.x - 25,
+                    this.hexagon.center.y
+                  ),
                 },
               ),
               React.createElement(
@@ -132,7 +144,10 @@ export default class MapBuilder {
                 {
                   ...ccProps,
                   key: 'cc2',
-                  point: new Point(Tile.CENTER.x + 25, Tile.CENTER.y),
+                  point: new Point(
+                    this.hexagon.center.x + 25,
+                    this.hexagon.center.y
+                  ),
                   token: undefined
                 },
               ),
@@ -143,12 +158,12 @@ export default class MapBuilder {
         if (this.mapDef.towns && this.mapDef.towns[hex]) {
           if (this.mapDef.towns[hex] === 1) {
             hexElements.push(
-              <Town points={List<Point>([Tile.CENTER])} key='town' />
+              <Town points={List<Point>([this.hexagon.center])} key='town' />
             );
           } else {
             const points: List<Point> = List([
-              new Point(Tile.CENTER.x - 20, Tile.CENTER.y + 10),
-              new Point(Tile.CENTER.x + 20, Tile.CENTER.y - 10),
+              new Point(this.hexagon.center.x - 20, this.hexagon.center.y + 10),
+              new Point(this.hexagon.center.x + 20, this.hexagon.center.y - 10),
             ]);
             hexElements.push(
               <Town points={points} key='map-towns' />
@@ -159,12 +174,14 @@ export default class MapBuilder {
         if (this.mapDef.mediumCities && this.mapDef.mediumCities[hex]) {
           if (this.mapDef.mediumCities[hex] === 1) {
             hexElements.push(
-              <MediumCity points={List<Point>([Tile.CENTER])} key='town' />
+              <MediumCity
+              points={List<Point>([this.hexagon.center])}
+              key='town' />
             );
           } else {
             const points: List<Point> = List([
-              new Point(Tile.CENTER.x - 20, Tile.CENTER.y + 10),
-              new Point(Tile.CENTER.x + 20, Tile.CENTER.y - 10),
+              new Point(this.hexagon.center.x - 20, this.hexagon.center.y + 10),
+              new Point(this.hexagon.center.x + 20, this.hexagon.center.y - 10),
             ]);
             hexElements.push(
               <MediumCity points={points} key='map-mediumCities' />
@@ -184,7 +201,7 @@ export default class MapBuilder {
           }
         });
 
-        if (this.mapDef.offBoards[hex]) {
+        if (this.mapDef.offBoards && this.mapDef.offBoards[hex]) {
           fill = this.mapDef.offBoards[hex].color || 'red';
           allowTile = false;
           const exits: List<number> = List<number>(
@@ -194,11 +211,15 @@ export default class MapBuilder {
             // FIXME: Missing type for offboard exits
             <OffBoard
               key='off-board'
+              hexagon={this.hexagon}
               exits={exits} />
           );
 
           if (this.mapDef.offBoards[hex].spots > 0) {
-            const point: Point = new Point(Tile.CENTER.x, Tile.HEIGHT * 2 / 3);
+            const point: Point = new Point(
+              this.hexagon.center.x,
+              this.hexagon.height * 2 / 3
+            );
 
             const factory: CityCircleFactory = new CityCircleFactory(
               this.mapDef,
@@ -215,7 +236,7 @@ export default class MapBuilder {
           }
         }
 
-        if (this.mapDef.dynamicValues[hex]) {
+        if (this.mapDef.dynamicValues && this.mapDef.dynamicValues[hex]) {
           hexElements.push(
             <DynamicValues
               key='dv'
@@ -339,6 +360,7 @@ export default class MapBuilder {
       <TileCost
       amount={costs.amount}
       color={costs.color}
+      hexagon={this.hexagon}
       key='tile-cost'
       shape={costs.shape} />
     );

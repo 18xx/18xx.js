@@ -4,14 +4,21 @@ import * as renderer from 'react-test-renderer';
 
 import TileCost from '../../src/components/tile_cost';
 
+import Hexagon from '../../src/hexagon';
 import Point from '../../src/point';
 
 describe('TileCost', () => {
+  const hexagon: Hexagon = new Hexagon('east-west');
+
   describe('#toString', () => {
     describe('when shape is a triangle', () => {
       it('returns an svg representation of a triangle', () => {
         const subject: ReactElement<TileCost> = (
-          <TileCost amount={10} color='#ccc' shape='triangle' />
+          <TileCost
+          amount={10}
+          color='#ccc'
+          hexagon={hexagon}
+          shape='triangle' />
         );
         expect(renderer.create(subject)).toMatchSnapshot();
       });
@@ -20,7 +27,11 @@ describe('TileCost', () => {
     describe('when shape is not a triangle', () => {
       it('returns an svg representation of a square', () => {
         const subject: ReactElement<TileCost> = (
-          <TileCost amount={14} color='#ddd' shape='square' />
+          <TileCost
+          amount={14}
+          color='#ddd'
+          hexagon={hexagon}
+          shape='square' />
         );
         expect(renderer.create(subject)).toMatchSnapshot();
       });
@@ -32,6 +43,7 @@ describe('TileCost', () => {
           <TileCost
             amount={20}
             color='white'
+            hexagon={hexagon}
             location={new Point(3, 7)}
             shape='square' />
         );
