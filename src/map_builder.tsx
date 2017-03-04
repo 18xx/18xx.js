@@ -98,7 +98,10 @@ export default class MapBuilder {
           ).findKey(c => c.home === hex);
 
           if (companyStr) {
-            const company: Company = Company.find(companyStr);
+            const company: Company = Company.fromJson(
+              companyStr,
+              this.mapDef.companies[companyStr]
+            );
             const token: ReactElement<Token> = (
               <Token
               faded={true}
@@ -198,6 +201,7 @@ export default class MapBuilder {
             const point: Point = new Point(Tile.CENTER.x, Tile.HEIGHT * 2 / 3);
 
             const factory: CityCircleFactory = new CityCircleFactory(
+              this.mapDef,
               hex,
               homeTokens,
               this.game.onRightClickCity,
@@ -227,6 +231,7 @@ export default class MapBuilder {
         let tile: ReactElement<Tile>;
         const tileBuilder: TileBuilder = new TileBuilder(
           this.mapDef.orientation,
+          this.mapDef,
           this.game.onRightClickCity,
           this.game.onRightClickToken,
           hex,
@@ -247,6 +252,7 @@ export default class MapBuilder {
           );
           tile = tileBuilder.buildTile(
             new TileDefinition(
+              this.mapDef,
               this.mapDef.preplacedTile[hex],
               this.mapDef.orientation,
             )

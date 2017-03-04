@@ -6,6 +6,7 @@ import Tile from './tile';
 import Token from './token';
 
 import Company from '../company';
+import { MapDefinition } from '../map_builder';
 import TileDefinition from '../tile_definition';
 import TileSet from '../tile_set';
 
@@ -18,6 +19,7 @@ export interface HistoryEntry {
 
 interface HistoryProps {
   readonly entries: List<HistoryEntry>;
+  readonly mapDef: MapDefinition;
   readonly tileSet: TileSet;
 }
 
@@ -56,7 +58,10 @@ extends React.Component<HistoryProps, undefined> {
         );
         break;
       case 'PLACE_TOKEN':
-        const company: Company = Company.find(entry.id);
+        const company: Company = Company.fromJson(
+          entry.id,
+          this.props.mapDef.companies[entry.id]
+        );
         const token: ReactElement<Token> = (
           <Token
           text={company.shorthand}

@@ -250,26 +250,146 @@
     "j15": { "exits": [1, 2] }
   },
   "companies": {
-    "ALS": {},
-    "ARA": {},
-    "BRC": {},
-    "BLE": {},
-    "B&A": {},
-    "DLW": {},
-    "EJE": {},
-    "GTW": {},
-    "HRRC": {},
-    "ME": {},
-    "NYOW": {},
-    "NYSW": {},
-    "PSN": {},
-    "PLE": {},
-    "PW": {},
-    "RUT": {},
-    "SRC": {},
-    "URR": {},
-    "WTRM": {},
-    "WCRL": {}
+    "ALS": {
+      "name": "Alton and Southern Railway",
+      "primaryColor": "#E81D00",
+      "secondaryColor": "white",
+      "textColor": "black",
+      "shorthand": "A&S"
+    },
+    "ARA": {
+      "name": "Arcade & Attica Railroad",
+      "primaryColor": "#D63E15",
+      "secondaryColor": "#170808",
+      "textColor": "white",
+      "shorthand": "A&A"
+    },
+    "B&A": {
+      "name": "Boston and Albany Railroad",
+      "primaryColor": "#555",
+      "secondaryColor": "black",
+      "textColor": "white",
+      "shorthand": "B&A"
+    },
+    "BLE": {
+      "name": "Bessemer and Lake Erie Railroad",
+      "primaryColor": "#141414",
+      "secondaryColor": "white",
+      "textColor": "black",
+      "shorthand": "BLE"
+    },
+    "BRC": {
+      "name": "Belt Railway of Chicago",
+      "primaryColor": "#FFAD08",
+      "secondaryColor": "white",
+      "textColor": "black",
+      "shorthand": "Belt"
+    },
+    "DLW": {
+      "name": "Delaware, Lackawanna and Western Railroad",
+      "primaryColor": "#600B22",
+      "secondaryColor": "white",
+      "textColor": "black",
+      "shorthand": "DLW"
+    },
+    "EJE": {
+      "name": "Elgin, Joliet and Eastern Railway",
+      "primaryColor": "#008C83",
+      "secondaryColor": "#FD4D02",
+      "textColor": "black",
+      "shorthand": "The J"
+    },
+    "GTW": {
+      "name": "Grand Trunk Western Railroad",
+      "primaryColor": "#1F3871",
+      "secondaryColor": "white",
+      "textColor": "black",
+      "shorthand": "GTW"
+    },
+    "HRRC": {
+      "name": "Housatonic Railroad",
+      "primaryColor": "#132A1C",
+      "secondaryColor": "#F1B016",
+      "textColor": "#132A1C",
+      "shorthand": "HRR"
+    },
+    "ME": {
+      "name": "Morristown & Erie Railway",
+      "primaryColor": "#FE0000",
+      "secondaryColor": "#E2A600",
+      "textColor": "black",
+      "shorthand": "ME"
+    },
+    "NYOW": {
+      "name": "New York, Ontario and Western Railway",
+      "primaryColor": "#BC1010",
+      "secondaryColor": "#F3DC0A",
+      "textColor": "black",
+      "shorthand": "NYOW"
+    },
+    "NYSW": {
+      "name": "New York, Susquehanna and Western Railway",
+      "primaryColor": "#FFCC33",
+      "secondaryColor": "white",
+      "textColor": "black",
+      "shorthand": "NYSW"
+    },
+    "PLE": {
+      "name": "Pittsburgh and Lake Erie Railroad",
+      "primaryColor": "#352D51",
+      "secondaryColor": "white",
+      "textColor": "black",
+      "shorthand": "PLE"
+    },
+    "PSN": {
+      "name": "Pittsburg, Shawmut and Northern Railroad",
+      "primaryColor": "#008000",
+      "secondaryColor": "#FFFF00",
+      "textColor": "black",
+      "shorthand": "PSN"
+    },
+    "PW": {
+      "name": "Providence and Worcester Railroad",
+      "primaryColor": "#ED8222",
+      "secondaryColor": "#FED130",
+      "textColor": "black",
+      "shorthand": "PW"
+    },
+    "RUT": {
+      "name": "Rutland Railroad",
+      "primaryColor": "#215A27",
+      "secondaryColor": "#FEEA27",
+      "txtColor": "#215A27",
+      "shorthand": "Rut"
+    },
+    "SRC": {
+      "name": "Strasburg Rail Road",
+      "primaryColor": "#FDF035",
+      "secondaryColor": "#EA362D",
+      "textColor": "#FDF035",
+      "shorthand": "SRC"
+    },
+    "URR": {
+      "name": "Union Railroad",
+      "primaryColor": "#00205A",
+      "secondaryColor": "white",
+      "textColor": "#E02000",
+      "shorthand": "URR"
+    },
+    "WCRL": {
+      "name": "West Chester Railroad",
+      "primaryColor": "#7F2430",
+      "secondaryColor": "white",
+      "textColor": "#7F2430",
+      "shorthand": "WCRR"
+    },
+    "WTRM": {
+      "name": "Warren and Trumbull Railroad",
+      "primaryColor": "#ED8223",
+      "secondaryColor": "#FED230",
+      "textColor": "black",
+      "shorthand": "W&T"
+    }
   },
   "impassable": [
     ["c10", "d11"]

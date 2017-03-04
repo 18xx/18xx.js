@@ -57,6 +57,7 @@ export default class Game
     this.tileSet = new TileSet(
       allTiles,
       this.props.mapDef.orientation,
+      props.mapDef,
       Map<string, TileSetDetails>(props.mapDef.tileManifest)
     );
 
@@ -85,7 +86,10 @@ export default class Game
       case 'TOKEN':
         const companies: List<Company> = List<Company>(
           Object.keys(this.props.mapDef.companies).map(
-            (reportingMark: string) => Company.find(reportingMark)
+            (reportingMark: string) => Company.fromJson(
+              reportingMark,
+              this.props.mapDef.companies[reportingMark]
+            )
           )
         );
         topMenu = (
@@ -104,7 +108,11 @@ export default class Game
       <div>
         {topMenu}
         <div className='row'>
-          <History entries={this.state.history} tileSet={this.tileSet} />
+          <History
+          entries={this.state.history}
+          mapDef={this.props.mapDef}
+          tileSet={this.tileSet} />
+
           <div
           className='col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main'>
             <MapBoard

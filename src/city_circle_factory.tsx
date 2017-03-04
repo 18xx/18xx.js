@@ -6,10 +6,12 @@ import CityCircle from './components/city_circle';
 import Token from './components/token';
 
 import Company from './company';
+import { MapDefinition } from './map_builder';
 import Point from './point';
 
 export default class CityCircleFactory {
   constructor(
+    private mapDef: MapDefinition,
     private hex: string,
     private homeTokens: List<string>,
     private onRightClickCity: Function,
@@ -43,7 +45,7 @@ export default class CityCircleFactory {
   private buildToken(index: number, point: Point): ReactElement<Token> {
     let token: ReactElement<Token>;
     let faded: boolean = false;
-    let company: Company;
+    let companyMark: string;
 
     const fn: MouseEventHandler<SVGElement> =
       (event: MouseEvent<SVGElement>) => {
@@ -52,13 +54,18 @@ export default class CityCircleFactory {
     };
 
     if (this.tokenState.get(index)) {
-      company = Company.find(this.tokenState.get(index));
+      companyMark = this.tokenState.get(index);
     } else if (this.homeTokens.get(index)) {
-      company = Company.find(this.homeTokens.get(index));
+      companyMark = this.homeTokens.get(index);
       faded = true;
     }
 
-    if (company) {
+    if (companyMark) {
+      const company: Company = Company.fromJson(
+        companyMark,
+        this.mapDef.companies[companyMark]
+      );
+
       token = (
         <Token
         faded={faded}

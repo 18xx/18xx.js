@@ -258,36 +258,76 @@
   "companies": {
     "B&O": {
       "home": "i15",
-      "tokens": 3
+      "tokens": 3,
+      "name": "Baltimore and Ohio Railroad",
+      "primaryColor": "#0B00F7",
+      "secondaryColor": "white",
+      "textColor": "black",
+      "shorthand": "B&O"
     },
     "BM": {
       "home": "e23",
-      "tokens": 2
+      "tokens": 2,
+      "name": "Boston and Maine Railroad",
+      "primaryColor": "#670E2C",
+      "secondaryColor": "#F3B721",
+      "textColor": "black",
+      "shorthand": "B&M"
     },
     "C&O": {
       "home": "f6",
-      "tokens": 3
+      "tokens": 3,
+      "name": "Chesapeake and Ohio Railway",
+      "primaryColor": "#010080",
+      "secondaryColor": "#FFFD03",
+      "textColor": "black",
+      "shorthand": "C&O"
     },
     "CP": {
       "home": "a19",
-      "tokens": 4
+      "tokens": 4,
+      "name": "Canadian Pacific Railway",
+      "primaryColor": "#C32032",
+      "secondaryColor": "white",
+      "textColor": "#C32032",
+      "shorthand": "CPR"
     },
     "ERIE": {
       "home": "e11",
-      "tokens": 3
+      "tokens": 3,
+      "name": "Erie Railroad",
+      "primaryColor": "#F9B316",
+      "secondaryColor": "#002A0F",
+      "textColor": "#F9B316",
+      "shorthand": "Erie"
     },
     "NYC": {
       "home": "e19",
-      "tokens": 4
+      "tokens": 4,
+      "name": "New York Central Railroad",
+      "primaryColor": "black",
+      "secondaryColor": "white",
+      "textColor": "black",
+      "shorthand": "NYC"
     },
     "NH": {
       "home": "g19",
       "index": 1,
-      "tokens": 2
+      "tokens": 2,
+      "name": "New York, New Haven & Hartford Railroad",
+      "primaryColor": "#DD2B21",
+      "secondaryColor": "black",
+      "textColor": "white",
+      "shorthand": "NYNH"
     },
     "PRR": {
       "home": "h12",
-      "tokens": 4
+      "tokens": 4,
+      "name": "Pennsylvania Railroad",
+      "primaryColor": "#f88",
+      "secondaryColor": "#9E0814",
+      "textColor": "white",
+      "shorthand": "PRR"
     }
   },
   "impassable": [

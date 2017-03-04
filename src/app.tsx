@@ -51,7 +51,7 @@ if (container.dataset.gameName !== 'null') {
 } else {
   init = (state: any): void => {
     ReactDOM.render(
-      <AllTiles orientation={'north-south'} />,
+      <AllTiles orientation={'north-south'} mapDef={mapDef1830 as any} />,
       container
     );
   };
