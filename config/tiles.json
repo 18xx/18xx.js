@@ -540,6 +540,7 @@
   {
     "color": "yellow",
     "num": 79,
+    "rotations": 3,
     "track": {
       "narrow": [
         [0, 3]
@@ -771,6 +772,7 @@
   {
     "color": "brown",
     "label": "C",
+    "rotations": 1,
     "spots": 2,
     "num": 654,
     "trackToCenter": {
