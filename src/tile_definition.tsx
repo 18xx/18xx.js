@@ -45,7 +45,6 @@ export default class TileDefinition {
   constructor(
     private mapDef: MapDefinition,
     private definition: TileDefinitionInput,
-    private orientation: string,
   ) {
   }
 
@@ -123,7 +122,7 @@ export default class TileDefinition {
   }
 
   public tile(rotation: number): ReactElement<Tile> {
-    return new TileBuilder(this.orientation, this.mapDef).buildTile(
+    return new TileBuilder(this.mapDef).buildTile(
       this,
       rotation
     );

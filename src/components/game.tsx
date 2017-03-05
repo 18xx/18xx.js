@@ -56,7 +56,6 @@ export default class Game
 
     this.tileSet = new TileSet(
       allTiles,
-      this.props.mapDef.orientation,
       props.mapDef,
       Map<string, TileSetDetails>(props.mapDef.tileManifest)
     );

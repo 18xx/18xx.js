@@ -27,7 +27,6 @@ export default class TileFactory {
   private hexagon: Hexagon;
 
   constructor(
-    private orientation: string,
     private mapDef: MapDefinition,
     private onRightClickCity: Function,
     private onRightClickToken: Function,
@@ -35,7 +34,7 @@ export default class TileFactory {
     private rotation: number = 0,
     private hex?: string,
   ) {
-    this.hexagon = new Hexagon(orientation);
+    this.hexagon = new Hexagon(this.orientation);
   }
 
   public city(
@@ -343,5 +342,9 @@ export default class TileFactory {
     }
 
     return new Point(x, y);
+  }
+
+  private get orientation(): string {
+    return this.mapDef.orientation;
   }
 }

@@ -17,7 +17,6 @@ describe('TileDefinition', () => {
         new TileDefinition(
           mapDef,
           { color: 'green', num: '5' },
-          'east-west'
         ).num
       ).toEqual('5');
     });
@@ -29,7 +28,6 @@ describe('TileDefinition', () => {
         new TileDefinition(
           mapDef,
           { color: 'gray', num: '1' },
-          'east-west'
         ).color
       ).toEqual('gray');
     });
@@ -45,7 +43,6 @@ describe('TileDefinition', () => {
             label: 'NY',
             num: '1',
           },
-          'east-west',
         ).label).toEqual('NY');
     });
   });
@@ -61,7 +58,6 @@ describe('TileDefinition', () => {
               num: '1',
               rotations: 3
             },
-            'east-west',
           ).rotations
         ).toEqual(3);
       });
@@ -73,7 +69,6 @@ describe('TileDefinition', () => {
           new TileDefinition(
             mapDef,
             { color: 'yellow', num: '1' },
-            'east-west',
           ).rotations
         ).toEqual(6);
       });
@@ -94,7 +89,6 @@ describe('TileDefinition', () => {
       const tileDefinition: TileDefinition = new TileDefinition(
         mapDef,
         json,
-        'east-west',
       );
       expect(tileDefinition.allRotations.size).toEqual(2);
     });
@@ -112,7 +106,6 @@ describe('TileDefinition', () => {
       const subject: ReactElement<Tile> = new TileDefinition(
         mapDef,
         json,
-        'east-west'
       ).tile(1);
 
       expect(subject.props.color).toEqual('yellow');

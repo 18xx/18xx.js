@@ -22,14 +22,20 @@ const game: Game = new Game({
 });
 
 describe('MapBoard', () => {
+  const mapDef: MapDefinition = {
+    companies: {},
+    orientation: 'east-west',
+    tileManifest: {},
+  };
+
   describe('#numColumns', () => {
     describe('when the map board includes one column', () => {
       it('returns 1', () => {
         const mapBoard: MapBoard = new MapBoard({
           game,
           hexes: List([
-            <MapHex row='a' column={1} />,
-            <MapHex row='c' column={1} />,
+            <MapHex mapDef={mapDef} row='a' column={1} />,
+            <MapHex mapDef={mapDef} row='c' column={1} />,
           ]),
           orientation: json.orientation,
         });
@@ -41,10 +47,10 @@ describe('MapBoard', () => {
         const mapBoard: MapBoard = new MapBoard({
           game,
           hexes: List([
-            <MapHex row='a' column={1} />,
-            <MapHex row='a' column={3} />,
-            <MapHex row='b' column={2} />,
-            <MapHex row='c' column={1} />,
+            <MapHex mapDef={mapDef} row='a' column={1} />,
+            <MapHex mapDef={mapDef} row='a' column={3} />,
+            <MapHex mapDef={mapDef} row='b' column={2} />,
+            <MapHex mapDef={mapDef} row='c' column={1} />,
           ]),
           orientation: json.orientation,
         });
@@ -59,8 +65,8 @@ describe('MapBoard', () => {
         const mapBoard: MapBoard = new MapBoard({
           game,
           hexes: List([
-            <MapHex row='a' column={1} />,
-            <MapHex row='a' column={3} />,
+            <MapHex mapDef={mapDef} row='a' column={1} />,
+            <MapHex mapDef={mapDef} row='a' column={3} />,
           ]),
           orientation: json.orientation,
         });
@@ -72,10 +78,10 @@ describe('MapBoard', () => {
         const mapBoard: MapBoard = new MapBoard({
           game,
           hexes: List([
-            <MapHex row='a' column={1} />,
-            <MapHex row='a' column={3} />,
-            <MapHex row='b' column={2} />,
-            <MapHex row='c' column={1} />,
+            <MapHex mapDef={mapDef} row='a' column={1} />,
+            <MapHex mapDef={mapDef} row='a' column={3} />,
+            <MapHex mapDef={mapDef} row='b' column={2} />,
+            <MapHex mapDef={mapDef} row='c' column={1} />,
           ]),
           orientation: json.orientation,
         });
@@ -87,8 +93,8 @@ describe('MapBoard', () => {
   describe('#render()', () => {
     it('returns an svg representation of the map board', () => {
       const hexes: List<ReactElement<MapHex>> = List([
-        <MapHex row='a' column={1} key='a1' />,
-        <MapHex row='a' column={3} key='a3' />,
+        <MapHex mapDef={mapDef} row='a' column={1} key='a1' />,
+        <MapHex mapDef={mapDef} row='a' column={3} key='a3' />,
       ]);
       const subject: any = renderer.create(
         <MapBoard game={game} hexes={hexes} orientation={'east-west'} />

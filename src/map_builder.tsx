@@ -251,7 +251,6 @@ export default class MapBuilder {
 
         let tile: ReactElement<Tile>;
         const tileBuilder: TileBuilder = new TileBuilder(
-          this.mapDef.orientation,
           this.mapDef,
           this.game.onRightClickCity,
           this.game.onRightClickToken,
@@ -275,7 +274,6 @@ export default class MapBuilder {
             new TileDefinition(
               this.mapDef,
               this.mapDef.preplacedTile[hex],
-              this.mapDef.orientation,
             )
           );
         }
@@ -296,7 +294,8 @@ export default class MapBuilder {
           fill,
           tile,
           allowTile,
-          elements: List(hexElements)
+          elements: List(hexElements),
+          mapDef: this.mapDef,
         });
       }
     }
@@ -310,13 +309,13 @@ export default class MapBuilder {
         (hexes: [string, string]) => {
           const hex0: MapHex = new MapHex({
             column: parseInt(hexes[0].substring(1), 10),
-            orientation: this.mapDef.orientation,
+            mapDef: this.mapDef,
             row: (hexes[0].substring(0, 1)),
           });
 
           const hex1: MapHex = new MapHex({
             column: parseInt(hexes[1].substring(1), 10),
-            orientation: this.mapDef.orientation,
+            mapDef: this.mapDef,
             row: (hexes[1].substring(0, 1)),
           });
 
@@ -390,7 +389,7 @@ export default class MapBuilder {
         elements={List(data.elements)}
         allowTile={data.allowTile}
         onHexClick={this.game.onHexClick}
-        orientation={this.mapDef.orientation}
+        mapDef={this.mapDef}
       />
     ));
   }

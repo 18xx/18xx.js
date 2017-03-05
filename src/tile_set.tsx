@@ -14,7 +14,6 @@ export interface TileSetDetails {
 export default class TileSet {
   constructor(
     private allTiles: List<TileDefinitionInput>,
-    private orientation: string,
     private mapDef: MapDefinition,
     private tileManifest: Map<string, TileSetDetails>,
   ) {
@@ -22,7 +21,7 @@ export default class TileSet {
 
   public get all(): List<TileDefinition> {
     const fn: (def: TileDefinitionInput) => TileDefinition = def => (
-      new TileDefinition(this.mapDef, def, this.orientation)
+      new TileDefinition(this.mapDef, def)
     );
     return this.allTiles.map(fn).filter(
       def => this.tileManifest.keySeq().includes(def.num.toString())

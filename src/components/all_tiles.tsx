@@ -14,7 +14,6 @@ const allTiles: List<TileDefinitionInput> =
   );
 
 interface AllTilesProps {
-  readonly orientation: string;
   readonly mapDef: MapDefinition;
 }
 
@@ -23,10 +22,7 @@ extends React.Component<AllTilesProps, undefined> {
   public get tiles(): any {
     return allTiles.map(t =>
       <div key={t.num}>
-        {new TileDefinition(
-          this.props.mapDef,
-          t,
-          this.props.orientation).allRotations
+        {new TileDefinition(this.props.mapDef, t).allRotations
         }
       </div>
     );
