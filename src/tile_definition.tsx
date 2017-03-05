@@ -12,6 +12,7 @@ export interface TileDefinitionCost {
   readonly amount: number;
   readonly color: string;
   readonly position: PointDefinition;
+  readonly shape?: string;
 }
 
 export type TileType =

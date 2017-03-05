@@ -180,6 +180,7 @@ export default class TileFactory {
           color={this.definition.cost.color}
           hexagon={this.hexagon}
           key='tile-cost'
+          shape={this.definition.cost.shape}
           location={point} />
       );
     }

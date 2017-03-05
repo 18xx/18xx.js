@@ -94,6 +94,7 @@ implements MapHexElement, TileElement {
       <text
         key='cost-text'
         textAnchor='middle'
+        fontSize='13'
         x={this.location.x + (WIDTH / 2)}
         y={y}>
         {this.props.amount}

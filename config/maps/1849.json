@@ -330,6 +330,7 @@
       "cost": {
         "amount": 160,
         "color": "#f86",
+        "position": { "x": 20, "y": 40 },
         "shape": "triangle"
       },
       "track": {
