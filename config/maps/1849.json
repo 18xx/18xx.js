@@ -235,9 +235,9 @@
       "dynamicValues": {
         "fixedHeight": 10,
         "values": {
-          "yellow": 20,
-          "green": 30,
-          "brown": 40
+          "#99a": 20,
+          "#aab": 30,
+          "#bbc": 40
         }
       },
       "spots": 1,
@@ -275,9 +275,9 @@
       "dynamicValues": {
         "fixedHeight": 80,
         "values": {
-          "yellow": 10,
-          "green": 30,
-          "brown": 90
+          "#99a": 10,
+          "#aab": 30,
+          "#bbc": 90
         }
       },
       "trackToCenter": {
@@ -290,9 +290,9 @@
       "dynamicValues": {
         "fixedHeight": 10,
         "values": {
-          "yellow": 20,
-          "green": 30,
-          "brown": 40
+          "#99a": 20,
+          "#aab": 30,
+          "#bbc": 40
         }
       },
       "spots": 1,
@@ -354,9 +354,9 @@
       "dynamicValues": {
         "fixedHeight": 85,
         "values": {
-          "yellow": 20,
-          "green": 30,
-          "brown": 40
+          "#99a": 20,
+          "#aab": 30,
+          "#bbc": 40
         }
       },
       "spots": 2,
