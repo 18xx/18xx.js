@@ -60,10 +60,14 @@ extends React.Component<MapHexProps, undefined> {
   }
 
   get absoluteTop(): number {
-    let result: number = (
-      (this.row.toLowerCase().charCodeAt(0) - 'a'.charCodeAt(0)) *
-        this.hexagon.height
+    const keyIndex: number = Object.keys(this.props.mapDef.hexes).indexOf(
+      this.row
     );
+    if (keyIndex === -1) {
+      throw new Error('Could not find index for: ' + this.row);
+    }
+    let result: number = keyIndex * this.hexagon.height;
+
     if (this.props.mapDef.orientation === 'north-south') {
       result *= 0.5;
     } else {

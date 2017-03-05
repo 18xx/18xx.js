@@ -13,6 +13,15 @@ import Tile from '../../src/components/tile';
 describe('MapHex', () => {
   const mapDef: MapDefinition = {
     companies: {},
+    hexes: {
+      a: [],
+      b: [],
+      c: [],
+      d: [],
+      e: [],
+      f: [],
+      g: [],
+    },
     orientation: 'east-west',
     tileManifest: {},
   };

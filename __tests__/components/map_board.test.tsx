@@ -9,25 +9,23 @@ import MapHex, { MapHexProps } from '../../src/components/map_hex';
 
 import { MapDefinition } from '../../src/map_builder';
 
-const json: MapDefinition = {
+const mapDef: MapDefinition = {
   companies: {},
-  hexes: {},
+  hexes: {
+    a: [],
+    b: [],
+    c: [],
+  },
   orientation: 'east-west',
   tileManifest: {},
 };
 
 const game: Game = new Game({
   gameName: '18xx',
-  mapDef: json,
+  mapDef,
 });
 
 describe('MapBoard', () => {
-  const mapDef: MapDefinition = {
-    companies: {},
-    orientation: 'east-west',
-    tileManifest: {},
-  };
-
   describe('#numColumns', () => {
     describe('when the map board includes one column', () => {
       it('returns 1', () => {
@@ -37,7 +35,7 @@ describe('MapBoard', () => {
             <MapHex mapDef={mapDef} row='a' column={1} />,
             <MapHex mapDef={mapDef} row='c' column={1} />,
           ]),
-          orientation: json.orientation,
+          orientation: mapDef.orientation,
         });
         expect(mapBoard.numColumns).toEqual(1);
       });
@@ -52,7 +50,7 @@ describe('MapBoard', () => {
             <MapHex mapDef={mapDef} row='b' column={2} />,
             <MapHex mapDef={mapDef} row='c' column={1} />,
           ]),
-          orientation: json.orientation,
+          orientation: mapDef.orientation,
         });
         expect(mapBoard.numColumns).toEqual(3);
       });
@@ -68,7 +66,7 @@ describe('MapBoard', () => {
             <MapHex mapDef={mapDef} row='a' column={1} />,
             <MapHex mapDef={mapDef} row='a' column={3} />,
           ]),
-          orientation: json.orientation,
+          orientation: mapDef.orientation,
         });
         expect(mapBoard.numRows).toEqual(1);
       });
@@ -83,7 +81,7 @@ describe('MapBoard', () => {
             <MapHex mapDef={mapDef} row='b' column={2} />,
             <MapHex mapDef={mapDef} row='c' column={1} />,
           ]),
-          orientation: json.orientation,
+          orientation: mapDef.orientation,
         });
         expect(mapBoard.numRows).toEqual(3);
       });

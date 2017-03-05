@@ -1,7 +1,7 @@
 {
   "orientation": "north-south",
   "hexes": {
-    "`": [12],
+    "!": [12],
     "a": [5, 13, 15],
     "b": [2, 4, 12, 14],
     "c": [1, 3, 5, 7, 9, 11, 13, 15],
@@ -198,7 +198,7 @@
     }
   },
   "preplacedTile": {
-    "`12": {
+    "!12": {
       "color": "lightblue",
       "trackToCenter": [5],
       "type": "Town",
