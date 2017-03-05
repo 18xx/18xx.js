@@ -240,6 +240,7 @@ export default class MapBuilder {
           hexElements.push(
             <DynamicValues
               key='dv'
+              hexagon={this.hexagon}
               values={this.mapDef.dynamicValues[hex].values}
               fixedHeight={this.mapDef.dynamicValues[hex].fixedHeight} />
           );

@@ -128,6 +128,7 @@ export default class TileFactory {
       return (
         <DynamicValues
         key='dv'
+        hexagon={this.hexagon}
         values={this.definition.dynamicValues.values}
         fixedHeight={this.definition.dynamicValues.fixedHeight} />
       );

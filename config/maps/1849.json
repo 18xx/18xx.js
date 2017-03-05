@@ -352,7 +352,7 @@
     "m9": {
       "color": "gray",
       "dynamicValues": {
-        "fixedHeight": 90,
+        "fixedHeight": 85,
         "values": {
           "yellow": 20,
           "green": 30,
