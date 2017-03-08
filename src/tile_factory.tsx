@@ -27,7 +27,6 @@ export default class TileFactory {
   private hexagon: Hexagon;
 
   constructor(
-    private orientation: string,
     private mapDef: MapDefinition,
     private onRightClickCity: Function,
     private onRightClickToken: Function,
@@ -35,7 +34,7 @@ export default class TileFactory {
     private rotation: number = 0,
     private hex?: string,
   ) {
-    this.hexagon = new Hexagon(orientation);
+    this.hexagon = new Hexagon(this.orientation);
   }
 
   public city(
@@ -129,6 +128,7 @@ export default class TileFactory {
       return (
         <DynamicValues
         key='dv'
+        hexagon={this.hexagon}
         values={this.definition.dynamicValues.values}
         fixedHeight={this.definition.dynamicValues.fixedHeight} />
       );
@@ -160,7 +160,7 @@ export default class TileFactory {
     if (this.definition.privateReservation) {
       const name: string = this.definition.privateReservation;
       return (
-        <PrivateReservation key='pcr' name={name} />
+        <PrivateReservation key='pcr' hexagon={this.hexagon} name={name} />
       );
     }
   }
@@ -179,7 +179,9 @@ export default class TileFactory {
         <TileCost
           amount={this.definition.cost.amount}
           color={this.definition.cost.color}
+          hexagon={this.hexagon}
           key='tile-cost'
+          shape={this.definition.cost.shape}
           location={point} />
       );
     }
@@ -342,5 +344,9 @@ export default class TileFactory {
     }
 
     return new Point(x, y);
+  }
+
+  private get orientation(): string {
+    return this.mapDef.orientation;
   }
 }

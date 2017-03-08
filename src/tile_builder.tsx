@@ -10,7 +10,6 @@ import TileFactory from './tile_factory';
 
 export default class TileBuilder {
   constructor(
-    private orientation: string,
     private mapDef: MapDefinition,
     private onRightClickCity?: Function,
     private onRightClickToken?: Function,
@@ -26,11 +25,10 @@ export default class TileBuilder {
 
     const color: string = def.color;
     const factory: TileFactory = new TileFactory(
-      this.orientation,
       this.mapDef,
       this.onRightClickCity,
       this.onRightClickToken,
-      new TileDefinition(this.mapDef, def, this.orientation),
+      new TileDefinition(this.mapDef, def),
       i,
       this.hex,
     );
@@ -72,7 +70,7 @@ export default class TileBuilder {
 
     return (
       <Tile
-      orientation={this.orientation}
+      orientation={this.mapDef.orientation}
       key={key}
       color={color}
       elements={elements} />

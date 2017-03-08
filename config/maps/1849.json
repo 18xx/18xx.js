@@ -1,7 +1,8 @@
 {
   "orientation": "north-south",
   "hexes": {
-    "a": [13, 15],
+    "!": [12],
+    "a": [5, 13, 15],
     "b": [2, 4, 12, 14],
     "c": [1, 3, 5, 7, 9, 11, 13, 15],
     "d": [2, 4, 6, 8, 10, 12, 14],
@@ -12,32 +13,806 @@
     "i": [5, 7, 9, 11],
     "j": [6, 8, 10, 12],
     "k": [7, 9, 11, 13],
-    "l": [8, 10, 12],
+    "l": [8, 10, 12, 14],
     "m": [9, 11, 13],
-    "n": [10, 12],
+    "n": [8, 10, 12],
     "o": [11]
   },
-  "names": {},
-  "companies": {},
-  "offBoards": {},
-  "dynamicValues": {},
-  "tileCosts": {},
-  "preplacedTile": {},
+  "privateReservations": {
+    "g13": "SCE"
+  },
+  "impassable": [
+    ["b2", "c1"],
+    ["b4", "c3"],
+    ["c7", "d6"],
+    ["c11", "e11"],
+    ["d8", "e7"],
+    ["d8", "e9"],
+    ["d8", "f8"],
+    ["d10", "e9"],
+    ["d10", "f10"],
+    ["d10", "e11"],
+    ["k11", "l10"],
+    ["k11", "m11"],
+    ["m11", "n12"]
+  ],
+  "names": {
+    "a13": "Milazzo",
+    "b14": "Messina",
+    "c1": "Trapani",
+    "c3": "Alcamo",
+    "c5": "Palermo",
+    "c9": "St. Stefano",
+    "c13": "Monti Peloritanti",
+    "c15": "Calabria",
+    "d4": "Partinico",
+    "d8": "Le Madonie",
+    "d10": "Monti Nebrodi",
+    "e1": "Marsala",
+    "e5": "Corleone",
+    "e7": "Termini Imerse",
+    "e11": "Bronte",
+    "e13": "Taormina",
+    "f10": "Troina",
+    "f12": "L'Etma",
+    "g1": "Mazzara",
+    "g3": "Castelvetrano",
+    "g9": "Castrogiovanni",
+    "g13": "Acireale",
+    "h4": "Sciacca",
+    "h8": "Caltanissetta",
+    "h12": "Catania",
+    "i7": "Canicatti",
+    "i9": "Piazza Armerina",
+    "j6": "Girgenti",
+    "j10": "Caltagirone",
+    "k7": "Licata",
+    "k11": "Monti Ibelii",
+    "k13": "Augusta",
+    "m9": "Terranova",
+    "m11": "Ragusa",
+    "m13": "Siracusa",
+    "n10": "Vittoria"
+  },
+  "cities": {
+    "h8": 1,
+    "j6": 1
+  },
+  "towns": {
+    "c3": 1,
+    "d4": 1,
+    "e5": 1,
+    "e7": 1,
+    "e11": 1,
+    "f10": 1,
+    "g1": 1,
+    "g3": 1,
+    "g9": 1,
+    "g13": 1,
+    "h4": 1,
+    "i7": 1,
+    "i9": 1,
+    "j10": 1,
+    "k7": 1,
+    "n10": 1
+  },
+  "companies": {
+    "AFG": {
+      "tokens": "3",
+      "name": "Azienda Ferroviaria Garibaldi",
+      "primaryColor": "#a80019",
+      "secondaryColor": "white",
+      "textColor": "black",
+      "shorthand": "AFG"
+    },
+    "ATA": {
+      "home": "m13",
+      "tokens": "3",
+      "name": "Azienda Trasporti Archimede",
+      "primaryColor": "#094c14",
+      "secondaryColor": "white",
+      "textColor": "black",
+      "shorthand": "ATA"
+    },
+    "CTL": {
+      "home": "e1",
+      "tokens": "3",
+      "name": "Compagnia Trasporti Lilibeo",
+      "primaryColor": "#f2f922",
+      "secondaryColor": "white",
+      "textColor": "black",
+      "shorthand": "CTL"
+    },
+    "IFT": {
+      "home": "h12",
+      "tokens": "3",
+      "name": "Impresa Ferroviaria Trinacria",
+      "primaryColor": "#0b035b",
+      "secondaryColor": "white",
+      "textColor": "black",
+      "shorthand": "IFT"
+    },
+    "RCS": {
+      "home": "c5",
+      "tokens": "3",
+      "name": "Rete Centrale Sicula",
+      "primaryColor": "#ad400d",
+      "secondaryColor": "white",
+      "textColor": "black",
+      "shorthand": "RCS"
+    },
+    "SFA": {
+      "home": "j6",
+      "tokens": "3",
+      "name": "Società Ferroviaria Akragas",
+      "primaryColor": "#851993",
+      "secondaryColor": "white",
+      "textColor": "black",
+      "shorthand": "SFA"
+    }
+  },
+  "tileCosts": {
+    "b2": "rough",
+    "d2": "mountain",
+    "d4": "rough",
+    "d12": "mountain",
+    "e3": "hill",
+    "e5": "mountain",
+    "e9": "mountain",
+    "e11": "mountain",
+    "f2": "mountain",
+    "f4": "mountain",
+    "f6": "hill",
+    "f8": "mountain",
+    "f10": "mountain",
+    "g5": "mountain",
+    "g7": "hill",
+    "g9": "hill",
+    "g11": "mountain",
+    "h4": "hill",
+    "h6": "rough",
+    "h8": "hill",
+    "h10": "rough",
+    "i5": "hill",
+    "i7": "rough",
+    "i9": "mountain",
+    "j6": "rough",
+    "j8": "mountain",
+    "j10": "rough",
+    "k11": "rough",
+    "l10": "mountain",
+    "l12": "mountain"
+  },
+  "tileCostTypes": {
+    "rough": {
+      "amount": 40,
+      "color": "#fa8",
+      "shape": "triangle"
+    },
+    "hill": {
+      "amount": 80,
+      "color": "#f95",
+      "shape": "triangle"
+    },
+    "mountain": {
+      "amount": 160,
+      "color": "#f86",
+      "shape": "triangle"
+    }
+  },
+  "preplacedTile": {
+    "!12": {
+      "color": "lightblue",
+      "trackToCenter": [5],
+      "type": "Town",
+      "value": 20
+    },
+    "a5": {
+      "color": "lightblue",
+      "trackToCenter": [4],
+      "type": "Town",
+      "value": 10
+    },
+    "a13": {
+      "color": "gray",
+      "type": "Town",
+      "trackToCenter": [2, 4, 5],
+      "value": 10
+    },
+    "a15": {
+      "color": "gray",
+      "track": {
+        "dual": [[3, 4]]
+      }
+    },
+    "b14": {
+      "color": "yellow",
+      "label": "M",
+      "spots": 1,
+      "type": "City",
+      "trackToCenter": [4],
+      "value": 30
+    },
+    "c1": {
+      "color": "gray",
+      "dynamicValues": {
+        "fixedHeight": 10,
+        "values": {
+          "#f0f0f0": 20,
+          "#f2f2f2": 30,
+          "#f4f4f4": 40
+        }
+      },
+      "spots": 1,
+      "type": "City",
+      "trackToCenter": {
+        "dual": [4, 5]
+      }
+    },
+    "c5": {
+      "color": "yellow",
+      "label": "P",
+      "spots": 1,
+      "type": "City",
+      "trackToCenter": [1, 2, 5],
+      "value": 50
+    },
+    "c9": {
+      "color": "gray",
+      "type": "Town",
+      "trackToCenter": {
+        "narrow": [4],
+        "standard": [3, 5]
+      },
+      "value": 10
+    },
+    "c13": {
+      "color": "gray",
+      "track": {
+        "narrow": [[0, 3]],
+        "standard": [[1, 2]]
+      }
+    },
+    "c15": {
+      "color": "gray",
+      "dynamicValues": {
+        "fixedHeight": 80,
+        "values": {
+          "#f0f0f0": 10,
+          "#f2f2f2": 30,
+          "#f4f4f4": 90
+        }
+      },
+      "trackToCenter": {
+        "dual": [1]
+      },
+      "type": "Town"
+    },
+    "e1": {
+      "color": "gray",
+      "dynamicValues": {
+        "fixedHeight": 10,
+        "values": {
+          "#f0f0f0": 20,
+          "#f2f2f2": 30,
+          "#f4f4f4": 40
+        }
+      },
+      "spots": 1,
+      "type": "City",
+      "trackToCenter": {
+        "dual": [0, 1, 4, 5]
+      }
+    },
+    "e13": {
+      "color": "gray",
+      "type": "Town",
+      "trackToCenter": {
+        "narrow": [2],
+        "standard": [0, 4]
+      },
+      "value": 10
+    },
+    "f12": {
+      "color": "gray"
+    },
+    "h12": {
+      "color": "yellow",
+      "label": "C",
+      "spots": 1,
+      "type": "City",
+      "trackToCenter": [3],
+      "value": 40
+    },
+    "i11": {
+      "color": "yellow",
+      "track": [[0, 2]]
+    },
+    "k9": {
+      "color": "yellow",
+      "cost": {
+        "amount": 160,
+        "color": "#f86",
+        "position": { "x": 20, "y": 40 },
+        "shape": "triangle"
+      },
+      "track": {
+        "narrow": [[1, 4]]
+      }
+    },
+    "k13": {
+      "color": "gray",
+      "trackToCenter": [2, 4, 5],
+      "type": "Town",
+      "value": 10
+    },
+    "l14": {
+      "color": "lightblue",
+      "trackToCenter": [2],
+      "type": "Town",
+      "value": 60
+    },
+    "m9": {
+      "color": "gray",
+      "dynamicValues": {
+        "fixedHeight": 85,
+        "values": {
+          "#f0f0f0": 20,
+          "#f2f2f2": 30,
+          "#f4f4f4": 40
+        }
+      },
+      "spots": 2,
+      "trackToCenter": {
+        "dual": [3],
+        "narrow": [0, 1],
+        "standard": [2, 5]
+      },
+      "type": "City"
+    },
+    "m11": {
+      "color": "yellow",
+      "cost": {
+        "amount": 40,
+        "color": "#f86",
+        "shape": "triangle"
+      },
+      "spots": 1,
+      "trackToCenter": {
+        "narrow": [0],
+        "standard": [3]
+      },
+      "type": "City",
+      "value": 20
+    },
+    "m13": {
+      "color": "yellow",
+      "label": "S",
+      "spots": 1,
+      "trackToCenter": {
+        "narrow": [2]
+      },
+      "type": "City",
+      "value": 10
+    },
+    "n8": {
+      "color": "lightblue",
+      "trackToCenter": {
+        "dual": [0]
+      },
+      "type": "Town",
+      "value": 20
+    }
+  },
   "tilePromotions": [
     {
+      "hexes": ["h8", "j6"],
+      "promotions": [644, 645, 657, 658, 659]
+    },
+    {
+      "hexes": [
+        "c3", "d4", "e5", "e7", "e11", "f10", "g1", "g3", "g9", "g13", "h4",
+        "i7", "i9", "j10", "k7", "n10"
+      ],
+      "promotions": [3, 4, 58, 73, 74, 679]
+    },
+    {
+      "hexes": ["c5"],
+      "promotions": [651]
+    },
+    {
+      "hexes": ["h12"],
+      "promotions": [653]
+    },
+    {
+      "hexes": ["b14"],
+      "promotions": [655]
+    },
+    {
+      "hexes": ["k9"],
+      "promotions": [677, 678, 692, 693, 711, 714, 715]
+    },
+    {
+      "hexes": ["i11"],
+      "promotions": [23, 24, 25, 28, 29, 30, 31, 710, 711, 712]
+    },
+    {
+      "hexes": ["m11"],
+      "promotions": [669, 670, 671]
+    },
+    {
+      "hexes": ["m13"],
+      "promotions": [675]
+    },
+    {
       "hexes": null,
-      "promotions": [7, 8, 9]
+      "promotions": [7, 8, 9, 77, 78, 79]
     }
   ],
   "tileManifest": {
+    "3": {
+      "count": 4,
+      "promotions": [680, 682, 684, 685, 701]
+    },
+    "4": {
+      "count": 4,
+      "promotions": [683, 687, 690, 691]
+    },
     "7": {
-      "count": 10
+      "count": 4,
+      "promotions": [26, 27, 28, 29, 30, 31, 624]
     },
     "8": {
-      "count": 10
+      "count": 10,
+      "promotions": [23, 24, 25, 28, 29, 30, 31, 710, 711, 712]
     },
     "9": {
-      "count": 10
+      "count": 6,
+      "promotions": [23, 24, 26, 27, 713, 714, 715]
+    },
+    "23": {
+      "count": 3,
+      "promotions": [41]
+    },
+    "24": {
+      "count": 3,
+      "promotions": [42]
+    },
+    "25": {
+      "count": 2,
+      "promotions": [40]
+    },
+    "26": {
+      "count": 1,
+      "promotions": [42]
+    },
+    "27": {
+      "count": 1,
+      "promotions": [41]
+    },
+    "28": {
+      "count": 1,
+      "promotions": [39]
+    },
+    "29": {
+      "count": 1,
+      "promotions": [39]
+    },
+    "30": {
+      "count": 1,
+      "promotions": [42]
+    },
+    "31": {
+      "count": 1,
+      "promotions": [41]
+    },
+    "39": {
+      "count": 1
+    },
+    "40": {
+      "count": 1
+    },
+    "41": {
+      "count": 1
+    },
+    "42": {
+      "count": 1
+    },
+    "58": {
+      "count": 4,
+      "promotions": [681, 686, 688, 700, 702, 703]
+    },
+    "73": {
+      "count": 4,
+      "promotions": [681, 684, 685, 687, 688, 700]
+    },
+    "74": {
+      "count": 3,
+      "promotions": [682, 686, 690, 691]
+    },
+    "77": {
+      "count": 4,
+      "promotions": [650, 692, 693, 694, 695, 708, 709, 710, 712, 713]
+    },
+    "78": {
+      "count": 10,
+      "promotions": [677, 678, 694, 695, 699, 708, 709, 710, 712, 713]
+    },
+    "79": {
+      "count": 7,
+      "promotions": [677, 678, 692, 693, 711, 714, 715]
+    },
+    "624": {
+      "count": 1,
+      "promotions": [41]
+    },
+    "644": {
+      "count": 2,
+      "promotions": [661, 663, 664, 665, 666, 668, 669, 671, 705, 706, 707]
+    },
+    "645": {
+      "count": 2,
+      "promotions": [660, 662, 664, 665, 668, 669, 670, 704, 705, 706]
+    },
+    "646": {
+      "count": 1
+    },
+    "647": {
+      "count": 1
+    },
+    "648": {
+      "count": 1
+    },
+    "649": {
+      "count": 1
+    },
+    "650": {
+      "count": 1,
+      "promotions": [647]
+    },
+    "651": {
+      "count": 1,
+      "promotions": [652]
+    },
+    "652": {
+      "count": 1
+    },
+    "653": {
+      "count": 1,
+      "promotions": [654]
+    },
+    "654": {
+      "count": 1
+    },
+    "655": {
+      "count": 1,
+      "promotions": [656]
+    },
+    "656": {
+      "count": 1
+    },
+    "657": {
+      "count": 2,
+      "promotions": [662, 663, 666, 667, 670, 671, 704, 705, 706, 707]
+    },
+    "658": {
+      "count": 2,
+      "promotions": [661, 662, 664, 665, 667, 668, 669, 671, 704, 705]
+    },
+    "659": {
+      "count": 2,
+      "promotions": [661, 662, 664, 665, 667, 668, 669, 671, 704, 705]
+    },
+    "660": {
+      "count": 1,
+      "promotions": [672]
+    },
+    "661": {
+      "count": 1,
+      "promotions": [672]
+    },
+    "662": {
+      "count": 1,
+      "promotions": [672]
+    },
+    "663": {
+      "count": 1,
+      "promotions": [672]
+    },
+    "664": {
+      "count": 1,
+      "promotions": [673]
+    },
+    "665": {
+      "count": 1,
+      "promotions": [673]
+    },
+    "666": {
+      "count": 1,
+      "promotions": [673]
+    },
+    "667": {
+      "count": 1,
+      "promotions": [673]
+    },
+    "668": {
+      "count": 1,
+      "promotions": [674]
+    },
+    "669": {
+      "count": 1,
+      "promotions": [674]
+    },
+    "670": {
+      "count": 1,
+      "promotions": [674]
+    },
+    "671": {
+      "count": 1,
+      "promotions": [674]
+    },
+    "672": {
+      "count": 1
+    },
+    "673": {
+      "count": 2
+    },
+    "674": {
+      "count": 2
+    },
+    "675": {
+      "count": 1,
+      "promotions": [676]
+    },
+    "676": {
+      "count": 1
+    },
+    "677": {
+      "count": 3,
+      "promotions": [648]
+    },
+    "678": {
+      "count": 3,
+      "promotions": [649]
+    },
+    "679": {
+      "count": 2,
+      "promotions": [680, 683, 689, 701, 702, 703]
+    },
+    "680": {
+      "count": 1,
+      "promotions": [697]
+    },
+    "681": {
+      "count": 1,
+      "promotions": [697]
+    },
+    "682": {
+      "count": 1,
+      "promotions": [697]
+    },
+    "683": {
+      "count": 1,
+      "promotions": [697]
+    },
+    "684": {
+      "count": 1,
+      "promotions": [698]
+    },
+    "685": {
+      "count": 1,
+      "promotions": [698]
+    },
+    "686": {
+      "count": 1,
+      "promotions": [698]
+    },
+    "687": {
+      "count": 1,
+      "promotions": [698]
+    },
+    "688": {
+      "count": 1,
+      "promotions": [696]
+    },
+    "689": {
+      "count": 1,
+      "promotions": [696]
+    },
+    "690": {
+      "count": 1,
+      "promotions": [696]
+    },
+    "691": {
+      "count": 1,
+      "promotions": [696]
+    },
+    "692": {
+      "count": 1,
+      "promotions": [649]
+    },
+    "693": {
+      "count": 1,
+      "promotions": [648]
+    },
+    "694": {
+      "count": 1,
+      "promotions": [647]
+    },
+    "695": {
+      "count": 1,
+      "promotions": [647]
+    },
+    "696": {
+      "count": 3
+    },
+    "697": {
+      "count": 2
+    },
+    "698": {
+      "count": 2
+    },
+    "699": {
+      "count": 2,
+      "promotions": [646]
+    },
+    "700": {
+      "count": 1,
+      "promotions": [697]
+    },
+    "701": {
+      "count": 1,
+      "promotions": [697]
+    },
+    "702": {
+      "count": 1,
+      "promotions": [698]
+    },
+    "703": {
+      "count": 1,
+      "promotions": [698]
+    },
+    "704": {
+      "count": 1,
+      "promotions": [674]
+    },
+    "705": {
+      "count": 1,
+      "promotions": [674]
+    },
+    "706": {
+      "count": 1,
+      "promotions": [673]
+    },
+    "707": {
+      "count": 1,
+      "promotions": [673]
+    },
+    "708": {
+      "count": 1,
+      "promotions": [649]
+    },
+    "709": {
+      "count": 1,
+      "promotions": [648]
+    },
+    "710": {
+      "count": 1
+    },
+    "711": {
+      "count": 1
+    },
+    "712": {
+      "count": 1
+    },
+    "713": {
+      "count": 1
+    },
+    "714": {
+      "count": 1
+    },
+    "715": {
+      "count": 1
     }
   }
 }

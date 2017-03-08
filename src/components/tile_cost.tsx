@@ -5,6 +5,7 @@ import { ReactElement } from 'react';
 import { MapHexElement } from './map_hex';
 import Tile, { TileElement } from './tile';
 
+import Hexagon from '../hexagon';
 import Point from '../point';
 
 const STROKE_COLOR: string = '#333';
@@ -14,6 +15,7 @@ const HEIGHT: number = 20;
 interface TileCostProps {
   readonly amount: number;
   readonly color: string;
+  readonly hexagon: Hexagon;
   readonly location?: Point;
   readonly shape?: string; // FIXME: enum
 }
@@ -22,10 +24,9 @@ export default class TileCost
 extends React.Component<TileCostProps, undefined>
 implements MapHexElement, TileElement {
 
-  public static defaultProps: TileCostProps = {
-    location: new Point(Tile.CENTER.x - 10, 14),
+  public static defaultProps: Partial<TileCostProps> = {
     shape: 'square',
-  } as TileCostProps;
+  };
 
   public render(): ReactElement<TileCost> {
     let result: ReactElement<TileCost>;
@@ -50,8 +51,15 @@ implements MapHexElement, TileElement {
     return result;
   }
 
+  private get defaultLocation(): Point {
+    return new Point(
+      this.props.hexagon.center.x - 10,
+      (this.props.hexagon.orientation === 'north-south') ? 9 : 14,
+    );
+  }
+
   private get location(): Point {
-    return this.props.location;
+    return this.props.location || this.defaultLocation;
   }
 
   private get square(): ReactElement<any> {
@@ -86,6 +94,7 @@ implements MapHexElement, TileElement {
       <text
         key='cost-text'
         textAnchor='middle'
+        fontSize='13'
         x={this.location.x + (WIDTH / 2)}
         y={y}>
         {this.props.amount}

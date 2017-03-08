@@ -38,7 +38,6 @@ describe('TileSet', () => {
       });
       const tileSet: TileSet = new TileSet(
         allTiles,
-        'east-west',
         mapDef as any,
         tileManifest
       );

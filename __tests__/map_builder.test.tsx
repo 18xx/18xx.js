@@ -82,7 +82,7 @@ const game: Game = new Game({
 describe('MapBuilder', () => {
   describe('#build()', () => {
     it('returns an svg of the map', () => {
-      const tileSet: TileSet = new TileSet(List([]), 'east-west', null, null);
+      const tileSet: TileSet = new TileSet(List([]), null, null);
       const builder: MapBuilder = new MapBuilder(game, json, tileSet);
       const tileState: Map<string, string> = (
         Map() as Map<string, string>

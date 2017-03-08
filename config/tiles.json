@@ -510,10 +510,11 @@
   {
     "color": "yellow",
     "num": 74,
+    "rotations": 3,
     "type": "Town",
     "track": {
       "narrow": [
-        [0, 1]
+        [0, 3]
       ]
     },
     "value": 10
@@ -539,6 +540,7 @@
   {
     "color": "yellow",
     "num": 79,
+    "rotations": 3,
     "track": {
       "narrow": [
         [0, 3]
@@ -702,8 +704,8 @@
     "track": {
       "narrow": [
         [0, 3],
-        [0, 1],
-        [1, 3]
+        [0, 2],
+        [2, 3]
       ]
     }
   },
@@ -713,8 +715,8 @@
     "track": {
       "narrow": [
         [0, 3],
-        [0, 2],
-        [2, 3]
+        [0, 1],
+        [1, 3]
       ]
     }
   },
@@ -757,6 +759,7 @@
   {
     "color": "green",
     "label": "C",
+    "rotations": 1,
     "spots": 2,
     "num": 653,
     "trackToCenter": {
@@ -769,6 +772,7 @@
   {
     "color": "brown",
     "label": "C",
+    "rotations": 1,
     "spots": 2,
     "num": 654,
     "trackToCenter": {

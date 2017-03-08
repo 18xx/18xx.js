@@ -7,6 +7,7 @@ import Tile from './tile';
 import Value from './value';
 
 import Hexagon from '../hexagon';
+import { MapDefinition} from '../map_builder';
 import Point from '../point';
 
 export interface MapHexProps {
@@ -15,7 +16,7 @@ export interface MapHexProps {
   readonly elements?: List<MapHexElement>;
   readonly fill?: string;
   readonly onHexClick?: Function;
-  readonly orientation?: string;
+  readonly mapDef: MapDefinition;
   readonly row: string;
   readonly tile?: ReactElement<Tile>;
 }
@@ -31,14 +32,13 @@ extends React.Component<MapHexProps, undefined> {
     allowTile: true,
     elements: List([]),
     fill: '#efe',
-    orientation: 'east-west',
   };
 
   private hexagon: Hexagon;
 
   constructor(props: MapHexProps) {
     super(props);
-    this.hexagon = new Hexagon(this.props.orientation);
+    this.hexagon = new Hexagon(props.mapDef.orientation);
   }
 
   get row(): string {
@@ -51,7 +51,7 @@ extends React.Component<MapHexProps, undefined> {
 
   get absoluteLeft(): number {
     let result: number = (this.column - 1) * this.hexagon.width;
-    if (this.props.orientation === 'north-south') {
+    if (this.props.mapDef.orientation === 'north-south') {
       result *= 0.75;
     } else {
       result *= 0.5;
@@ -60,11 +60,15 @@ extends React.Component<MapHexProps, undefined> {
   }
 
   get absoluteTop(): number {
-    let result: number = (
-      (this.row.toLowerCase().charCodeAt(0) - 'a'.charCodeAt(0)) *
-        this.hexagon.height
+    const keyIndex: number = Object.keys(this.props.mapDef.hexes).indexOf(
+      this.row
     );
-    if (this.props.orientation === 'north-south') {
+    if (keyIndex === -1) {
+      throw new Error('Could not find index for: ' + this.row);
+    }
+    let result: number = keyIndex * this.hexagon.height;
+
+    if (this.props.mapDef.orientation === 'north-south') {
       result *= 0.5;
     } else {
       result *= 0.75;

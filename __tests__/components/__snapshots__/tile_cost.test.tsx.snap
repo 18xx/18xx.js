@@ -11,6 +11,7 @@ exports[`TileCost #toString when locations is set returns an svg located at the 
     y={7}
   />
   <text
+    fontSize="13"
     textAnchor="middle"
     x={13}
     y={23}
@@ -28,6 +29,7 @@ exports[`TileCost #toString when shape is a triangle returns an svg representati
     stroke="#333"
   />
   <text
+    fontSize="13"
     textAnchor="middle"
     x={55.42562584220407}
     y={35}
@@ -48,6 +50,7 @@ exports[`TileCost #toString when shape is not a triangle returns an svg represen
     y={14}
   />
   <text
+    fontSize="13"
     textAnchor="middle"
     x={55.42562584220407}
     y={30}

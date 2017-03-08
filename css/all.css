@@ -59,8 +59,6 @@ svg {
   cursor: pointer;
   display: inline-block;
   position: relative;
-  width: 111px;
-  height: 128px;
 }
 
 .available-tile.unavailable {
