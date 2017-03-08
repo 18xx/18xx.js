@@ -160,7 +160,7 @@ export default class TileFactory {
     if (this.definition.privateReservation) {
       const name: string = this.definition.privateReservation;
       return (
-        <PrivateReservation key='pcr' name={name} />
+        <PrivateReservation key='pcr' hexagon={this.hexagon} name={name} />
       );
     }
   }

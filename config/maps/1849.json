@@ -18,6 +18,9 @@
     "n": [8, 10, 12],
     "o": [11]
   },
+  "privateReservations": {
+    "g13": "SCE"
+  },
   "impassable": [
     ["b2", "c1"],
     ["b4", "c3"],
@@ -235,9 +238,9 @@
       "dynamicValues": {
         "fixedHeight": 10,
         "values": {
-          "#99a": 20,
-          "#aab": 30,
-          "#bbc": 40
+          "#f0f0f0": 20,
+          "#f2f2f2": 30,
+          "#f4f4f4": 40
         }
       },
       "spots": 1,
@@ -275,9 +278,9 @@
       "dynamicValues": {
         "fixedHeight": 80,
         "values": {
-          "#99a": 10,
-          "#aab": 30,
-          "#bbc": 90
+          "#f0f0f0": 10,
+          "#f2f2f2": 30,
+          "#f4f4f4": 90
         }
       },
       "trackToCenter": {
@@ -290,9 +293,9 @@
       "dynamicValues": {
         "fixedHeight": 10,
         "values": {
-          "#99a": 20,
-          "#aab": 30,
-          "#bbc": 40
+          "#f0f0f0": 20,
+          "#f2f2f2": 30,
+          "#f4f4f4": 40
         }
       },
       "spots": 1,
@@ -354,9 +357,9 @@
       "dynamicValues": {
         "fixedHeight": 85,
         "values": {
-          "#99a": 20,
-          "#aab": 30,
-          "#bbc": 40
+          "#f0f0f0": 20,
+          "#f2f2f2": 30,
+          "#f4f4f4": 40
         }
       },
       "spots": 2,

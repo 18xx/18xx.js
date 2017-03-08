@@ -285,7 +285,7 @@ export default class MapBuilder {
         ) {
           const name: string = this.mapDef.privateReservations[hex];
           hexElements.push(
-            <PrivateReservation key='pcr' name={name} />
+            <PrivateReservation key='pcr' hexagon={this.hexagon} name={name} />
           );
         }
 
