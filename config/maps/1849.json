@@ -6,7 +6,7 @@
     "b": [2, 4, 12, 14],
     "c": [1, 3, 5, 7, 9, 11, 13, 15],
     "d": [2, 4, 6, 8, 10, 12, 14],
-    "e": [1, 3, 5, 7, 9, 11, 13],
+    "e": [1, 3, 5, 7, 9, 11, 13, 15],
     "f": [2, 4, 6, 8, 10, 12],
     "g": [1, 3, 5, 7, 9, 11, 13],
     "h": [2, 4, 6, 8, 10, 12],
@@ -44,7 +44,6 @@
     "c5": "Palermo",
     "c9": "St. Stefano",
     "c13": "Monti Peloritanti",
-    "c15": "Calabria",
     "d4": "Partinico",
     "d8": "Le Madonie",
     "d10": "Monti Nebrodi",
@@ -53,6 +52,7 @@
     "e7": "Termini Imerse",
     "e11": "Bronte",
     "e13": "Taormina",
+    "e15": "Calabria",
     "f10": "Troina",
     "f12": "L'Etma",
     "g1": "Mazzara",
@@ -275,18 +275,9 @@
     },
     "c15": {
       "color": "gray",
-      "dynamicValues": {
-        "fixedHeight": 80,
-        "values": {
-          "#f0f0f0": 10,
-          "#f2f2f2": 30,
-          "#f4f4f4": 90
-        }
-      },
-      "trackToCenter": {
-        "dual": [1]
-      },
-      "type": "Town"
+      "track": {
+        "dual": [[1, 4]]
+      }
     },
     "e1": {
       "color": "gray",
@@ -312,6 +303,21 @@
         "standard": [0, 4]
       },
       "value": 10
+    },
+    "e15": {
+      "color": "gray",
+      "dynamicValues": {
+        "fixedHeight": 80,
+        "values": {
+          "#f0f0f0": 10,
+          "#f2f2f2": 30,
+          "#f4f4f4": 90
+        }
+      },
+      "trackToCenter": {
+        "dual": [1]
+      },
+      "type": "Town"
     },
     "f12": {
       "color": "gray"
