@@ -12,8 +12,8 @@ const config = {
     rules: [
       {
         test: /\.css$/,
-        loader: ExtractTextPlugin.extract({
-          loader: 'css-loader'
+        use: ExtractTextPlugin.extract({
+          use: 'css-loader'
         })
       },
       {
