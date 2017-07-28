@@ -11,7 +11,7 @@ export interface AvailableTokensProps {
   readonly onClick: (company: Company) => void;
 }
 
-class AvailableTokens extends React.Component<AvailableTokensProps, undefined> {
+class AvailableTokens extends React.Component<AvailableTokensProps, {}> {
 
   get tokens(): List<ReactElement<Token>> {
     return this.props.companies.map(company =>

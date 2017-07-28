@@ -13,7 +13,7 @@ export interface TokenProps {
   readonly textColor: string;
 }
 
-class Token extends React.Component<TokenProps, undefined> {
+class Token extends React.Component<TokenProps, {}> {
   public static defaultProps: Partial<TokenProps> = {
     faded: false,
     radius: CityCircle.DEFAULT_RADIUS,

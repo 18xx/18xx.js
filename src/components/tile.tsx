@@ -18,7 +18,7 @@ export interface TileElement {
   render(): ReactElement<any>;
 }
 
-class Tile extends React.Component<TileProps, undefined> {
+class Tile extends React.Component<TileProps, {}> {
   static get SIDE_LENGTH(): number {
     return SIDE_LENGTH;
   }

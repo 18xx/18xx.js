@@ -13,7 +13,7 @@ export interface TileNumberProps {
   point?: Point;
 }
 
-class TileNumber extends React.Component<TileNumberProps, undefined> {
+class TileNumber extends React.Component<TileNumberProps, {}> {
   public render(): ReactElement<TileNumber> {
     return (
       <text

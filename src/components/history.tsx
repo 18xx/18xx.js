@@ -29,7 +29,7 @@ interface HistoryProps {
   readonly tileSet: TileSet;
 }
 
-class History extends React.Component<HistoryProps, undefined> {
+class History extends React.Component<HistoryProps, {}> {
   public render(): ReactElement<HTMLElement> {
     return (
       <div className='col-sm-3 col-md-2 sidebar'>

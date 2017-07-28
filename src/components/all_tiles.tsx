@@ -17,7 +17,7 @@ interface AllTilesProps {
   readonly mapDef: MapDefinition;
 }
 
-class AllTiles extends React.Component<AllTilesProps, undefined> {
+class AllTiles extends React.Component<AllTilesProps, {}> {
   public get tiles(): any {
     return allTiles.map(t =>
       <div key={t.num}>

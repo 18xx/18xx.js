@@ -19,8 +19,7 @@ export interface CityCircleProps {
   readonly token?: ReactElement<Token>;
 }
 
-class CityCircle
-extends React.Component<CityCircleProps, undefined>
+class CityCircle extends React.Component<CityCircleProps, {}>
 implements MapHexElement, TileElement {
   public static defaultProps: Partial<CityCircleProps> = {
     radius: DEFAULT_RADIUS,

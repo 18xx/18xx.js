@@ -13,7 +13,7 @@ export interface MapBoardProps {
   readonly orientation: string;
 }
 
-class MapBoard extends React.Component<MapBoardProps, undefined>  {
+class MapBoard extends React.Component<MapBoardProps, {}>  {
 
   get hexes(): List<ReactElement<MapHex>> {
     return this.props.hexes;
