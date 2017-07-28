@@ -14,17 +14,21 @@ export default class CityCircleFactory {
     private mapDef: MapDefinition,
     private hex: string,
     private homeTokens: List<string>,
-    private onRightClickCity: Function,
-    private onRightClickToken: Function,
+    private onRightClickCity: (hex: string, index: number) => void,
+    private onRightClickToken: (
+      event: MouseEvent<Element>,
+      hex: string,
+      index: number
+    ) => void,
     private tokenState: List<string>,
     private radius: number = CityCircle.DEFAULT_RADIUS,
   ) {
   }
 
   public build(index: number, point: Point): ReactElement<CityCircle> {
-    let fn: Function;
+    let fn: (event: MouseEvent<SVGElement>) => void;
     if (typeof this.tokenState === 'undefined' || !this.tokenState.get(index)) {
-      fn = (event: MouseEvent<SVGElement>) => {
+      fn = event => {
         event.preventDefault();
         this.onRightClickCity(this.hex, index);
       };

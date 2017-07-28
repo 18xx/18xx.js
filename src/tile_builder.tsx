@@ -1,6 +1,6 @@
 import { List } from 'immutable';
 import * as React from 'react';
-import { ReactElement } from 'react';
+import { MouseEvent, ReactElement } from 'react';
 
 import Tile, { TileElement } from './components/tile';
 
@@ -11,8 +11,12 @@ import TileFactory from './tile_factory';
 export default class TileBuilder {
   constructor(
     private mapDef: MapDefinition,
-    private onRightClickCity?: Function,
-    private onRightClickToken?: Function,
+    private onRightClickCity?: (hex: string, index: number) => void,
+    private onRightClickToken?: (
+      event: MouseEvent<Element>,
+      hex: string,
+      index: number
+    ) => void,
     private hex?: string,
     private tokenState?: List<string>,
     private homeTokens?: List<string>,

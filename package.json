@@ -39,7 +39,7 @@
   "scripts": {
     "assets": "webpack --config ./webpack.dev.config.js --watch",
     "heroku-postbuild": "webpack --config ./webpack.prod.config.js --progress",
-    "lint": "tslint src/**/*.tsx test/**/*.tsx",
+    "lint": "tslint --project .",
     "test": "jest",
     "start": "nf start"
   },

@@ -1,7 +1,7 @@
 import { List } from 'immutable';
 import * as _ from 'lodash';
 import * as React from 'react';
-import { ReactElement } from 'react';
+import { MouseEvent, ReactElement } from 'react';
 
 import CityCircle from './city_circle';
 import Tile from './tile';
@@ -17,8 +17,12 @@ import Point from '../point';
 export interface CityProps {
   hex?: string;
   hexagon: Hexagon;
-  onRightClickCity: Function;
-  onRightClickToken: Function;
+  onRightClickCity: (hex: string, index: number) => void;
+  onRightClickToken: (
+    event: MouseEvent<Element>,
+    hex: string,
+    index: number
+  ) => void;
   mapDef: MapDefinition;
   num: number;
   points?: List<Point>;
@@ -35,10 +39,10 @@ export interface Station {
 export default class City
 extends React.Component<CityProps, undefined>
 implements Station {
-  public static defaultProps: CityProps = {
+  public static defaultProps: Partial<CityProps> = {
     homeTokens: List<string>(),
     tokenState: List<string>(),
-  } as CityProps;
+  };
 
   public render(): ReactElement<City> {
     const num: number = this.props.num;

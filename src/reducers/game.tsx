@@ -4,7 +4,7 @@ import { List, Map } from 'immutable';
 import { ReactElement } from 'react';
 import { Reducer } from 'redux';
 
-import { HistoryEntry } from '../components/history';
+import { HashlessHistoryEntry, HistoryEntry } from '../components/history';
 import MapHex from '../components/map_hex';
 import Tile from '../components/tile';
 
@@ -36,10 +36,10 @@ export let initialState: GameState = {
   tokens: (Map() as Map<string, List<string>>),
 };
 
-const persistState: Function = (
+function persistState(
   state: GameState,
-  detail: HistoryEntry,
-): GameState => {
+  detail: HashlessHistoryEntry,
+): GameState {
   const historyFreeState: GameState = {
     ...resetMenus(state),
     history: undefined,
@@ -69,9 +69,9 @@ const persistState: Function = (
   );
 
   return resetState;
-};
+}
 
-const resetMenus: Function = (state: GameState): GameState => {
+function resetMenus(state: GameState): GameState {
   return {
     ...state,
     cityIndex: undefined,
@@ -79,7 +79,7 @@ const resetMenus: Function = (state: GameState): GameState => {
     openMenu: undefined,
     tileFilter: undefined,
   };
-};
+}
 
 const game: Reducer<GameState> = (
   state: GameState,

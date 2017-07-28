@@ -15,7 +15,7 @@ export interface MapHexProps {
   readonly column: number;
   readonly elements?: List<MapHexElement>;
   readonly fill?: string;
-  readonly onHexClick?: Function;
+  readonly onHexClick?: (mapHex: MapHex) => void;
   readonly mapDef: MapDefinition;
   readonly row: string;
   readonly tile?: ReactElement<Tile>;

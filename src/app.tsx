@@ -20,7 +20,7 @@ let mapDef: MapDefinition;
 const container: HTMLElement = document.getElementById('map-container');
 const initialStateId: string = container.dataset.initialStateId;
 
-let init: Function;
+let init: (state: any) => void;
 if (container.dataset.gameName !== 'null') {
   switch (container.dataset.gameName) {
     case '1817':

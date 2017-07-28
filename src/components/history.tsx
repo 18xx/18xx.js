@@ -10,6 +10,12 @@ import { MapDefinition } from '../map_builder';
 import TileDefinition from '../tile_definition';
 import TileSet from '../tile_set';
 
+export interface HashlessHistoryEntry {
+  readonly action: string;
+  readonly hex: string;
+  readonly id: string;
+}
+
 export interface HistoryEntry {
   readonly action: string;
   readonly hash: string;
@@ -38,7 +44,7 @@ extends React.Component<HistoryProps, undefined> {
     );
   }
 
-  private drawEntry: Function = (
+  private drawEntry = (
     entry: HistoryEntry,
     idx: number,
   ): ReactElement<HTMLElement> => {
