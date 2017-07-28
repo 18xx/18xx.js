@@ -8,7 +8,7 @@ import { MapDefinition } from './map_builder';
 import TileDefinition from './tile_definition';
 import TileFactory from './tile_factory';
 
-export default class TileBuilder {
+class TileBuilder {
   constructor(
     private mapDef: MapDefinition,
     private onRightClickCity?: (hex: string, index: number) => void,
@@ -65,11 +65,9 @@ export default class TileBuilder {
       factory.privateReservation,
     ].filter(el => el)).flatten().toList();
 
-    let key: string;
+    let key: string = 'pp';
     if (def.num) {
       key = def.num + '.' + i;
-    } else {
-      key = 'pp';
     }
 
     return (
@@ -81,3 +79,5 @@ export default class TileBuilder {
     );
   }
 }
+
+export default TileBuilder;

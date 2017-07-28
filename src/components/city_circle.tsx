@@ -19,12 +19,12 @@ export interface CityCircleProps {
   readonly token?: ReactElement<Token>;
 }
 
-export default class CityCircle
+class CityCircle
 extends React.Component<CityCircleProps, undefined>
 implements MapHexElement, TileElement {
-  public static defaultProps: CityCircleProps = {
+  public static defaultProps: Partial<CityCircleProps> = {
     radius: DEFAULT_RADIUS,
-  } as CityCircleProps;
+  };
 
   static get DEFAULT_RADIUS(): number {
     return DEFAULT_RADIUS;
@@ -63,3 +63,5 @@ implements MapHexElement, TileElement {
     );
   }
 }
+
+export default CityCircle;

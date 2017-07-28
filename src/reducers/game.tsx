@@ -89,11 +89,9 @@ const game: Reducer<GameState> = (
     case 'CLOSE_MENUS':
       return resetMenus(state);
     case 'PLACE_TOKEN':
-      let list: List<string>;
+      let list: List<string> = List<string>();
       if (state.tokens.has(state.hex)) {
         list = state.tokens.get(state.hex);
-      } else {
-        list = List<string>();
       }
       list = list.set(state.cityIndex, action.company);
 

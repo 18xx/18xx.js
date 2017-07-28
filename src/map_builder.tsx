@@ -51,7 +51,7 @@ export interface MapDefinition {
   towns?: any;
 }
 
-export default class MapBuilder {
+class MapBuilder {
   private hexagon: Hexagon;
 
   constructor(
@@ -193,11 +193,9 @@ export default class MapBuilder {
         Object.keys(this.mapDef.companies).forEach(key => {
           const company: any = this.mapDef.companies[key];
           if (company.home === hex) {
-            if (company.index || company.index === 0) {
-              homeTokens = homeTokens.set(company.index, key);
-            } else {
-              homeTokens = homeTokens.push(key);
-            }
+            homeTokens = (company.index || company.index === 0) ?
+              homeTokens.set(company.index, key) :
+              homeTokens.push(key);
           }
         });
 
@@ -290,13 +288,13 @@ export default class MapBuilder {
         }
 
         hexData.push({
-          row,
-          column,
-          fill,
-          tile,
           allowTile,
+          column,
           elements: List(hexElements),
+          fill,
           mapDef: this.mapDef,
+          row,
+          tile,
         });
       }
     }
@@ -410,14 +408,11 @@ export default class MapBuilder {
       y2 = c;
     }
 
-    let x1: number;
-    if (a > b) {
-      x1 = Tile.SIDE_LENGTH / -2;
-    } else {
-      x1 = Tile.SIDE_LENGTH / 2;
-    }
+    const x1: number = (a > b) ? Tile.SIDE_LENGTH / -2 : Tile.SIDE_LENGTH / 2;
     const x2: number = -x1;
 
     return [x1, x2, y1, y2];
   }
 }
+
+export default MapBuilder;

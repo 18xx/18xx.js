@@ -30,7 +30,7 @@ if (process.env.GOOGLE_OAUTH2_CALLBACK) {
       callbackURL: process.env.GOOGLE_OAUTH2_CALLBACK,
       clientID: process.env.GOOGLE_OAUTH2_CLIENT_ID,
       clientSecret: process.env.GOOGLE_OAUTH2_CLIENT_SECRET,
-    } as IOAuth2StrategyOption,
+    },
     (accessToken, refreshToken, profile, done) => {
       done(null, profile);
     }

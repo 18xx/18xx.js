@@ -33,7 +33,7 @@ export interface GameProps {
   readonly mapDef: MapDefinition;
 }
 
-export default class Game
+class Game
   extends React.Component<GameProps, GameState> {
 
   public readonly tileSet: TileSet;
@@ -130,8 +130,8 @@ export default class Game
 
   public onRightClickCity = (hex: string, index: number): void => {
     this.store.dispatch({
-      index,
       hex,
+      index,
       type: 'SHOW_AVAILABLE_TOKENS',
     });
   }
@@ -142,8 +142,8 @@ export default class Game
     index: number
   ): void => {
     this.store.dispatch({
-      index,
       hex,
+      index,
       type: 'SHOW_TOKEN_CONTEXT_MENU',
     });
   }
@@ -208,3 +208,5 @@ export default class Game
     });
   }
 }
+
+export default Game;

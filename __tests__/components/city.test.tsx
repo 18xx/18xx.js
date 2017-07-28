@@ -4,7 +4,6 @@ import Town from '../../src/components/town';
 
 import Point from '../../src/point';
 
-
 describe('City', () => {
   it('is pending');
 });

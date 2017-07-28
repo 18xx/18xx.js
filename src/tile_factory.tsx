@@ -47,13 +47,13 @@ export default class TileFactory {
     const attributes: any = { // FIXME: should be CityProps
       hex: this.hex,
       hexagon: this.hexagon,
+      homeTokens,
       key: this.hex || 'city',
       mapDef: this.mapDef,
       num: this.definition.spots,
       onRightClickCity: this.onRightClickCity,
       onRightClickToken: this.onRightClickToken,
       tokenState,
-      homeTokens,
     };
     let klass: any;
 
