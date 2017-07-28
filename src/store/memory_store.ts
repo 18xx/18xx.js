@@ -4,7 +4,7 @@ import { GameState } from '../reducers/game';
 
 import { Store } from '../store';
 
-export default class MemoryStore implements Store {
+class MemoryStore implements Store {
   private map: Map<string, GameState>;
 
   constructor() {
@@ -20,3 +20,5 @@ export default class MemoryStore implements Store {
     return Promise.resolve(true);
   }
 }
+
+export default MemoryStore;

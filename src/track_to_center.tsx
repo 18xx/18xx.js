@@ -7,7 +7,7 @@ import Tile, { TileElement } from './components/tile';
 import Hexagon from './hexagon';
 import Point from './point';
 
-export default class TrackToCenter {
+class TrackToCenter {
   constructor(
     private pos: number,
     private hexagon: Hexagon,
@@ -56,3 +56,5 @@ export default class TrackToCenter {
     return Point.from(this.hexagon.center, this.pos + this.hexagon.offset);
   }
 }
+
+export default TrackToCenter;

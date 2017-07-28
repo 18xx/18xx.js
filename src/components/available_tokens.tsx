@@ -11,8 +11,7 @@ export interface AvailableTokensProps {
   readonly onClick: (company: Company) => void;
 }
 
-export default class AvailableTokens
-  extends React.Component<AvailableTokensProps, undefined> {
+class AvailableTokens extends React.Component<AvailableTokensProps, undefined> {
 
   get tokens(): List<ReactElement<Token>> {
     return this.props.companies.map(company =>
@@ -32,3 +31,5 @@ export default class AvailableTokens
     return <div id='tokenMenu'>{this.tokens}</div>;
   }
 }
+
+export default AvailableTokens;

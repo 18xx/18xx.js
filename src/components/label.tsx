@@ -15,7 +15,7 @@ export interface LabelProps {
   labelStr: string;
 }
 
-export default class Label extends React.Component<LabelProps, undefined> {
+class Label extends React.Component<LabelProps, undefined> {
   public render(): ReactElement<Label> {
     return (
       <text
@@ -63,3 +63,5 @@ export default class Label extends React.Component<LabelProps, undefined> {
     return result;
   }
 }
+
+export default Label;

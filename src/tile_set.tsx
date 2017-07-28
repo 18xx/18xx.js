@@ -11,7 +11,7 @@ export interface TileSetDetails {
   readonly promotions?: string[];
 }
 
-export default class TileSet {
+class TileSet {
   constructor(
     private allTiles: List<TileDefinitionInput>,
     private mapDef: MapDefinition,
@@ -36,3 +36,5 @@ export default class TileSet {
     return this.tileManifest.get(num.toString()).count;
   }
 }
+
+export default TileSet;

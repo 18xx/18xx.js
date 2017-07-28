@@ -4,7 +4,7 @@ import Tile from './components/tile';
 
 import Point from './point';
 
-export default class Hexagon {
+class Hexagon {
   constructor(public orientation: string) {
   }
 
@@ -76,3 +76,5 @@ export default class Hexagon {
     return result;
   }
 }
+
+export default Hexagon;

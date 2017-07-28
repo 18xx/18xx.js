@@ -8,7 +8,7 @@ import Tile from './tile';
 
 import Point from '../point';
 
-export default class UnconnectedCity extends City {
+class UnconnectedCity extends City {
   public render(): ReactElement<UnconnectedCity> {
     let cities: List<ReactElement<CityCircle>>;
     if (this.props.num === 1) {
@@ -28,3 +28,5 @@ export default class UnconnectedCity extends City {
     );
   }
 }
+
+export default UnconnectedCity;

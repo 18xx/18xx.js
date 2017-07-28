@@ -20,8 +20,7 @@ export interface DynamicValuesProps {
   readonly values: DynamicValueSet;
 }
 
-export default class DynamicValues
-extends React.Component<DynamicValuesProps, undefined>
+class DynamicValues extends React.Component<DynamicValuesProps, {}>
 implements MapHexElement, TileElement {
   public static defaultProps: Partial<DynamicValuesProps> = {
     fixedHeight: (Tile.CENTER.y - 25),
@@ -72,3 +71,5 @@ implements MapHexElement, TileElement {
     );
   }
 }
+
+export default DynamicValues;

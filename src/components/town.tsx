@@ -1,6 +1,6 @@
 import { List } from 'immutable';
 import * as React from 'react';
-import { ReactElement } from 'react';
+import { Component, ReactElement } from 'react';
 
 import { Station } from './city';
 import { TileElement } from './tile';
@@ -14,9 +14,7 @@ export interface TownProps {
   points: List<Point>;
 }
 
-export default class Town
-extends React.Component<TownProps, undefined>
-implements Station, TileElement {
+class Town extends Component<TownProps, {}> implements Station, TileElement {
   public render(): ReactElement<Town> {
     return (
       <g key='towns'>
@@ -39,3 +37,5 @@ implements Station, TileElement {
     );
   }
 }
+
+export default Town;

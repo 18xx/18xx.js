@@ -13,9 +13,7 @@ interface LineProps {
   readonly strokeWidth?: number;
 }
 
-export default class Line
-extends React.Component<LineProps, undefined>
-implements TileElement {
+class Line extends React.Component<LineProps, {}> implements TileElement {
   public static defaultProps: Partial<LineProps> = {
     stroke: 'black',
     strokeDasharray: '1,0',
@@ -36,3 +34,5 @@ implements TileElement {
     );
   }
 }
+
+export default Line;

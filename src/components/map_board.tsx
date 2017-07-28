@@ -13,8 +13,7 @@ export interface MapBoardProps {
   readonly orientation: string;
 }
 
-export default class MapBoard
-extends React.Component<MapBoardProps, undefined>  {
+class MapBoard extends React.Component<MapBoardProps, undefined>  {
 
   get hexes(): List<ReactElement<MapHex>> {
     return this.props.hexes;
@@ -57,3 +56,5 @@ extends React.Component<MapBoardProps, undefined>  {
     );
   }
 }
+
+export default MapBoard;

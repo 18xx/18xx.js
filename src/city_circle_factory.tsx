@@ -9,7 +9,7 @@ import Company from './company';
 import { MapDefinition } from './map_builder';
 import Point from './point';
 
-export default class CityCircleFactory {
+class CityCircleFactory {
   constructor(
     private mapDef: MapDefinition,
     private hex: string,
@@ -84,3 +84,5 @@ export default class CityCircleFactory {
     return token;
   }
 }
+
+export default CityCircleFactory;

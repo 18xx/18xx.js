@@ -42,7 +42,7 @@ export interface TileDefinitionInput {
   readonly valuePosition?: number;
 }
 
-export default class TileDefinition {
+class TileDefinition {
   constructor(
     private mapDef: MapDefinition,
     private definition: TileDefinitionInput,
@@ -129,3 +129,5 @@ export default class TileDefinition {
     );
   }
 }
+
+export default TileDefinition;

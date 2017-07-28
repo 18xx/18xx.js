@@ -9,7 +9,7 @@ import Tile from './tile';
 
 import Point from '../point';
 
-export default class DistinctCity extends City {
+class DistinctCity extends City {
   public render(): ReactElement<DistinctCity> {
     const tileElements: Array<ReactElement<any>> = [];
 
@@ -48,3 +48,5 @@ export default class DistinctCity extends City {
     }
   }
 }
+
+export default DistinctCity;

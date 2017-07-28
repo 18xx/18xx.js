@@ -6,7 +6,7 @@ import { TileElement } from './components/tile';
 import Point from './point';
 import Track from './track';
 
-export default class TrackSpecial extends Track {
+class TrackSpecial extends Track {
   public element(): ReactElement<TileElement> {
     const point0: Point = this.trackPoints()[0];
     const point1: Point = this.trackPoints()[1];
@@ -62,3 +62,5 @@ export default class TrackSpecial extends Track {
     );
   }
 }
+
+export default TrackSpecial;

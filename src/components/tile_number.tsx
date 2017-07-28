@@ -13,8 +13,7 @@ export interface TileNumberProps {
   point?: Point;
 }
 
-export default class TileNumber
-extends React.Component<TileNumberProps, undefined> {
+class TileNumber extends React.Component<TileNumberProps, undefined> {
   public text(): string {
     let result: string = this.props.num;
     if (typeof this.props.orientation !== 'undefined') {
@@ -67,3 +66,5 @@ extends React.Component<TileNumberProps, undefined> {
     return this.props.hexagon;
   }
 }
+
+export default TileNumber;

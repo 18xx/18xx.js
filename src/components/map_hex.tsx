@@ -25,8 +25,7 @@ export interface MapHexElement {
   toString(): string;
 }
 
-export default class MapHex
-extends React.Component<MapHexProps, undefined> {
+class MapHex extends React.Component<MapHexProps, undefined> {
 
   public static defaultProps: Partial<MapHexProps> = {
     allowTile: true,
@@ -105,3 +104,5 @@ extends React.Component<MapHexProps, undefined> {
     );
   }
 }
+
+export default MapHex;

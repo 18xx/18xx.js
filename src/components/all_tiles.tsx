@@ -17,8 +17,7 @@ interface AllTilesProps {
   readonly mapDef: MapDefinition;
 }
 
-export default class AllTiles
-extends React.Component<AllTilesProps, undefined> {
+class AllTiles extends React.Component<AllTilesProps, undefined> {
   public get tiles(): any {
     return allTiles.map(t =>
       <div key={t.num}>
@@ -32,3 +31,5 @@ extends React.Component<AllTilesProps, undefined> {
     return <div id='all-tiles'>{this.tiles}</div>;
   }
 }
+
+export default AllTiles;

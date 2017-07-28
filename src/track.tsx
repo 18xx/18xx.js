@@ -10,7 +10,7 @@ import Line from './components/line';
 import Hexagon from './hexagon';
 import Point from './point';
 
-export default class Track {
+class Track {
   constructor(
     private pos1: number,
     private pos2: number,
@@ -211,3 +211,5 @@ export default class Track {
     return `${this.pos1}-${this.pos2}`;
   }
 }
+
+export default Track;

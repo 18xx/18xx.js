@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { ReactElement } from 'react';
+import { Component, ReactElement } from 'react';
 
 import { MapHexElement } from './map_hex';
 
@@ -10,10 +10,7 @@ interface CityNameProps {
   readonly point: Point;
 }
 
-export default class CityName
-extends React.Component<CityNameProps, undefined>
-implements MapHexElement {
-
+class CityName extends Component<CityNameProps, {}> implements MapHexElement {
   public render(): ReactElement<CityName> {
     return (
       <text
@@ -38,3 +35,5 @@ implements MapHexElement {
     return this.props.point.y - 16 + this.fontSize;
   }
 }
+
+export default CityName;

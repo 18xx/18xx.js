@@ -7,7 +7,7 @@ import { Store } from '../store';
 
 AWS.config.update({ region: 'ca-central-1' });
 
-export default class DynamoDBStore implements Store {
+class DynamoDBStore implements Store {
   private ddb: DynamoDB;
   private ddbClient: DynamoDB.DocumentClient;
 
@@ -77,3 +77,5 @@ export default class DynamoDBStore implements Store {
     }).promise().then(() => true);
   }
 }
+
+export default DynamoDBStore;

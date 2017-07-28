@@ -14,9 +14,7 @@ export interface ValueProps {
   readonly position?: Point;
 }
 
-export default class Value
-extends React.Component<ValueProps, undefined>
-implements TileElement {
+class Value extends React.Component<ValueProps, {}> implements TileElement {
   public render(): ReactElement<Value> {
     if (this.props.amount) {
       return (
@@ -58,3 +56,5 @@ implements TileElement {
     return result;
   }
 }
+
+export default Value;

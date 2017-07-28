@@ -5,7 +5,7 @@ export interface PointDefinition {
   readonly y: number;
 }
 
-export default class Point {
+class Point {
   public static from(point: Point, radians: number, distance?: number): Point {
     if (!distance) {
       distance = Tile.WIDTH / 2;
@@ -37,3 +37,5 @@ export default class Point {
     return (Math.abs(this.x - Tile.CENTER.x) < 0.001);
   }
 }
+
+export default Point;

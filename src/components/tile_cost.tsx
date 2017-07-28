@@ -20,10 +20,8 @@ interface TileCostProps {
   readonly shape?: string; // FIXME: enum
 }
 
-export default class TileCost
-extends React.Component<TileCostProps, undefined>
+class TileCost extends React.Component<TileCostProps, {}>
 implements MapHexElement, TileElement {
-
   public static defaultProps: Partial<TileCostProps> = {
     shape: 'square',
   };
@@ -102,3 +100,5 @@ implements MapHexElement, TileElement {
     );
   }
 }
+
+export default TileCost;

@@ -14,9 +14,7 @@ interface CurveProps {
   readonly strokeWidth?: number;
 }
 
-export default class Curve
-extends React.Component<CurveProps, undefined>
-implements TileElement {
+class Curve extends React.Component<CurveProps, {}> implements TileElement {
   public static defaultProps: Partial<CurveProps> = {
     stroke: 'black',
     strokeDasharray: '1,0',
@@ -47,3 +45,5 @@ implements TileElement {
     );
   }
 }
+
+export default Curve;

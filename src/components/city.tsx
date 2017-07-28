@@ -36,9 +36,7 @@ export interface Station {
   render(): ReactElement<Station>;
 }
 
-export default class City
-extends React.Component<CityProps, undefined>
-implements Station {
+class City extends React.Component<CityProps, undefined> implements Station {
   public static defaultProps: Partial<CityProps> = {
     homeTokens: List<string>(),
     tokenState: List<string>(),
@@ -285,3 +283,5 @@ implements Station {
     return this.props.hexagon;
   }
 }
+
+export default City;

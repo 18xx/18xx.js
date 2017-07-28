@@ -7,7 +7,7 @@ import Point from '../point';
 
 const DEFAULT_RADIUS: number = 10;
 
-export default class MediumCity extends Town {
+class MediumCity extends Town {
   protected drawCircle(point: Point): ReactElement<any> {
     return (
       <g key={`outer-${point.x}-${point.y}`}>
@@ -31,3 +31,5 @@ export default class MediumCity extends Town {
     );
   }
 }
+
+export default MediumCity;

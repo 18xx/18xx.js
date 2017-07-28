@@ -9,7 +9,7 @@ import City from './city';
 import CityCircle from './city_circle';
 import Tile from './tile';
 
-export default class DoubleOCity extends City {
+class DoubleOCity extends City {
   public render(): ReactElement<DoubleOCity> {
     let result: ReactElement<any>;
 
@@ -78,3 +78,5 @@ export default class DoubleOCity extends City {
     return Tile.CENTER;
   }
 }
+
+export default DoubleOCity;

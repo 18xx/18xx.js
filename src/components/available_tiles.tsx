@@ -16,8 +16,7 @@ export interface AvailableTilesProps {
   readonly tileSet: TileSet;
 }
 
-export default class AvailableTiles
-  extends React.Component<AvailableTilesProps, undefined> {
+class AvailableTiles extends React.Component<AvailableTilesProps, undefined> {
 
   public static defaultProps: any;
 
@@ -80,3 +79,5 @@ export default class AvailableTiles
     )[num] || 0;
   }
 }
+
+export default AvailableTiles;

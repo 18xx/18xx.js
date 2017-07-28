@@ -12,8 +12,7 @@ interface PrivateReservationProps {
   readonly name: string;
 }
 
-export default class PrivateReservation
-extends React.Component<PrivateReservationProps, undefined> {
+class PrivateReservation extends React.Component<PrivateReservationProps, {}> {
   public render(): ReactElement<PrivateReservation> {
     return (
       <g>
@@ -61,3 +60,5 @@ extends React.Component<PrivateReservationProps, undefined> {
     return result;
   }
 }
+
+export default PrivateReservation;

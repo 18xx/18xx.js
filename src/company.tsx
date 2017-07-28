@@ -10,7 +10,7 @@ interface CompanyData {
   readonly tokens?: number;
 }
 
-export default class Company {
+class Company {
   public static fromJson(reportingMark: string, data: CompanyData): Company {
     return new Company(
       reportingMark,
@@ -32,3 +32,5 @@ export default class Company {
   ) {
   }
 }
+
+export default Company;

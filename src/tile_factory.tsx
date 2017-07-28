@@ -23,7 +23,7 @@ import Track from './track';
 import TrackSpecial from './track_special';
 import TrackToCenter from './track_to_center';
 
-export default class TileFactory {
+class TileFactory {
   private hexagon: Hexagon;
 
   constructor(
@@ -354,3 +354,5 @@ export default class TileFactory {
     return this.mapDef.orientation;
   }
 }
+
+export default TileFactory;
