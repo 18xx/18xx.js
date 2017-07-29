@@ -51,7 +51,7 @@ implements MapHexElement, TileElement {
     fill: string,
     value: number): ReactElement<any> {
 
-    const y: number = this.props.fixedHeight;
+    const y: number = this.props.fixedHeight!;
     return (
       <g key={x}>
         <rect

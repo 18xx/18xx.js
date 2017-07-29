@@ -27,7 +27,7 @@ class TileNumber extends React.Component<TileNumberProps, {}> {
   }
 
   private get point(): Point {
-    let result: Point = this.props.point;
+    let result: Point | undefined = this.props.point;
     if (!result) {
       if (this.hexagon.orientation === 'north-south') {
         result = new Point(

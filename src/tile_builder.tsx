@@ -7,6 +7,9 @@ import Tile, { TileElement } from './components/tile';
 import { MapDefinition } from './map_builder';
 import TileDefinition from './tile_definition';
 import TileFactory from './tile_factory';
+import Track from './track';
+import TrackSpecial from './track_special';
+import TrackToCenter from './track_to_center';
 
 class TileBuilder {
   constructor(
@@ -37,19 +40,25 @@ class TileBuilder {
       this.hex,
     );
 
-    let track: List<ReactElement<TileElement>>;
+    let track: List<ReactElement<TileElement>> | undefined;
     if (factory.track) {
-      track = factory.track.map(t => t.elements()).flatten(true).toList();
+      track = factory.track.map(
+        (t: Track) => t.elements()
+      ).flatten(true).toList();
     }
 
-    let trackSpecial: List<ReactElement<TileElement>>;
+    let trackSpecial: List<ReactElement<TileElement>> | undefined;
     if (factory.trackSpecial) {
-      trackSpecial = factory.trackSpecial.map(t => t.element()).toList();
+      trackSpecial = factory.trackSpecial.map(
+        (t: TrackSpecial) => t.element()
+      ).toList();
     }
 
-    let trackToCenter: List<ReactElement<TileElement>>;
+    let trackToCenter: List<ReactElement<TileElement>>| undefined;
     if (factory.trackToCenter) {
-      trackToCenter = factory.trackToCenter.map(t => t.element()).toList();
+      trackToCenter = factory.trackToCenter.map(
+        (t: TrackToCenter) => t.element()
+      ).toList();
     }
 
     const elements: List<ReactElement<TileElement>> = List([

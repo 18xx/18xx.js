@@ -26,7 +26,7 @@ class CityCircleFactory {
   }
 
   public build(index: number, point: Point): ReactElement<CityCircle> {
-    let fn: (event: MouseEvent<SVGElement>) => void;
+    let fn: ((event: MouseEvent<SVGElement>) => void) | undefined;
     if (typeof this.tokenState === 'undefined' || !this.tokenState.get(index)) {
       fn = event => {
         event.preventDefault();
@@ -46,10 +46,11 @@ class CityCircleFactory {
     );
   }
 
-  private buildToken(index: number, point: Point): ReactElement<Token> {
-    let token: ReactElement<Token>;
+  private buildToken(index: number, point: Point):
+    ReactElement<Token> | undefined {
+    let token: ReactElement<Token> | undefined;
     let faded: boolean = false;
-    let companyMark: string;
+    let companyMark: string | undefined;
 
     const fn: MouseEventHandler<SVGElement> =
       (event: MouseEvent<SVGElement>) => {

@@ -46,10 +46,11 @@ function persistState(
   };
   const hfJson: string = JSON.stringify(historyFreeState);
   const hash: string = crypto.createHash('sha256').update(hfJson).digest('hex');
+  const stateHistory: List<HistoryEntry> = state.history || List();
 
   const resetState: GameState = {
     ...resetMenus(state),
-    history: state.history.push({...detail, hash}),
+    history: stateHistory.push({...detail, hash}),
   };
 
   const json: string = JSON.stringify(resetState);
@@ -89,11 +90,21 @@ const game: Reducer<GameState> = (
     case 'CLOSE_MENUS':
       return resetMenus(state);
     case 'PLACE_TOKEN':
+      if (!state.hex) {
+        console.error('Attempted to place token in unknown hex');
+        return state;
+      }
+
+      if (!action.company) {
+        console.error('Attempted to place token for unknown copmany');
+        return state;
+      }
+
       let list: List<string> = List<string>();
       if (state.tokens.has(state.hex)) {
         list = state.tokens.get(state.hex);
       }
-      list = list.set(state.cityIndex, action.company);
+      list = list.set(state.cityIndex || 0, action.company);
 
       return persistState(
         {
@@ -108,6 +119,10 @@ const game: Reducer<GameState> = (
       );
 
     case 'REMOVE_TOKEN':
+      if (!state.hex || !state.cityIndex) {
+        console.error('Attempted to remove token from unknown hex');
+        return state;
+      }
       const removed: string = state.tokens.get(state.hex).get(state.cityIndex);
       const removedList: List<string> = state.tokens.get(state.hex).delete(
         state.cityIndex
@@ -126,6 +141,14 @@ const game: Reducer<GameState> = (
       );
 
     case 'PLACE_TILE':
+      if (!state.hex) {
+        console.error('Attempted to place tile in unknown hex');
+        return state;
+      }
+      if (!action.tile) {
+        console.error('Attempted to place unknown tile in hex');
+        return state;
+      }
       return persistState(
         {
           ...state,

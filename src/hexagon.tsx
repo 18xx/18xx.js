@@ -5,7 +5,7 @@ import Tile from './components/tile';
 import Point from './point';
 
 class Hexagon {
-  constructor(public orientation: string) {
+  constructor(public orientation: string | undefined) {
   }
 
   public get offset(): number {

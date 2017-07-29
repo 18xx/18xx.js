@@ -10,7 +10,7 @@ import Point from '../point';
 
 class UnconnectedCity extends City {
   public render(): ReactElement<UnconnectedCity> {
-    let cities: List<ReactElement<CityCircle>>;
+    let cities: List<ReactElement<CityCircle>> | undefined;
     if (this.props.num === 1) {
       cities = List([
         this.buildCircle(0, Tile.CENTER),

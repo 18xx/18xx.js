@@ -17,11 +17,15 @@ import * as mapDef1849 from '../config/maps/1849.json';
 import * as mapDef1880 from '../config/maps/1880.json';
 let mapDef: MapDefinition;
 
-const container: HTMLElement = document.getElementById('map-container');
-const initialStateId: string = container.dataset.initialStateId;
+const container: HTMLElement | null = document.getElementById('map-container');
+if (!container) {
+  throw new Error('Did not find map-container element');
+}
+
+const initialStateId: string | undefined = container.dataset.initialStateId;
 
 let init: (state: any) => void;
-if (container.dataset.gameName !== 'null') {
+if (container.dataset.gameName) {
   switch (container.dataset.gameName) {
     case '1817':
       mapDef = mapDef1817 as any;
@@ -43,7 +47,7 @@ if (container.dataset.gameName !== 'null') {
     ReactDOM.render(
       <Game
       initialState={state}
-      gameName={container.dataset.gameName}
+      gameName={container.dataset.gameName!}
       mapDef={mapDef} />,
       container
     );
@@ -68,7 +72,7 @@ if (initialStateId === 'undefined') {
       // FIXME: Don't hardcode tiles & tokens
       const newState: GameState = {
         history: Immutable.List<HistoryEntry>(data.history),
-        name: container.dataset.gameName,
+        name: container.dataset.gameName!,
         tiles: Immutable.fromJS(data.tiles),
         tokens: Immutable.fromJS(data.tokens),
       };

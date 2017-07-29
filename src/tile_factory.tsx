@@ -28,12 +28,13 @@ class TileFactory {
 
   constructor(
     private mapDef: MapDefinition,
-    private onRightClickCity: (hex: string, index: number) => void,
-    private onRightClickToken: (
+    private onRightClickCity:
+      ((hex: string, index: number) => void) | undefined,
+    private onRightClickToken: ((
       event: MouseEvent<Element>,
       hex: string,
       index: number
-    ) => void,
+    ) => void) | undefined,
     private definition: TileDefinition,
     private rotation: number = 0,
     private hex?: string,
@@ -42,8 +43,8 @@ class TileFactory {
   }
 
   public city(
-    tokenState: List<string>, homeTokens: List<string>
-  ): ReactElement<Station> {
+    tokenState: List<string> | undefined, homeTokens: List<string> | undefined
+  ): ReactElement<Station> | undefined {
     const attributes: any = { // FIXME: should be CityProps
       hex: this.hex,
       hexagon: this.hexagon,
@@ -70,8 +71,12 @@ class TileFactory {
         attributes.rotation = this.rotation;
         break;
       case 'DoubleOCity':
+        if (!this.track) {
+          return;
+        }
+
         klass = DoubleOCity;
-        const midpoints: List<List<Point>> = this.track.map(track => {
+        const midpoints: List<List<Point>> = this.track.map((track: Track) => {
           let numMidpoints: number = 4;
           if (track.isTightCurve()) {
             numMidpoints = 1;
@@ -93,10 +98,12 @@ class TileFactory {
             List([midpoints.first().last(), midpoints.last().first()]),
             List([midpoints.first().last(), midpoints.last().last()]),
           ]);
-          result = List(combinations.maxBy(set => Math.sqrt(
+          result = List(combinations.maxBy((set: List<Point>) => Math.sqrt(
             Math.pow(set.get(1).x - set.get(0).x, 2) +
             Math.pow(set.get(1).y - set.get(0).y, 2)
           )));
+        } else {
+          throw new Error('Unsupported number of track');
         }
 
         attributes.points = result;
@@ -110,7 +117,7 @@ class TileFactory {
             midpointPosition = 1;
           }
           attributes.points = this.track.map(
-            track => track.midpoints(midpointPosition).get(0)
+            (track: Track) => track.midpoints(midpointPosition).get(0)
           ).toList();
         } else {
           attributes.points = [this.hexagon.center];
@@ -127,7 +134,7 @@ class TileFactory {
     }
   }
 
-  public get dynamicValues(): ReactElement<DynamicValues> {
+  public get dynamicValues(): ReactElement<DynamicValues> | undefined {
     if (this.definition.dynamicValues) {
       return (
         <DynamicValues
@@ -139,9 +146,9 @@ class TileFactory {
     }
   }
 
-  public get label(): ReactElement<Label> {
+  public get label(): ReactElement<Label> | undefined {
     if (this.definition.label) {
-      let point: Point;
+      let point: Point | undefined;
 
       if (this.definition.labelPosition) {
         point = this.pointPosition(
@@ -160,7 +167,8 @@ class TileFactory {
     }
   }
 
-  public get privateReservation(): ReactElement<PrivateReservation> {
+  public get privateReservation():
+    ReactElement<PrivateReservation> | undefined {
     if (this.definition.privateReservation) {
       const name: string = this.definition.privateReservation;
       return (
@@ -169,9 +177,9 @@ class TileFactory {
     }
   }
 
-  public get tileCost(): ReactElement<TileCost> {
+  public get tileCost(): ReactElement<TileCost> | undefined {
     if (this.definition.cost) {
-      let point: Point;
+      let point: Point | undefined;
       if (this.definition.cost.position) {
         point = new Point(
           this.definition.cost.position.x,
@@ -191,10 +199,10 @@ class TileFactory {
     }
   }
 
-  public get tileNumber(): ReactElement<TileNumber> {
+  public get tileNumber(): ReactElement<TileNumber> | undefined {
     if (this.definition.num) {
-      let orientation: number;
-      let position: Point;
+      let orientation: number | undefined;
+      let position: Point | undefined;
 
       if (this.definition.rotations !== 1) {
         orientation = this.rotation;
@@ -218,7 +226,7 @@ class TileFactory {
     }
   }
 
-  public get track(): List<Track> {
+  public get track(): List<Track> | undefined {
     if (this.definition.track) {
       let result: List<Track>;
       if (Array.isArray(this.definition.track)) {
@@ -232,14 +240,15 @@ class TileFactory {
           )
         );
       } else {
-        result = List(Object.keys(this.definition.track)).flatMap(gague =>
-          this.definition.track[gague].map((trackValues: [number, number]) =>
-            new Track(
-              (trackValues[0] + this.rotation) % 6,
-              (trackValues[1] + this.rotation) % 6,
-              new Hexagon(this.orientation),
-              gague,
-            )
+        result = List(Object.keys(this.definition.track)).flatMap(
+          (gague: string) => this.definition.track[gague].map(
+            (trackValues: [number, number]) =>
+              new Track(
+                (trackValues[0] + this.rotation) % 6,
+                (trackValues[1] + this.rotation) % 6,
+                new Hexagon(this.orientation),
+                gague,
+              )
           )
         ) as List<Track>;
       }
@@ -247,7 +256,7 @@ class TileFactory {
     }
   }
 
-  public get trackSpecial(): List<TrackSpecial> {
+  public get trackSpecial(): List<TrackSpecial> | undefined {
     if (this.definition.trackSpecial) {
       return List<TrackSpecial>(
         // FIXME: Only works for bypass
@@ -263,7 +272,7 @@ class TileFactory {
     }
   }
 
-  public get trackToCenter(): List<TrackToCenter> {
+  public get trackToCenter(): List<TrackToCenter> | undefined {
     if (this.definition.trackToCenter) {
       let result: List<TrackToCenter>;
       if (Array.isArray(this.definition.trackToCenter)) {
@@ -292,8 +301,8 @@ class TileFactory {
     }
   }
 
-  public get value(): ReactElement<Value> {
-    let position: Point;
+  public get value(): ReactElement<Value> | undefined {
+    let position: Point | undefined;
     if (this.definition.type === 'DistinctCity') {
       position = this.hexagon.center;
     }
@@ -322,7 +331,7 @@ class TileFactory {
   private pointPosition(
     radians: number,
     adjustY: number = 0,
-    distance: number = null,
+    distance: number = 0,
   ): Point {
     if (!distance) {
       distance = Tile.HEIGHT / 2 - 2;
@@ -351,7 +360,7 @@ class TileFactory {
   }
 
   private get orientation(): string {
-    return this.mapDef.orientation;
+    return this.mapDef.orientation || 'east-west';
   }
 }
 

@@ -30,16 +30,16 @@ class Token extends React.Component<TokenProps, {}> {
       className='token'
       key={this.props.text}>
         <circle
-          cx={this.props.radius + CityCircle.STROKE_WIDTH / 2}
-          cy={this.props.radius + CityCircle.STROKE_WIDTH / 2}
-          r={this.props.radius - 3}
+          cx={this.radius + CityCircle.STROKE_WIDTH / 2}
+          cy={this.radius + CityCircle.STROKE_WIDTH / 2}
+          r={this.radius - 3}
           fill={this.props.primaryColor}
         />
 
         <rect
           x={4}
-          y={this.props.radius - 5}
-          width={this.props.radius * 2 - 6}
+          y={this.radius - 5}
+          width={this.radius * 2 - 6}
           height={12}
           fill={this.props.secondaryColor}
           rx={1.75}
@@ -48,7 +48,7 @@ class Token extends React.Component<TokenProps, {}> {
 
         <text
           textAnchor='middle'
-          x={this.props.radius + 1}
+          x={this.radius + 1}
           y={this.textY}
           fontSize={this.fontSize}
           fontWeight={this.fontWeight}
@@ -66,7 +66,7 @@ class Token extends React.Component<TokenProps, {}> {
   }
 
   private get textY(): number {
-    let result: number = this.props.radius + 5;
+    let result: number = this.radius + 5;
     if (this.isNumber) {
       result += 4;
     }
@@ -95,6 +95,10 @@ class Token extends React.Component<TokenProps, {}> {
       result = 0.3;
     }
     return result;
+  }
+
+  private get radius(): number {
+    return this.props.radius || Token.defaultProps.radius!;
   }
 }
 

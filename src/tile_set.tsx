@@ -24,16 +24,17 @@ class TileSet {
       new TileDefinition(this.mapDef, def)
     );
     return this.allTiles.map(fn).filter(
-      def => this.tileManifest.keySeq().includes(def.num.toString())
+      (def: TileDefinition) =>
+        this.tileManifest.keySeq().includes(def.num.toString())
     ).toList();
   }
 
   public findDefinition(num: string): TileDefinition {
-    return this.all.find(def => def.num.toString() === num);
+    return this.all.find((def: TileDefinition) => def.num.toString() === num);
   }
 
   public totalTiles(num: string): number {
-    return this.tileManifest.get(num.toString()).count;
+    return this.tileManifest.get(num.toString()).count || Infinity;
   }
 }
 

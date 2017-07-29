@@ -92,7 +92,9 @@ class MapHex extends React.Component<MapHexProps, {}> {
         x={this.absoluteLeft}
         y={this.absoluteTop}
         className='hex'
-        onClick={ () => this.props.onHexClick(this) }>
+        onClick={
+          () => this.props.onHexClick ? this.props.onHexClick(this) : null
+        }>
         <polygon
           points={this.hexagon.hexPoints().join(' ')}
           fill={this.props.fill}

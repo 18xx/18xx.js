@@ -15,7 +15,7 @@ import { MapDefinition } from '../map_builder';
 import Point from '../point';
 
 export interface CityProps {
-  hex?: string;
+  hex: string;
   hexagon: Hexagon;
   onRightClickCity: (hex: string, index: number) => void;
   onRightClickToken: (

@@ -81,7 +81,7 @@ implements MapHexElement, TileElement {
 
     return (
       <polygon
-        points={points.map(p => p.toString()).join(' ')}
+        points={points.map((p: Point) => p.toString()).join(' ')}
         fill={this.props.color}
         stroke={STROKE_COLOR} />
     );

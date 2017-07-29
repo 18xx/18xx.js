@@ -36,7 +36,7 @@ class History extends React.Component<HistoryProps, {}> {
         <h4>Recent Moves</h4>
         <ol reversed>
           {this.props.entries.reverse().map(
-            (value, idx) => this.drawEntry(value, idx)
+            (value: HistoryEntry, idx: number) => this.drawEntry(value, idx)
           )}
         </ol>
       </div>

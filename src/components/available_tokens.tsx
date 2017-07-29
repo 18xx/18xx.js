@@ -14,7 +14,7 @@ export interface AvailableTokensProps {
 class AvailableTokens extends React.Component<AvailableTokensProps, {}> {
 
   get tokens(): List<ReactElement<Token>> {
-    return this.props.companies.map(company =>
+    return this.props.companies.map((company: Company) =>
       <span
       key={company.shorthand}
       onClick={ () => this.props.onClick(company) }>
