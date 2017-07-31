@@ -22,6 +22,10 @@
     ]
   },
   "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{ts,tsx}",
+      "!src/definitions/**/*"
+    ],
     "coveragePathIgnorePatterns": [
       "/node_modules/"
     ],
