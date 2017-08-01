@@ -3,7 +3,7 @@ import { MouseEventHandler, ReactElement } from 'react';
 
 import CityCircle from './city_circle';
 
-interface TokenProps {
+export interface TokenProps {
   readonly faded?: boolean;
   readonly onRightClick?: MouseEventHandler<SVGElement>;
   readonly primaryColor: string;

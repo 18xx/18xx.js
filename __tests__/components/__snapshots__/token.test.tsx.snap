@@ -1,5 +1,43 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[` 1`] = `
+<svg
+  className="token"
+  height="40"
+  onContextMenu={undefined}
+  opacity={0.3}
+  viewBox="0 0 40 40"
+  width="40"
+>
+  <circle
+    cx={20}
+    cy={20}
+    fill="red"
+    r={16}
+  />
+  <rect
+    fill="green"
+    height={12}
+    rx={1.75}
+    ry={12}
+    width={32}
+    x={4}
+    y={14}
+  />
+  <text
+    fill="blue"
+    fontSize={10}
+    fontWeight="normal"
+    stroke="none"
+    textAnchor="middle"
+    x={20}
+    y={24}
+  >
+    ABC
+  </text>
+</svg>
+`;
+
 exports[`Token #render() returns an svg represntation of the token 1`] = `
 <svg
   className="token"
@@ -34,6 +72,44 @@ exports[`Token #render() returns an svg represntation of the token 1`] = `
     y={24}
   >
     ABC
+  </text>
+</svg>
+`;
+
+exports[`Token #render() when the text is a number returns an svg represntation of the token 1`] = `
+<svg
+  className="token"
+  height="40"
+  onContextMenu={undefined}
+  opacity={1}
+  viewBox="0 0 40 40"
+  width="40"
+>
+  <circle
+    cx={20}
+    cy={20}
+    fill="red"
+    r={16}
+  />
+  <rect
+    fill="green"
+    height={12}
+    rx={1.75}
+    ry={12}
+    width={32}
+    x={4}
+    y={14}
+  />
+  <text
+    fill="blue"
+    fontSize={26}
+    fontWeight="bold"
+    stroke="none"
+    textAnchor="middle"
+    x={20}
+    y={28}
+  >
+    2
   </text>
 </svg>
 `;
