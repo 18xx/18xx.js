@@ -1,3 +1,29 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Tile #toString() returns an svg document 1`] = `"[object Object]"`;
+exports[`Tile render renders the svg of the tile 1`] = `
+<svg
+  height={128}
+  viewBox="0 0 110.85125168440814 128"
+  width={110.85125168440814}
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <polygon
+    fill="yellow"
+    points="0,32 55.42562584220407,0 110.85125168440814,32 110.85125168440814,96 55.42562584220407,128 0,96"
+  />
+</svg>
+`;
+
+exports[`Tile render when the orientation is north-south renders the svg of the tile 1`] = `
+<svg
+  height={110.85125168440814}
+  viewBox="0 0 128 110.85125168440814"
+  width={128}
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <polygon
+    fill="yellow"
+    points="32,0 96,0 128,55.42562584220407 96,110.85125168440814 32,110.85125168440814 0,55.42562584220407"
+  />
+</svg>
+`;

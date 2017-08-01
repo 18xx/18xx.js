@@ -1,4 +1,7 @@
-import Tile from '../../src/components/tile';
+import * as React from 'react';
+import * as renderer from 'react-test-renderer';
+
+import Tile, { TileProps } from '../../src/components/tile';
 
 import Point from '../../src/point';
 
@@ -45,7 +48,7 @@ describe('Tile', () => {
     });
 
     describe('when the color is gray', () => {
-      it('returns #80461B', () => {
+      it('returns #bbb', () => {
         const tile: Tile = new Tile({
           color: 'gray',
           orientation: 'east-west',
@@ -55,13 +58,24 @@ describe('Tile', () => {
     });
   });
 
-  describe('#toString()', () => {
-    it('returns an svg document', () => {
-      const tile: Tile = new Tile({
-        color: 'yellow',
-        orientation: 'east-west',
+  describe('render', () => {
+    const props: TileProps = {
+      color: 'yellow',
+      orientation: 'east-west',
+    };
+
+    it('renders the svg of the tile', () => {
+      const subject: React.ReactElement<Tile> = <Tile {...props} />;
+      expect(renderer.create(subject)).toMatchSnapshot();
+    });
+
+    describe('when the orientation is north-south', () => {
+      it('renders the svg of the tile', () => {
+        const subject: React.ReactElement<Tile> = (
+          <Tile {...props} orientation='north-south' />
+        );
+        expect(renderer.create(subject)).toMatchSnapshot();
       });
-      expect(tile.toString()).toMatchSnapshot();
     });
   });
 });

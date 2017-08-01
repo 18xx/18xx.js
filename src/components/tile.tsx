@@ -7,12 +7,6 @@ import Point from '../point';
 const SIDE_LENGTH: number = 64;
 const HEIGHT: number = 2 * SIDE_LENGTH;
 const WIDTH: number = SIDE_LENGTH * Math.sqrt(3);
-const TILE_ORDER: List<string> = List([
-  'yellow',
-  'green',
-  'brown',
-  'gray'
-]);
 
 export interface TileProps {
   readonly color: string;
@@ -39,10 +33,6 @@ class Tile extends React.Component<TileProps, undefined> {
 
   static get CENTER(): Point {
     return new Point(WIDTH / 2, HEIGHT / 2);
-  }
-
-  static get TILE_ORDER(): List<string> {
-    return TILE_ORDER;
   }
 
   public static modifiedHexColor(color: string): string {
@@ -81,19 +71,19 @@ class Tile extends React.Component<TileProps, undefined> {
   }
 
   private get height(): number {
+    let result: number = 2 * Tile.SIDE_LENGTH;
     if (this.props.orientation === 'north-south') {
-      return Tile.SIDE_LENGTH * Math.sqrt(3);
-    } else {
-      return 2 * Tile.SIDE_LENGTH;
+      result = Tile.SIDE_LENGTH * Math.sqrt(3);
     }
+    return result;
   }
 
   private get width(): number {
+    let result: number = Tile.SIDE_LENGTH * Math.sqrt(3);
     if (this.props.orientation === 'north-south') {
-      return 2 * Tile.SIDE_LENGTH;
-    } else {
-      return Tile.SIDE_LENGTH * Math.sqrt(3);
+      result = 2 * Tile.SIDE_LENGTH;
     }
+    return result;
   }
 
   private get hexTop(): number {
