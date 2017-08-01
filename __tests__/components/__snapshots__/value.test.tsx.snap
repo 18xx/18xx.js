@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Value render when a position is not specified when the hex uses a north-south orientation renders something matching the snapshot 1`] = `
+<g>
+  <circle
+    cx={113.6}
+    cy={55.42562584220407}
+    fill="white"
+    r={9}
+    stroke="#000"
+    strokeWidth="2"
+  />
+  <text
+    fill="black"
+    fontSize="11"
+    textAnchor="middle"
+    x={113.6}
+    y={59.42562584220407}
+  >
+    10
+  </text>
+</g>
+`;
+
+exports[`Value render when a position is not specified when the hex uses an east-west orientation renders something matching the snapshot 1`] = `
+<g>
+  <circle
+    cx={55.42562584220407}
+    cy={112}
+    fill="white"
+    r={9}
+    stroke="#000"
+    strokeWidth="2"
+  />
+  <text
+    fill="black"
+    fontSize="11"
+    textAnchor="middle"
+    x={55.42562584220407}
+    y={116}
+  >
+    10
+  </text>
+</g>
+`;
+
+exports[`Value render when a position is specified renders something matching the snapshot 1`] = `
+<g>
+  <circle
+    cx={1}
+    cy={2}
+    fill="white"
+    r={9}
+    stroke="#000"
+    strokeWidth="2"
+  />
+  <text
+    fill="black"
+    fontSize="11"
+    textAnchor="middle"
+    x={1}
+    y={6}
+  >
+    10
+  </text>
+</g>
+`;
