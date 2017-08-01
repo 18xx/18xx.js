@@ -1,12 +1,17 @@
 language: node_js
 node_js:
-  - "6.9"
+- '6.9'
 script:
-  - "yarn run lint && yarn run test -- --coverage"
-env:
-  CODECLIMATE_REPO_TOKEN: 3ecbaf4138fd860891cf39f72924974dbec89357d737b964b3ddfff0b40837a7
+- yarn run lint && yarn run test -- --coverage && yarn codecov
 cache:
   yarn: true
   directories:
-    - node_modules
-    - "yarn run lint && yarn run test -- --coverage && yarn run webpack --config ./webpack.prod.config.js --progress"
+  - node_modules
+  - yarn run lint && yarn run test -- --coverage && yarn run webpack --config ./webpack.prod.config.js
+    --progress
+'':
+  env:
+    global:
+      CODECLIMATE_REPO_TOKEN: 3ecbaf4138fd860891cf39f72924974dbec89357d737b964b3ddfff0b40837a7
+    matrix:
+      secure: rJ2syQvl+yqW6uCDoejkT4/xA7rmcI4BUYKt4QfZQxghrY8UorqjgbAkkb1E44PVg4Z1+IqCqm4tD7j1wRwQmXAdZvIy7d6vMUODNKh/KCbsxCfl9FjrbRczh44rbn6Qh9FiZdqB6+vf6f4zHbtBUA0CnD/elkOM185E226XU6WI47bEicTKbTz03hp0bN8zUPvB1bo0LR0DvdPbHphiS02jAlEPGec/lqQADnIpxoHx6QK6ED8l6sQ4nlt8hLdbDbmZhOg8iVOYt7Rvw3ADcDxwgvf0lKNa8SDVipuxxRbnwGFBYgpyuBMpATR/rC6+RvcGvFnk34bbECnSRvTfYn+Hh032vqrNN+yqnua6x0Q4EIUxi1LnOXFtWL7k34F3S0BLt4vBM1EQQ7fgkHS9yxus4ZXbdsyk3sLLacr8Jz+t/r8xbfEzu+gyYLJ2NChcx0CHNI3HTG8lMj+89XpA6RazSkk8juyhwNMKOSB4Wg0l5/zHgOmdOhQ6tHMPA0z5AJNRe5m35J91UrlJLHl2SY0kJIPqwVIsHHAYKxfgvQb49hddB++UMahzQnAlChQJzqeYMdKOul1Sx3QGy/aoYa7R8NmN4kkBajeyHPMdLfyicQt5Ldw6MoN3TWiIyazVrjc+E+gMNKMMesFIdf7aFHjHt4nEAzJSrZ9A2zYpoR4=

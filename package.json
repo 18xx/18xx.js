@@ -7,6 +7,7 @@
   "description": "An 18xx Board Game Tile Generator",
   "main": "index.js",
   "devDependencies": {
+    "codecov": "^2.2.0",
     "jest": "^20.0.4",
     "react-test-renderer": "^15.6.1",
     "redux-devtools": "^3.4.0",
