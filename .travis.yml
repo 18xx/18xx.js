@@ -3,6 +3,8 @@ node_js:
   - "6.9"
 script:
   - "yarn run lint && yarn run test -- --coverage"
+env:
+  CODECLIMATE_REPO_TOKEN: 3ecbaf4138fd860891cf39f72924974dbec89357d737b964b3ddfff0b40837a7
 cache:
   yarn: true
   directories:
