@@ -2,9 +2,9 @@ language: node_js
 node_js:
   - "6.9"
 script:
-  - "yarn run lint && yarn run test"
+  - "yarn run lint && yarn run test -- --coverage"
 cache:
   yarn: true
   directories:
     - node_modules
-    - "yarn run lint && yarn run test && yarn run webpack --config ./webpack.prod.config.js --progress"
+    - "yarn run lint && yarn run test -- --coverage && yarn run webpack --config ./webpack.prod.config.js --progress"
