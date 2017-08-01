@@ -14,14 +14,6 @@ export interface TileNumberProps {
 }
 
 class TileNumber extends React.Component<TileNumberProps, undefined> {
-  public text(): string {
-    let result: string = this.props.num;
-    if (typeof this.props.orientation !== 'undefined') {
-      result += `.${this.props.orientation}`;
-    }
-    return result;
-  }
-
   public render(): ReactElement<TileNumber> {
     return (
       <text
@@ -30,14 +22,14 @@ class TileNumber extends React.Component<TileNumberProps, undefined> {
         textAnchor={this.textAnchor}
         fill='black'
         fontSize={Tile.SIDE_LENGTH / 8}
-      >{this.text()}</text>
+      >{this.text}</text>
     );
   }
 
   private get point(): Point {
     let result: Point = this.props.point;
     if (!result) {
-      if (this.hexagon.offset === 0.5) {
+      if (this.hexagon.orientation === 'north-south') {
         result = new Point(
           this.hexagon.hexRight,
           this.hexagon.height - 2
@@ -48,6 +40,14 @@ class TileNumber extends React.Component<TileNumberProps, undefined> {
           (this.hexagon.height * 3 / 4) - 2
         );
       }
+    }
+    return result;
+  }
+
+  private get text(): string {
+    let result: string = this.props.num;
+    if (typeof this.props.orientation !== 'undefined') {
+      result += `.${this.props.orientation}`;
     }
     return result;
   }
