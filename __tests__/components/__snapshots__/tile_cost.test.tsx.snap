@@ -42,7 +42,7 @@ exports[`TileCost #toString when shape is a triangle returns an svg representati
 exports[`TileCost #toString when shape is not a triangle returns an svg representation of a square 1`] = `
 <g>
   <rect
-    fill="#ddd"
+    fill="#ccc"
     height={20}
     stroke="#333"
     width={20}
@@ -56,6 +56,24 @@ exports[`TileCost #toString when shape is not a triangle returns an svg represen
     y={30}
   >
     14
+  </text>
+</g>
+`;
+
+exports[`TileCost #toString when the hexagon orientation is north south moves the default location 1`] = `
+<g>
+  <polygon
+    fill="#ccc"
+    points="64,4 84,34 44,34"
+    stroke="#333"
+  />
+  <text
+    fontSize="13"
+    textAnchor="middle"
+    x={64}
+    y={30}
+  >
+    10
   </text>
 </g>
 `;

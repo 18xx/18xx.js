@@ -12,7 +12,7 @@ const STROKE_COLOR: string = '#333';
 const WIDTH: number = 20;
 const HEIGHT: number = 20;
 
-interface TileCostProps {
+export interface TileCostProps {
   readonly amount: number;
   readonly color: string;
   readonly hexagon: Hexagon;
