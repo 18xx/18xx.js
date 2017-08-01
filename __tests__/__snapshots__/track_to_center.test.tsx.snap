@@ -1,5 +1,95 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`TrackToCenter #toString() returns the svg path for the track to position 1 1`] = `"[object Object]"`;
+exports[`TrackToCenter #toString() dual gague track matches the snapshot 1`] = `
+<g>
+  <line
+    stroke="black"
+    strokeDasharray="1,0"
+    strokeWidth={8}
+    x1={83.13843876330611}
+    x2={55.42562584220407}
+    y1={16.000000000000007}
+    y2={64}
+  />
+  <line
+    stroke="white"
+    strokeDasharray="1,0"
+    strokeWidth={5}
+    x1={83.13843876330611}
+    x2={55.42562584220407}
+    y1={16.000000000000007}
+    y2={64}
+  />
+  <circle
+    cx={55.42562584220407}
+    cy={64}
+    r="4"
+  />
+</g>
+`;
 
-exports[`TrackToCenter #toString() returns the svg path for the track to position 3 1`] = `"[object Object]"`;
+exports[`TrackToCenter #toString() narrow gague track matches the snapshot 1`] = `
+<g>
+  <line
+    stroke="black"
+    strokeDasharray="1,0"
+    strokeWidth={8}
+    x1={83.13843876330611}
+    x2={55.42562584220407}
+    y1={16.000000000000007}
+    y2={64}
+  />
+  <line
+    stroke="white"
+    strokeDasharray="10,10"
+    strokeWidth={5}
+    x1={83.13843876330611}
+    x2={55.42562584220407}
+    y1={16.000000000000007}
+    y2={64}
+  />
+  <circle
+    cx={55.42562584220407}
+    cy={64}
+    r="4"
+  />
+</g>
+`;
+
+exports[`TrackToCenter #toString() returns the svg path for the track to position 1 1`] = `
+<g>
+  <line
+    stroke="black"
+    strokeDasharray="1,0"
+    strokeWidth={8}
+    x1={83.13843876330611}
+    x2={55.42562584220407}
+    y1={16.000000000000007}
+    y2={64}
+  />
+  <circle
+    cx={55.42562584220407}
+    cy={64}
+    r="4"
+  />
+</g>
+`;
+
+exports[`TrackToCenter #toString() returns the svg path for the track to position 3 1`] = `
+<g>
+  <line
+    stroke="black"
+    strokeDasharray="1,0"
+    strokeWidth={8}
+    x1={0}
+    x2={55.42562584220407}
+    y1={63.99999999999999}
+    y2={64}
+  />
+  <circle
+    cx={55.42562584220407}
+    cy={64}
+    r="4"
+  />
+</g>
+`;
