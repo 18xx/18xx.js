@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UnconnectedCity render when there are two cities returns the correct result 1`] = `
+<g>
+  <svg
+    onContextMenu={[Function]}
+    x={15.42562584220407}
+    y={34}
+  >
+    <circle
+      className="city-circle"
+      cx={20}
+      cy={20}
+      fill="white"
+      r={19}
+      stroke="#000"
+      strokeWidth={2}
+    />
+  </svg>
+  <svg
+    onContextMenu={[Function]}
+    x={55.42562584220407}
+    y={54}
+  >
+    <circle
+      className="city-circle"
+      cx={20}
+      cy={20}
+      fill="white"
+      r={19}
+      stroke="#000"
+      strokeWidth={2}
+    />
+  </svg>
+</g>
+`;
+
+exports[`UnconnectedCity render when there is one city returns the correct result 1`] = `
+<g>
+  <svg
+    onContextMenu={[Function]}
+    x={35.42562584220407}
+    y={44}
+  >
+    <circle
+      className="city-circle"
+      cx={20}
+      cy={20}
+      fill="white"
+      r={19}
+      stroke="#000"
+      strokeWidth={2}
+    />
+  </svg>
+</g>
+`;

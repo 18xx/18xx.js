@@ -20,6 +20,8 @@ class UnconnectedCity extends City {
         this.buildCircle(0, new Point(Tile.CENTER.x - 20, Tile.CENTER.y - 10)),
         this.buildCircle(1, new Point(Tile.CENTER.x + 20, Tile.CENTER.y + 10)),
       ]);
+    } else {
+      throw new Error('Unsupported number of cities');
     }
     return (
       <g key='unnconnected-cities'>
