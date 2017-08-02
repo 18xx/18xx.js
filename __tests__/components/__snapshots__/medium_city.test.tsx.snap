@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MediumCity render renders an svg 1`] = `
+<g>
+  <g>
+    <circle
+      cx={10}
+      cy={20}
+      fill="none"
+      r={20}
+      stroke="black"
+      strokeWidth={2}
+    />
+    <circle
+      cx={10}
+      cy={20}
+      fill="black"
+      r={10}
+      stroke="black"
+      strokeWidth={2}
+    />
+  </g>
+  <g>
+    <circle
+      cx={40}
+      cy={40}
+      fill="none"
+      r={20}
+      stroke="black"
+      strokeWidth={2}
+    />
+    <circle
+      cx={40}
+      cy={40}
+      fill="black"
+      r={10}
+      stroke="black"
+      strokeWidth={2}
+    />
+  </g>
+</g>
+`;
