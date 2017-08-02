@@ -408,9 +408,9 @@ awesome-typescript-loader@^3.2.2:
     object-assign "^4.1.1"
     source-map-support "^0.4.15"
 
-aws-sdk@^2.92.0:
-  version "2.92.0"
-  resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.92.0.tgz#46944fef0e2d7932a04ac3497cc4adc4467fae09"
+aws-sdk@^2.94.0:
+  version "2.94.0"
+  resolved "https://registry.yarnpkg.com/aws-sdk/-/aws-sdk-2.94.0.tgz#7043de3ef8c24cb6ab4bf235f08d87d84173e174"
   dependencies:
     buffer "4.9.1"
     crypto-browserify "1.0.9"
@@ -1554,9 +1554,9 @@ ee-first@1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/ee-first/-/ee-first-1.1.1.tgz#590c61156b0ae2f4f0255732a158b266bc56b21d"
 
-ejs@^2.5.6:
-  version "2.5.6"
-  resolved "https://registry.yarnpkg.com/ejs/-/ejs-2.5.6.tgz#479636bfa3fe3b1debd52087f0acb204b4f19c88"
+ejs@^2.5.7:
+  version "2.5.7"
+  resolved "https://registry.yarnpkg.com/ejs/-/ejs-2.5.7.tgz#cc872c168880ae3c7189762fd5ffc00896c9518a"
 
 electron-to-chromium@^1.2.1:
   version "1.2.2"
