@@ -7,7 +7,7 @@ import Hexagon from '../hexagon';
 
 const FONT_SIZE: number = 8;
 
-interface PrivateReservationProps {
+export interface PrivateReservationProps {
   readonly hexagon: Hexagon;
   readonly name: string;
 }
