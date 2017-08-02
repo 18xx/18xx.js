@@ -1,8 +1,10 @@
 language: node_js
 node_js:
-- '6.9'
+- '6.11'
 script:
-- yarn run lint && yarn run test -- --coverage --no-cache && yarn codecov
+- yarn run lint
+- yarn run test -- --coverage --no-cache
+- yarn codecov
 cache:
   yarn: true
   directories:
