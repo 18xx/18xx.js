@@ -1,3 +1,4 @@
+import { mount } from 'enzyme';
 import { List } from 'immutable';
 
 import * as React from 'react';
@@ -35,9 +36,22 @@ describe('MapHex', () => {
     });
 
     describe('when column is 6', () => {
-      it('returns 277.5', () => {
-        const subject: MapHex = new MapHex({ mapDef, row: 'a', column: 6 });
-        expect(subject.absoluteLeft).toBeCloseTo(277.128);
+      describe('when the orentation is north-south', () => {
+        it('returns 480', () => {
+          const subject: MapHex = new MapHex({
+            column: 6,
+            mapDef: { ...mapDef, orientation: 'north-south' },
+            row: 'a',
+          });
+          expect(subject.absoluteLeft).toEqual(480);
+        });
+      });
+
+      describe('when the orentation is east-west', () => {
+        it('returns 277.5', () => {
+          const subject: MapHex = new MapHex({ mapDef, row: 'a', column: 6 });
+          expect(subject.absoluteLeft).toBeCloseTo(277.128);
+        });
       });
     });
   });
@@ -51,9 +65,51 @@ describe('MapHex', () => {
     });
 
     describe('when row is g', () => {
-      it('returns something else', () => {
+      describe('when the orentation is north-south', () => {
+        it('returns 332.554', () => {
+          const subject: MapHex = new MapHex({
+            column: 6,
+            mapDef: { ...mapDef, orientation: 'north-south' },
+            row: 'g',
+          });
+          expect(subject.absoluteTop).toBeCloseTo(332.554);
+        });
+      });
+
+      describe('when the orentation is east-west', () => {
+        it('returns 576', () => {
+          const subject: MapHex = new MapHex({ mapDef, row: 'g', column: 6 });
+          expect(subject.absoluteTop).toEqual(576);
+        });
+      });
+    });
+
+    describe('when row is h', () => {
+      const subject: MapHex = new MapHex({ mapDef, row: 'h', column: 6 });
+      it('returns 576', () => {
+        expect(() => subject.absoluteTop).toThrow();
+      });
+    });
+  });
+
+  describe('#absoluteCenter', () => {
+    describe('when the orentation is north-south', () => {
+      it('returns the hex center', () => {
+        const subject: MapHex = new MapHex({
+          column: 6,
+          mapDef: { ...mapDef, orientation: 'north-south' },
+          row: 'g',
+        });
+        expect(subject.absoluteCenter.x).toBeCloseTo(544);
+        expect(subject.absoluteCenter.y).toBeCloseTo(387.979);
+      });
+    });
+
+    describe('when the orentation is east-west', () => {
+      it('returns the hex center', () => {
         const subject: MapHex = new MapHex({ mapDef, row: 'g', column: 6 });
-        expect(subject.absoluteTop).toEqual(576);
+        expect(subject.absoluteCenter.x).toBeCloseTo(332.554);
+        expect(subject.absoluteCenter.y).toBeCloseTo(640);
       });
     });
   });
@@ -65,7 +121,7 @@ describe('MapHex', () => {
     });
   });
 
-  describe('#toString()', () => {
+  describe('#render', () => {
     it('returns the SVG for this element', () => {
       const subject: any = renderer.create(
         <MapHex mapDef={mapDef} row='e' column={11} />
@@ -93,6 +149,15 @@ describe('MapHex', () => {
         );
         expect(subject).toMatchSnapshot();
       });
+    });
+
+    describe('it invokes the click method', () => {
+      const fn: any = jest.fn();
+      const subject: ReactElement<MapHex> = (
+        <MapHex mapDef={mapDef} row='e' column={11} onHexClick={fn} />
+      );
+      mount(subject).simulate('click');
+      expect(fn.mock.calls.length).toEqual(1);
     });
   });
 });

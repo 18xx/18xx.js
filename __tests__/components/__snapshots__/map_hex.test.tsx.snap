@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`MapHex #toString() returns the SVG for this element 1`] = `
+exports[`MapHex #render returns the SVG for this element 1`] = `
 <svg
   className="hex"
   onClick={[Function]}
@@ -15,7 +15,7 @@ exports[`MapHex #toString() returns the SVG for this element 1`] = `
 </svg>
 `;
 
-exports[`MapHex #toString() when it contains a tile draws the tile at the end 1`] = `
+exports[`MapHex #render when it contains a tile draws the tile at the end 1`] = `
 <svg
   className="hex"
   onClick={[Function]}
@@ -41,7 +41,7 @@ exports[`MapHex #toString() when it contains a tile draws the tile at the end 1`
 </svg>
 `;
 
-exports[`MapHex #toString() when it contains some elements draws the tile at the end 1`] = `
+exports[`MapHex #render when it contains some elements draws the tile at the end 1`] = `
 <svg
   className="hex"
   onClick={[Function]}
