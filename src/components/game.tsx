@@ -18,7 +18,7 @@ import Tile from './tile';
 import { game, GameState } from '../reducers/game';
 
 import Company from '../company';
-import MapBuilder, { MapDefinition } from '../map_builder';
+import MapBuilder, { MapDefinition, TilePromotionTuple } from '../map_builder';
 import { TileDefinitionInput } from '../tile_definition';
 import TileSet, { TileSetDetails } from '../tile_set';
 
@@ -67,9 +67,9 @@ class Game
     );
   }
 
-  public render(): ReactElement<Game> {
+  public render(): ReactElement<Game> | null {
     if (!this.state.tokens) { return null; }
-    let topMenu: ReactElement<any>;
+    let topMenu: ReactElement<any> | undefined;
 
     switch (this.state.openMenu) {
       case 'TILE':
@@ -108,7 +108,7 @@ class Game
         {topMenu}
         <div className='row'>
           <History
-          entries={this.state.history}
+          entries={this.state.history || List()}
           mapDef={this.props.mapDef}
           tileSet={this.tileSet} />
 
@@ -119,7 +119,7 @@ class Game
             hexes={
               this.mapBuilder.getHexes(this.state.tiles, this.state.tokens)
             }
-            orientation={this.props.mapDef.orientation}
+            orientation={this.props.mapDef.orientation || 'east-west'}
             addOnTop={this.mapBuilder.addOnTop}
             />
           </div>
@@ -158,20 +158,20 @@ class Game
   }
 
   public onHexClick = (hex: MapHex): void => {
-    let tileFilter: List<string>;
+    let tileFilter: List<string> | undefined;
 
-    if (hex.props.tile && hex.props.tile.key !== 'pp') {
+    if (hex.props.tile && hex.props.tile.key && hex.props.tile.key !== 'pp') {
       const tileNum: string = hex.props.tile.key.toString().split('.')[0];
       tileFilter = (
         this.props.mapDef.tileManifest[tileNum].promotions || List<string>([])
       );
     } else {
-      if (hex.props.allowTile) {
+      if (hex.props.allowTile && this.props.mapDef.tilePromotions) {
         let rule: any = this.props.mapDef.tilePromotions.find(
-          p => p.hexes && p.hexes.includes(hex.hex)
+          (p: TilePromotionTuple) => !!(p.hexes && p.hexes.includes(hex.hex))
         );
 
-        if (!rule) {
+        if (!rule && this.props.mapDef.tilePromotions) {
           rule = this.props.mapDef.tilePromotions.find(p => !p.hexes);
         }
 

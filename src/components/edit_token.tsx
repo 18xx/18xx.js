@@ -5,7 +5,7 @@ interface EditTokenProps {
   readonly onRemoveToken: MouseEventHandler<HTMLElement>;
 }
 
-class EditToken extends React.Component<EditTokenProps, undefined> {
+class EditToken extends React.Component<EditTokenProps, {}> {
   public render(): ReactElement<EditToken> {
     return (
       <div id='tokenMenu'>

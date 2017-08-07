@@ -16,7 +16,7 @@ class TrackToCenter {
   }
 
   public element(): ReactElement<TileElement> {
-    let overlay: ReactElement<Line>;
+    let overlay: ReactElement<Line> | undefined;
     if (this.gague === 'narrow') {
       overlay = (
         <Line

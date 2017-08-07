@@ -63,12 +63,16 @@ class DoubleOCity extends City {
           {circles}
         </g>
       );
-    } else {
+    } else if (this.props.points) {
       result = (
         <g key='cities'>
-          {this.props.points.map((point, idx) => this.buildCircle(idx, point))}
+          {this.props.points.map(
+            (point: Point, idx: number) => this.buildCircle(idx, point)
+          )}
         </g>
       );
+    } else {
+      throw new Error('Unknown double o city type');
     }
 
     return result;

@@ -1,11 +1,9 @@
 {
   "compilerOptions": {
     "allowJs": true,
-    "alwaysStrict": true,
     "skipLibCheck": true,
     "sourceMap": true,
-    "noImplicitAny": true,
-    "noImplicitThis": true,
+    "strict": true,
     "module": "commonjs",
     "jsx": "react",
     "target": "es5",

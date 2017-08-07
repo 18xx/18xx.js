@@ -18,7 +18,7 @@ class Town extends Component<TownProps, {}> implements Station, TileElement {
   public render(): ReactElement<Town> {
     return (
       <g key='towns'>
-        {this.props.points.map(p => this.drawCircle(p))}
+        {this.props.points.map((p: Point) => this.drawCircle(p))}
       </g>
     );
   }

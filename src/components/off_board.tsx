@@ -15,8 +15,7 @@ export interface OffBoardProps {
   readonly hexagon: Hexagon;
 }
 
-class OffBoard
-extends React.Component<OffBoardProps, undefined>
+class OffBoard extends React.Component<OffBoardProps, {}>
 implements MapHexElement {
 
   public render(): ReactElement<OffBoard> {

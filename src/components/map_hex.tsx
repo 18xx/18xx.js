@@ -25,7 +25,7 @@ export interface MapHexElement {
   toString(): string;
 }
 
-class MapHex extends React.Component<MapHexProps, undefined> {
+class MapHex extends React.Component<MapHexProps, {}> {
 
   public static defaultProps: Partial<MapHexProps> = {
     allowTile: true,
@@ -92,7 +92,9 @@ class MapHex extends React.Component<MapHexProps, undefined> {
         x={this.absoluteLeft}
         y={this.absoluteTop}
         className='hex'
-        onClick={ () => this.props.onHexClick(this) }>
+        onClick={
+          () => this.props.onHexClick ? this.props.onHexClick(this) : null
+        }>
         <polygon
           points={this.hexagon.hexPoints().join(' ')}
           fill={this.props.fill}

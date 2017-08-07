@@ -11,14 +11,14 @@ const WIDTH: number = SIDE_LENGTH * Math.sqrt(3);
 export interface TileProps {
   readonly color: string;
   readonly elements?: List<ReactElement<TileElement>>;
-  readonly orientation: string;
+  readonly orientation: string | undefined;
 }
 
 export interface TileElement {
-  render(): ReactElement<any>;
+  render(): ReactElement<any> | null;
 }
 
-class Tile extends React.Component<TileProps, undefined> {
+class Tile extends React.Component<TileProps, {}> {
   static get SIDE_LENGTH(): number {
     return SIDE_LENGTH;
   }

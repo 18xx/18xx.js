@@ -29,14 +29,14 @@ interface HistoryProps {
   readonly tileSet: TileSet;
 }
 
-class History extends React.Component<HistoryProps, undefined> {
+class History extends React.Component<HistoryProps, {}> {
   public render(): ReactElement<HTMLElement> {
     return (
       <div className='col-sm-3 col-md-2 sidebar'>
         <h4>Recent Moves</h4>
         <ol reversed>
           {this.props.entries.reverse().map(
-            (value, idx) => this.drawEntry(value, idx)
+            (value: HistoryEntry, idx: number) => this.drawEntry(value, idx)
           )}
         </ol>
       </div>

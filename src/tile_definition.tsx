@@ -52,19 +52,19 @@ class TileDefinition {
   public get color(): string {
     return this.definition.color; }
 
-  public get cost(): TileDefinitionCost {
+  public get cost(): TileDefinitionCost | undefined {
     return this.definition.cost;
   }
 
-  public get dynamicValues(): DynamicValuesProps {
+  public get dynamicValues(): DynamicValuesProps | undefined {
     return this.definition.dynamicValues;
   }
 
-  public get label(): string {
+  public get label(): string | undefined {
     return this.definition.label;
   }
 
-  public get labelPosition(): number {
+  public get labelPosition(): number | undefined {
     return this.definition.labelPosition;
   }
 
@@ -72,11 +72,11 @@ class TileDefinition {
     return this.definition.num;
   }
 
-  public get numPosition(): number {
+  public get numPosition(): number | undefined {
     return this.definition.numPosition;
   }
 
-  public get privateReservation(): string {
+  public get privateReservation(): string | undefined{
     return this.definition.privateReservation;
   }
 
@@ -84,11 +84,11 @@ class TileDefinition {
     return this.definition.rotations || 6;
   }
 
-  public get spots(): number {
+  public get spots(): number | undefined {
     return this.definition.spots;
   }
 
-  public get spotLocations(): number[] {
+  public get spotLocations(): number[] | undefined {
     return this.definition.spotLocations;
   }
 
@@ -104,15 +104,15 @@ class TileDefinition {
     return this.definition.trackToCenter;
   }
 
-  public get type(): TileType {
+  public get type(): TileType | undefined {
     return this.definition.type;
   }
 
-  public get value(): number {
+  public get value(): number | undefined {
     return this.definition.value;
   }
 
-  public get valuePosition(): number {
+  public get valuePosition(): number | undefined {
     return this.definition.valuePosition;
   }
 

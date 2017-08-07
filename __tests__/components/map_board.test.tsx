@@ -26,68 +26,6 @@ const game: Game = new Game({
 });
 
 describe('MapBoard', () => {
-  describe('#numColumns', () => {
-    describe('when the map board includes one column', () => {
-      it('returns 1', () => {
-        const mapBoard: MapBoard = new MapBoard({
-          game,
-          hexes: List([
-            <MapHex mapDef={mapDef} row='a' column={1} />,
-            <MapHex mapDef={mapDef} row='c' column={1} />,
-          ]),
-          orientation: mapDef.orientation,
-        });
-        expect(mapBoard.numColumns).toEqual(1);
-      });
-    });
-    describe('when the map board includes three columns', () => {
-      it('returns 3', () => {
-        const mapBoard: MapBoard = new MapBoard({
-          game,
-          hexes: List([
-            <MapHex mapDef={mapDef} row='a' column={1} />,
-            <MapHex mapDef={mapDef} row='a' column={3} />,
-            <MapHex mapDef={mapDef} row='b' column={2} />,
-            <MapHex mapDef={mapDef} row='c' column={1} />,
-          ]),
-          orientation: mapDef.orientation,
-        });
-        expect(mapBoard.numColumns).toEqual(3);
-      });
-    });
-  });
-
-  describe('#numRows', () => {
-    describe('when the map board includes one row', () => {
-      it('returns 1', () => {
-        const mapBoard: MapBoard = new MapBoard({
-          game,
-          hexes: List([
-            <MapHex mapDef={mapDef} row='a' column={1} />,
-            <MapHex mapDef={mapDef} row='a' column={3} />,
-          ]),
-          orientation: mapDef.orientation,
-        });
-        expect(mapBoard.numRows).toEqual(1);
-      });
-    });
-    describe('when the map board includes three rows', () => {
-      it('returns 3', () => {
-        const mapBoard: MapBoard = new MapBoard({
-          game,
-          hexes: List([
-            <MapHex mapDef={mapDef} row='a' column={1} />,
-            <MapHex mapDef={mapDef} row='a' column={3} />,
-            <MapHex mapDef={mapDef} row='b' column={2} />,
-            <MapHex mapDef={mapDef} row='c' column={1} />,
-          ]),
-          orientation: mapDef.orientation,
-        });
-        expect(mapBoard.numRows).toEqual(3);
-      });
-    });
-  });
-
   describe('#render()', () => {
     it('returns an svg representation of the map board', () => {
       const hexes: List<ReactElement<MapHex>> = List([

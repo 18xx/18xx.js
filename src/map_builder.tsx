@@ -75,7 +75,7 @@ class MapBuilder {
       const columns: number[] = this.mapDef.hexes[row];
 
       for (const column of columns) {
-        let fill: string;
+        let fill: string | undefined;
         let allowTile: boolean = true;
         const hexElements: MapHexElement[] = [];
         const hex: string = row + column;
@@ -248,7 +248,7 @@ class MapBuilder {
           hexElements.push(this.assignTileCost(hex));
         }
 
-        let tile: ReactElement<Tile>;
+        let tile: ReactElement<Tile> | undefined;
         const tileBuilder: TileBuilder = new TileBuilder(
           this.mapDef,
           this.game.onRightClickCity,
@@ -302,7 +302,7 @@ class MapBuilder {
     return this.renderHexes(hexData);
   }
 
-  public get addOnTop(): List<ReactElement<any>> {
+  public get addOnTop(): List<ReactElement<any>> | undefined {
     if (this.mapDef.impassable) {
       return List<ReactElement<any>>(this.mapDef.impassable.map(
         (hexes: [string, string]) => {
@@ -378,14 +378,14 @@ class MapBuilder {
 
   // FIXME: Typedef
   private renderHexes(hexData: MapHexProps[]): List<ReactElement<MapHex>> {
-    return List(hexData.map(data =>
+    return List(hexData.map((data: MapHexProps) =>
       <MapHex
         key={data.row + data.column}
         row={data.row}
         column={data.column}
         fill={data.fill}
         tile={data.tile}
-        elements={List(data.elements)}
+        elements={data.elements}
         allowTile={data.allowTile}
         onHexClick={this.game.onHexClick}
         mapDef={this.mapDef}

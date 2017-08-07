@@ -17,12 +17,11 @@ interface AllTilesProps {
   readonly mapDef: MapDefinition;
 }
 
-class AllTiles extends React.Component<AllTilesProps, undefined> {
+class AllTiles extends React.Component<AllTilesProps, {}> {
   public get tiles(): any {
-    return allTiles.map(t =>
+    return allTiles.map((t: TileDefinitionInput) =>
       <div key={t.num}>
-        {new TileDefinition(this.props.mapDef, t).allRotations
-        }
+        {new TileDefinition(this.props.mapDef, t).allRotations}
       </div>
     );
   }

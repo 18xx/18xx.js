@@ -13,7 +13,7 @@ export interface TileNumberProps {
   point?: Point;
 }
 
-class TileNumber extends React.Component<TileNumberProps, undefined> {
+class TileNumber extends React.Component<TileNumberProps, {}> {
   public render(): ReactElement<TileNumber> {
     return (
       <text
@@ -27,7 +27,7 @@ class TileNumber extends React.Component<TileNumberProps, undefined> {
   }
 
   private get point(): Point {
-    let result: Point = this.props.point;
+    let result: Point | undefined = this.props.point;
     if (!result) {
       if (this.hexagon.orientation === 'north-south') {
         result = new Point(

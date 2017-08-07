@@ -15,7 +15,7 @@ import { MapDefinition } from '../map_builder';
 import Point from '../point';
 
 export interface CityProps {
-  hex?: string;
+  hex: string;
   hexagon: Hexagon;
   onRightClickCity: (hex: string, index: number) => void;
   onRightClickToken: (
@@ -36,7 +36,7 @@ export interface Station {
   render(): ReactElement<Station>;
 }
 
-class City extends React.Component<CityProps, undefined> implements Station {
+class City extends React.Component<CityProps, {}> implements Station {
   public static defaultProps: Partial<CityProps> = {
     homeTokens: List<string>(),
     tokenState: List<string>(),

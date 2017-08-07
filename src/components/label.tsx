@@ -15,8 +15,8 @@ export interface LabelProps {
   labelStr: string;
 }
 
-class Label extends React.Component<LabelProps, undefined> {
-  public render(): ReactElement<Label> {
+class Label extends React.Component<LabelProps, {}> {
+  public render(): ReactElement<SVGTextElement> {
     return (
       <text
         x={this.point.x}
@@ -31,8 +31,10 @@ class Label extends React.Component<LabelProps, undefined> {
   }
 
   private get point(): Point {
-    let result: Point = this.props.point;
-    if (!result) {
+    let result: Point;
+    if (this.props.point) {
+      result = this.props.point;
+    } else {
       if (this.hexagon.offset === 0.5) {
         result = new Point(
           this.hexagon.hexRight,

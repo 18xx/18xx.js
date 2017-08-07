@@ -9,22 +9,22 @@ import TileDefinition from '../tile_definition';
 import TileSet from '../tile_set';
 
 export interface AvailableTilesProps {
-  readonly tileFilter?: List<string>;
+  readonly tileFilter: List<string>;
   readonly onClick: any;
   readonly show: boolean;
   readonly tiles: Map<string, string>;
   readonly tileSet: TileSet;
 }
 
-class AvailableTiles extends React.Component<AvailableTilesProps, undefined> {
+class AvailableTiles extends React.Component<AvailableTilesProps, {}> {
 
   public static defaultProps: any;
 
   get tiles(): List<ReactElement<any>> {
-    return this.props.tileSet.all.filter(tileDef =>
+    return this.props.tileSet.all.filter((tileDef: TileDefinition) =>
       this.props.tileFilter.includes(tileDef.num)
     ).map(
-      tileDef => tileDef.allRotations.map(
+      (tileDef: TileDefinition) => tileDef.allRotations.map(
         (tile: ReactElement<Tile>, index: number) =>
           this.drawTile(tile, tileDef.num, index)
       )
@@ -42,16 +42,16 @@ class AvailableTiles extends React.Component<AvailableTilesProps, undefined> {
   ): ReactElement<any> {
     const total: number = this.props.tileSet.totalTiles(num);
 
-    let onClick: MouseEventHandler<HTMLElement> = () =>
+    let onClick: MouseEventHandler<HTMLElement> | undefined = () =>
       this.props.onClick(tile);
     let divClass: string = 'available-tile';
-    let availableElement: ReactElement<HTMLElement>;
+    let availableElement: ReactElement<HTMLElement> | undefined;
 
     if (total) {
       const available: number = total - this.usedTiles(num);
 
       if (available <= 0) {
-        onClick = null;
+        onClick = undefined;
         divClass += ' unavailable';
       }
 

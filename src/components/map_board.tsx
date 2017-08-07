@@ -13,36 +13,7 @@ export interface MapBoardProps {
   readonly orientation: string;
 }
 
-class MapBoard extends React.Component<MapBoardProps, undefined>  {
-
-  get hexes(): List<ReactElement<MapHex>> {
-    return this.props.hexes;
-  }
-
-  get height(): number {
-    let result: number = (1.5 * this.numRows + 0.5) * Tile.SIDE_LENGTH;
-    if (this.props.orientation === 'north-south') {
-      result = (this.numRows + 1) * Tile.SIDE_LENGTH * Math.sqrt(3) * 0.5;
-    }
-    return result;
-  }
-
-  get width(): number {
-    let result: number = (this.numColumns + 1) / 2 * Tile.WIDTH;
-    if (this.props.orientation === 'north-south') {
-      result = (this.numColumns + 0.5) * Tile.SIDE_LENGTH * 1.5;
-    }
-    return result;
-  }
-
-  get numColumns(): number {
-    return Set(this.hexes.map(hex => hex.props.column)).size;
-  }
-
-  get numRows(): number {
-    return Set(this.hexes.map(hex => hex.props.row)).size;
-  }
-
+class MapBoard extends React.Component<MapBoardProps, {}>  {
   public render(): ReactElement<MapBoard> {
     return (
       <svg
@@ -54,6 +25,38 @@ class MapBoard extends React.Component<MapBoardProps, undefined>  {
         {this.props.addOnTop}
       </svg>
     );
+  }
+
+  private get hexes(): List<ReactElement<MapHex>> {
+    return this.props.hexes;
+  }
+
+  private get height(): number {
+    let result: number = (1.5 * this.numRows + 0.5) * Tile.SIDE_LENGTH;
+    if (this.props.orientation === 'north-south') {
+      result = (this.numRows + 1) * Tile.SIDE_LENGTH * Math.sqrt(3) * 0.5;
+    }
+    return result;
+  }
+
+  private get width(): number {
+    let result: number = (this.numColumns + 1) / 2 * Tile.WIDTH;
+    if (this.props.orientation === 'north-south') {
+      result = (this.numColumns + 0.5) * Tile.SIDE_LENGTH * 1.5;
+    }
+    return result;
+  }
+
+  private get numColumns(): number {
+    return Set(this.hexes.map(
+      (hex: ReactElement<MapHex>) => hex.props.column
+    )).size;
+  }
+
+  private get numRows(): number {
+    return Set(this.hexes.map(
+      (hex: ReactElement<MapHex>) => hex.props.row
+    )).size;
   }
 }
 
