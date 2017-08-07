@@ -98,7 +98,8 @@ class Token extends React.Component<TokenProps, {}> {
   }
 
   private get radius(): number {
-    return this.props.radius || Token.defaultProps.radius!;
+    // Radius is provided by default props if not available
+    return this.props.radius!;
   }
 }
 
