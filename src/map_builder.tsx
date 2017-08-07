@@ -35,6 +35,7 @@ export interface TilePromotionTuple {
 export interface MapDefinition {
   cities?: any;
   companies: any;
+  costLocation?: any;
   dynamicValues?: any;
   hexes?: any;
   impassable?: any;
