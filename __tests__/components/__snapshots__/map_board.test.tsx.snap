@@ -9,7 +9,7 @@ exports[`MapBoard #render() returns an svg representation of the map board 1`] =
 >
   <svg
     className="hex"
-    onClick={[Function]}
+    onClick={undefined}
     x={0}
     y={0}
   >
@@ -21,7 +21,7 @@ exports[`MapBoard #render() returns an svg representation of the map board 1`] =
   </svg>
   <svg
     className="hex"
-    onClick={[Function]}
+    onClick={undefined}
     x={110.85125168440814}
     y={0}
   >

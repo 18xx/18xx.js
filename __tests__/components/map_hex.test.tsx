@@ -151,13 +151,22 @@ describe('MapHex', () => {
       });
     });
 
-    describe('it invokes the click method', () => {
+    it('invokes the click method', () => {
       const fn: any = jest.fn();
       const subject: ReactElement<MapHex> = (
         <MapHex mapDef={mapDef} row='e' column={11} onHexClick={fn} />
       );
       mount(subject).simulate('click');
       expect(fn.mock.calls.length).toEqual(1);
+    });
+
+    describe('when on click is not set', () => {
+      it('renders correctly', () => {
+        const subject: ReactElement<MapHex> = (
+          <MapHex mapDef={mapDef} row='e' column={1} onHexClick={undefined} />
+        );
+        expect(subject).toMatchSnapshot();
+      });
     });
   });
 });

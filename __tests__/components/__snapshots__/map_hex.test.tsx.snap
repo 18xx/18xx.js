@@ -3,7 +3,7 @@
 exports[`MapHex #render returns the SVG for this element 1`] = `
 <svg
   className="hex"
-  onClick={[Function]}
+  onClick={undefined}
   x={554.2562584220407}
   y={384}
 >
@@ -18,7 +18,7 @@ exports[`MapHex #render returns the SVG for this element 1`] = `
 exports[`MapHex #render when it contains a tile draws the tile at the end 1`] = `
 <svg
   className="hex"
-  onClick={[Function]}
+  onClick={undefined}
   x={554.2562584220407}
   y={384}
 >
@@ -44,7 +44,7 @@ exports[`MapHex #render when it contains a tile draws the tile at the end 1`] = 
 exports[`MapHex #render when it contains some elements draws the tile at the end 1`] = `
 <svg
   className="hex"
-  onClick={[Function]}
+  onClick={undefined}
   x={554.2562584220407}
   y={384}
 >
@@ -55,4 +55,34 @@ exports[`MapHex #render when it contains some elements draws the tile at the end
   />
   ELEMENT
 </svg>
+`;
+
+exports[`MapHex #render when on click is not set renders correctly 1`] = `
+<MapHex
+  allowTile={true}
+  column={1}
+  elements={
+    Immutable.List [
+    ]
+  }
+  fill="#efe"
+  mapDef={
+    Object {
+      "companies": Object {},
+      "hexes": Object {
+        "a": Array [],
+        "b": Array [],
+        "c": Array [],
+        "d": Array [],
+        "e": Array [],
+        "f": Array [],
+        "g": Array [],
+      },
+      "orientation": "east-west",
+      "tileManifest": Object {},
+    }
+  }
+  onHexClick={undefined}
+  row="e"
+/>
 `;
