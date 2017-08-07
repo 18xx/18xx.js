@@ -11,9 +11,10 @@ describe('DynamicValues', () => {
   const hexagon: Hexagon = new Hexagon('east-west');
 
   describe('#render', () => {
+    const values: DynamicValueSet = { yellow: 20, green: 40 };
+
     describe('when fixedHeight is not set', () => {
       it('returns svg for the values', () => {
-        const values: DynamicValueSet = { yellow: 20, green: 40 };
         const subject: React.ReactElement<DynamicValues> = (
           <DynamicValues hexagon={hexagon} values={values} />
         );
@@ -23,12 +24,10 @@ describe('DynamicValues', () => {
 
     describe('when fixedHeight is set', () => {
       it('returns svg for the values', () => {
-        const dv: DynamicValues = new DynamicValues({
-          fixedHeight: 4,
-          hexagon,
-          values: { yellow: 20, green: 40 },
-        });
-        expect(dv.toString()).toMatchSnapshot();
+        const subject: React.ReactElement<DynamicValues> = (
+          <DynamicValues fixedHeight={4} hexagon={hexagon} values={values} />
+        );
+        expect(renderer.create(subject)).toMatchSnapshot();
       });
     });
   });
