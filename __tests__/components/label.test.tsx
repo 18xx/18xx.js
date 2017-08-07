@@ -11,13 +11,24 @@ import Point from '../../src/point';
 describe('Label', () => {
   const hexagon: Hexagon = new Hexagon('east-west');
 
-  describe('#toString()', () => {
+  describe('#render()', () => {
     describe('when the point is not specified', () => {
-      it('returns the svg for the element at the default position', () => {
-        const label: ReactElement<Label> = (
-          <Label hexagon={hexagon} labelStr='B' />
-        );
-        expect(renderer.create(label)).toMatchSnapshot();
+      describe('when in east-west orientation', () => {
+        it('returns the svg for the element at the default position', () => {
+          const label: ReactElement<Label> = (
+            <Label hexagon={hexagon} labelStr='B' />
+          );
+          expect(renderer.create(label)).toMatchSnapshot();
+        });
+      });
+
+      describe('when in north-south orientation', () => {
+        it('returns the svg for the element at the default position', () => {
+          const label: ReactElement<Label> = (
+            <Label hexagon={new Hexagon('north-south')} labelStr='B' />
+          );
+          expect(renderer.create(label)).toMatchSnapshot();
+        });
       });
     });
 
