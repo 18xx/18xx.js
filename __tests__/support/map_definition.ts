@@ -64,5 +64,9 @@ export const mapDefinition: MapDefinition = {
     b4: 'mountain'
   },
   tileManifest: {
+    7: {
+      count: 4,
+      promotions: [18, 26, 27, 28, 29],
+    },
   },
 };

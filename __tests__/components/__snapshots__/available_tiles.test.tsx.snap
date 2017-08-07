@@ -1,0 +1,476 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AvailableTiles renders correctly 1`] = `
+<div
+  id="tileMenu"
+>
+  <div
+    className="available-tile unavailable"
+    onClick={undefined}
+  >
+    <svg
+      height={128}
+      viewBox="0 0 110.85125168440814 128"
+      width={110.85125168440814}
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <polygon
+        fill="yellow"
+        points="0,32 55.42562584220407,0 110.85125168440814,32 110.85125168440814,96 55.42562584220407,128 0,96"
+      />
+      <path
+        d="M83.1384387633061 16 A 32 32 0 0,0 110.85125168440814 64"
+        fill="none"
+        stroke="black"
+        strokeDasharray="1,0"
+        strokeWidth={8}
+      />
+      <text
+        fill="black"
+        fontSize={8}
+        textAnchor="end"
+        x={109.85125168440814}
+        y={94}
+      >
+        7.0
+      </text>
+    </svg>
+    <div
+      className="amount-available"
+    >
+      0
+       / 
+      1
+    </div>
+  </div>
+  <div
+    className="available-tile unavailable"
+    onClick={undefined}
+  >
+    <svg
+      height={128}
+      viewBox="0 0 110.85125168440814 128"
+      width={110.85125168440814}
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <polygon
+        fill="yellow"
+        points="0,32 55.42562584220407,0 110.85125168440814,32 110.85125168440814,96 55.42562584220407,128 0,96"
+      />
+      <path
+        d="M27.712812921102035 15.999999999999991 A 32 32 0 0,0 83.13843876330611 16.000000000000014"
+        fill="none"
+        stroke="black"
+        strokeDasharray="1,0"
+        strokeWidth={8}
+      />
+      <text
+        fill="black"
+        fontSize={8}
+        textAnchor="end"
+        x={109.85125168440814}
+        y={94}
+      >
+        7.1
+      </text>
+    </svg>
+    <div
+      className="amount-available"
+    >
+      0
+       / 
+      1
+    </div>
+  </div>
+  <div
+    className="available-tile unavailable"
+    onClick={undefined}
+  >
+    <svg
+      height={128}
+      viewBox="0 0 110.85125168440814 128"
+      width={110.85125168440814}
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <polygon
+        fill="yellow"
+        points="0,32 55.42562584220407,0 110.85125168440814,32 110.85125168440814,96 55.42562584220407,128 0,96"
+      />
+      <path
+        d="M-1.2983731993508297e-14 64 A 32 32 0 0,0 27.712812921102028 16"
+        fill="none"
+        stroke="black"
+        strokeDasharray="1,0"
+        strokeWidth={8}
+      />
+      <text
+        fill="black"
+        fontSize={8}
+        textAnchor="end"
+        x={109.85125168440814}
+        y={94}
+      >
+        7.2
+      </text>
+    </svg>
+    <div
+      className="amount-available"
+    >
+      0
+       / 
+      1
+    </div>
+  </div>
+  <div
+    className="available-tile unavailable"
+    onClick={undefined}
+  >
+    <svg
+      height={128}
+      viewBox="0 0 110.85125168440814 128"
+      width={110.85125168440814}
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <polygon
+        fill="yellow"
+        points="0,32 55.42562584220407,0 110.85125168440814,32 110.85125168440814,96 55.42562584220407,128 0,96"
+      />
+      <path
+        d="M27.712812921102014 112 A 32 32 0 0,0 2.4008029108380828e-14 63.999999999999986"
+        fill="none"
+        stroke="black"
+        strokeDasharray="1,0"
+        strokeWidth={8}
+      />
+      <text
+        fill="black"
+        fontSize={8}
+        textAnchor="end"
+        x={109.85125168440814}
+        y={94}
+      >
+        7.3
+      </text>
+    </svg>
+    <div
+      className="amount-available"
+    >
+      0
+       / 
+      1
+    </div>
+  </div>
+  <div
+    className="available-tile unavailable"
+    onClick={undefined}
+  >
+    <svg
+      height={128}
+      viewBox="0 0 110.85125168440814 128"
+      width={110.85125168440814}
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <polygon
+        fill="yellow"
+        points="0,32 55.42562584220407,0 110.85125168440814,32 110.85125168440814,96 55.42562584220407,128 0,96"
+      />
+      <path
+        d="M83.13843876330608 112 A 32 32 0 0,0 27.712812921102014 112"
+        fill="none"
+        stroke="black"
+        strokeDasharray="1,0"
+        strokeWidth={8}
+      />
+      <text
+        fill="black"
+        fontSize={8}
+        textAnchor="end"
+        x={109.85125168440814}
+        y={94}
+      >
+        7.4
+      </text>
+    </svg>
+    <div
+      className="amount-available"
+    >
+      0
+       / 
+      1
+    </div>
+  </div>
+  <div
+    className="available-tile unavailable"
+    onClick={undefined}
+  >
+    <svg
+      height={128}
+      viewBox="0 0 110.85125168440814 128"
+      width={110.85125168440814}
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <polygon
+        fill="yellow"
+        points="0,32 55.42562584220407,0 110.85125168440814,32 110.85125168440814,96 55.42562584220407,128 0,96"
+      />
+      <path
+        d="M110.85125168440817 64.00000000000003 A 32 32 0 0,0 83.13843876330607 112"
+        fill="none"
+        stroke="black"
+        strokeDasharray="1,0"
+        strokeWidth={8}
+      />
+      <text
+        fill="black"
+        fontSize={8}
+        textAnchor="end"
+        x={109.85125168440814}
+        y={94}
+      >
+        7.5
+      </text>
+    </svg>
+    <div
+      className="amount-available"
+    >
+      0
+       / 
+      1
+    </div>
+  </div>
+  <div
+    className="available-tile"
+    onClick={[Function]}
+  >
+    <svg
+      height={128}
+      viewBox="0 0 110.85125168440814 128"
+      width={110.85125168440814}
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <polygon
+        fill="yellow"
+        points="0,32 55.42562584220407,0 110.85125168440814,32 110.85125168440814,96 55.42562584220407,128 0,96"
+      />
+      <path
+        d="M27.712812921102028 15.999999999999986 A 96 96 0 0,0 110.85125168440814 64.00000000000001"
+        fill="none"
+        stroke="black"
+        strokeDasharray="1,0"
+        strokeWidth={8}
+      />
+      <text
+        fill="black"
+        fontSize={8}
+        textAnchor="end"
+        x={109.85125168440814}
+        y={94}
+      >
+        8.0
+      </text>
+    </svg>
+    <div
+      className="amount-available"
+    >
+      10
+       / 
+      10
+    </div>
+  </div>
+  <div
+    className="available-tile"
+    onClick={[Function]}
+  >
+    <svg
+      height={128}
+      viewBox="0 0 110.85125168440814 128"
+      width={110.85125168440814}
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <polygon
+        fill="yellow"
+        points="0,32 55.42562584220407,0 110.85125168440814,32 110.85125168440814,96 55.42562584220407,128 0,96"
+      />
+      <path
+        d="M3.681368165081119e-15 64 A 96 96 0 0,0 83.13843876330611 16.000000000000043"
+        fill="none"
+        stroke="black"
+        strokeDasharray="1,0"
+        strokeWidth={8}
+      />
+      <text
+        fill="black"
+        fontSize={8}
+        textAnchor="end"
+        x={109.85125168440814}
+        y={94}
+      >
+        8.1
+      </text>
+    </svg>
+    <div
+      className="amount-available"
+    >
+      10
+       / 
+      10
+    </div>
+  </div>
+  <div
+    className="available-tile"
+    onClick={[Function]}
+  >
+    <svg
+      height={128}
+      viewBox="0 0 110.85125168440814 128"
+      width={110.85125168440814}
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <polygon
+        fill="yellow"
+        points="0,32 55.42562584220407,0 110.85125168440814,32 110.85125168440814,96 55.42562584220407,128 0,96"
+      />
+      <path
+        d="M27.712812921102014 112.00000000000003 A 96 96 0 0,0 27.712812921102042 15.999999999999986"
+        fill="none"
+        stroke="black"
+        strokeDasharray="1,0"
+        strokeWidth={8}
+      />
+      <text
+        fill="black"
+        fontSize={8}
+        textAnchor="end"
+        x={109.85125168440814}
+        y={94}
+      >
+        8.2
+      </text>
+    </svg>
+    <div
+      className="amount-available"
+    >
+      10
+       / 
+      10
+    </div>
+  </div>
+  <div
+    className="available-tile"
+    onClick={[Function]}
+  >
+    <svg
+      height={128}
+      viewBox="0 0 110.85125168440814 128"
+      width={110.85125168440814}
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <polygon
+        fill="yellow"
+        points="0,32 55.42562584220407,0 110.85125168440814,32 110.85125168440814,96 55.42562584220407,128 0,96"
+      />
+      <path
+        d="M83.13843876330606 111.99999999999997 A 96 96 0 0,0 6.49186599675415e-14 63.99999999999997"
+        fill="none"
+        stroke="black"
+        strokeDasharray="1,0"
+        strokeWidth={8}
+      />
+      <text
+        fill="black"
+        fontSize={8}
+        textAnchor="end"
+        x={109.85125168440814}
+        y={94}
+      >
+        8.3
+      </text>
+    </svg>
+    <div
+      className="amount-available"
+    >
+      10
+       / 
+      10
+    </div>
+  </div>
+  <div
+    className="available-tile"
+    onClick={[Function]}
+  >
+    <svg
+      height={128}
+      viewBox="0 0 110.85125168440814 128"
+      width={110.85125168440814}
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <polygon
+        fill="yellow"
+        points="0,32 55.42562584220407,0 110.85125168440814,32 110.85125168440814,96 55.42562584220407,128 0,96"
+      />
+      <path
+        d="M110.85125168440827 64 A 96 96 0 0,0 27.712812921102028 112.00000000000003"
+        fill="none"
+        stroke="black"
+        strokeDasharray="1,0"
+        strokeWidth={8}
+      />
+      <text
+        fill="black"
+        fontSize={8}
+        textAnchor="end"
+        x={109.85125168440814}
+        y={94}
+      >
+        8.4
+      </text>
+    </svg>
+    <div
+      className="amount-available"
+    >
+      10
+       / 
+      10
+    </div>
+  </div>
+  <div
+    className="available-tile"
+    onClick={[Function]}
+  >
+    <svg
+      height={128}
+      viewBox="0 0 110.85125168440814 128"
+      width={110.85125168440814}
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <polygon
+        fill="yellow"
+        points="0,32 55.42562584220407,0 110.85125168440814,32 110.85125168440814,96 55.42562584220407,128 0,96"
+      />
+      <path
+        d="M83.1384387633061 16.00000000000005 A 96 96 0 0,0 83.13843876330607 111.99999999999994"
+        fill="none"
+        stroke="black"
+        strokeDasharray="1,0"
+        strokeWidth={8}
+      />
+      <text
+        fill="black"
+        fontSize={8}
+        textAnchor="end"
+        x={109.85125168440814}
+        y={94}
+      >
+        8.5
+      </text>
+    </svg>
+    <div
+      className="amount-available"
+    >
+      10
+       / 
+      10
+    </div>
+  </div>
+</div>
+`;

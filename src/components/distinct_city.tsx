@@ -30,6 +30,8 @@ class DistinctCity extends City {
           this.buildCircle(num, cityPoint),
         );
       }
+    } else {
+      throw new Error('DistinctCity requires spotLocations');
     }
 
     return (

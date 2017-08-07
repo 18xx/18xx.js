@@ -23,7 +23,7 @@ export interface HistoryEntry {
   readonly id: string;
 }
 
-interface HistoryProps {
+export interface HistoryProps {
   readonly entries: List<HistoryEntry>;
   readonly mapDef: MapDefinition;
   readonly tileSet: TileSet;

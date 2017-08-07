@@ -17,19 +17,7 @@ export interface AvailableTilesProps {
 }
 
 class AvailableTiles extends React.Component<AvailableTilesProps, {}> {
-
   public static defaultProps: any;
-
-  get tiles(): List<ReactElement<any>> {
-    return this.props.tileSet.all.filter((tileDef: TileDefinition) =>
-      this.props.tileFilter.includes(tileDef.num)
-    ).map(
-      (tileDef: TileDefinition) => tileDef.allRotations.map(
-        (tile: ReactElement<Tile>, index: number) =>
-          this.drawTile(tile, tileDef.num, index)
-      )
-    ).flatten().toList();
-  }
 
   public render(): ReactElement<AvailableTiles> {
     return <div id='tileMenu'>{this.tiles}</div>;
@@ -47,20 +35,18 @@ class AvailableTiles extends React.Component<AvailableTilesProps, {}> {
     let divClass: string = 'available-tile';
     let availableElement: ReactElement<HTMLElement> | undefined;
 
-    if (total) {
-      const available: number = total - this.usedTiles(num);
+    const available: number = total - this.usedTiles(num);
 
-      if (available <= 0) {
-        onClick = undefined;
-        divClass += ' unavailable';
-      }
-
-      availableElement = (
-        <div className='amount-available'>
-          {available} / {total}
-        </div>
-      );
+    if (available <= 0) {
+      onClick = undefined;
+      divClass += ' unavailable';
     }
+
+    availableElement = (
+      <div className='amount-available'>
+        {available} / {total}
+      </div>
+    );
 
     // FIXME: Move onClick to tile
     return <div
@@ -71,6 +57,17 @@ class AvailableTiles extends React.Component<AvailableTilesProps, {}> {
         {tile}
         {availableElement}
       </div>;
+  }
+
+  private get tiles(): List<ReactElement<any>> {
+    return this.props.tileSet.all.filter((tileDef: TileDefinition) =>
+      this.props.tileFilter.includes(tileDef.num)
+    ).map(
+      (tileDef: TileDefinition) => tileDef.allRotations.map(
+        (tile: ReactElement<Tile>, index: number) =>
+          this.drawTile(tile, tileDef.num, index)
+      )
+    ).flatten().toList();
   }
 
   private usedTiles(num: string): any {

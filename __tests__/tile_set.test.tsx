@@ -2,34 +2,12 @@ import { List, Map } from 'immutable';
 
 import * as mapDef from '../config/maps/1830.json';
 
-import TileDefinition, { TileDefinitionInput } from '../src/tile_definition';
+import { allTiles } from './support/all_tiles';
+
+import TileDefinition from '../src/tile_definition';
 import TileSet, { TileSetDetails } from '../src/tile_set';
 
 describe('TileSet', () => {
-  const allTiles: List<TileDefinitionInput> = List([
-    {
-      color: 'yellow',
-      num: '7',
-      track: [
-        [0, 1]
-      ]
-    },
-    {
-      color: 'yellow',
-      num: '8',
-      track: [
-        [0, 2]
-      ]
-    },
-    {
-      color: 'yellow',
-      num: '9',
-      track: [
-        [0, 3]
-      ]
-    }
-  ]);
-
   describe('#all', () => {
     it('returns a tile definition object for each tile in the manifest', () => {
       const tileManifest: Map<string, TileSetDetails> = Map({

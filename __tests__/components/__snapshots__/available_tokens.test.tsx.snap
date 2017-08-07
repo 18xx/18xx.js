@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AvailableTokens renderes a list of tokens 1`] = `
+<div
+  id="tokenMenu"
+>
+  <span
+    onClick={[Function]}
+  >
+    <svg
+      className="token"
+      height="40"
+      onContextMenu={undefined}
+      opacity={1}
+      viewBox="0 0 40 40"
+      width="40"
+    >
+      <circle
+        cx={20}
+        cy={20}
+        fill="#0B00F7"
+        r={16}
+      />
+      <rect
+        fill="white"
+        height={12}
+        rx={1.75}
+        ry={12}
+        width={32}
+        x={4}
+        y={14}
+      />
+      <text
+        fill="black"
+        fontSize={10}
+        fontWeight="normal"
+        stroke="none"
+        textAnchor="middle"
+        x={20}
+        y={24}
+      >
+        B&O
+      </text>
+    </svg>
+  </span>
+</div>
+`;

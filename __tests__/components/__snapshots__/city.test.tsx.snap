@@ -1,0 +1,283 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`City when there are four cities renders an svg for the cities 1`] = `
+<g>
+  <polygon
+    fill="black"
+    points="36.42562584220407,26 17.42562584220407,45 17.42562584220407,83 36.42562584220407,102 74.42562584220407,102 93.42562584220407,83 93.42562584220407,45 74.42562584220407,26"
+  />
+  <svg
+    onContextMenu={[Function]}
+    x={16.42562584220407}
+    y={25}
+  >
+    <circle
+      className="city-circle"
+      cx={20}
+      cy={20}
+      fill="white"
+      r={19}
+      stroke="#000"
+      strokeWidth={2}
+    />
+  </svg>
+  <svg
+    onContextMenu={[Function]}
+    x={16.42562584220407}
+    y={63}
+  >
+    <circle
+      className="city-circle"
+      cx={20}
+      cy={20}
+      fill="white"
+      r={19}
+      stroke="#000"
+      strokeWidth={2}
+    />
+  </svg>
+  <svg
+    onContextMenu={[Function]}
+    x={54.42562584220407}
+    y={25}
+  >
+    <circle
+      className="city-circle"
+      cx={20}
+      cy={20}
+      fill="white"
+      r={19}
+      stroke="#000"
+      strokeWidth={2}
+    />
+  </svg>
+  <svg
+    onContextMenu={[Function]}
+    x={54.42562584220407}
+    y={63}
+  >
+    <circle
+      className="city-circle"
+      cx={20}
+      cy={20}
+      fill="white"
+      r={19}
+      stroke="#000"
+      strokeWidth={2}
+    />
+  </svg>
+</g>
+`;
+
+exports[`City when there are six cities renders an svg for the cities 1`] = `
+<g>
+  <polygon
+    fill="black"
+    points="105.01408311032397,73 105.01408311032397,55 88.01408311032397,25.55513627132909 72.42562584220407,16.55513627132909 38.42562584220408,16.555136271329083 22.83716857408418,25.555136271329083 5.837168574084174,54.99999999999999 5.837168574084171,72.99999999999999 22.837168574084156,102.44486372867091 38.425625842204056,111.44486372867091 72.42562584220407,111.44486372867091 88.01408311032397,102.44486372867092"
+  />
+  <svg
+    onContextMenu={[Function]}
+    x={71.42562584220407}
+    y={46}
+  >
+    <circle
+      className="city-circle"
+      cx={18}
+      cy={18}
+      fill="white"
+      r={17}
+      stroke="#000"
+      strokeWidth={2}
+    />
+  </svg>
+  <svg
+    onContextMenu={[Function]}
+    x={54.42562584220407}
+    y={16.55513627132909}
+  >
+    <circle
+      className="city-circle"
+      cx={18}
+      cy={18}
+      fill="white"
+      r={17}
+      stroke="#000"
+      strokeWidth={2}
+    />
+  </svg>
+  <svg
+    onContextMenu={[Function]}
+    x={20.425625842204077}
+    y={16.555136271329083}
+  >
+    <circle
+      className="city-circle"
+      cx={18}
+      cy={18}
+      fill="white"
+      r={17}
+      stroke="#000"
+      strokeWidth={2}
+    />
+  </svg>
+  <svg
+    onContextMenu={[Function]}
+    x={3.42562584220407}
+    y={45.99999999999999}
+  >
+    <circle
+      className="city-circle"
+      cx={18}
+      cy={18}
+      fill="white"
+      r={17}
+      stroke="#000"
+      strokeWidth={2}
+    />
+  </svg>
+  <svg
+    onContextMenu={[Function]}
+    x={20.425625842204056}
+    y={75.44486372867091}
+  >
+    <circle
+      className="city-circle"
+      cx={18}
+      cy={18}
+      fill="white"
+      r={17}
+      stroke="#000"
+      strokeWidth={2}
+    />
+  </svg>
+  <svg
+    onContextMenu={[Function]}
+    x={54.42562584220407}
+    y={75.44486372867091}
+  >
+    <circle
+      className="city-circle"
+      cx={18}
+      cy={18}
+      fill="white"
+      r={17}
+      stroke="#000"
+      strokeWidth={2}
+    />
+  </svg>
+</g>
+`;
+
+exports[`City when there are three cities renders an svg for the cities 1`] = `
+<g>
+  <polygon
+    fill="black"
+    points="44.42562584220407,26 18.42562584220407,45 18.42562584220407,83 44.42562584220407,102 78.42562584220407,83 78.42562584220407,45"
+  />
+  <svg
+    onContextMenu={[Function]}
+    x={18.42562584220407}
+    y={25}
+  >
+    <circle
+      className="city-circle"
+      cx={20}
+      cy={20}
+      fill="white"
+      r={19}
+      stroke="#000"
+      strokeWidth={2}
+    />
+  </svg>
+  <svg
+    onContextMenu={[Function]}
+    x={18.42562584220407}
+    y={63}
+  >
+    <circle
+      className="city-circle"
+      cx={20}
+      cy={20}
+      fill="white"
+      r={19}
+      stroke="#000"
+      strokeWidth={2}
+    />
+  </svg>
+  <svg
+    onContextMenu={[Function]}
+    x={52.42562584220407}
+    y={44}
+  >
+    <circle
+      className="city-circle"
+      cx={20}
+      cy={20}
+      fill="white"
+      r={19}
+      stroke="#000"
+      strokeWidth={2}
+    />
+  </svg>
+</g>
+`;
+
+exports[`City when there are two cities renders an svg for the cities 1`] = `
+<g>
+  <rect
+    fill="black"
+    height={40}
+    width={38}
+    x={36.42562584220407}
+    y={44}
+  />
+  <svg
+    onContextMenu={[Function]}
+    x={16.42562584220407}
+    y={44}
+  >
+    <circle
+      className="city-circle"
+      cx={20}
+      cy={20}
+      fill="white"
+      r={19}
+      stroke="#000"
+      strokeWidth={2}
+    />
+  </svg>
+  <svg
+    onContextMenu={[Function]}
+    x={54.42562584220407}
+    y={44}
+  >
+    <circle
+      className="city-circle"
+      cx={20}
+      cy={20}
+      fill="white"
+      r={19}
+      stroke="#000"
+      strokeWidth={2}
+    />
+  </svg>
+</g>
+`;
+
+exports[`City when there is one city renders an svg for the city 1`] = `
+<svg
+  onContextMenu={[Function]}
+  x={35.42562584220407}
+  y={44}
+>
+  <circle
+    className="city-circle"
+    cx={20}
+    cy={20}
+    fill="white"
+    r={19}
+    stroke="#000"
+    strokeWidth={2}
+  />
+</svg>
+`;
