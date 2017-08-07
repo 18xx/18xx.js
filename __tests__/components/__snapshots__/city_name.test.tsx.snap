@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`CityName #toString() returns an svg representation of the name at a point 1`] = `
+exports[`CityName #render() returns an svg representation of the name at a point 1`] = `
 <text
   fontSize={16}
   textAnchor="middle"
@@ -8,5 +8,16 @@ exports[`CityName #toString() returns an svg representation of the name at a poi
   y={1}
 >
   Toronto
+</text>
+`;
+
+exports[`CityName #render() when the name is  over 12 characters long uses a smaller font size 1`] = `
+<text
+  fontSize={12}
+  textAnchor="middle"
+  x={4}
+  y={-3}
+>
+  New Amsterdam
 </text>
 `;
