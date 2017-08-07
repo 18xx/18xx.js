@@ -1,3 +1,4 @@
+import { mount } from 'enzyme';
 import { List } from 'immutable';
 import * as React from 'react';
 import * as renderer from 'react-test-renderer';
@@ -28,5 +29,18 @@ describe('AvailableTokens', () => {
     );
 
     expect(renderer.create(subject)).toMatchSnapshot();
+  });
+
+  describe('onClick', () => {
+    const fn: any = jest.fn();
+    const subject: React.ReactElement<AvailableTokens> = (
+      <AvailableTokens companies={companies} onClick={fn} />
+    );
+
+    it('calls the onClick with the company clicked', () => {
+      mount(subject).find('span').simulate('click');
+      expect(fn.mock.calls.length).toEqual(1);
+      expect(fn.mock.calls[0][0]).toEqual(companies.get(0));
+    });
   });
 });
