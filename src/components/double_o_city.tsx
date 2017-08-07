@@ -77,10 +77,6 @@ class DoubleOCity extends City {
 
     return result;
   }
-
-  protected labelPosition(): Point {
-    return Tile.CENTER;
-  }
 }
 
 export default DoubleOCity;
