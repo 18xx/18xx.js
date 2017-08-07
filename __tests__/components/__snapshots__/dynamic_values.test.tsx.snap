@@ -1,5 +1,79 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`DynamicValues #toString when fixedHeight is not set returns svg for the values 1`] = `"[object Object]"`;
+exports[`DynamicValues #render when fixedHeight is not set returns svg for the values 1`] = `
+<g>
+  <g>
+    <rect
+      fill="yellow"
+      height={20}
+      stroke="black"
+      width={20}
+      x={35.42562584220407}
+      y={39}
+    />
+    <text
+      textAnchor="middle"
+      x={45.42562584220407}
+      y={54}
+    >
+      20
+    </text>
+  </g>
+  <g>
+    <rect
+      fill="green"
+      height={20}
+      stroke="black"
+      width={20}
+      x={55.42562584220407}
+      y={39}
+    />
+    <text
+      textAnchor="middle"
+      x={65.42562584220407}
+      y={54}
+    >
+      40
+    </text>
+  </g>
+</g>
+`;
 
-exports[`DynamicValues #toString when fixedHeight is set returns svg for the values 1`] = `"[object Object]"`;
+exports[`DynamicValues #render when fixedHeight is set returns svg for the values 1`] = `
+<g>
+  <g>
+    <rect
+      fill="yellow"
+      height={20}
+      stroke="black"
+      width={20}
+      x={35.42562584220407}
+      y={4}
+    />
+    <text
+      textAnchor="middle"
+      x={45.42562584220407}
+      y={19}
+    >
+      20
+    </text>
+  </g>
+  <g>
+    <rect
+      fill="green"
+      height={20}
+      stroke="black"
+      width={20}
+      x={55.42562584220407}
+      y={4}
+    />
+    <text
+      textAnchor="middle"
+      x={65.42562584220407}
+      y={19}
+    >
+      40
+    </text>
+  </g>
+</g>
+`;

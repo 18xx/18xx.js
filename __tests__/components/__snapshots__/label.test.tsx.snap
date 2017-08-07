@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Label #toString() when the point is not specified returns the svg for the element at the default position 1`] = `
+exports[`Label #render() when the point is not specified when in east-west orientation returns the svg for the element at the default position 1`] = `
 <text
   fill="black"
   fontSize={16}
@@ -13,7 +13,20 @@ exports[`Label #toString() when the point is not specified returns the svg for t
 </text>
 `;
 
-exports[`Label #toString() when the point is specified when the x point is equal to the center returns middle 1`] = `
+exports[`Label #render() when the point is not specified when in north-south orientation returns the svg for the element at the default position 1`] = `
+<text
+  fill="black"
+  fontSize={16}
+  fontWeight="bold"
+  textAnchor="end"
+  x={96}
+  y={14}
+>
+  B
+</text>
+`;
+
+exports[`Label #render() when the point is specified when the x point is equal to the center returns middle 1`] = `
 <text
   fill="black"
   fontSize={16}
@@ -26,7 +39,7 @@ exports[`Label #toString() when the point is specified when the x point is equal
 </text>
 `;
 
-exports[`Label #toString() when the point is specified when the x point is greater than the center returns end 1`] = `
+exports[`Label #render() when the point is specified when the x point is greater than the center returns end 1`] = `
 <text
   fill="black"
   fontSize={16}
@@ -39,7 +52,7 @@ exports[`Label #toString() when the point is specified when the x point is great
 </text>
 `;
 
-exports[`Label #toString() when the point is specified when the x point is less than the center returns start 1`] = `
+exports[`Label #render() when the point is specified when the x point is less than the center returns start 1`] = `
 <text
   fill="black"
   fontSize={16}

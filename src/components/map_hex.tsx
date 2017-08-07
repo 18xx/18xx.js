@@ -87,14 +87,17 @@ class MapHex extends React.Component<MapHexProps, {}> {
   }
 
   public render(): ReactElement<MapHex> {
+    let fn: (() => void) | undefined;
+    if (this.props.onHexClick) {
+      fn = () => this.props.onHexClick!(this);
+    }
+
     return (
       <svg
         x={this.absoluteLeft}
         y={this.absoluteTop}
         className='hex'
-        onClick={
-          () => this.props.onHexClick ? this.props.onHexClick(this) : null
-        }>
+        onClick={fn}>
         <polygon
           points={this.hexagon.hexPoints().join(' ')}
           fill={this.props.fill}
