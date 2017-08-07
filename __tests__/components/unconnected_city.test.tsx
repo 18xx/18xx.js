@@ -10,6 +10,7 @@ import UnconnectedCity from '../../src/components/unconnected_city';
 
 describe('UnconnectedCity', () => {
   const defaultProps: CityProps =  {
+    hex: 'a1',
     hexagon: new Hexagon('east-west'),
     homeTokens: List(),
     mapDef: { companies: [], tileManifest: []},
