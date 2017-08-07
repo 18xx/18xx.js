@@ -1,0 +1,126 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`History #render renders the history 1`] = `
+<div
+  className="col-sm-3 col-md-2 sidebar"
+>
+  <h4>
+    Recent Moves
+  </h4>
+  <ol
+    reversed={true}
+  >
+    <li>
+      <a
+        href="./unknown"
+      >
+        <span>
+          Unknown
+        </span>
+      </a>
+    </li>
+    <li>
+      <a
+        href="./rm-token"
+      >
+        <span>
+          Rm-Tok: 
+          B&O
+           @ 
+          a1
+        </span>
+      </a>
+    </li>
+    <li>
+      <a
+        href="./token"
+      >
+        <span>
+          <svg
+            className="token"
+            height="40"
+            onContextMenu={undefined}
+            opacity={1}
+            viewBox="0 0 40 40"
+            width="40"
+          >
+            <circle
+              cx={20}
+              cy={20}
+              fill="#070A3F"
+              r={16}
+            />
+            <rect
+              fill="white"
+              height={12}
+              rx={1.75}
+              ry={12}
+              width={32}
+              x={4}
+              y={14}
+            />
+            <text
+              fill="black"
+              fontSize={10}
+              fontWeight="normal"
+              stroke="none"
+              textAnchor="middle"
+              x={20}
+              y={24}
+            >
+              B&O
+            </text>
+          </svg>
+           
+          B&O
+           @ 
+          a1
+        </span>
+      </a>
+    </li>
+    <li>
+      <a
+        href="./tile"
+      >
+        <span>
+          <span
+            className="tile"
+          >
+            <svg
+              height={128}
+              viewBox="0 0 110.85125168440814 128"
+              width={110.85125168440814}
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <polygon
+                fill="yellow"
+                points="0,32 55.42562584220407,0 110.85125168440814,32 110.85125168440814,96 55.42562584220407,128 0,96"
+              />
+              <path
+                d="M27.712812921102035 15.999999999999991 A 32 32 0 0,0 83.13843876330611 16.000000000000014"
+                fill="none"
+                stroke="black"
+                strokeDasharray="1,0"
+                strokeWidth={8}
+              />
+              <text
+                fill="black"
+                fontSize={8}
+                textAnchor="end"
+                x={109.85125168440814}
+                y={94}
+              >
+                7.1
+              </text>
+            </svg>
+          </span>
+           
+          7.1
+           @ 
+          b2
+        </span>
+      </a>
+    </li>
+  </ol>
+</div>
+`;
