@@ -27,15 +27,25 @@ const game: Game = new Game({
 
 describe('MapBoard', () => {
   describe('#render()', () => {
+    const hexes: List<ReactElement<MapHex>> = List([
+      <MapHex mapDef={mapDef} row='a' column={1} key='a1' />,
+      <MapHex mapDef={mapDef} row='a' column={3} key='a3' />,
+    ]);
+
     it('returns an svg representation of the map board', () => {
-      const hexes: List<ReactElement<MapHex>> = List([
-        <MapHex mapDef={mapDef} row='a' column={1} key='a1' />,
-        <MapHex mapDef={mapDef} row='a' column={3} key='a3' />,
-      ]);
       const subject: any = renderer.create(
         <MapBoard game={game} hexes={hexes} orientation={'east-west'} />
       );
       expect(subject).toMatchSnapshot();
+    });
+
+    describe('when a north-south board', () => {
+      it('returns an svg representation of the map board', () => {
+        const subject: any = renderer.create(
+          <MapBoard game={game} hexes={hexes} orientation={'north-south'} />
+        );
+        expect(subject).toMatchSnapshot();
+      });
     });
   });
 });
