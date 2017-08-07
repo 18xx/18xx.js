@@ -1,3 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`CityCircle #toString() returns an svg representation of the circle 1`] = `"[object Object]"`;
+exports[`CityCircle #render() returns an svg representation of the circle 1`] = `
+<svg
+  onContextMenu={undefined}
+  x={30}
+  y={20}
+>
+  <circle
+    className="city-circle"
+    cx={20}
+    cy={20}
+    fill="white"
+    r={19}
+    stroke="#000"
+    strokeWidth={2}
+  />
+</svg>
+`;

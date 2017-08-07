@@ -34,7 +34,7 @@ implements MapHexElement, TileElement {
   }
 
   get radius(): number {
-    return this.props.radius || DEFAULT_RADIUS;
+    return this.props.radius!;
   }
 
   get point(): Point {
