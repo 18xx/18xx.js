@@ -43,6 +43,7 @@
   },
   "scripts": {
     "assets": "webpack --config ./webpack.dev.config.js --watch",
+    "cov": "jest --coverage --no-cache",
     "heroku-postbuild": "webpack --config ./webpack.prod.config.js --progress",
     "lint": "tslint --project .",
     "test": "jest",
