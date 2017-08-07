@@ -68,7 +68,6 @@ class Game
   }
 
   public render(): ReactElement<Game> | null {
-    if (!this.state.tokens) { return null; }
     let topMenu: ReactElement<any> | undefined;
 
     switch (this.state.openMenu) {
