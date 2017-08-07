@@ -1,0 +1,20 @@
+version: '2'
+services:
+  app:
+    build: .
+    volumes:
+      - .:/usr/src/app
+      - node_modules:/home/app/node_modules
+    ports:
+      - "3002:3002"
+    depends_on:
+      - dynamodb
+
+  dynamodb:
+    image: dwmkerr/dynamodb
+    volumes:
+      - db_data:/data
+
+volumes:
+  db_data:
+  node_modules:
