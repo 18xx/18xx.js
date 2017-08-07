@@ -1,3 +1,6 @@
+import * as React from 'react';
+import * as renderer from 'react-test-renderer';
+
 import CityCircle from '../../src/components/city_circle';
 
 import Point from '../../src/point';
@@ -15,11 +18,14 @@ describe('CityCircle', () => {
     });
   });
 
-  describe('#toString()', () => {
+  describe('#render()', () => {
     it('returns an svg representation of the circle', () => {
       const point: Point = new Point(50, 40);
-      const cc: CityCircle = new CityCircle({ point });
-      expect(cc.toString()).toMatchSnapshot();
+      const subject: React.ReactElement<CityCircle> = (
+        <CityCircle point={point} />
+      );
+
+      expect(renderer.create(subject)).toMatchSnapshot();
     });
   });
 });
