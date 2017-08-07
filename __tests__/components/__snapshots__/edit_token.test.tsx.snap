@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EditToken #render matches the rendered snapshot 1`] = `
+<div
+  id="tokenMenu"
+>
+  <button
+    onClick={[Function]}
+  >
+    Remove Token
+  </button>
+</div>
+`;
