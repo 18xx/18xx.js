@@ -9,7 +9,7 @@ exports[`MapHex #render returns the SVG for this element 1`] = `
 >
   <polygon
     fill="#efe"
-    points="0,32 55.42562584220407,0 110.85125168440814,32 110.85125168440814,96 55.42562584220407,128 0,96"
+    points="110.85125168440814,32 55.42562584220407,0 0,32 0,96 55.42562584220407,128 110.85125168440814,96"
     stroke="black"
   />
 </svg>
@@ -24,7 +24,7 @@ exports[`MapHex #render when it contains a tile draws the tile at the end 1`] = 
 >
   <polygon
     fill="#efe"
-    points="0,32 55.42562584220407,0 110.85125168440814,32 110.85125168440814,96 55.42562584220407,128 0,96"
+    points="110.85125168440814,32 55.42562584220407,0 0,32 0,96 55.42562584220407,128 110.85125168440814,96"
     stroke="black"
   />
   <svg
@@ -50,7 +50,7 @@ exports[`MapHex #render when it contains some elements draws the tile at the end
 >
   <polygon
     fill="#efe"
-    points="0,32 55.42562584220407,0 110.85125168440814,32 110.85125168440814,96 55.42562584220407,128 0,96"
+    points="110.85125168440814,32 55.42562584220407,0 0,32 0,96 55.42562584220407,128 110.85125168440814,96"
     stroke="black"
   />
   ELEMENT
