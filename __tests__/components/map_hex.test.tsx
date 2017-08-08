@@ -29,7 +29,7 @@ describe('MapHex', () => {
   describe('#absoluteLeft', () => {
     describe('when column is one', () => {
       it('returns zero', () => {
-        const subject: MapHex = new MapHex({ mapDef, row: 'a', column: 1 });
+        const subject: MapHex = new MapHex({ mapDef, row: 'b', column: 1 });
         expect(subject.absoluteLeft).toEqual(0);
       });
     });
@@ -40,16 +40,42 @@ describe('MapHex', () => {
           const subject: MapHex = new MapHex({
             column: 6,
             mapDef: { ...mapDef, orientation: 'north-south' },
-            row: 'a',
+            row: 'b',
           });
           expect(subject.absoluteLeft).toEqual(480);
+        });
+
+        describe('when hexes are inverted', () => {
+          const subject: MapHex = new MapHex({
+            column: 6,
+            mapDef: {
+              ...mapDef,
+              invertHexes: true,
+              orientation: 'north-south'
+            },
+            row: 'b',
+          });
+          it('returns 96', () => {
+            expect(subject.absoluteLeft).toEqual(96);
+          });
         });
       });
 
       describe('when the orentation is east-west', () => {
         it('returns 277.5', () => {
-          const subject: MapHex = new MapHex({ mapDef, row: 'a', column: 6 });
+          const subject: MapHex = new MapHex({ mapDef, row: 'b', column: 6 });
           expect(subject.absoluteLeft).toBeCloseTo(277.128);
+        });
+
+        describe('when hexes are inverted', () => {
+          const subject: MapHex = new MapHex({
+            column: 6,
+            mapDef: { ...mapDef, invertHexes: true, },
+            row: 'b',
+          });
+          it('returns 55.4', () => {
+            expect(subject.absoluteLeft).toBeCloseTo(55.4265);
+          });
         });
       });
     });
@@ -73,12 +99,40 @@ describe('MapHex', () => {
           });
           expect(subject.absoluteTop).toBeCloseTo(332.554);
         });
+
+        describe('when hexes are inverted', () => {
+          const subject: MapHex = new MapHex({
+            column: 6,
+            mapDef: {
+              ...mapDef,
+              invertHexes: true,
+              orientation: 'north-south'
+            },
+            row: 'g',
+          });
+
+          it('returns 277.128', () => {
+            expect(subject.absoluteTop).toBeCloseTo(277.128);
+          });
+        });
       });
 
       describe('when the orentation is east-west', () => {
         it('returns 576', () => {
           const subject: MapHex = new MapHex({ mapDef, row: 'g', column: 6 });
           expect(subject.absoluteTop).toEqual(576);
+        });
+
+        describe('when hexes are inverted', () => {
+          const subject: MapHex = new MapHex({
+            column: 6,
+            mapDef: { ...mapDef, invertHexes: true },
+            row: 'g',
+          });
+
+          it('returns 480', () => {
+            expect(subject.absoluteTop).toEqual(480);
+          });
         });
       });
     });

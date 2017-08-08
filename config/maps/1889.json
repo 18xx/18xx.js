@@ -1,4 +1,5 @@
 {
+  "invertHexes": true,
   "orientation": "north-south",
   "hexes": {
     "a": [8, 10],

@@ -42,12 +42,26 @@ class MapHex extends React.Component<MapHexProps, {}> {
     return this.props.row;
   }
 
+  get rowNumber(): number {
+    const keyIndex: number = Object.keys(this.props.mapDef.hexes).indexOf(
+      this.row
+    );
+    if (keyIndex === -1) {
+      throw new Error('Could not find index for: ' + this.row);
+    }
+    return keyIndex;
+  }
+
   get column(): number {
     return this.props.column;
   }
 
   get absoluteLeft(): number {
     let result: number = (this.column - 1) * this.hexagon.width;
+    if (this.props.mapDef.invertHexes) {
+      result = this.rowNumber * this.hexagon.width;
+    }
+
     if (this.props.mapDef.orientation === 'north-south') {
       result *= 0.75;
     } else {
@@ -57,13 +71,10 @@ class MapHex extends React.Component<MapHexProps, {}> {
   }
 
   get absoluteTop(): number {
-    const keyIndex: number = Object.keys(this.props.mapDef.hexes).indexOf(
-      this.row
-    );
-    if (keyIndex === -1) {
-      throw new Error('Could not find index for: ' + this.row);
+    let result: number = this.rowNumber * this.hexagon.height;
+    if (this.props.mapDef.invertHexes) {
+      result = (this.column - 1) * this.hexagon.height;
     }
-    let result: number = keyIndex * this.hexagon.height;
 
     if (this.props.mapDef.orientation === 'north-south') {
       result *= 0.5;
