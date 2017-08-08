@@ -569,6 +569,22 @@
     "trackToCenter": [0, 1, 3]
   },
   {
+    "color": "green",
+    "num": 205,
+    "spots": 1,
+    "trackToCenter": [0, 1, 4],
+    "type": "City",
+    "value": 30
+  },
+  {
+    "color": "green",
+    "num": 206,
+    "spots": 1,
+    "trackToCenter": [0, 1, 3],
+    "type": "City",
+    "value": 30
+  },
+  {
     "_TODO": "This should draw the second placeholder city",
     "color": "yellow",
     "label": "OO",
@@ -577,6 +593,51 @@
     "trackToCenter": [0],
     "type": "City",
     "value": 30
+  },
+  {
+    "color": "yellow",
+    "label": "P",
+    "num": 437,
+    "type": "Town",
+    "trackToCenter": [0, 2],
+    "value": 30
+  },
+  {
+    "color": "yellow",
+    "cost": {
+      "amount": 80,
+      "color": "white"
+    },
+    "label": "Kt",
+    "num": 438,
+    "spots": 1,
+    "type": "City",
+    "trackToCenter": [0, 2],
+    "value": 40
+  },
+  {
+    "color": "green",
+    "cost": {
+      "amount": 80,
+      "color": "white"
+    },
+    "label": "Kt",
+    "num": 439,
+    "rotations": 2,
+    "spots": 2,
+    "type": "City",
+    "trackToCenter": [0, 2, 4],
+    "value": 60
+  },
+  {
+    "color": "green",
+    "label": "T",
+    "num": 440,
+    "rotations": 1,
+    "spots": 2,
+    "type": "City",
+    "trackToCenter": [2, 3, 4],
+    "value": 60
   },
   {
     "color": "brown",
@@ -593,6 +654,36 @@
     "type": "City",
     "trackToCenter": [0, 1, 2, 3, 4],
     "value": 50
+  },
+  {
+    "color": "brown",
+    "label": "Ku",
+    "num": 465,
+    "rotations": 1,
+    "spots": 3,
+    "type": "City",
+    "trackToCenter": [0, 1, 2, 5],
+    "value": 60
+  },
+  {
+    "color": "brown",
+    "label": "T",
+    "num": 466,
+    "rotations": 1,
+    "spots": 2,
+    "type": "City",
+    "trackToCenter": [2, 3, 4],
+    "value": 60
+  },
+  {
+    "color": "brown",
+    "label": "Kt",
+    "num": 492,
+    "rotations": 1,
+    "spots": 3,
+    "type": "City",
+    "trackToCenter": [0, 1, 2, 3, 4, 5],
+    "value": 80
   },
   {
     "color": "brown",
