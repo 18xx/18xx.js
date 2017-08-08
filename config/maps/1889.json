@@ -47,10 +47,6 @@
       "shape": "square"
     }
   },
-  "privateReservations": {
-    "c4": "C",
-    "k4": "A"
-  },
   "cities": {
     "a10": 1,
     "c10": 1,
@@ -119,6 +115,7 @@
     "c4": {
       "color": "yellow",
       "label": "Ohzu",
+      "privateReservation": "C",
       "spots": 1,
       "trackToCenter": [2],
       "type": "City",
@@ -150,6 +147,7 @@
     "k4": {
       "color": "yellow",
       "label": "T",
+      "privateReservation": "A",
       "spots": 1,
       "trackToCenter": [2, 3, 4],
       "type": "City",

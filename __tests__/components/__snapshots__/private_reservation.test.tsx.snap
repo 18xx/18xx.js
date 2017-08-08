@@ -3,20 +3,20 @@
 exports[`PrivateReservation render when orientation is east-west renders an svg 1`] = `
 <g>
   <circle
-    cx={30}
+    cx={20}
     cy={40.42562584220407}
     r={4}
   />
   <circle
-    cx={30}
+    cx={20}
     cy={70.42562584220407}
     r={4}
   />
   <line
     stroke="black"
     strokeWidth={2}
-    x1={30}
-    x2={30}
+    x1={20}
+    x2={20}
     y1={40.42562584220407}
     y2={70.42562584220407}
   />
@@ -24,7 +24,7 @@ exports[`PrivateReservation render when orientation is east-west renders an svg 
     fill="black"
     fontSize={8}
     textAnchor="start"
-    x={10}
+    x={24}
     y={57.42562584220407}
   >
     C&A
