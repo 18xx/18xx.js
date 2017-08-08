@@ -7,12 +7,7 @@ import AllTiles from '../../src/components/all_tiles';
 
 describe('AllTiles', () => {
   describe('#render', () => {
-    const subject: React.ReactElement<AllTiles> = (
-      <AllTiles mapDef={mapDefinition} />
-    );
-
-    it('renders all tiles', () => {
-      expect(renderer.create(subject)).toMatchSnapshot();
-    });
+    // This test is too slow as it renders all the tiles
+    it('is pending');
   });
 });
