@@ -53,7 +53,7 @@ if (container.dataset.gameName) {
     );
   };
 } else {
-  init = (state: any): void => {
+  init = (): void => {
     ReactDOM.render(
       <AllTiles mapDef={mapDef1830 as any} />,
       container

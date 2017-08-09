@@ -16,7 +16,6 @@ class CityCircleFactory {
     private homeTokens: List<string>,
     private onRightClickCity: (hex: string, index: number) => void,
     private onRightClickToken: (
-      event: MouseEvent<Element>,
       hex: string,
       index: number
     ) => void,
@@ -40,13 +39,13 @@ class CityCircleFactory {
         key={point.toString()}
         point={point}
         onContextMenu={fn}
-        token={this.buildToken(index, point)}
+        token={this.buildToken(index)}
         radius={this.radius}
       />
     );
   }
 
-  private buildToken(index: number, point: Point):
+  private buildToken(index: number):
     ReactElement<Token> | undefined {
     let token: ReactElement<Token> | undefined;
     let faded: boolean = false;
@@ -55,7 +54,7 @@ class CityCircleFactory {
     const fn: MouseEventHandler<SVGElement> =
       (event: MouseEvent<SVGElement>) => {
       event.preventDefault();
-      this.onRightClickToken(event, this.hex, index);
+      this.onRightClickToken(this.hex, index);
     };
 
     if (this.tokenState.get(index)) {

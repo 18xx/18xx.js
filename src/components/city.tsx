@@ -1,7 +1,7 @@
 import { List } from 'immutable';
 import * as _ from 'lodash';
 import * as React from 'react';
-import { MouseEvent, ReactElement } from 'react';
+import { ReactElement } from 'react';
 
 import CityCircle from './city_circle';
 
@@ -15,7 +15,6 @@ export interface CityProps {
   hexagon: Hexagon;
   onRightClickCity: (hex: string, index: number) => void;
   onRightClickToken: (
-    event: MouseEvent<Element>,
     hex: string,
     index: number
   ) => void;
