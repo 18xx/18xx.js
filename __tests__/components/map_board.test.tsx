@@ -3,7 +3,7 @@ import * as React from 'react';
 import { ReactElement } from 'react';
 import * as renderer from 'react-test-renderer';
 
-import Game from '../../src/components/game';
+import GameInterface from '../../src/components/game_interface';
 import MapBoard, { MapBoardProps } from '../../src/components/map_board';
 import MapHex from '../../src/components/map_hex';
 
@@ -20,7 +20,7 @@ const mapDef: MapDefinition = {
   tileManifest: {},
 };
 
-const game: Game = new Game({
+const gameInterface: GameInterface = new GameInterface({
   gameName: '18xx',
   mapDef,
 });
@@ -32,7 +32,7 @@ describe('MapBoard', () => {
       <MapHex mapDef={mapDef} row='a' column={3} key='a3' />,
     ]);
     const defaultProps: MapBoardProps = {
-      game,
+      gameInterface,
       hexes,
       invertHexes: false,
       orientation: 'east-west',

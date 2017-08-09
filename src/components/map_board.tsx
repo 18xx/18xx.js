@@ -2,13 +2,13 @@ import { List, Set } from 'immutable';
 import * as React from 'react';
 import { ReactElement } from 'react';
 
-import Game from './game';
+import GameInterface from './game_interface';
 import MapHex from './map_hex';
 import Tile from './tile';
 
 export interface MapBoardProps {
   readonly addOnTop?: List<ReactElement<any>>;
-  readonly game: Game;
+  readonly gameInterface: GameInterface;
   readonly hexes: List<ReactElement<MapHex>>;
   readonly invertHexes: boolean;
   readonly orientation: string;

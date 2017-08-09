@@ -4,7 +4,7 @@ import * as ReactDOM from 'react-dom';
 import '../css/all.css';
 
 import AllTiles from './components/all_tiles';
-import Game from './components/game';
+import GameInterface from './components/game_interface';
 import { HistoryEntry } from './components/history';
 
 import { MapDefinition } from './map_builder';
@@ -49,7 +49,7 @@ if (container.dataset.gameName) {
 
   init = (state: GameState): void => {
     ReactDOM.render(
-      <Game
+      <GameInterface
       initialState={state}
       gameName={container.dataset.gameName!}
       mapDef={mapDef} />,

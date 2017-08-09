@@ -3,11 +3,11 @@ import { List, Map } from 'immutable';
 import MapBuilder from '../src/map_builder';
 import TileSet from '../src/tile_set';
 
-import Game from '../src/components/game';
+import GameInterface from '../src/components/game_interface';
 
 import { mapDefinition } from './support/map_definition';
 
-const game: Game = new Game({
+const gameInterface: GameInterface = new GameInterface({
   gameName: '18xx',
   mapDef: mapDefinition,
 });
@@ -16,7 +16,11 @@ describe('MapBuilder', () => {
   describe('#build()', () => {
     it('returns an svg of the map', () => {
       const tileSet: TileSet = new TileSet(List([]), mapDefinition, Map());
-      const builder: MapBuilder = new MapBuilder(game, mapDefinition, tileSet);
+      const builder: MapBuilder = new MapBuilder(
+        gameInterface,
+        mapDefinition,
+        tileSet
+      );
       const tileState: Map<string, string> = (
         Map() as Map<string, string>
       );

@@ -2,7 +2,7 @@ import { Map } from 'immutable';
 import * as React from 'react';
 import * as renderer from 'react-test-renderer';
 
-import Game from '../../src/components/game';
+import GameInterface from '../../src/components/game_interface';
 import { GameState } from '../../src/reducers/game';
 
 import { mapDefinition } from '../support/map_definition';
@@ -16,8 +16,8 @@ describe('Game', () => {
       tokens: Map(),
     };
     it('renders the game', () => {
-      const subject: React.ReactElement<Game> = (
-        <Game
+      const subject: React.ReactElement<GameInterface> = (
+        <GameInterface
         gameName='18xx'
         initialState={defaultState}
         mapDef={mapDefinition} />
@@ -33,8 +33,9 @@ describe('Game', () => {
           openMenu: 'TILE',
         };
 
-        const subject: React.ReactElement<Game> = (
-          <Game gameName='18xx' initialState={state} mapDef={mapDefinition} />
+        const subject: React.ReactElement<GameInterface> = (
+          <GameInterface gameName='18xx' initialState={state}
+          mapDef={mapDefinition} />
         );
 
         expect(renderer.create(subject)).toMatchSnapshot();
@@ -46,8 +47,9 @@ describe('Game', () => {
           openMenu: 'TOKEN',
         };
 
-        const subject: React.ReactElement<Game> = (
-          <Game gameName='18xx' initialState={state} mapDef={mapDefinition} />
+        const subject: React.ReactElement<GameInterface> = (
+          <GameInterface gameName='18xx' initialState={state}
+          mapDef={mapDefinition} />
         );
 
         expect(renderer.create(subject)).toMatchSnapshot();
@@ -59,8 +61,9 @@ describe('Game', () => {
           openMenu: 'TOKEN_CONTEXT',
         };
 
-        const subject: React.ReactElement<Game> = (
-          <Game gameName='18xx' initialState={state} mapDef={mapDefinition} />
+        const subject: React.ReactElement<GameInterface> = (
+          <GameInterface gameName='18xx' initialState={state}
+          mapDef={mapDefinition} />
         );
 
         expect(renderer.create(subject)).toMatchSnapshot();

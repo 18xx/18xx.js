@@ -26,20 +26,20 @@ const allTiles: List<TileDefinitionInput> =
     (el: any) => el.toJS() as TileDefinitionInput
   );
 
-export interface GameProps {
+export interface GameInterfaceProps {
   readonly gameName: string;
   readonly initialState?: GameState;
   readonly mapDef: MapDefinition;
 }
 
-class Game
-  extends React.Component<GameProps, GameState> {
+class GameInterface
+  extends React.Component<GameInterfaceProps, GameState> {
 
   public readonly tileSet: TileSet;
   private store: Store<any>;
   private mapBuilder: MapBuilder;
 
-  constructor(props: GameProps) {
+  constructor(props: GameInterfaceProps) {
     super(props);
 
     this.store = createStore(
@@ -66,7 +66,7 @@ class Game
     );
   }
 
-  public render(): ReactElement<Game> | null {
+  public render(): ReactElement<GameInterface> | null {
     let topMenu: ReactElement<any> | undefined;
 
     switch (this.state.openMenu) {
@@ -113,7 +113,7 @@ class Game
           <div
           className='col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main'>
             <MapBoard
-            game={this}
+            gameInterface={this}
             hexes={
               this.mapBuilder.getHexes(this.state.tiles, this.state.tokens)
             }
@@ -208,4 +208,4 @@ class Game
   }
 }
 
-export default Game;
+export default GameInterface;
