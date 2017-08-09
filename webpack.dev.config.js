@@ -1,12 +1,24 @@
-var path = require('path');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
+const path = require('path');
+const webpack = require('webpack');
+const Visualizer = require('webpack-visualizer-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const { CheckerPlugin } = require('awesome-typescript-loader')
 
 const config = {
-  entry: ['./src/app.tsx'],
+  entry: {
+    app: './src/app.tsx',
+    vendor: [
+      'immutable',
+      'lodash',
+      'node-libs-browser',
+      'react',
+      'react-dom',
+      'redux',
+    ]
+  },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'build.js'
+    filename: '[name].js'
   },
   module: {
     rules: [
@@ -30,7 +42,11 @@ const config = {
   devtool: 'eval-source-map',
   plugins: [
     new ExtractTextPlugin('styles.css'),
-    new CheckerPlugin()
+    new CheckerPlugin(),
+    new Visualizer(),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'vendor'
+    }),
   ],
   resolve: {
     extensions: ['.js', '.jsx', '.ts', '.tsx'],
