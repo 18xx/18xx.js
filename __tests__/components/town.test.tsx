@@ -1,6 +1,5 @@
 import { List } from 'immutable';
 import * as React from 'react';
-import { ReactElement } from 'react';
 import * as renderer from 'react-test-renderer';
 
 import Town from '../../src/components/town';

@@ -1,12 +1,8 @@
 import * as crypto from 'crypto';
-import { Hash } from 'crypto';
 import { List, Map } from 'immutable';
-import { ReactElement } from 'react';
 import { Reducer } from 'redux';
 
 import { HashlessHistoryEntry, HistoryEntry } from '../components/history';
-import MapHex from '../components/map_hex';
-import Tile from '../components/tile';
 
 export interface GameState {
   readonly cityIndex?: number;

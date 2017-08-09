@@ -2,9 +2,7 @@ import { List } from 'immutable';
 import * as React from 'react';
 import { ReactElement } from 'react';
 
-import CityCircle from './city_circle';
 import Tile from './tile';
-import Value from './value';
 
 import Hexagon from '../hexagon';
 import { MapDefinition} from '../map_builder';

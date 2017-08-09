@@ -8,7 +8,6 @@ import * as allTilesJson from '../../config/tiles.json';
 
 import AvailableTiles from './available_tiles';
 import AvailableTokens from './available_tokens';
-import City from './city';
 import EditToken from './edit_token';
 import History from './history';
 import MapBoard from './map_board';

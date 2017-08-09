@@ -1,8 +1,6 @@
-import * as React from 'react';
 import * as renderer from 'react-test-renderer';
 
 import Hexagon from '../src/hexagon';
-import Point from '../src/point';
 import TrackToCenter from '../src/track_to_center';
 
 describe('TrackToCenter', () => {

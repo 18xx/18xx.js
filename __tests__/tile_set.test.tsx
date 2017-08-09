@@ -1,4 +1,4 @@
-import { List, Map } from 'immutable';
+import { Map } from 'immutable';
 
 import * as mapDef from '../config/maps/1830.json';
 

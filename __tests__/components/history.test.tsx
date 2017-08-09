@@ -1,6 +1,5 @@
 import { List, Map } from 'immutable';
 import * as React from 'react';
-import { ReactElement } from 'react';
 import * as renderer from 'react-test-renderer';
 
 import { allTiles } from '../support/all_tiles';

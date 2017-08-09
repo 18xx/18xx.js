@@ -4,12 +4,8 @@ import * as React from 'react';
 import { MouseEvent, ReactElement } from 'react';
 
 import CityCircle from './city_circle';
-import Tile from './tile';
-import Token from './token';
-import Town from './town';
 
 import CityCircleFactory from '../city_circle_factory';
-import Company from '../company';
 import Hexagon from '../hexagon';
 import { MapDefinition } from '../map_builder';
 import Point from '../point';

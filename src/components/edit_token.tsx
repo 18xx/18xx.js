@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { MouseEvent, MouseEventHandler, ReactElement } from 'react';
+import { MouseEventHandler, ReactElement } from 'react';
 
 interface EditTokenProps {
   readonly onRemoveToken: MouseEventHandler<HTMLElement>;

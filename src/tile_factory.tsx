@@ -1,14 +1,14 @@
-import { List, Map } from 'immutable';
+import { List } from 'immutable';
 import * as React from 'react';
 import { MouseEvent, ReactElement } from 'react';
 
-import City, { CityProps, Station } from './components/city';
+import City, { Station } from './components/city';
 import DistinctCity from './components/distinct_city';
 import DoubleOCity from './components/double_o_city';
 import DynamicValues from './components/dynamic_values';
 import Label from './components/label';
 import PrivateReservation from './components/private_reservation';
-import Tile, { TileElement } from './components/tile';
+import Tile from './components/tile';
 import TileCost from './components/tile_cost';
 import TileNumber from './components/tile_number';
 import Town from './components/town';

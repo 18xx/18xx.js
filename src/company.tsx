@@ -1,5 +1,3 @@
-import * as Immutable from 'immutable';
-
 interface CompanyData {
   readonly home?: string;
   readonly name: string;

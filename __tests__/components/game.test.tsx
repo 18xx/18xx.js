@@ -1,4 +1,4 @@
-import { List, Map } from 'immutable';
+import { Map } from 'immutable';
 import * as React from 'react';
 import * as renderer from 'react-test-renderer';
 
