@@ -10,7 +10,6 @@ import TileSet, { TileSetDetails } from '../../src/tile_set';
 import AvailableTiles, {
   AvailableTilesProps
 } from '../../src/components/available_tiles';
-import Tile from '../../src/components/tile';
 
 describe('AvailableTiles', () => {
   const tileManifest: Map<string, TileSetDetails> = Map({

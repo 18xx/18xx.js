@@ -5,7 +5,7 @@ import * as renderer from 'react-test-renderer';
 
 import Game from '../../src/components/game';
 import MapBoard from '../../src/components/map_board';
-import MapHex, { MapHexProps } from '../../src/components/map_hex';
+import MapHex from '../../src/components/map_hex';
 
 import { MapDefinition } from '../../src/map_builder';
 

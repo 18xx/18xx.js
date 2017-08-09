@@ -3,7 +3,6 @@ import * as React from 'react';
 import { ReactElement } from 'react';
 
 import { MapHexElement } from './map_hex';
-import Tile from './tile';
 
 import Hexagon from '../hexagon';
 

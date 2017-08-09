@@ -3,7 +3,7 @@ import * as React from 'react';
 import { ReactElement } from 'react';
 
 import Game from './game';
-import MapHex, { MapHexProps } from './map_hex';
+import MapHex from './map_hex';
 import Tile from './tile';
 
 export interface MapBoardProps {

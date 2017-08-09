@@ -3,8 +3,7 @@ import cookieSession = require('cookie-session');
 import * as crypto from 'crypto';
 import * as express from 'express';
 import * as passport from 'passport';
-import { IOAuth2StrategyOption, OAuth2Strategy } from 'passport-google-oauth';
-import * as redis from 'redis';
+import { OAuth2Strategy } from 'passport-google-oauth';
 
 import DynamoDBStore from '../store/dynamodb';
 import MemoryStore from '../store/memory_store';

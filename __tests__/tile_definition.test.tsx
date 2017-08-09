@@ -6,7 +6,6 @@ import Tile from '../src/components/tile';
 
 import { MapDefinition } from '../src/map_builder';
 import TileDefinition, { TileDefinitionInput } from '../src/tile_definition';
-import Track from '../src/track';
 
 const mapDef: MapDefinition = mapDef1830 as any;
 

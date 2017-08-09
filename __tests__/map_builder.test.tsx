@@ -1,12 +1,9 @@
 import { List, Map } from 'immutable';
-import { ReactElement } from 'react';
 
-import Company from '../src/company';
 import MapBuilder from '../src/map_builder';
 import TileSet from '../src/tile_set';
 
 import Game from '../src/components/game';
-import Tile from '../src/components/tile';
 
 import { mapDefinition } from './support/map_definition';
 

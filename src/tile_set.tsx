@@ -1,7 +1,4 @@
 import { List, Map } from 'immutable';
-import { ReactElement } from 'react';
-
-import Tile from './components/tile';
 
 import { MapDefinition } from './map_builder';
 import TileDefinition, { TileDefinitionInput } from './tile_definition';

@@ -3,7 +3,7 @@ import * as React from 'react';
 import { ReactElement } from 'react';
 
 import { MapHexElement } from './map_hex';
-import Tile, { TileElement } from './tile';
+import { TileElement } from './tile';
 
 import Hexagon from '../hexagon';
 import Point from '../point';

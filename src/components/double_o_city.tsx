@@ -3,7 +3,6 @@ import * as React from 'react';
 import { ReactElement } from 'react';
 
 import Point from '../point';
-import Track from '../track';
 
 import City from './city';
 import CityCircle from './city_circle';

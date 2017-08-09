@@ -5,6 +5,7 @@
     "interface-name": false,
     "max-line-length": [true, 80],
     "no-console": false,
+    "no-duplicate-imports": false,
     "quotemark": [true, "single"],
     "trailing-comma": false,
     "typedef": [

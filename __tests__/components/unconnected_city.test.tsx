@@ -1,7 +1,6 @@
 import { List } from 'immutable';
 import * as React from 'react';
 import * as renderer from 'react-test-renderer';
-import { ReactTestInstance } from 'react-test-renderer';
 
 import Hexagon from '../../src/hexagon';
 

@@ -3,8 +3,6 @@ import * as renderer from 'react-test-renderer';
 
 import Tile, { TileProps } from '../../src/components/tile';
 
-import Point from '../../src/point';
-
 describe('Tile', () => {
   describe('constants', () => {
     it('returns the correct values for all constants', () => {

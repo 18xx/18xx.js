@@ -2,7 +2,7 @@ import * as React from 'react';
 import { ReactElement } from 'react';
 
 import Line from './components/line';
-import Tile, { TileElement } from './components/tile';
+import { TileElement } from './components/tile';
 
 import Hexagon from './hexagon';
 import Point from './point';
