@@ -2,7 +2,7 @@ import * as Immutable from 'immutable';
 import { List, Map } from 'immutable';
 import * as React from 'react';
 import { MouseEvent, ReactElement } from 'react';
-import { createStore, Store } from 'redux';
+import { Store } from 'redux';
 
 import * as allTilesJson from '../../config/tiles.json';
 
@@ -14,7 +14,7 @@ import MapBoard from './map_board';
 import MapHex from './map_hex';
 import Tile from './tile';
 
-import { game, GameState } from '../reducers/game';
+import { GameState } from '../reducers/game';
 
 import Company from '../company';
 import MapBuilder, { MapDefinition, TilePromotionTuple } from '../map_builder';
@@ -28,29 +28,22 @@ const allTiles: List<TileDefinitionInput> =
 
 export interface GameInterfaceProps {
   readonly gameName: string;
-  readonly initialState?: GameState;
   readonly mapDef: MapDefinition;
+  readonly store: Store<GameState>;
 }
 
 class GameInterface
   extends React.Component<GameInterfaceProps, GameState> {
 
   public readonly tileSet: TileSet;
-  private store: Store<any>;
   private mapBuilder: MapBuilder;
 
   constructor(props: GameInterfaceProps) {
     super(props);
 
-    this.store = createStore(
-      game,
-      props.initialState,
-      (window as any).__REDUX_DEVTOOLS_EXTENSION__ &&
-        (window as any).__REDUX_DEVTOOLS_EXTENSION__()
-    );
-    this.state = this.store.getState();
+    this.state = props.store.getState();
     this.store.subscribe(() =>
-      this.setState(this.store.getState())
+      this.setState(props.store.getState())
     );
 
     this.tileSet = new TileSet(
@@ -205,6 +198,10 @@ class GameInterface
     this.store.dispatch({
       type: 'CLOSE_MENUS',
     });
+  }
+
+  private get store(): Store<GameState> {
+    return this.props.store;
   }
 }
 

@@ -2,6 +2,7 @@ import { List } from 'immutable';
 import * as React from 'react';
 import { ReactElement } from 'react';
 import * as renderer from 'react-test-renderer';
+import { createStore } from 'redux';
 
 import GameInterface from '../../src/components/game_interface';
 import MapBoard, { MapBoardProps } from '../../src/components/map_board';
@@ -23,6 +24,7 @@ const mapDef: MapDefinition = {
 const gameInterface: GameInterface = new GameInterface({
   gameName: '18xx',
   mapDef,
+  store: createStore(jest.fn()),
 });
 
 describe('MapBoard', () => {

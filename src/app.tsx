@@ -1,15 +1,17 @@
 import * as Immutable from 'immutable';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import { createStore, Store } from 'redux';
 import '../css/all.css';
 
 import AllTiles from './components/all_tiles';
-import GameInterface from './components/game_interface';
 import { HistoryEntry } from './components/history';
+import Game from './containers/game';
 
 import { MapDefinition } from './map_builder';
 
-import { GameState, initialState } from './reducers/game';
+import { game, GameState, initialState } from './reducers/game';
 
 import * as mapDef1817 from '../config/maps/1817.json';
 import * as mapDef1830 from '../config/maps/1830.json';
@@ -48,11 +50,19 @@ if (container.dataset.gameName) {
   }
 
   init = (state: GameState): void => {
+    const store: Store<GameState> = createStore(
+      game,
+      state,
+      (window as any).__REDUX_DEVTOOLS_EXTENSION__ &&
+        (window as any).__REDUX_DEVTOOLS_EXTENSION__()
+    );
     ReactDOM.render(
-      <GameInterface
-      initialState={state}
-      gameName={container.dataset.gameName!}
-      mapDef={mapDef} />,
+      <Provider store={store}>
+        <Game
+        store={store}
+        gameName={container.dataset.gameName!}
+        mapDef={mapDef} />
+      </Provider>,
       container
     );
   };

@@ -1,4 +1,5 @@
 import { List, Map } from 'immutable';
+import { createStore } from 'redux';
 
 import MapBuilder from '../src/map_builder';
 import TileSet from '../src/tile_set';
@@ -10,6 +11,7 @@ import { mapDefinition } from './support/map_definition';
 const gameInterface: GameInterface = new GameInterface({
   gameName: '18xx',
   mapDef: mapDefinition,
+  store: createStore(jest.fn()),
 });
 
 describe('MapBuilder', () => {

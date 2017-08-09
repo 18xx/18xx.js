@@ -1,6 +1,7 @@
 import { Map } from 'immutable';
 import * as React from 'react';
 import * as renderer from 'react-test-renderer';
+import { createStore, Store } from 'redux';
 
 import GameInterface from '../../src/components/game_interface';
 import { GameState } from '../../src/reducers/game';
@@ -16,10 +17,11 @@ describe('Game', () => {
       tokens: Map(),
     };
     it('renders the game', () => {
+      const store: Store<GameState> = createStore(() => defaultState);
       const subject: React.ReactElement<GameInterface> = (
         <GameInterface
         gameName='18xx'
-        initialState={defaultState}
+        store={store}
         mapDef={mapDefinition} />
       );
 
@@ -32,10 +34,10 @@ describe('Game', () => {
           ...defaultState,
           openMenu: 'TILE',
         };
+        const store: Store<GameState> = createStore(() => state);
 
         const subject: React.ReactElement<GameInterface> = (
-          <GameInterface gameName='18xx' initialState={state}
-          mapDef={mapDefinition} />
+          <GameInterface gameName='18xx' store={store} mapDef={mapDefinition} />
         );
 
         expect(renderer.create(subject)).toMatchSnapshot();
@@ -46,10 +48,10 @@ describe('Game', () => {
           ...defaultState,
           openMenu: 'TOKEN',
         };
+        const store: Store<GameState> = createStore(() => state);
 
         const subject: React.ReactElement<GameInterface> = (
-          <GameInterface gameName='18xx' initialState={state}
-          mapDef={mapDefinition} />
+          <GameInterface gameName='18xx' store={store} mapDef={mapDefinition} />
         );
 
         expect(renderer.create(subject)).toMatchSnapshot();
@@ -60,10 +62,10 @@ describe('Game', () => {
           ...defaultState,
           openMenu: 'TOKEN_CONTEXT',
         };
+        const store: Store<GameState> = createStore(() => state);
 
         const subject: React.ReactElement<GameInterface> = (
-          <GameInterface gameName='18xx' initialState={state}
-          mapDef={mapDefinition} />
+          <GameInterface gameName='18xx' store={store} mapDef={mapDefinition} />
         );
 
         expect(renderer.create(subject)).toMatchSnapshot();
