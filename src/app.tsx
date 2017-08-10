@@ -15,6 +15,7 @@ import * as mapDef1817 from '../config/maps/1817.json';
 import * as mapDef1830 from '../config/maps/1830.json';
 import * as mapDef1849 from '../config/maps/1849.json';
 import * as mapDef1880 from '../config/maps/1880.json';
+import * as mapDef1889 from '../config/maps/1889.json';
 let mapDef: MapDefinition;
 
 const container: HTMLElement | null = document.getElementById('map-container');
@@ -38,6 +39,9 @@ if (container.dataset.gameName) {
       break;
     case '1880':
       mapDef = mapDef1880 as any;
+      break;
+    case '1889':
+      mapDef = mapDef1889 as any;
       break;
     default:
       throw new Error(`Unsupported Game: ${container.dataset.gameName}`);

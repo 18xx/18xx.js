@@ -39,6 +39,7 @@ export interface MapDefinition {
   dynamicValues?: any;
   hexes?: any;
   impassable?: any;
+  invertHexes?: boolean;
   mediumCities?: any;
   names?: any;
   offBoards?: any;

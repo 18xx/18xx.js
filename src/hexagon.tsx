@@ -52,25 +52,25 @@ class Hexagon {
     return new Point(this.width / 2, this.height / 2);
   }
 
-  public hexPoints(): List<string> {
-    let result: List<string>;
+  public hexPoints(): List<Point> {
+    let result: List<Point>;
     if (this.orientation === 'north-south') {
       result = List([
-        `${this.hexLeft},${0}`,
-        `${this.hexRight},${0}`,
-        `${this.width},${this.height / 2}`,
-        `${this.hexRight},${this.height}`,
-        `${this.hexLeft},${this.height}`,
-        `${0},${this.height / 2}`
+        new Point(this.hexRight, 0),
+        new Point(this.hexLeft, 0),
+        new Point(0, this.height / 2),
+        new Point(this.hexLeft, this.height),
+        new Point(this.hexRight, this.height),
+        new Point(this.width, this.height / 2),
       ]);
     } else {
       result = List([
-        `${0},${this.hexTop}`,
-        `${this.width / 2},${0}`,
-        `${this.width},${this.hexTop}`,
-        `${this.width},${this.hexBottom}`,
-        `${this.width / 2},${this.height}`,
-        `${0},${this.hexBottom}`
+        new Point(this.width, this.hexTop),
+        new Point(this.width / 2, 0),
+        new Point(0, this.hexTop),
+        new Point(0, this.hexBottom),
+        new Point(this.width / 2, this.height),
+        new Point(this.width, this.hexBottom),
       ]);
     }
     return result;

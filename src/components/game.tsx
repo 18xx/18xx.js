@@ -118,6 +118,7 @@ class Game
               this.mapBuilder.getHexes(this.state.tiles, this.state.tokens)
             }
             orientation={this.props.mapDef.orientation || 'east-west'}
+            invertHexes={this.props.mapDef.invertHexes || false}
             addOnTop={this.mapBuilder.addOnTop}
             />
           </div>

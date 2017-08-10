@@ -35,7 +35,7 @@ class PrivateReservation extends React.Component<PrivateReservationProps, {}> {
   private get left(): number {
     let result: number = 10;
     if (this.props.hexagon.orientation === 'north-south') {
-      result = 30;
+      result = 20;
     }
     return result;
   }
@@ -43,7 +43,7 @@ class PrivateReservation extends React.Component<PrivateReservationProps, {}> {
   private get textX(): number {
     let result: number = this.left - 8;
     if (this.props.hexagon.orientation === 'north-south') {
-      result = this.left - 20;
+      result = this.left + 4;
     }
     return result;
   }

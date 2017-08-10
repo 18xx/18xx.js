@@ -10,6 +10,7 @@ export interface MapBoardProps {
   readonly addOnTop?: List<ReactElement<any>>;
   readonly game: Game;
   readonly hexes: List<ReactElement<MapHex>>;
+  readonly invertHexes: boolean;
   readonly orientation: string;
 }
 
@@ -49,13 +50,17 @@ class MapBoard extends React.Component<MapBoardProps, {}>  {
 
   private get numColumns(): number {
     return Set(this.hexes.map(
-      (hex: ReactElement<MapHex>) => hex.props.column
+      (hex: ReactElement<MapHex>) => (
+        this.props.invertHexes ? hex.props.row : hex.props.column
+      )
     )).size;
   }
 
   private get numRows(): number {
     return Set(this.hexes.map(
-      (hex: ReactElement<MapHex>) => hex.props.row
+      (hex: ReactElement<MapHex>) => (
+        this.props.invertHexes ? hex.props.column : hex.props.row
+      )
     )).size;
   }
 }

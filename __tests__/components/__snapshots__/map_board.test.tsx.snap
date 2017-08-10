@@ -15,7 +15,7 @@ exports[`MapBoard #render() returns an svg representation of the map board 1`] =
   >
     <polygon
       fill="#efe"
-      points="0,32 55.42562584220407,0 110.85125168440814,32 110.85125168440814,96 55.42562584220407,128 0,96"
+      points="110.85125168440814,32 55.42562584220407,0 0,32 0,96 55.42562584220407,128 110.85125168440814,96"
       stroke="black"
     />
   </svg>
@@ -27,7 +27,7 @@ exports[`MapBoard #render() returns an svg representation of the map board 1`] =
   >
     <polygon
       fill="#efe"
-      points="0,32 55.42562584220407,0 110.85125168440814,32 110.85125168440814,96 55.42562584220407,128 0,96"
+      points="110.85125168440814,32 55.42562584220407,0 0,32 0,96 55.42562584220407,128 110.85125168440814,96"
       stroke="black"
     />
   </svg>
@@ -49,7 +49,7 @@ exports[`MapBoard #render() when a north-south board returns an svg representati
   >
     <polygon
       fill="#efe"
-      points="0,32 55.42562584220407,0 110.85125168440814,32 110.85125168440814,96 55.42562584220407,128 0,96"
+      points="110.85125168440814,32 55.42562584220407,0 0,32 0,96 55.42562584220407,128 110.85125168440814,96"
       stroke="black"
     />
   </svg>
@@ -61,7 +61,41 @@ exports[`MapBoard #render() when a north-south board returns an svg representati
   >
     <polygon
       fill="#efe"
-      points="0,32 55.42562584220407,0 110.85125168440814,32 110.85125168440814,96 55.42562584220407,128 0,96"
+      points="110.85125168440814,32 55.42562584220407,0 0,32 0,96 55.42562584220407,128 110.85125168440814,96"
+      stroke="black"
+    />
+  </svg>
+</svg>
+`;
+
+exports[`MapBoard #render() with inverted hexes returns an svg representation of the map board 1`] = `
+<svg
+  height={224}
+  id="mapBoard"
+  width={110.85125168440814}
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <svg
+    className="hex"
+    onClick={undefined}
+    x={0}
+    y={0}
+  >
+    <polygon
+      fill="#efe"
+      points="110.85125168440814,32 55.42562584220407,0 0,32 0,96 55.42562584220407,128 110.85125168440814,96"
+      stroke="black"
+    />
+  </svg>
+  <svg
+    className="hex"
+    onClick={undefined}
+    x={110.85125168440814}
+    y={0}
+  >
+    <polygon
+      fill="#efe"
+      points="110.85125168440814,32 55.42562584220407,0 0,32 0,96 55.42562584220407,128 110.85125168440814,96"
       stroke="black"
     />
   </svg>
