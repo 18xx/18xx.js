@@ -9,7 +9,7 @@ import * as allTilesJson from '../../config/tiles.json';
 import AvailableTiles from './available_tiles';
 import AvailableTokens from './available_tokens';
 import EditToken from './edit_token';
-import History from './history';
+import History, { HistoryEntry } from './history';
 import MapBoard from './map_board';
 import MapHex from './map_hex';
 import Tile from './tile';
@@ -26,25 +26,31 @@ const allTiles: List<TileDefinitionInput> =
     (el: any) => el.toJS() as TileDefinitionInput
   );
 
-export interface GameInterfaceProps {
+export interface GameInterfaceInitProps {
   readonly gameName: string;
   readonly mapDef: MapDefinition;
   readonly store: Store<GameState>;
 }
 
+export interface GameInterfaceMappedProps {
+  readonly history?: List<HistoryEntry>;
+  readonly openMenu?: string;
+  readonly tileFilter?: any;
+  readonly tiles: Map<string, string>;
+  readonly tokens: Map<string, List<string>>;
+}
+
+export type GameInterfaceProps =
+  GameInterfaceInitProps & GameInterfaceMappedProps;
+
 class GameInterface
-  extends React.Component<GameInterfaceProps, GameState> {
+  extends React.Component<GameInterfaceProps, {}> {
 
   public readonly tileSet: TileSet;
   private mapBuilder: MapBuilder;
 
   constructor(props: GameInterfaceProps) {
     super(props);
-
-    this.state = props.store.getState();
-    this.store.subscribe(() =>
-      this.setState(props.store.getState())
-    );
 
     this.tileSet = new TileSet(
       allTiles,
@@ -62,14 +68,14 @@ class GameInterface
   public render(): ReactElement<GameInterface> | null {
     let topMenu: ReactElement<any> | undefined;
 
-    switch (this.state.openMenu) {
+    switch (this.props.openMenu) {
       case 'TILE':
         topMenu = (
           <AvailableTiles
             show={true}
-            tileFilter={this.state.tileFilter}
+            tileFilter={this.props.tileFilter}
             onClick={this.placeTile}
-            tiles={this.state.tiles}
+            tiles={this.props.tiles}
             tileSet={this.tileSet} />
         );
         break;
@@ -99,16 +105,15 @@ class GameInterface
         {topMenu}
         <div className='row'>
           <History
-          entries={this.state.history || List()}
+          entries={this.props.history || List()}
           mapDef={this.props.mapDef}
           tileSet={this.tileSet} />
 
           <div
           className='col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main'>
             <MapBoard
-            gameInterface={this}
             hexes={
-              this.mapBuilder.getHexes(this.state.tiles, this.state.tokens)
+              this.mapBuilder.getHexes(this.props.tiles, this.props.tokens)
             }
             orientation={this.props.mapDef.orientation || 'east-west'}
             invertHexes={this.props.mapDef.invertHexes || false}

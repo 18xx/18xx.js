@@ -4,22 +4,14 @@ import { createStore } from 'redux';
 import MapBuilder from '../src/map_builder';
 import TileSet from '../src/tile_set';
 
-import GameInterface from '../src/components/game_interface';
-
 import { mapDefinition } from './support/map_definition';
-
-const gameInterface: GameInterface = new GameInterface({
-  gameName: '18xx',
-  mapDef: mapDefinition,
-  store: createStore(jest.fn()),
-});
 
 describe('MapBuilder', () => {
   describe('#build()', () => {
     it('returns an svg of the map', () => {
       const tileSet: TileSet = new TileSet(List([]), mapDefinition, Map());
       const builder: MapBuilder = new MapBuilder(
-        gameInterface,
+        {} as any,
         mapDefinition,
         tileSet
       );
