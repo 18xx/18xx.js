@@ -7,7 +7,7 @@ import { Store } from 'redux';
 import * as allTilesJson from '../../config/tiles.json';
 
 import AvailableTiles from '../containers/available_tiles';
-import AvailableTokens from './available_tokens';
+import AvailableTokens from '../containers/available_tokens';
 import EditToken from './edit_token';
 import History, { HistoryEntry } from './history';
 import MapBoard from './map_board';
@@ -86,7 +86,7 @@ class GameInterface
           )
         );
         topMenu = (
-          <AvailableTokens companies={companies} onClick={this.placeToken} />
+          <AvailableTokens companies={companies} />
         );
         break;
       case 'TOKEN_CONTEXT':
@@ -180,16 +180,6 @@ class GameInterface
         type: 'SHOW_AVAILABLE_TILES',
       });
     }
-  }
-
-  private placeToken = (company: Company): void => {
-    this.store.dispatch({
-      company: company.reportingMark,
-      type: 'PLACE_TOKEN',
-    });
-    this.store.dispatch({
-      type: 'CLOSE_MENUS',
-    });
   }
 
   private get store(): Store<GameState> {
