@@ -1,5 +1,4 @@
 import { List, Map } from 'immutable';
-import { createStore } from 'redux';
 
 import MapBuilder from '../src/map_builder';
 import TileSet from '../src/tile_set';

@@ -22,7 +22,6 @@ describe('AvailableTiles', () => {
 
   const defaultProps: AvailableTilesProps = {
     onClick: jest.fn(),
-    show: true,
     tileFilter: List(['7', '8']),
     tileSet,
     tiles: Map({a1: '7'}),

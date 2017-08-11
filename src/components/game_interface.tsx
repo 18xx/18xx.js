@@ -6,13 +6,12 @@ import { Store } from 'redux';
 
 import * as allTilesJson from '../../config/tiles.json';
 
-import AvailableTiles from './available_tiles';
+import AvailableTiles from '../containers/available_tiles';
 import AvailableTokens from './available_tokens';
 import EditToken from './edit_token';
 import History, { HistoryEntry } from './history';
 import MapBoard from './map_board';
 import MapHex from './map_hex';
-import Tile from './tile';
 
 import { GameState } from '../reducers/game';
 
@@ -72,9 +71,7 @@ class GameInterface
       case 'TILE':
         topMenu = (
           <AvailableTiles
-            show={true}
             tileFilter={this.props.tileFilter}
-            onClick={this.placeTile}
             tiles={this.props.tiles}
             tileSet={this.tileSet} />
         );
@@ -183,16 +180,6 @@ class GameInterface
         type: 'SHOW_AVAILABLE_TILES',
       });
     }
-  }
-
-  private placeTile = (tile: ReactElement<Tile>): void => {
-    this.store.dispatch({
-      tile: tile.key,
-      type: 'PLACE_TILE',
-    });
-    this.store.dispatch({
-      type: 'CLOSE_MENUS',
-    });
   }
 
   private placeToken = (company: Company): void => {
