@@ -1,5 +1,6 @@
 import { Map } from 'immutable';
 import * as React from 'react';
+import { Provider } from 'react-redux';
 import * as renderer from 'react-test-renderer';
 import { createStore, Store } from 'redux';
 
@@ -23,7 +24,9 @@ describe('Game', () => {
     };
     it('renders the game', () => {
       const subject: React.ReactElement<GameInterface> = (
-        <GameInterface {...props} store={store} />
+        <Provider store={store}>
+          <GameInterface {...props} store={store} />
+        </Provider>
       );
 
       expect(renderer.create(subject)).toMatchSnapshot();
@@ -32,7 +35,9 @@ describe('Game', () => {
     describe('open menus', () => {
       it('shows the tile menu', () => {
         const subject: React.ReactElement<GameInterface> = (
-          <GameInterface {...props} store={store} openMenu='TILE' />
+          <Provider store={store}>
+            <GameInterface {...props} store={store} openMenu='TILE' />
+          </Provider>
         );
 
         expect(renderer.create(subject)).toMatchSnapshot();
@@ -40,7 +45,9 @@ describe('Game', () => {
 
       it('shows the token menu', () => {
         const subject: React.ReactElement<GameInterface> = (
-          <GameInterface {...props} store={store} openMenu='TOKEN' />
+          <Provider store={store}>
+            <GameInterface {...props} store={store} openMenu='TOKEN' />
+          </Provider>
         );
 
         expect(renderer.create(subject)).toMatchSnapshot();
@@ -48,7 +55,9 @@ describe('Game', () => {
 
       it('shows the token context menu', () => {
         const subject: React.ReactElement<GameInterface> = (
-          <GameInterface {...props} store={store} openMenu='TOKEN_CONTEXT' />
+          <Provider store={store}>
+            <GameInterface {...props} store={store} openMenu='TOKEN_CONTEXT' />
+          </Provider>
         );
 
         expect(renderer.create(subject)).toMatchSnapshot();

@@ -7,8 +7,9 @@ import CityCircle, { CityCircleProps } from './components/city_circle';
 import CityName from './components/city_name';
 import DynamicValues from './components/dynamic_values';
 import GameInterface from './components/game_interface';
-import MapHex, {
-  MapHexElement, MapHexProps
+import MapHexInterface, {
+  MapHexElement,
+  MapHexProps,
 } from './components/map_hex';
 import MediumCity from './components/medium_city';
 import OffBoard from './components/off_board';
@@ -17,6 +18,8 @@ import Tile from './components/tile';
 import TileCost from './components/tile_cost';
 import Token from './components/token';
 import Town from './components/town';
+
+import MapHex from './containers/map_hex';
 
 import CityCircleFactory from './city_circle_factory';
 import Company from './company';
@@ -68,7 +71,7 @@ class MapBuilder {
   public getHexes(
     tileState: Map<string, string>,
     tokenState: Map<string, List<string>>,
-  ): List<ReactElement<MapHex>> {
+  ): List<ReactElement<MapHexInterface>> {
     const keys: string[] = Object.keys(this.mapDef.hexes);
     // FIXME: hexData to interface
     const hexData: MapHexProps[] = [];
@@ -308,13 +311,13 @@ class MapBuilder {
     if (this.mapDef.impassable) {
       return List<ReactElement<any>>(this.mapDef.impassable.map(
         (hexes: [string, string]) => {
-          const hex0: MapHex = new MapHex({
+          const hex0: MapHexInterface = new MapHexInterface({
             column: parseInt(hexes[0].substring(1), 10),
             mapDef: this.mapDef,
             row: (hexes[0].substring(0, 1)),
           });
 
-          const hex1: MapHex = new MapHex({
+          const hex1: MapHexInterface = new MapHexInterface({
             column: parseInt(hexes[1].substring(1), 10),
             mapDef: this.mapDef,
             row: (hexes[1].substring(0, 1)),
@@ -378,8 +381,9 @@ class MapBuilder {
     );
   }
 
-  // FIXME: Typedef
-  private renderHexes(hexData: MapHexProps[]): List<ReactElement<MapHex>> {
+  private renderHexes(
+    hexData: MapHexProps[]
+  ): List<ReactElement<MapHexInterface>> {
     return List(hexData.map((data: MapHexProps) =>
       <MapHex
         key={data.row + data.column}
@@ -389,7 +393,6 @@ class MapBuilder {
         tile={data.tile}
         elements={data.elements}
         allowTile={data.allowTile}
-        onHexClick={this.gameInterface.onHexClick}
         mapDef={this.mapDef}
       />
     ));

@@ -11,12 +11,11 @@ import AvailableTokens from '../containers/available_tokens';
 import EditToken from './edit_token';
 import History, { HistoryEntry } from './history';
 import MapBoard from './map_board';
-import MapHex from './map_hex';
 
 import { GameState } from '../reducers/game';
 
 import Company from '../company';
-import MapBuilder, { MapDefinition, TilePromotionTuple } from '../map_builder';
+import MapBuilder, { MapDefinition } from '../map_builder';
 import { TileDefinitionInput } from '../tile_definition';
 import TileSet, { TileSetDetails } from '../tile_set';
 
@@ -149,37 +148,6 @@ class GameInterface
     this.store.dispatch({
       type: 'CLOSE_MENUS',
     });
-  }
-
-  public onHexClick = (hex: MapHex): void => {
-    let tileFilter: List<string> | undefined;
-
-    if (hex.props.tile && hex.props.tile.key && hex.props.tile.key !== 'pp') {
-      const tileNum: string = hex.props.tile.key.toString().split('.')[0];
-      tileFilter = (
-        this.props.mapDef.tileManifest[tileNum].promotions || List<string>([])
-      );
-    } else {
-      if (hex.props.allowTile && this.props.mapDef.tilePromotions) {
-        let rule: any = this.props.mapDef.tilePromotions.find(
-          (p: TilePromotionTuple) => !!(p.hexes && p.hexes.includes(hex.hex))
-        );
-
-        if (!rule && this.props.mapDef.tilePromotions) {
-          rule = this.props.mapDef.tilePromotions.find(p => !p.hexes);
-        }
-
-        tileFilter = rule.promotions;
-      }
-    }
-
-    if (tileFilter) {
-      this.store.dispatch({
-        hex: hex.hex,
-        tileFilter,
-        type: 'SHOW_AVAILABLE_TILES',
-      });
-    }
   }
 
   private get store(): Store<GameState> {

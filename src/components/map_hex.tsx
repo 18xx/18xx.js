@@ -8,16 +8,21 @@ import Hexagon from '../hexagon';
 import { MapDefinition} from '../map_builder';
 import Point from '../point';
 
-export interface MapHexProps {
+export interface MapHexInitProps {
   readonly allowTile?: boolean;
   readonly column: number;
   readonly elements?: List<MapHexElement>;
   readonly fill?: string;
-  readonly onHexClick?: (mapHex: MapHex) => void;
   readonly mapDef: MapDefinition;
   readonly row: string;
   readonly tile?: ReactElement<Tile>;
 }
+
+export interface MapHexMappedProps {
+  readonly onHexClick?: (mapHex: MapHex) => void;
+}
+
+export type MapHexProps = MapHexInitProps & MapHexMappedProps;
 
 export interface MapHexElement {
   toString(): string;
