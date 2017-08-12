@@ -8,7 +8,7 @@ import * as allTilesJson from '../../config/tiles.json';
 
 import AvailableTiles from '../containers/available_tiles';
 import AvailableTokens from '../containers/available_tokens';
-import EditToken from './edit_token';
+import EditToken from '../containers/edit_token';
 import History, { HistoryEntry } from './history';
 import MapBoard from './map_board';
 
@@ -89,9 +89,7 @@ class GameInterface
         );
         break;
       case 'TOKEN_CONTEXT':
-        topMenu = (
-          <EditToken onRemoveToken={this.onRemoveToken} />
-        );
+        topMenu = <EditToken />;
         break;
       default:
     }
@@ -138,15 +136,6 @@ class GameInterface
       hex,
       index,
       type: 'SHOW_TOKEN_CONTEXT_MENU',
-    });
-  }
-
-  public onRemoveToken = (): void => {
-    this.store.dispatch({
-      type: 'REMOVE_TOKEN',
-    });
-    this.store.dispatch({
-      type: 'CLOSE_MENUS',
     });
   }
 

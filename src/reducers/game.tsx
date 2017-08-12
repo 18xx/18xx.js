@@ -115,7 +115,7 @@ const game: Reducer<GameState> = (
       );
 
     case 'REMOVE_TOKEN':
-      if (!state.hex || !state.cityIndex) {
+      if (!state.hex || (!state.cityIndex && state.cityIndex !== 0)) {
         console.error('Attempted to remove token from unknown hex');
         return state;
       }
