@@ -14,8 +14,7 @@
     "redux-devtools-dock-monitor": "^1.1.2",
     "redux-devtools-log-monitor": "^1.3.0",
     "ts-jest": "^20.0.10",
-    "tslint": "^5.6.0",
-    "webpack-visualizer-plugin": "^0.1.11"
+    "tslint": "^5.6.0"
   },
   "babel": {
     "presets": [
@@ -92,6 +91,7 @@
     "source-map-loader": "^0.2.1",
     "ts-node": "^3.3.0",
     "typescript": "^2.4.2",
-    "webpack": "^3.5.1"
+    "webpack": "^3.5.1",
+    "webpack-visualizer-plugin": "^0.1.11"
   }
 }
