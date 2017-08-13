@@ -3,7 +3,6 @@ import { MouseEvent, ReactElement } from 'react';
 
 import { MapHexElement } from './map_hex';
 import { TileElement } from './tile';
-import Token from './token';
 
 import Point from '../point';
 
@@ -16,7 +15,6 @@ export interface CityCircleInitProps {
   readonly index: number;
   readonly point: Point;
   readonly radius?: number;
-  readonly token?: ReactElement<Token>;
 }
 
 export interface CityCircleMappedProps {
@@ -57,21 +55,24 @@ implements MapHexElement, TileElement {
         }
       };
     return (
-      <svg
-      x={this.point.x - r}
-      y={this.point.y - r}
-      onContextMenu={fn}>
-        <circle
-          cx={r}
-          cy={r}
-          r={this.radius}
-          fill='white'
-          stroke='#000'
-          strokeWidth={STROKE_WIDTH}
-          className='city-circle'
-        />
-        {this.props.token}
+      <svg x={this.point.x - r} y={this.point.y - r} onContextMenu={fn}>
+        {this.circle(r)}
+        {this.props.children}
       </svg>
+    );
+  }
+
+  private circle(r: number): ReactElement<SVGCircleElement> {
+    return (
+      <circle
+      cx={r}
+      cy={r}
+      r={this.radius}
+      fill='white'
+      stroke='#000'
+      strokeWidth={STROKE_WIDTH}
+      className='city-circle'
+      />
     );
   }
 }

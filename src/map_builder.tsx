@@ -112,12 +112,13 @@ class MapBuilder {
             this.mapDef.companies
           ).findKey(c => c.home === hex);
 
+          let token: ReactElement<TokenInterface> | undefined;
           if (companyStr) {
             const company: Company = Company.fromJson(
               companyStr,
               this.mapDef.companies[companyStr]
             );
-            const token: ReactElement<TokenInterface> = (
+            token = (
               <Token
               faded={true}
               text={company.shorthand}
@@ -125,10 +126,6 @@ class MapBuilder {
               secondaryColor={company.secondaryColor}
               textColor={company.textColor} />
             );
-            ccProps = {
-              ...ccProps,
-              token
-            };
           }
           if (this.mapDef.cities[hex] === 1) {
             hexElements.push(React.createElement(CityCircle, ccProps));
@@ -144,6 +141,7 @@ class MapBuilder {
                     this.hexagon.center.y
                   ),
                 },
+                token
               ),
               React.createElement(
                 CityCircle,
@@ -154,7 +152,6 @@ class MapBuilder {
                     this.hexagon.center.x + 25,
                     this.hexagon.center.y
                   ),
-                  token: undefined
                 },
               ),
             );

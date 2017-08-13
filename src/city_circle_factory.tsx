@@ -32,9 +32,9 @@ class CityCircleFactory {
         index={index}
         key={point.toString()}
         point={point}
-        token={this.buildToken(index, point)}
-        radius={this.radius}
-      />
+        radius={this.radius}>
+        {this.buildToken(index, point)}
+      </CityCircle>
     );
   }
 
