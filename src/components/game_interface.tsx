@@ -57,7 +57,6 @@ class GameInterface
     );
 
     this.mapBuilder = new MapBuilder(
-      this,
       this.props.mapDef,
       this.tileSet
     );
@@ -117,14 +116,6 @@ class GameInterface
         </div>
       </div>
     );
-  }
-
-  public onRightClickCity = (hex: string, index: number): void => {
-    this.store.dispatch({
-      hex,
-      index,
-      type: 'SHOW_AVAILABLE_TOKENS',
-    });
   }
 
   private get store(): Store<GameState> {

@@ -1,10 +1,11 @@
 import { List } from 'immutable';
 import * as React from 'react';
-import { MouseEvent, ReactElement } from 'react';
+import { ReactElement } from 'react';
 
-import CityCircle from './components/city_circle';
+import CityCircleInterface from './components/city_circle';
 import TokenInterface from './components/token';
 
+import CityCircle from './containers/city_circle';
 import Token from './containers/token';
 
 import Company from './company';
@@ -16,27 +17,21 @@ class CityCircleFactory {
     private mapDef: MapDefinition,
     private hex: string,
     private homeTokens: List<string>,
-    private onRightClickCity: (hex: string, index: number) => void,
     private tokenState: List<string>,
-    private radius: number = CityCircle.DEFAULT_RADIUS,
+    private radius: number = CityCircleInterface.DEFAULT_RADIUS,
   ) {
   }
 
-  public build(index: number, point: Point): ReactElement<CityCircle> {
-    let fn: ((event: MouseEvent<SVGElement>) => void) | undefined;
-    if (typeof this.tokenState === 'undefined' || !this.tokenState.get(index)) {
-      fn = event => {
-        event.preventDefault();
-        this.onRightClickCity(this.hex, index);
-      };
-    }
-
+  public build(
+    index: number,
+    point: Point
+  ): ReactElement<CityCircleInterface> {
     return (
       <CityCircle
         hex={this.hex}
+        index={index}
         key={point.toString()}
         point={point}
-        onContextMenu={fn}
         token={this.buildToken(index, point)}
         radius={this.radius}
       />

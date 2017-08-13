@@ -14,7 +14,6 @@ import TrackToCenter from './track_to_center';
 class TileBuilder {
   constructor(
     private mapDef: MapDefinition,
-    private onRightClickCity?: (hex: string, index: number) => void,
     private hex?: string,
     private tokenState?: List<string>,
     private homeTokens?: List<string>,
@@ -28,7 +27,6 @@ class TileBuilder {
     const color: string = def.color;
     const factory: TileFactory = new TileFactory(
       this.mapDef,
-      this.onRightClickCity,
       new TileDefinition(this.mapDef, def),
       i,
       this.hex,

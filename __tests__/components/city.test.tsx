@@ -1,10 +1,13 @@
 import { List } from 'immutable';
 import * as React from 'react';
+import { Provider } from 'react-redux';
 import * as renderer from 'react-test-renderer';
 
 import Hexagon from '../../src/hexagon';
 
 import City, { CityProps } from '../../src/components/city';
+
+import { stubStore } from '../support/store';
 
 describe('City', () => {
   const defaultProps: CityProps =  {
@@ -13,14 +16,15 @@ describe('City', () => {
     homeTokens: List(),
     mapDef: { companies: [], tileManifest: []},
     num: 1,
-    onRightClickCity: jest.fn(),
     tokenState: List(),
   };
 
   describe('when there is one city', () => {
     it('renders an svg for the city', () => {
       const subject: React.ReactElement<City> = (
-        <City {...defaultProps} />
+        <Provider store={stubStore}>
+          <City {...defaultProps} />
+        </Provider>
       );
 
       expect(renderer.create(subject)).toMatchSnapshot();
@@ -30,7 +34,9 @@ describe('City', () => {
   describe('when there are two cities', () => {
     it('renders an svg for the cities', () => {
       const subject: React.ReactElement<City> = (
-        <City {...defaultProps} num={2} />
+        <Provider store={stubStore}>
+          <City {...defaultProps} num={2} />
+        </Provider>
       );
 
       expect(renderer.create(subject)).toMatchSnapshot();
@@ -40,7 +46,9 @@ describe('City', () => {
   describe('when there are three cities', () => {
     it('renders an svg for the cities', () => {
       const subject: React.ReactElement<City> = (
-        <City {...defaultProps} num={3} />
+        <Provider store={stubStore}>
+          <City {...defaultProps} num={3} />
+        </Provider>
       );
 
       expect(renderer.create(subject)).toMatchSnapshot();
@@ -50,7 +58,9 @@ describe('City', () => {
   describe('when there are four cities', () => {
     it('renders an svg for the cities', () => {
       const subject: React.ReactElement<City> = (
-        <City {...defaultProps} num={4} />
+        <Provider store={stubStore}>
+          <City {...defaultProps} num={4} />
+        </Provider>
       );
 
       expect(renderer.create(subject)).toMatchSnapshot();
@@ -60,7 +70,9 @@ describe('City', () => {
   describe('when there are five cities', () => {
     it('throws an error', () => {
       const subject: React.ReactElement<City> = (
-        <City {...defaultProps} num={5} />
+        <Provider store={stubStore}>
+          <City {...defaultProps} num={5} />
+        </Provider>
       );
 
       expect(() => renderer.create(subject)).toThrow(
@@ -72,7 +84,9 @@ describe('City', () => {
   describe('when there are six cities', () => {
     it('renders an svg for the cities', () => {
       const subject: React.ReactElement<City> = (
-        <City {...defaultProps} num={6} />
+        <Provider store={stubStore}>
+          <City {...defaultProps} num={6} />
+        </Provider>
       );
 
       expect(renderer.create(subject)).toMatchSnapshot();

@@ -58,10 +58,7 @@ if (container.dataset.gameName) {
     );
     ReactDOM.render(
       <Provider store={store}>
-        <Game
-        store={store}
-        gameName={container.dataset.gameName!}
-        mapDef={mapDef} />
+        <Game gameName={container.dataset.gameName!} mapDef={mapDef} />
       </Provider>,
       container
     );

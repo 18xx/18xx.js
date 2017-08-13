@@ -39,7 +39,7 @@ exports[`History #render renders the history 1`] = `
           <svg
             className="token"
             height="40"
-            onContextMenu={undefined}
+            onContextMenu={[Function]}
             opacity={1}
             viewBox="0 0 40 40"
             width="40"

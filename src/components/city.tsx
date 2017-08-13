@@ -13,7 +13,6 @@ import Point from '../point';
 export interface CityProps {
   hex: string;
   hexagon: Hexagon;
-  onRightClickCity: (hex: string, index: number) => void;
   mapDef: MapDefinition;
   num: number;
   points?: List<Point>;
@@ -262,7 +261,6 @@ class City extends React.Component<CityProps, {}> implements Station {
       this.props.mapDef,
       this.props.hex,
       this.props.homeTokens,
-      this.props.onRightClickCity,
       this.props.tokenState,
       this.cityCircleRadius,
     );

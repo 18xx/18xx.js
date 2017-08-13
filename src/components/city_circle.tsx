@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { ReactElement } from 'react';
+import { MouseEvent, ReactElement } from 'react';
 
 import { MapHexElement } from './map_hex';
 import { TileElement } from './tile';
@@ -10,14 +10,20 @@ import Point from '../point';
 const DEFAULT_RADIUS: number = 19;
 const STROKE_WIDTH: number = 2;
 
-export interface CityCircleProps {
+export interface CityCircleInitProps {
   readonly key?: string;
-  readonly hex?: string;
-  readonly onContextMenu?: any;
+  readonly hex: string;
+  readonly index: number;
   readonly point: Point;
   readonly radius?: number;
   readonly token?: ReactElement<Token>;
 }
+
+export interface CityCircleMappedProps {
+  readonly onContextMenu?: (hex: string, index: number) => void;
+}
+
+export type CityCircleProps = CityCircleInitProps & CityCircleMappedProps;
 
 class CityCircle extends React.Component<CityCircleProps, {}>
 implements MapHexElement, TileElement {
@@ -43,11 +49,18 @@ implements MapHexElement, TileElement {
 
   public render(): ReactElement<CityCircle> {
     const r: number = this.radius + STROKE_WIDTH / 2;
+    const fn: (event: MouseEvent<SVGElement>) => void =
+      (event: MouseEvent<SVGElement>) => {
+        event.preventDefault();
+        if (this.props.onContextMenu) {
+          this.props.onContextMenu(this.props.hex, this.props.index);
+        }
+      };
     return (
       <svg
       x={this.point.x - r}
       y={this.point.y - r}
-      onContextMenu={ this.props.onContextMenu }>
+      onContextMenu={fn}>
         <circle
           cx={r}
           cy={r}

@@ -28,8 +28,6 @@ class TileFactory {
 
   constructor(
     private mapDef: MapDefinition,
-    private onRightClickCity:
-      ((hex: string, index: number) => void) | undefined,
     private definition: TileDefinition,
     private rotation: number = 0,
     private hex?: string,
@@ -47,7 +45,6 @@ class TileFactory {
       key: this.hex || 'city',
       mapDef: this.mapDef,
       num: this.definition.spots,
-      onRightClickCity: this.onRightClickCity,
       tokenState,
     };
     let klass: any;

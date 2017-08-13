@@ -1,11 +1,14 @@
 import { List } from 'immutable';
 import * as React from 'react';
+import { Provider } from 'react-redux';
 import * as renderer from 'react-test-renderer';
 
 import Hexagon from '../../src/hexagon';
 
 import { CityProps } from '../../src/components/city';
 import UnconnectedCity from '../../src/components/unconnected_city';
+
+import { stubStore } from '../support/store';
 
 describe('UnconnectedCity', () => {
   const defaultProps: CityProps =  {
@@ -14,14 +17,15 @@ describe('UnconnectedCity', () => {
     homeTokens: List(),
     mapDef: { companies: [], tileManifest: []},
     num: 1,
-    onRightClickCity: jest.fn(),
     tokenState: List(),
   };
 
   describe('render', () => {
     describe('when there is one city', () => {
       const subject: React.ReactElement<UnconnectedCity> = (
-        <UnconnectedCity {...defaultProps} />
+        <Provider store={stubStore}>
+          <UnconnectedCity {...defaultProps} />
+        </Provider>
       );
 
       it('returns the correct result', () => {
@@ -31,7 +35,9 @@ describe('UnconnectedCity', () => {
 
     describe('when there are two cities', () => {
       const subject: React.ReactElement<UnconnectedCity> = (
-        <UnconnectedCity {...defaultProps} num={2} />
+        <Provider store={stubStore}>
+          <UnconnectedCity {...defaultProps} num={2} />
+        </Provider>
       );
 
       it('returns the correct result', () => {
@@ -41,7 +47,9 @@ describe('UnconnectedCity', () => {
 
     describe('when there three cities', () => {
       const subject: React.ReactElement<UnconnectedCity> = (
-        <UnconnectedCity {...defaultProps} num={3} />
+        <Provider store={stubStore}>
+          <UnconnectedCity {...defaultProps} num={3} />
+        </Provider>
       );
 
       it('returns the correct result', () => {

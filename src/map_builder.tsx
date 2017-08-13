@@ -6,7 +6,6 @@ import { ReactElement } from 'react';
 import CityCircle, { CityCircleProps } from './components/city_circle';
 import CityName from './components/city_name';
 import DynamicValues from './components/dynamic_values';
-import GameInterface from './components/game_interface';
 import MapHexInterface, {
   MapHexElement,
   MapHexProps,
@@ -61,7 +60,6 @@ class MapBuilder {
   private hexagon: Hexagon;
 
   constructor(
-    private gameInterface: GameInterface,
     private mapDef: MapDefinition,
     private tileSet: TileSet,
   ) {
@@ -104,7 +102,9 @@ class MapBuilder {
         }
 
         if (this.mapDef.cities && this.mapDef.cities[hex]) {
-          let ccProps: CityCircleProps = {
+          const ccProps: CityCircleProps = {
+            hex,
+            index: 0,
             key: 'cc',
             point: this.hexagon.center,
           };
@@ -229,7 +229,6 @@ class MapBuilder {
               this.mapDef,
               hex,
               homeTokens,
-              this.gameInterface.onRightClickCity,
               tokenState.get(hex) || List([]),
             );
 
@@ -256,7 +255,6 @@ class MapBuilder {
         let tile: ReactElement<Tile> | undefined;
         const tileBuilder: TileBuilder = new TileBuilder(
           this.mapDef,
-          this.gameInterface.onRightClickCity,
           hex,
           tokenState.get(hex),
           homeTokens,

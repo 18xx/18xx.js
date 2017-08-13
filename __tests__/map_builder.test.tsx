@@ -10,7 +10,6 @@ describe('MapBuilder', () => {
     it('returns an svg of the map', () => {
       const tileSet: TileSet = new TileSet(List([]), mapDefinition, Map());
       const builder: MapBuilder = new MapBuilder(
-        {} as any,
         mapDefinition,
         tileSet
       );
