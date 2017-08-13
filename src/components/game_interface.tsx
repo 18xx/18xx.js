@@ -2,7 +2,6 @@ import * as Immutable from 'immutable';
 import { List, Map } from 'immutable';
 import * as React from 'react';
 import { ReactElement } from 'react';
-import { Store } from 'redux';
 
 import * as allTilesJson from '../../config/tiles.json';
 
@@ -11,8 +10,6 @@ import AvailableTokens from '../containers/available_tokens';
 import EditToken from '../containers/edit_token';
 import History, { HistoryEntry } from './history';
 import MapBoard from './map_board';
-
-import { GameState } from '../reducers/game';
 
 import Company from '../company';
 import MapBuilder, { MapDefinition } from '../map_builder';
@@ -27,7 +24,6 @@ const allTiles: List<TileDefinitionInput> =
 export interface GameInterfaceInitProps {
   readonly gameName: string;
   readonly mapDef: MapDefinition;
-  readonly store: Store<GameState>;
 }
 
 export interface GameInterfaceMappedProps {
@@ -116,10 +112,6 @@ class GameInterface
         </div>
       </div>
     );
-  }
-
-  private get store(): Store<GameState> {
-    return this.props.store;
   }
 }
 

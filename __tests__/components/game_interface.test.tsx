@@ -15,7 +15,6 @@ describe('Game', () => {
     const props: GameInterfaceProps = {
       gameName: '18xx',
       mapDef: mapDefinition,
-      store: stubStore,
       tileFilter: Map(),
       tiles: Map(),
       tokens: Map(),
@@ -23,7 +22,7 @@ describe('Game', () => {
     it('renders the game', () => {
       const subject: React.ReactElement<GameInterface> = (
         <Provider store={stubStore}>
-          <GameInterface {...props} store={stubStore} />
+          <GameInterface {...props} />
         </Provider>
       );
 
@@ -34,7 +33,7 @@ describe('Game', () => {
       it('shows the tile menu', () => {
         const subject: React.ReactElement<GameInterface> = (
           <Provider store={stubStore}>
-            <GameInterface {...props} store={stubStore} openMenu='TILE' />
+            <GameInterface {...props} openMenu='TILE' />
           </Provider>
         );
 
@@ -44,7 +43,7 @@ describe('Game', () => {
       it('shows the token menu', () => {
         const subject: React.ReactElement<GameInterface> = (
           <Provider store={stubStore}>
-            <GameInterface {...props} store={stubStore} openMenu='TOKEN' />
+            <GameInterface {...props} openMenu='TOKEN' />
           </Provider>
         );
 
@@ -54,8 +53,7 @@ describe('Game', () => {
       it('shows the token context menu', () => {
         const subject: React.ReactElement<GameInterface> = (
           <Provider store={stubStore}>
-            <GameInterface {...props} store={stubStore}
-              openMenu='TOKEN_CONTEXT' />
+            <GameInterface {...props} openMenu='TOKEN_CONTEXT' />
           </Provider>
         );
 
