@@ -1,9 +1,11 @@
 import { List } from 'immutable';
 import * as React from 'react';
-import { MouseEvent, MouseEventHandler, ReactElement } from 'react';
+import { MouseEvent, ReactElement } from 'react';
 
 import CityCircle from './components/city_circle';
-import Token from './components/token';
+import TokenInterface from './components/token';
+
+import Token from './containers/token';
 
 import Company from './company';
 import { MapDefinition } from './map_builder';
@@ -15,11 +17,6 @@ class CityCircleFactory {
     private hex: string,
     private homeTokens: List<string>,
     private onRightClickCity: (hex: string, index: number) => void,
-    private onRightClickToken: (
-      event: MouseEvent<Element>,
-      hex: string,
-      index: number
-    ) => void,
     private tokenState: List<string>,
     private radius: number = CityCircle.DEFAULT_RADIUS,
   ) {
@@ -47,16 +44,10 @@ class CityCircleFactory {
   }
 
   private buildToken(index: number, point: Point):
-    ReactElement<Token> | undefined {
-    let token: ReactElement<Token> | undefined;
+    ReactElement<TokenInterface> | undefined {
+    let token: ReactElement<TokenInterface> | undefined;
     let faded: boolean = false;
     let companyMark: string | undefined;
-
-    const fn: MouseEventHandler<SVGElement> =
-      (event: MouseEvent<SVGElement>) => {
-      event.preventDefault();
-      this.onRightClickToken(event, this.hex, index);
-    };
 
     if (this.tokenState.get(index)) {
       companyMark = this.tokenState.get(index);
@@ -74,8 +65,9 @@ class CityCircleFactory {
       token = (
         <Token
         faded={faded}
+        hex={this.hex}
+        index={index}
         text={company.shorthand}
-        onRightClick={fn}
         primaryColor={company.primaryColor}
         radius={this.radius}
         secondaryColor={company.secondaryColor}

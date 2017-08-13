@@ -15,7 +15,6 @@ describe('UnconnectedCity', () => {
     mapDef: { companies: [], tileManifest: []},
     num: 1,
     onRightClickCity: jest.fn(),
-    onRightClickToken: jest.fn(),
     tokenState: List(),
   };
 

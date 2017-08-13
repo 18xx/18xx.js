@@ -16,10 +16,11 @@ import OffBoard from './components/off_board';
 import PrivateReservation from './components/private_reservation';
 import Tile from './components/tile';
 import TileCost from './components/tile_cost';
-import Token from './components/token';
+import TokenInterface from './components/token';
 import Town from './components/town';
 
 import MapHex from './containers/map_hex';
+import Token from './containers/token';
 
 import CityCircleFactory from './city_circle_factory';
 import Company from './company';
@@ -116,7 +117,7 @@ class MapBuilder {
               companyStr,
               this.mapDef.companies[companyStr]
             );
-            const token: ReactElement<Token> = (
+            const token: ReactElement<TokenInterface> = (
               <Token
               faded={true}
               text={company.shorthand}
@@ -229,7 +230,6 @@ class MapBuilder {
               hex,
               homeTokens,
               this.gameInterface.onRightClickCity,
-              this.gameInterface.onRightClickToken,
               tokenState.get(hex) || List([]),
             );
 
@@ -257,7 +257,6 @@ class MapBuilder {
         const tileBuilder: TileBuilder = new TileBuilder(
           this.mapDef,
           this.gameInterface.onRightClickCity,
-          this.gameInterface.onRightClickToken,
           hex,
           tokenState.get(hex),
           homeTokens,

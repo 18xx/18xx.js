@@ -18,7 +18,6 @@ describe('DoubleOCity', () => {
     mapDef: mapDefinition,
     num: 1,
     onRightClickCity: jest.fn(),
-    onRightClickToken: jest.fn(),
     points: List([new Point(30, 40)]),
     tokenState: List(),
   };

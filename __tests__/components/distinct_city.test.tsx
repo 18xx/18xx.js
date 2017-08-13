@@ -18,7 +18,6 @@ describe('DistinctCity', () => {
     mapDef: mapDefinition,
     num: 1,
     onRightClickCity: jest.fn(),
-    onRightClickToken: jest.fn(),
     points: List([new Point(30, 40)]),
     spotLocations: [1, 2],
     tokenState: List(),

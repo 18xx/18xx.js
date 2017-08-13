@@ -1,7 +1,7 @@
 import * as Immutable from 'immutable';
 import { List, Map } from 'immutable';
 import * as React from 'react';
-import { MouseEvent, ReactElement } from 'react';
+import { ReactElement } from 'react';
 import { Store } from 'redux';
 
 import * as allTilesJson from '../../config/tiles.json';
@@ -124,18 +124,6 @@ class GameInterface
       hex,
       index,
       type: 'SHOW_AVAILABLE_TOKENS',
-    });
-  }
-
-  public onRightClickToken = (
-    event: MouseEvent<Element>,
-    hex: string,
-    index: number
-  ): void => {
-    this.store.dispatch({
-      hex,
-      index,
-      type: 'SHOW_TOKEN_CONTEXT_MENU',
     });
   }
 

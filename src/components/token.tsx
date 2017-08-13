@@ -1,17 +1,24 @@
 import * as React from 'react';
-import { MouseEventHandler, ReactElement } from 'react';
+import { MouseEvent, ReactElement } from 'react';
 
 import CityCircle from './city_circle';
 
-export interface TokenProps {
+export interface TokenInitProps {
   readonly faded?: boolean;
-  readonly onRightClick?: MouseEventHandler<SVGElement>;
+  readonly hex?: string;
+  readonly index?: number;
   readonly primaryColor: string;
   readonly secondaryColor: string;
   readonly radius?: number;
   readonly text: string;
   readonly textColor: string;
 }
+
+export interface TokenMappedProps {
+  readonly onRightClick?: (hex: string, index: number) => void;
+}
+
+export type TokenProps = TokenInitProps & TokenMappedProps;
 
 class Token extends React.Component<TokenProps, {}> {
   public static defaultProps: Partial<TokenProps> = {
@@ -20,9 +27,20 @@ class Token extends React.Component<TokenProps, {}> {
   };
 
   public render(): ReactElement<Token> {
+    const fn: (event: MouseEvent<SVGElement>) => void = event => {
+      event.preventDefault();
+      if (
+        this.props.hex &&
+        (this.props.index || this.props.index === 0) &&
+        this.props.onRightClick
+      ) {
+        this.props.onRightClick(this.props.hex, this.props.index);
+      }
+    };
+
     return (
       <svg
-      onContextMenu={this.props.onRightClick}
+      onContextMenu={fn}
       opacity={this.opacity}
       viewBox='0 0 40 40'
       width='40'

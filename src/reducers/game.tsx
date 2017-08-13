@@ -120,8 +120,9 @@ const game: Reducer<GameState> = (
         return state;
       }
       const removed: string = state.tokens.get(state.hex).get(state.cityIndex);
-      const removedList: List<string> = state.tokens.get(state.hex).delete(
-        state.cityIndex
+      const removedList: List<string> = state.tokens.get(state.hex).set(
+        state.cityIndex,
+        ''
       );
 
       return persistState(
