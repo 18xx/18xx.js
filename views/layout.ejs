@@ -8,7 +8,7 @@
 
   <meta name='viewport'
   content='width=device-width, initial-scale=1, shrink-to-fit=no'>
-  <link rel='stylesheet' type='text/css' href='/styles.css'>
+  <link rel='stylesheet' type='text/css' href='/<%= manifest["app.css"] %>'>
 </head>
 <body>
   <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
@@ -38,8 +38,8 @@
     </div>
   </div>
 
-  <script src="/vendor.js"></script>
-  <script src="/app.js"></script>
+  <script src="/<%= manifest['vendor.js'] %>"></script>
+  <script src="/<%= manifest['app.js'] %>"></script>
 
   <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"
     integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n"

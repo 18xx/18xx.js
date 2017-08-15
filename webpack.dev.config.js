@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+const ManifestPlugin = require('webpack-manifest-plugin');
 const Visualizer = require('webpack-visualizer-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const { CheckerPlugin } = require('awesome-typescript-loader')
@@ -43,6 +44,7 @@ const config = {
   plugins: [
     new ExtractTextPlugin('styles.css'),
     new CheckerPlugin(),
+    new ManifestPlugin(),
     new Visualizer(),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor'
