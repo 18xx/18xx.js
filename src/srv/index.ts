@@ -10,6 +10,8 @@ import MemoryStore from '../store/memory_store';
 
 import { Store } from '../store';
 
+import * as manifest from '../../dist/manifest.json';
+
 const cookieSecret: string = process.env.COOKIE_SECRET;
 
 const app: express.Express = express();
@@ -73,6 +75,7 @@ app.get('/maps/:game', (req, res) => {
   res.render('layout', {
     game: req.params.game,
     initialState: 'undefined',
+    manifest,
     session: req.session,
     title: req.params.game,
   });
@@ -82,6 +85,7 @@ app.get('/maps/:game/:state', (req, res) => {
   res.render('layout', {
     game: req.params.game,
     initialState: req.params.state,
+    manifest,
     session: req.session,
     title: req.params.game,
   });
@@ -115,6 +119,7 @@ app.get('/tiles', (req, res) => {
   res.render('layout', {
     game: 'null',
     initialState: 'undefined',
+    manifest,
     session: req.session,
     title: 'All Tiles',
   });
