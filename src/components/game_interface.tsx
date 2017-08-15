@@ -8,7 +8,7 @@ import * as allTilesJson from '../../config/tiles.json';
 import AvailableTiles from '../containers/available_tiles';
 import AvailableTokens from '../containers/available_tokens';
 import EditToken from '../containers/edit_token';
-import History, { HistoryEntry } from './history';
+import History from '../containers/history';
 import MapBoard from './map_board';
 
 import Company from '../company';
@@ -27,7 +27,6 @@ export interface GameInterfaceInitProps {
 }
 
 export interface GameInterfaceMappedProps {
-  readonly history?: List<HistoryEntry>;
   readonly openMenu?: string;
   readonly tiles: Map<string, string>;
   readonly tokens: Map<string, List<string>>;
@@ -89,10 +88,7 @@ class GameInterface
       <div>
         {topMenu}
         <div className='row'>
-          <History
-          entries={this.props.history || List()}
-          mapDef={this.props.mapDef}
-          tileSet={this.tileSet} />
+          <History mapDef={this.props.mapDef} tileSet={this.tileSet} />
 
           <div
           className='col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main'>

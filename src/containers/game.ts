@@ -8,7 +8,6 @@ import { GameState } from '../reducers/game';
 
 function mapStateToProps(state: GameState): GameInterfaceMappedProps {
   return {
-    history: state.history,
     openMenu: state.openMenu,
     tiles: state.tiles,
     tokens: state.tokens,
