@@ -1,13 +1,23 @@
 import { ComponentClass, connect, Dispatch } from 'react-redux';
 
 import AvailableTilesInterface, {
-  AvailableTilesMappedProps,
+  AvailableTilesDispatchProps,
   AvailableTilesProps,
+  AvailableTilesStateProps,
 } from '../components/available_tiles';
 
+import { GameState } from '../reducers/game';
+
+function mapStateToProps(state: GameState): AvailableTilesStateProps {
+  return {
+    tileFilter: state.tileFilter,
+    tiles: state.tiles,
+  };
+}
+
 function mapDispatchToProps(
-  dispatch: Dispatch<AvailableTilesMappedProps>
-): AvailableTilesMappedProps {
+  dispatch: Dispatch<AvailableTilesDispatchProps>
+): AvailableTilesDispatchProps {
   const onClick: (tileKey: string) => void = (tileKey: string) => {
     dispatch({ tile: tileKey, type: 'PLACE_TILE' });
     dispatch({ type: 'CLOSE_MENUS' });
@@ -19,7 +29,7 @@ function mapDispatchToProps(
 }
 
 const AvailableTiles: ComponentClass<Partial<AvailableTilesProps>> = connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(AvailableTilesInterface);
 

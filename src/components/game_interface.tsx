@@ -29,7 +29,6 @@ export interface GameInterfaceInitProps {
 export interface GameInterfaceMappedProps {
   readonly history?: List<HistoryEntry>;
   readonly openMenu?: string;
-  readonly tileFilter?: any;
   readonly tiles: Map<string, string>;
   readonly tokens: Map<string, List<string>>;
 }
@@ -64,10 +63,7 @@ class GameInterface
     switch (this.props.openMenu) {
       case 'TILE':
         topMenu = (
-          <AvailableTiles
-            tileFilter={this.props.tileFilter}
-            tiles={this.props.tiles}
-            tileSet={this.tileSet} />
+          <AvailableTiles tileSet={this.tileSet} />
         );
         break;
       case 'TOKEN':

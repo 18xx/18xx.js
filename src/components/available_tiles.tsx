@@ -9,17 +9,20 @@ import TileDefinition from '../tile_definition';
 import TileSet from '../tile_set';
 
 export interface AvailableTilesInitProps {
-  readonly tileFilter: List<string>;
-  readonly tiles: Map<string, string>;
   readonly tileSet: TileSet;
 }
 
-export interface AvailableTilesMappedProps {
+export interface AvailableTilesDispatchProps {
   readonly onClick: (tile: string) => void;
 }
 
-export type AvailableTilesProps =
-  AvailableTilesInitProps & AvailableTilesMappedProps;
+export interface AvailableTilesStateProps {
+  readonly tileFilter: List<string>;
+  readonly tiles: Map<string, string>;
+}
+
+export type AvailableTilesProps = AvailableTilesInitProps &
+  AvailableTilesDispatchProps & AvailableTilesStateProps;
 
 class AvailableTiles extends React.Component<AvailableTilesProps, {}> {
   public static defaultProps: any;
