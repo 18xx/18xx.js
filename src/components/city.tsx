@@ -1,7 +1,7 @@
 import { List } from 'immutable';
 import * as _ from 'lodash';
 import * as React from 'react';
-import { MouseEvent, ReactElement } from 'react';
+import { ReactElement } from 'react';
 
 import CityCircle from './city_circle';
 
@@ -13,12 +13,6 @@ import Point from '../point';
 export interface CityProps {
   hex: string;
   hexagon: Hexagon;
-  onRightClickCity: (hex: string, index: number) => void;
-  onRightClickToken: (
-    event: MouseEvent<Element>,
-    hex: string,
-    index: number
-  ) => void;
   mapDef: MapDefinition;
   num: number;
   points?: List<Point>;
@@ -267,8 +261,6 @@ class City extends React.Component<CityProps, {}> implements Station {
       this.props.mapDef,
       this.props.hex,
       this.props.homeTokens,
-      this.props.onRightClickCity,
-      this.props.onRightClickToken,
       this.props.tokenState,
       this.cityCircleRadius,
     );

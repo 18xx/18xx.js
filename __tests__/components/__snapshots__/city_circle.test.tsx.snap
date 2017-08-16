@@ -2,7 +2,7 @@
 
 exports[`CityCircle #render() returns an svg representation of the circle 1`] = `
 <svg
-  onContextMenu={undefined}
+  onContextMenu={[Function]}
   x={30}
   y={20}
 >

@@ -3,7 +3,6 @@ import * as React from 'react';
 import { ReactElement } from 'react';
 import * as renderer from 'react-test-renderer';
 
-import Game from '../../src/components/game';
 import MapBoard, { MapBoardProps } from '../../src/components/map_board';
 import MapHex from '../../src/components/map_hex';
 
@@ -20,11 +19,6 @@ const mapDef: MapDefinition = {
   tileManifest: {},
 };
 
-const game: Game = new Game({
-  gameName: '18xx',
-  mapDef,
-});
-
 describe('MapBoard', () => {
   describe('#render()', () => {
     const hexes: List<ReactElement<MapHex>> = List([
@@ -32,7 +26,6 @@ describe('MapBoard', () => {
       <MapHex mapDef={mapDef} row='a' column={3} key='a3' />,
     ]);
     const defaultProps: MapBoardProps = {
-      game,
       hexes,
       invertHexes: false,
       orientation: 'east-west',

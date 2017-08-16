@@ -1,6 +1,6 @@
 import { List } from 'immutable';
 import * as React from 'react';
-import { MouseEvent, ReactElement } from 'react';
+import { ReactElement } from 'react';
 
 import Tile, { TileElement } from './components/tile';
 
@@ -14,12 +14,6 @@ import TrackToCenter from './track_to_center';
 class TileBuilder {
   constructor(
     private mapDef: MapDefinition,
-    private onRightClickCity?: (hex: string, index: number) => void,
-    private onRightClickToken?: (
-      event: MouseEvent<Element>,
-      hex: string,
-      index: number
-    ) => void,
     private hex?: string,
     private tokenState?: List<string>,
     private homeTokens?: List<string>,
@@ -33,8 +27,6 @@ class TileBuilder {
     const color: string = def.color;
     const factory: TileFactory = new TileFactory(
       this.mapDef,
-      this.onRightClickCity,
-      this.onRightClickToken,
       new TileDefinition(this.mapDef, def),
       i,
       this.hex,

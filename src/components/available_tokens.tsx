@@ -6,10 +6,16 @@ import Token from './token';
 
 import Company from '../company';
 
-export interface AvailableTokensProps {
+export interface AvailableTokensInitProps {
   readonly companies: List<Company>;
+}
+
+export interface AvailableTokensMappedProps {
   readonly onClick: (company: Company) => void;
 }
+
+export type AvailableTokensProps =
+  AvailableTokensInitProps & AvailableTokensMappedProps;
 
 class AvailableTokens extends React.Component<AvailableTokensProps, {}> {
   get tokens(): List<ReactElement<Token>> {

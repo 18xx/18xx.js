@@ -22,7 +22,7 @@ describe('CityCircle', () => {
     it('returns an svg representation of the circle', () => {
       const point: Point = new Point(50, 40);
       const subject: React.ReactElement<CityCircle> = (
-        <CityCircle point={point} />
+        <CityCircle point={point} hex='a1' index={1} />
       );
 
       expect(renderer.create(subject)).toMatchSnapshot();

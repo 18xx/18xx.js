@@ -1,9 +1,12 @@
 import { List } from 'immutable';
 import * as React from 'react';
-import { MouseEvent, MouseEventHandler, ReactElement } from 'react';
+import { ReactElement } from 'react';
 
-import CityCircle from './components/city_circle';
-import Token from './components/token';
+import CityCircleInterface from './components/city_circle';
+import TokenInterface from './components/token';
+
+import CityCircle from './containers/city_circle';
+import Token from './containers/token';
 
 import Company from './company';
 import { MapDefinition } from './map_builder';
@@ -14,49 +17,32 @@ class CityCircleFactory {
     private mapDef: MapDefinition,
     private hex: string,
     private homeTokens: List<string>,
-    private onRightClickCity: (hex: string, index: number) => void,
-    private onRightClickToken: (
-      event: MouseEvent<Element>,
-      hex: string,
-      index: number
-    ) => void,
     private tokenState: List<string>,
-    private radius: number = CityCircle.DEFAULT_RADIUS,
+    private radius: number = CityCircleInterface.DEFAULT_RADIUS,
   ) {
   }
 
-  public build(index: number, point: Point): ReactElement<CityCircle> {
-    let fn: ((event: MouseEvent<SVGElement>) => void) | undefined;
-    if (typeof this.tokenState === 'undefined' || !this.tokenState.get(index)) {
-      fn = event => {
-        event.preventDefault();
-        this.onRightClickCity(this.hex, index);
-      };
-    }
-
+  public build(
+    index: number,
+    point: Point
+  ): ReactElement<CityCircleInterface> {
     return (
       <CityCircle
         hex={this.hex}
+        index={index}
         key={point.toString()}
         point={point}
-        onContextMenu={fn}
-        token={this.buildToken(index, point)}
-        radius={this.radius}
-      />
+        radius={this.radius}>
+        {this.buildToken(index, point)}
+      </CityCircle>
     );
   }
 
   private buildToken(index: number, point: Point):
-    ReactElement<Token> | undefined {
-    let token: ReactElement<Token> | undefined;
+    ReactElement<TokenInterface> | undefined {
+    let token: ReactElement<TokenInterface> | undefined;
     let faded: boolean = false;
     let companyMark: string | undefined;
-
-    const fn: MouseEventHandler<SVGElement> =
-      (event: MouseEvent<SVGElement>) => {
-      event.preventDefault();
-      this.onRightClickToken(event, this.hex, index);
-    };
 
     if (this.tokenState.get(index)) {
       companyMark = this.tokenState.get(index);
@@ -74,8 +60,9 @@ class CityCircleFactory {
       token = (
         <Token
         faded={faded}
+        hex={this.hex}
+        index={index}
         text={company.shorthand}
-        onRightClick={fn}
         primaryColor={company.primaryColor}
         radius={this.radius}
         secondaryColor={company.secondaryColor}

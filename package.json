@@ -63,6 +63,7 @@
     "@types/passport-google-oauth": "^1.0.35",
     "@types/react": "^15.6.0",
     "@types/react-dom": "^15.5.2",
+    "@types/react-redux": "^5.0.0",
     "@types/react-test-renderer": "^15.5.2",
     "@types/redis": "^2.6.0",
     "@types/whatwg-fetch": "^0.0.33",

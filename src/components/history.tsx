@@ -23,11 +23,16 @@ export interface HistoryEntry {
   readonly id: string;
 }
 
-export interface HistoryProps {
-  readonly entries: List<HistoryEntry>;
+export interface HistoryInitProps {
   readonly mapDef: MapDefinition;
   readonly tileSet: TileSet;
 }
+
+export interface HistoryStateProps {
+  readonly entries: List<HistoryEntry>;
+}
+
+export type HistoryProps = HistoryInitProps & HistoryStateProps;
 
 class History extends React.Component<HistoryProps, {}> {
   public render(): ReactElement<HTMLElement> {

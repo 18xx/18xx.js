@@ -4,7 +4,7 @@ exports[` 1`] = `
 <svg
   className="token"
   height="40"
-  onContextMenu={undefined}
+  onContextMenu={[Function]}
   opacity={0.3}
   viewBox="0 0 40 40"
   width="40"
@@ -42,7 +42,7 @@ exports[`Token #render() returns an svg represntation of the token 1`] = `
 <svg
   className="token"
   height="40"
-  onContextMenu={undefined}
+  onContextMenu={[Function]}
   opacity={1}
   viewBox="0 0 40 40"
   width="40"
@@ -80,7 +80,7 @@ exports[`Token #render() when the text is a number returns an svg represntation 
 <svg
   className="token"
   height="40"
-  onContextMenu={undefined}
+  onContextMenu={[Function]}
   opacity={1}
   viewBox="0 0 40 40"
   width="40"

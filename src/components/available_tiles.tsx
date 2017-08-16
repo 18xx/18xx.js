@@ -8,13 +8,21 @@ import Tile from './tile';
 import TileDefinition from '../tile_definition';
 import TileSet from '../tile_set';
 
-export interface AvailableTilesProps {
-  readonly tileFilter: List<string>;
-  readonly onClick: any;
-  readonly show: boolean;
-  readonly tiles: Map<string, string>;
+export interface AvailableTilesInitProps {
   readonly tileSet: TileSet;
 }
+
+export interface AvailableTilesDispatchProps {
+  readonly onClick: (tile: string) => void;
+}
+
+export interface AvailableTilesStateProps {
+  readonly tileFilter: List<string>;
+  readonly tiles: Map<string, string>;
+}
+
+export type AvailableTilesProps = AvailableTilesInitProps &
+  AvailableTilesDispatchProps & AvailableTilesStateProps;
 
 class AvailableTiles extends React.Component<AvailableTilesProps, {}> {
   public static defaultProps: any;
@@ -30,8 +38,11 @@ class AvailableTiles extends React.Component<AvailableTilesProps, {}> {
   ): ReactElement<any> {
     const total: number = this.props.tileSet.totalTiles(num);
 
-    let onClick: MouseEventHandler<HTMLElement> | undefined = () =>
-      this.props.onClick(tile);
+    let onClick: MouseEventHandler<HTMLElement> | undefined = () => {
+      if (tile.key) {
+        this.props.onClick(tile.key.toString());
+      }
+    };
     let divClass: string = 'available-tile';
     let availableElement: ReactElement<HTMLElement> | undefined;
 

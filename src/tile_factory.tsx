@@ -1,6 +1,6 @@
 import { List } from 'immutable';
 import * as React from 'react';
-import { MouseEvent, ReactElement } from 'react';
+import { ReactElement } from 'react';
 
 import City, { Station } from './components/city';
 import DistinctCity from './components/distinct_city';
@@ -28,13 +28,6 @@ class TileFactory {
 
   constructor(
     private mapDef: MapDefinition,
-    private onRightClickCity:
-      ((hex: string, index: number) => void) | undefined,
-    private onRightClickToken: ((
-      event: MouseEvent<Element>,
-      hex: string,
-      index: number
-    ) => void) | undefined,
     private definition: TileDefinition,
     private rotation: number = 0,
     private hex?: string,
@@ -52,8 +45,6 @@ class TileFactory {
       key: this.hex || 'city',
       mapDef: this.mapDef,
       num: this.definition.spots,
-      onRightClickCity: this.onRightClickCity,
-      onRightClickToken: this.onRightClickToken,
       tokenState,
     };
     let klass: any;
