@@ -117,7 +117,7 @@ app.post('/update', (req, res) => {
 
 app.get('/tiles', (req, res) => {
   res.render('layout', {
-    game: 'null',
+    game: 'tiles',
     initialState: 'undefined',
     manifest,
     session: req.session,
