@@ -28,7 +28,7 @@ if (!container) {
 const initialStateId: string | undefined = container.dataset.initialStateId;
 
 let init: (state: any) => void;
-if (container.dataset.gameName) {
+if (container.dataset.gameName && container.dataset.gameName !== 'tiles') {
   switch (container.dataset.gameName) {
     case '1817':
       mapDef = mapDef1817 as any;
@@ -56,6 +56,7 @@ if (container.dataset.gameName) {
       (window as any).__REDUX_DEVTOOLS_EXTENSION__ &&
         (window as any).__REDUX_DEVTOOLS_EXTENSION__()
     );
+
     ReactDOM.render(
       <Provider store={store}>
         <Game gameName={container.dataset.gameName!} mapDef={mapDef} />
@@ -64,9 +65,18 @@ if (container.dataset.gameName) {
     );
   };
 } else {
-  init = (state: any): void => {
+  init = (state: GameState): void => {
+    const store: Store<GameState> = createStore(
+      game,
+      state,
+      (window as any).__REDUX_DEVTOOLS_EXTENSION__ &&
+        (window as any).__REDUX_DEVTOOLS_EXTENSION__()
+    );
+
     ReactDOM.render(
-      <AllTiles mapDef={mapDef1830 as any} />,
+      <Provider store={store}>
+        <AllTiles mapDef={mapDef1830 as any} />
+      </Provider>,
       container
     );
   };
