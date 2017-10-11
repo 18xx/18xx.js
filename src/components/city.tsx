@@ -32,9 +32,9 @@ class City extends React.Component<CityProps, {}> implements Station {
     tokenState: List<string>(),
   };
 
-  public render(): ReactElement<CityCircle> {
+  public render(): ReactElement<City> {
     const num: number = this.props.num;
-    let result: ReactElement<CityCircle>;
+    let result: ReactElement<any>;
 
     if (num === 1) {
       result = (

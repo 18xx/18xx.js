@@ -18,7 +18,7 @@ import TileSet, { TileSetDetails } from '../tile_set';
 
 const allTiles: List<TileDefinitionInput> =
   Immutable.fromJS(allTilesJson).map(
-    (el: any) => el.toJS() as TileDefinitionInput
+    (el: List<TileDefinitionInput>) => el.toJS()
   );
 
 export interface GameInterfaceInitProps {
@@ -34,6 +34,11 @@ export interface GameInterfaceMappedProps {
 
 export type GameInterfaceProps =
   GameInterfaceInitProps & GameInterfaceMappedProps;
+
+type TopMenu =
+  | typeof AvailableTiles
+  | typeof AvailableTokens
+  | typeof EditToken;
 
 class GameInterface
   extends React.Component<GameInterfaceProps, {}> {
@@ -57,7 +62,7 @@ class GameInterface
   }
 
   public render(): ReactElement<GameInterface> | null {
-    let topMenu: ReactElement<any> | undefined;
+    let topMenu: ReactElement<TopMenu> | undefined;
 
     switch (this.props.openMenu) {
       case 'TILE':
