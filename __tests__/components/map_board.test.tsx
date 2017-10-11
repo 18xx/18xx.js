@@ -2,6 +2,7 @@ import { List } from 'immutable';
 import * as React from 'react';
 import { ReactElement } from 'react';
 import * as renderer from 'react-test-renderer';
+import { ReactTestInstance } from 'react-test-renderer';
 
 import MapBoard, { MapBoardProps } from '../../src/components/map_board';
 import MapHex from '../../src/components/map_hex';
@@ -32,7 +33,7 @@ describe('MapBoard', () => {
     };
 
     it('returns an svg representation of the map board', () => {
-      const subject: any = renderer.create(
+      const subject: ReactTestInstance = renderer.create(
         <MapBoard {...defaultProps} />
       );
       expect(subject).toMatchSnapshot();
@@ -40,7 +41,7 @@ describe('MapBoard', () => {
 
     describe('with inverted hexes', () => {
       it('returns an svg representation of the map board', () => {
-        const subject: any = renderer.create(
+        const subject: ReactTestInstance = renderer.create(
           <MapBoard {...defaultProps} invertHexes={true} />
         );
         expect(subject).toMatchSnapshot();
@@ -49,7 +50,7 @@ describe('MapBoard', () => {
 
     describe('when a north-south board', () => {
       it('returns an svg representation of the map board', () => {
-        const subject: any = renderer.create(
+        const subject: ReactTestInstance = renderer.create(
           <MapBoard {...defaultProps} orientation={'north-south'} />
         );
         expect(subject).toMatchSnapshot();
