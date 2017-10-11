@@ -41,7 +41,7 @@ class City extends React.Component<CityProps, {}> implements Station {
         this.buildCircle(0, this.hexagon.center)
       );
     } else if (num === 2) {
-      const background: ReactElement<any> = (
+      const background: ReactElement<SVGRectElement> = (
         <rect
           x={this.hexagon.center.x - CityCircle.DEFAULT_RADIUS}
           y={this.hexagon.center.y - CityCircle.DEFAULT_RADIUS -
@@ -101,7 +101,7 @@ class City extends React.Component<CityProps, {}> implements Station {
         ),
       ]);
 
-      const background: ReactElement<any> = (
+      const background: ReactElement<SVGPolygonElement> = (
         <polygon points={hexPoints.join(' ')} fill='black' />
       );
 
@@ -171,7 +171,7 @@ class City extends React.Component<CityProps, {}> implements Station {
         ),
       ]);
 
-      const background: ReactElement<any> = (
+      const background: ReactElement<SVGPolygonElement> = (
         <polygon points={hexPoints.join(' ')} fill='black' />
       );
 
@@ -227,7 +227,7 @@ class City extends React.Component<CityProps, {}> implements Station {
         )
       );
 
-      const background: ReactElement<any> = (
+      const background: ReactElement<SVGPolygonElement> = (
         <polygon points={bgPoints.join(' ')} fill='black' />
       );
 

@@ -23,7 +23,7 @@ class Town extends Component<TownProps, {}> implements Station, TileElement {
     );
   }
 
-  protected drawCircle(point: Point): ReactElement<any> {
+  protected drawCircle(point: Point): ReactElement<SVGCircleElement> {
     return (
       <circle
         key={`${point.x}-${point.y}`}

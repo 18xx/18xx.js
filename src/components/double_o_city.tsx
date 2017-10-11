@@ -10,7 +10,7 @@ import Tile from './tile';
 
 class DoubleOCity extends City {
   public render(): ReactElement<DoubleOCity> {
-    let result: ReactElement<any>;
+    let result: ReactElement<DoubleOCity>;
 
     if (this.props.num === 2) {
       const offset: number = 12;
@@ -34,7 +34,7 @@ class DoubleOCity extends City {
         )),
       ]);
 
-      const background: List<ReactElement<any>> = List([
+      const background: List<ReactElement<SVGRectElement>> = List([
         <rect
           key='bg-1'
           x={Tile.CENTER.x - CityCircle.DEFAULT_RADIUS * 2 - offset}

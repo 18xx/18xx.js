@@ -34,7 +34,7 @@ implements MapHexElement, TileElement {
     let x: number = this.props.hexagon.center.x - 20 -
       (10 * Object.keys(this.values).length);
 
-    const results: List<ReactElement<any>> = List(
+    const results: List<ReactElement<SVGGElement>> = List(
       Object.keys(this.values).map((key: string) => {
         const value: number = this.values[key];
         x += WIDTH;
@@ -49,7 +49,7 @@ implements MapHexElement, TileElement {
   private colorSquare(
     x: number,
     fill: string,
-    value: number): ReactElement<any> {
+    value: number): ReactElement<SVGGElement> {
 
     const y: number = this.props.fixedHeight!;
     return (

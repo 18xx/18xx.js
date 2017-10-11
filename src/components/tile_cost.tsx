@@ -60,7 +60,7 @@ implements MapHexElement, TileElement {
     return this.props.location || this.defaultLocation;
   }
 
-  private get square(): ReactElement<any> {
+  private get square(): ReactElement<SVGRectElement> {
     return (
       <rect
         x={this.location.x}
@@ -72,7 +72,7 @@ implements MapHexElement, TileElement {
     );
   }
 
-  private get triangle(): ReactElement<any> {
+  private get triangle(): ReactElement<SVGPolygonElement> {
     const points: List<Point> = List([
       new Point(this.location.x + WIDTH / 2, this.location.y - 5),
       new Point(this.location.x + WIDTH * 1.5, this.location.y + 25),
@@ -87,7 +87,7 @@ implements MapHexElement, TileElement {
     );
   }
 
-  private text(y: number): ReactElement<any> {
+  private text(y: number): ReactElement<SVGTextElement> {
     return (
       <text
         key='cost-text'

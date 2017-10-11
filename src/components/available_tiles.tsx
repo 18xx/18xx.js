@@ -25,8 +25,6 @@ export type AvailableTilesProps = AvailableTilesInitProps &
   AvailableTilesDispatchProps & AvailableTilesStateProps;
 
 class AvailableTiles extends React.Component<AvailableTilesProps, {}> {
-  public static defaultProps: any;
-
   public render(): ReactElement<AvailableTiles> {
     return <div id='tileMenu'>{this.tiles}</div>;
   }
@@ -35,7 +33,7 @@ class AvailableTiles extends React.Component<AvailableTilesProps, {}> {
     tile: ReactElement<Tile>,
     num: string,
     index: number,
-  ): ReactElement<any> {
+  ): ReactElement<HTMLDivElement> {
     const total: number = this.props.tileSet.totalTiles(num);
 
     let onClick: MouseEventHandler<HTMLElement> | undefined = () => {
@@ -70,7 +68,7 @@ class AvailableTiles extends React.Component<AvailableTilesProps, {}> {
       </div>;
   }
 
-  private get tiles(): List<ReactElement<any>> {
+  private get tiles(): List<ReactElement<Tile>> {
     return this.props.tileSet.all.filter((tileDef: TileDefinition) =>
       this.props.tileFilter.includes(tileDef.num)
     ).map(
@@ -81,7 +79,7 @@ class AvailableTiles extends React.Component<AvailableTilesProps, {}> {
     ).flatten().toList();
   }
 
-  private usedTiles(num: string): any {
+  private usedTiles(num: string): number {
     return _.countBy(
       this.props.tiles.valueSeq().map((s: string) => s.split('.')[0]).toJS()
     )[num] || 0;

@@ -18,13 +18,14 @@ interface AllTilesProps {
 }
 
 class AllTiles extends React.Component<AllTilesProps, {}> {
-  public get tiles(): any {
-    return allTiles.map((t: TileDefinitionInput) =>
+  public get tiles(): List<JSX.Element> {
+    return allTiles.map(
+      (t: TileDefinitionInput) =>
       <div key={t.num}>
         {new TileDefinition(this.props.mapDef, t).allRotations}
       </div>
-    );
-  }
+    ).toList();
+}
 
   public render(): ReactElement<AllTiles> {
     return <div id='all-tiles'>{this.tiles}</div>;
