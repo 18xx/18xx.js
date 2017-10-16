@@ -98,7 +98,7 @@ const game: Reducer<GameState> = (
 
       let list: List<string> = List<string>();
       if (state.tokens.has(state.hex)) {
-        list = state.tokens.get(state.hex);
+        list = state.tokens.get(state.hex)!;
       }
       list = list.set(state.cityIndex || 0, action.company);
 
@@ -119,8 +119,13 @@ const game: Reducer<GameState> = (
         console.error('Attempted to remove token from unknown hex');
         return state;
       }
-      const removed: string = state.tokens.get(state.hex).get(state.cityIndex);
-      const removedList: List<string> = state.tokens.get(state.hex).set(
+      const toRemove: List<string> | undefined = state.tokens.get(state.hex);
+      if (!toRemove) {
+        console.error('Attempted to remove token that doesn\'t exist');
+        return state;
+      }
+      const removed: string = toRemove.get(state.cityIndex)!;
+      const removedList: List<string> = toRemove.set(
         state.cityIndex,
         ''
       );

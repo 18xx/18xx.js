@@ -25,8 +25,17 @@ implements MapHexElement {
   }
 
   private exit(pos: number): List<Point> {
-    const p1: Point = this.props.hexagon.hexPoints().get(pos);
-    const p2: Point = this.props.hexagon.hexPoints().get((pos + 5) % 6);
+    const p1: Point | undefined = this.props.hexagon.hexPoints().get(pos)!;
+    if (!p1) {
+      throw new Error('Could not find hex point ' + pos);
+    }
+
+    const p2: Point | undefined =
+      this.props.hexagon.hexPoints().get((pos + 5) % 6)!;
+    if (!p2) {
+      throw new Error('Could not find hex point ' + (pos + 5) % 6);
+    }
+
     const midpoint: Point = Point.midpoint(p1, p2);
 
     return List([

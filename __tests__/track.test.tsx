@@ -86,7 +86,7 @@ describe('Track', () => {
       it('returns the midpoint of the track', () => {
         const midpoint: Point = new Track(
           0, 1, hexagon
-        ).midpoints(1).first();
+        ).midpoints(1).first()!;
         expect(midpoint.x).toBeCloseTo(83.138);
         expect(midpoint.y).toBeCloseTo(48);
       });
@@ -97,10 +97,10 @@ describe('Track', () => {
         const midpoints: List<Point> = new Track(
           0, 2, hexagon
         ).midpoints(2);
-        expect(midpoints.get(0).x).toBeCloseTo(49.143);
-        expect(midpoints.get(0).y).toBeCloseTo(41.540);
-        expect(midpoints.get(1).x).toBeCloseTo(78.017);
-        expect(midpoints.get(1).y).toBeCloseTo(58.210);
+        expect(midpoints.get(0)!.x).toBeCloseTo(49.143);
+        expect(midpoints.get(0)!.y).toBeCloseTo(41.540);
+        expect(midpoints.get(1)!.x).toBeCloseTo(78.017);
+        expect(midpoints.get(1)!.y).toBeCloseTo(58.210);
       });
     });
   });

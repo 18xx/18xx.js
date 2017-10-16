@@ -22,7 +22,7 @@ import MapHex from './containers/map_hex';
 import Token from './containers/token';
 
 import CityCircleFactory from './city_circle_factory';
-import Company from './company';
+import Company, { CompanyData } from './company';
 import Hexagon from './hexagon';
 import Point from './point';
 import TileBuilder from './tile_builder';
@@ -108,7 +108,7 @@ class MapBuilder {
             key: 'cc',
             point: this.hexagon.center,
           };
-          const companyStr: string = Map<string, any>(
+          const companyStr: string | undefined = Map<string, CompanyData>(
             this.mapDef.companies
           ).findKey(c => c.home === hex);
 
@@ -177,9 +177,7 @@ class MapBuilder {
         if (this.mapDef.mediumCities && this.mapDef.mediumCities[hex]) {
           if (this.mapDef.mediumCities[hex] === 1) {
             hexElements.push(
-              <MediumCity
-              points={List<Point>([this.hexagon.center])}
-              key='town' />
+              <MediumCity points={List([this.hexagon.center])} key='town' />
             );
           } else {
             const points: List<Point> = List([
@@ -206,7 +204,7 @@ class MapBuilder {
           fill = this.mapDef.offBoards[hex].color || 'red';
           allowTile = false;
           const exits: List<number> = List<number>(
-            this.mapDef.offBoards[hex].exits as string[]
+            this.mapDef.offBoards[hex].exits
           );
           hexElements.push(
             // FIXME: Missing type for offboard exits
@@ -258,11 +256,13 @@ class MapBuilder {
         );
 
         if (tileState.has(hex)) {
-          const tileStr: string[] = tileState.get(hex).split('.');
-          tile = tileBuilder.buildTile(
-            this.tileSet.findDefinition(tileStr[0]),
-            parseInt(tileStr[1], 10)
-          );
+          const tileStr: string[] = tileState.get(hex)!.split('.');
+          if (this.tileSet.findDefinition(tileStr[0])) {
+            tile = tileBuilder.buildTile(
+              this.tileSet.findDefinition(tileStr[0])!,
+              parseInt(tileStr[1], 10)
+            );
+          }
         } else if (this.mapDef.preplacedTile[hex]) {
           allowTile = _.includes(
             _.flatMap(this.mapDef.tilePromotions, set => set.hexes),

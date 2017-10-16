@@ -1,4 +1,4 @@
-interface CompanyData {
+export interface CompanyData {
   readonly home?: string;
   readonly name: string;
   readonly shorthand: string;
