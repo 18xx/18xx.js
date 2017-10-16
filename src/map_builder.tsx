@@ -1,5 +1,4 @@
 import { List, Map } from 'immutable';
-import * as _ from 'lodash';
 import * as React from 'react';
 import { ReactElement } from 'react';
 
@@ -176,8 +175,9 @@ class MapBuilder {
 
         if (this.mapDef.mediumCities && this.mapDef.mediumCities[hex]) {
           if (this.mapDef.mediumCities[hex] === 1) {
+            const points: List<Point> = List([this.hexagon.center]);
             hexElements.push(
-              <MediumCity points={List([this.hexagon.center])} key='town' />
+              <MediumCity points={points} key='town' />
             );
           } else {
             const points: List<Point> = List([
@@ -264,10 +264,13 @@ class MapBuilder {
             );
           }
         } else if (this.mapDef.preplacedTile[hex]) {
-          allowTile = _.includes(
-            _.flatMap(this.mapDef.tilePromotions, set => set.hexes),
-            hex
-          );
+          if (this.mapDef.tilePromotions) {
+            const promotions: List<TilePromotionTuple> = List(
+              this.mapDef.tilePromotions
+            );
+            allowTile = promotions.flatMap(set => set.hexes!).includes(hex);
+          }
+
           tile = tileBuilder.buildTile(
             new TileDefinition(
               this.mapDef,
