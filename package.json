@@ -75,7 +75,7 @@
     "express": "^4.15.4",
     "extract-text-webpack-plugin": "^3.0.0",
     "foreman": "^2.0.0",
-    "immutable": "^3.8.1",
+    "immutable": "^v4.0.0-rc.7",
     "json-loader": "^0.5.7",
     "lodash": "^4.17.4",
     "nodemon": "^1.11.0",

@@ -56,9 +56,12 @@ class History extends React.Component<HistoryProps, {}> {
     switch (entry.action) {
       case 'PLACE_TILE':
         const tileNum: string[] = entry.id.split('.');
-        const tileDef: TileDefinition = this.props.tileSet.findDefinition(
-          tileNum[0]
-        );
+        const tileDef: TileDefinition | undefined =
+          this.props.tileSet.findDefinition(tileNum[0]);
+
+        if (!tileDef) {
+          throw new Error('Could not find tile definition');
+        }
         const tile: ReactElement<Tile> = tileDef.tile(parseInt(tileNum[1], 10));
 
         description = (

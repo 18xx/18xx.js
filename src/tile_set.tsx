@@ -26,12 +26,20 @@ class TileSet {
     ).toList();
   }
 
-  public findDefinition(num: string): TileDefinition {
+  public findDefinition(num: string): TileDefinition | undefined {
     return this.all.find((def: TileDefinition) => def.num.toString() === num);
   }
 
   public totalTiles(num: string): number {
-    return this.tileManifest.get(num.toString()).count || Infinity;
+    const inManifest: TileSetDetails | undefined = this.tileManifest.get(
+      num.toString()
+    );
+
+    if (inManifest && inManifest.count) {
+      return inManifest.count;
+    } else {
+      return Infinity;
+    }
   }
 }
 

@@ -81,18 +81,22 @@ class TileFactory {
         // to avoid overlap
         let result: List<Point>;
         if (this.track.size === 1) {
-          result = List([midpoints.first().first()]);
+          result = List([midpoints.first()!.first()!]);
         } else if (this.track.size === 2) {
           const combinations: List<List<Point>> = List([
-            List([midpoints.first().first(), midpoints.last().first()]),
-            List([midpoints.first().first(), midpoints.last().last()]),
-            List([midpoints.first().last(), midpoints.last().first()]),
-            List([midpoints.first().last(), midpoints.last().last()]),
+            List([midpoints.first()!.first()!, midpoints.last()!.first()!]),
+            List([midpoints.first()!.first()!, midpoints.last()!.last()!]),
+            List([midpoints.first()!.last()!, midpoints.last()!.first()!]),
+            List([midpoints.first()!.last()!, midpoints.last()!.last()!]),
           ]);
-          result = List(combinations.maxBy((set: List<Point>) => Math.sqrt(
-            Math.pow(set.get(1).x - set.get(0).x, 2) +
-            Math.pow(set.get(1).y - set.get(0).y, 2)
-          )));
+          result = List(
+            combinations.maxBy(
+              (set: List<Point>) => Math.sqrt(
+                Math.pow(set.get(1)!.x - set.get(0)!.x, 2) +
+                Math.pow(set.get(1)!.y - set.get(0)!.y, 2)
+              )
+            )!
+          );
         } else {
           throw new Error('Unsupported number of track');
         }

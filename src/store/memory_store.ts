@@ -11,7 +11,7 @@ class MemoryStore implements Store {
     this.map = Map<string, GameState>();
   }
 
-  public getState(hash: string): Promise<GameState> {
+  public getState(hash: string): Promise<GameState | undefined> {
     return Promise.resolve(this.map.get(hash));
   }
 
