@@ -76,7 +76,7 @@ class TileDefinition {
     return this.definition.numPosition;
   }
 
-  public get privateReservation(): string | undefined{
+  public get privateReservation(): string | undefined {
     return this.definition.privateReservation;
   }
 
