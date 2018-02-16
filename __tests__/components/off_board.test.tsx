@@ -82,5 +82,20 @@ describe('OffBoard', () => {
         expect(renderer.create(subject)).toMatchSnapshot();
       });
     });
+
+    describe('when an invalid position is set', () => {
+      it('draws an arrow on the bottom right of the hex', () => {
+        const fn: () => void = () => {
+          const subject: ReactElement<OffBoard> = (
+            <OffBoard
+            key='off-board'
+            hexagon={hexagon}
+            exits={List<number>([42])} />
+          );
+          renderer.create(subject);
+        };
+        expect(fn).toThrow();
+      });
+    });
   });
 });
