@@ -127,7 +127,7 @@ class MapBuilder {
             );
           }
           if (this.mapDef.cities[hex] === 1) {
-            hexElements.push(React.createElement(CityCircle, ccProps));
+            hexElements.push(React.createElement(CityCircle, ccProps, token));
           } else {
             hexElements.push(
               React.createElement(
