@@ -46,7 +46,7 @@ class TileBuilder {
       ).toList();
     }
 
-    let trackToCenter: List<ReactElement<TileElement>>| undefined;
+    let trackToCenter: List<ReactElement<TileElement>> | undefined;
     if (factory.trackToCenter) {
       trackToCenter = factory.trackToCenter.map(
         (t: TrackToCenter) => t.element()

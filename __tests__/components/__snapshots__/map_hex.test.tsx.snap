@@ -61,10 +61,7 @@ exports[`MapHex #render when on click is not set renders correctly 1`] = `
 <MapHex
   allowTile={true}
   column={1}
-  elements={
-    Immutable.List [
-    ]
-  }
+  elements={Immutable.List []}
   fill="#efe"
   mapDef={
     Object {

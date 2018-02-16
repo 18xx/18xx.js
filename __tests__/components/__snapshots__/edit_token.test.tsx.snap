@@ -5,7 +5,7 @@ exports[`EditToken #render matches the rendered snapshot 1`] = `
   id="tokenMenu"
 >
   <button
-    onClick={[Function]}
+    onClick={[MockFunction]}
   >
     Remove Token
   </button>
