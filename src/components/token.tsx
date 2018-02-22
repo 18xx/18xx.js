@@ -31,7 +31,7 @@ class Token extends React.Component<TokenProps, {}> {
       event.preventDefault();
       if (
         this.props.hex &&
-        (this.props.index || this.props.index === 0) &&
+        this.props.index !== undefined &&
         this.props.onRightClick
       ) {
         this.props.onRightClick(this.props.hex, this.props.index);
