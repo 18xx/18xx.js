@@ -28,6 +28,13 @@ describe('History', () => {
     id: '7.1',
   };
 
+  const invalidPlaceTile: HistoryEntry = {
+    action: 'PLACE_TILE',
+    hash: 'tile',
+    hex: 'b2',
+    id: '58.1',
+  };
+
   const placeToken: HistoryEntry = {
     action: 'PLACE_TOKEN',
     hash: 'token',
@@ -62,6 +69,22 @@ describe('History', () => {
       );
 
       expect(renderer.create(subject)).toMatchSnapshot();
+    });
+
+    describe('with an unknown tile', () => {
+      const badProps: HistoryProps = {
+        entries: List([invalidPlaceTile]),
+        mapDef: mapDefinition,
+        tileSet
+      };
+
+      it('throw an error', () => {
+        const subject: React.ReactElement<History> = (
+          <History {...badProps} />
+        );
+
+        expect(() => renderer.create(subject)).toThrowError();
+      });
     });
   });
 });
