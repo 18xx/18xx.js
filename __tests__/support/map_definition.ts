@@ -28,6 +28,7 @@ export const mapDefinition: MapDefinition = {
     a: [1, 3],
     b: [2, 4, 6, 8]
   },
+  invertHexes: false,
   names: {
     a1: 'One Town',
     a3: 'Threesville'

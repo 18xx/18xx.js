@@ -22,6 +22,7 @@ describe('MapHex', () => {
       f: [],
       g: [],
     },
+    invertHexes: false,
     orientation: 'east-west',
     tileManifest: {},
   };

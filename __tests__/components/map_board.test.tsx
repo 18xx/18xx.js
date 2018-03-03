@@ -16,6 +16,7 @@ const mapDef: MapDefinition = {
     b: [],
     c: [],
   },
+  invertHexes: false,
   orientation: 'east-west',
   tileManifest: {},
 };

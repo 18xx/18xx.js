@@ -75,6 +75,7 @@ exports[`MapHex #render when on click is not set renders correctly 1`] = `
         "f": Array [],
         "g": Array [],
       },
+      "invertHexes": false,
       "orientation": "east-west",
       "tileManifest": Object {},
     }

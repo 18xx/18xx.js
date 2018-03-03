@@ -41,11 +41,11 @@ export interface MapDefinition {
   dynamicValues?: any;
   hexes?: any;
   impassable?: any;
-  invertHexes?: boolean;
+  invertHexes: boolean;
   mediumCities?: any;
   names?: any;
   offBoards?: any;
-  orientation?: string;
+  orientation: 'east-west' | 'north-south';
   preplacedTile?: any;
   privateReservations?: any;
   tileCostTypes?: any;

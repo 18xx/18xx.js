@@ -1,4 +1,5 @@
 {
+ "invertHexes": false,
   "orientation": "north-south",
   "hexes": {
     "!": [12],

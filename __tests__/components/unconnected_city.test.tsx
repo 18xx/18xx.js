@@ -15,7 +15,12 @@ describe('UnconnectedCity', () => {
     hex: 'a1',
     hexagon: new Hexagon('east-west'),
     homeTokens: List(),
-    mapDef: { companies: [], tileManifest: []},
+    mapDef: {
+      companies: [],
+      invertHexes: false,
+      orientation: 'east-west',
+      tileManifest: [],
+    },
     num: 1,
     tokenState: List(),
   };
