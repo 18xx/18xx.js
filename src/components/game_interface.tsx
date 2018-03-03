@@ -101,8 +101,8 @@ class GameInterface
             hexes={
               this.mapBuilder.getHexes(this.props.tiles, this.props.tokens)
             }
-            orientation={this.props.mapDef.orientation || 'east-west'}
-            invertHexes={this.props.mapDef.invertHexes || false}
+            orientation={this.props.mapDef.orientation}
+            invertHexes={this.props.mapDef.invertHexes}
             addOnTop={this.mapBuilder.addOnTop}
             />
           </div>

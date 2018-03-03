@@ -1,4 +1,6 @@
 {
+ "invertHexes": false,
+ "orientation": "east-west",
  "hexes": {
     "a": [9, 11, 17, 19],
     "b": [10, 12, 14, 16, 18, 20, 22, 24],
