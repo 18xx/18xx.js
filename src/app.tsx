@@ -1,4 +1,5 @@
 import * as Immutable from 'immutable';
+import { List } from 'immutable';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
@@ -10,6 +11,7 @@ import { HistoryEntry } from './components/history';
 import Game from './containers/game';
 
 import { MapDefinition } from './map_builder';
+import { TileDefinitionInput } from './tile_definition';
 
 import { game, GameState, initialState } from './reducers/game';
 
@@ -19,6 +21,13 @@ import * as mapDef1849 from '../config/maps/1849.json';
 import * as mapDef1880 from '../config/maps/1880.json';
 import * as mapDef1889 from '../config/maps/1889.json';
 let mapDef: MapDefinition;
+
+import * as allTilesJson from '../config/tiles.json';
+
+const allTiles: List<TileDefinitionInput> =
+  Immutable.fromJS(allTilesJson).map(
+    (el: any) => el.toJS() as TileDefinitionInput
+  );
 
 const container: HTMLElement | null = document.getElementById('map-container');
 if (!container) {
@@ -75,7 +84,7 @@ if (container.dataset.gameName && container.dataset.gameName !== 'tiles') {
 
     ReactDOM.render(
       <Provider store={store}>
-        <AllTiles mapDef={mapDef1830 as any} />
+        <AllTiles mapDef={mapDef1830 as any} tiles={allTiles} />
       </Provider>,
       container
     );

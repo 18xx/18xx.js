@@ -1,4 +1,3 @@
-import * as Immutable from 'immutable';
 import { List } from 'immutable';
 import * as React from 'react';
 import { ReactElement } from 'react';
@@ -6,20 +5,14 @@ import { ReactElement } from 'react';
 import { MapDefinition } from '../map_builder';
 import TileDefinition, { TileDefinitionInput } from '../tile_definition';
 
-import * as allTilesJson from '../../config/tiles.json';
-
-const allTiles: List<TileDefinitionInput> =
-  Immutable.fromJS(allTilesJson).map(
-    (el: any) => el.toJS() as TileDefinitionInput
-  );
-
 interface AllTilesProps {
   readonly mapDef: MapDefinition;
+  readonly tiles: List<TileDefinitionInput>;
 }
 
 class AllTiles extends React.Component<AllTilesProps, {}> {
   public get tiles(): List<JSX.Element> {
-    return allTiles.map(
+    return this.props.tiles.map(
       (t: TileDefinitionInput) =>
       <div key={t.num}>
         {new TileDefinition(this.props.mapDef, t).allRotations}
