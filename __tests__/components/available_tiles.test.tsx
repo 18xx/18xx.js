@@ -1,3 +1,4 @@
+import { mount } from 'enzyme';
 import { List, Map } from 'immutable';
 import * as React from 'react';
 import * as renderer from 'react-test-renderer';
@@ -19,9 +20,10 @@ describe('AvailableTiles', () => {
     9: {},
   });
   const tileSet: TileSet = new TileSet(allTiles, mapDefinition, tileManifest);
+  const onClick: any = jest.fn();
 
   const defaultProps: AvailableTilesProps = {
-    onClick: jest.fn(),
+    onClick,
     tileFilter: List(['7', '8']),
     tileSet,
     tiles: Map({a1: '7'}),
@@ -32,5 +34,17 @@ describe('AvailableTiles', () => {
       <AvailableTiles {...defaultProps} />
     );
     expect(renderer.create(subject)).toMatchSnapshot();
+  });
+
+  describe('when clicking a tile', () => {
+    const subject: React.ReactElement<AvailableTiles> = (
+      <AvailableTiles {...defaultProps} />
+    );
+
+    it('calls onClick with the tile number', () => {
+      mount(subject).find('.available-tile').last().simulate('click');
+      expect(onClick.mock.calls.length).toEqual(1) ;
+      expect(onClick.mock.calls[0]).toEqual(['8.5']);
+    });
   });
 });

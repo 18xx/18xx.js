@@ -37,9 +37,7 @@ class AvailableTiles extends React.Component<AvailableTilesProps, {}> {
     const total: number = this.props.tileSet.totalTiles(num);
 
     let onClick: MouseEventHandler<HTMLElement> | undefined = () => {
-      if (tile.key) {
-        this.props.onClick(tile.key.toString());
-      }
+      this.props.onClick(tile.key as string);
     };
     let divClass: string = 'available-tile';
     let availableElement: ReactElement<HTMLElement> | undefined;
